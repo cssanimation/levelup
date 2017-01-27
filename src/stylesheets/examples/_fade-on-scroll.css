@@ -1,6 +1,6 @@
 .show-on-scroll {
   opacity: 0;
-  transform: translateY(2rem);
+  transform: translateY(6rem);
   transition: all 1s ease-out;
 }
 .show-on-scroll.is-visible {
