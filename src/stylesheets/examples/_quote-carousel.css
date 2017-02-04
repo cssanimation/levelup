@@ -1,7 +1,7 @@
 /* Animated quote carousel */
 
 .quote-carousel {
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
 
@@ -9,7 +9,7 @@
     margin: 0;
     padding: 0;
     position: relative;
-    height: 80vh;
+    height: 100vh;
   }
 
   .background-holder {
