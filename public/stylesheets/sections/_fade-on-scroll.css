@@ -1,0 +1,12 @@
+.show-on-scroll {
+  opacity: 0;
+  -webkit-transform: translateY(2rem);
+          transform: translateY(2rem);
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.show-on-scroll.is-visible {
+  opacity: 1;
+  -webkit-transform: none;
+          transform: none;
+}
