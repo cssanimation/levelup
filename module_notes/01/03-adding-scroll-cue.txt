@@ -1,0 +1,9 @@
+Section 3: Adding a scroll cue
+
+Add in new section called "down-arrow" with an image of the downarrow, 50px
+Set it up to be absolute positioning, z-index to make it show
+Set up keyframes for "fade-slide-up"
+Only difference is the translateY
+Apply it to the image within the downarrow section - so that it doesn't conflict with the positioning
+
+Recap: We now have a nice set of co-ordinated animations, next we'll look at optimising them to make our code simpler

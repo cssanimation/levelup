@@ -19,6 +19,7 @@ header {
 
   h3 {
     text-transform: uppercase;
+    margin-bottom: 5rem;
   }
 
   &:after {

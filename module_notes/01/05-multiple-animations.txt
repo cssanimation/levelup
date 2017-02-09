@@ -1,0 +1,12 @@
+Section 5: Multiple animations
+
+Let's make sure our visitors notice they can scroll by adding an extra animation to the down arrow
+First set out the keyframes
+Remember there's a transform on the original element, so since we're not going to want that applying, add a transform none to the keyframes
+Set it up to pulse
+Now in the element we can have multiple animations
+Add in section animation
+Notice how it seems to break the first animation
+Add in a delay of 2 seconds
+
+Recap

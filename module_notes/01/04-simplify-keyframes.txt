@@ -1,0 +1,17 @@
+Section 4: Simplify keyframes
+
+Optimise! Let's cut back on all these keyframe animations
+Write a simpler "no-transform" keyframe
+Why? Well, most of the animation logic can be handled in side the "animation" property - things like timing functions etc
+Plus we can make use of an nice aspect of keyframes, that if we omit a starting state, it can be implied from the element itself
+This means that if we apply a transform to, say the background element, we can then make use of this
+We'll create a simple keyframe function that only has an end state
+Create "no-transform"
+Note on the approach here: it's good to try to keep keyframes as generic as is useful, then they can be reused through your work which results in a more consistent feel across an application or site, as well as reducing file sizes
+First, replace the downarrow animation
+
+Next remove the animations we'll replace, screen goes blank
+Do the :before element using no-transform, add a transform for it's starting position
+Next replace the "pop-in" animation on the content elements, adding a transform of scale(.8)
+
+Recap: We now have the same effect, but only two keyframes including a handy "no-transform" set we can reuse any time we want to show something on a page - this will come in very handy elsewhere

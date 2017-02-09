@@ -1,0 +1,21 @@
+Section 1: Animated background
+
+Add background photo from Unsplash (https://unsplash.com/search/desk?photo=jLwVAUtLOAQ)
+Add in "before" pseudo element with background image and gradient (for performance reasons)
+Add transform to content block to make the browser render it on top
+
+Add animation to the background image
+Write fade-slide-up keyframes
+Apply to the "before" pseudo element
+Open inspector to see the timing function, tweak to make it a sharper curve
+
+Recap what we've done
+
+Structure (use on all videos / posts)
+
+Intro: what we're going to do
+Context: What we've done so far
+Main content: Walk through of each step
+Recap: What we did
+Next up: What we can do next
+

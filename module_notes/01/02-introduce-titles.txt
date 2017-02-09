@@ -1,0 +1,18 @@
+Section 2: Animate the content pieces
+
+Set up the pop-in animation
+Apply to all elements in the content
+Set up a bouncy cubic bezier
+Set delays (start with like 1s, 1.5, 2, 2.2)
+Tweak to fit the timing of the background
+Explain how the timings work together to introduce the elements
+
+Final touch, introduce the cut off angle at the end
+Build the simple keyframes for rotate-up
+Apply to the "after" pseudo element and adjust the starting transform
+Add delay so that it occurs at the same time as the background animates in
+
+Show the effect - pretty slick. But one thing missing, needs a cue to scroll down the page
+
+
+
