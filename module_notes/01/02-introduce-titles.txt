@@ -16,3 +16,9 @@ Show the effect - pretty slick. But one thing missing, needs a cue to scroll dow
 
 
 
+Intro: what we're going to do
+Context: What we've done so far
+Main content: Walk through of each step
+Recap: What we did
+Next up: What we can do next
+

@@ -7,3 +7,10 @@ Only difference is the translateY
 Apply it to the image within the downarrow section - so that it doesn't conflict with the positioning
 
 Recap: We now have a nice set of co-ordinated animations, next we'll look at optimising them to make our code simpler
+
+Intro: what we're going to do
+Context: What we've done so far
+Main content: Walk through of each step
+Recap: What we did
+Next up: What we can do next
+

@@ -10,3 +10,10 @@ Notice how it seems to break the first animation
 Add in a delay of 2 seconds
 
 Recap
+
+Intro: what we're going to do
+Context: What we've done so far
+Main content: Walk through of each step
+Recap: What we did
+Next up: What we can do next
+
