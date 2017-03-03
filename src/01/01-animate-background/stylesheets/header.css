@@ -16,7 +16,6 @@ header:before {
   background-size: cover;
   content: "";
   opacity: 0;
-  transform: translateY(-4rem);
   position: absolute;
     top: 0;
     right: 0;
@@ -49,14 +48,6 @@ header:after {
 .header-subtitle {
   text-transform: uppercase;
   margin-bottom: 5rem;
-}
-
-.header-down-arrow {
-  position: absolute;
-    bottom: 4vh;
-    left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
 }
 
 /* Animations */

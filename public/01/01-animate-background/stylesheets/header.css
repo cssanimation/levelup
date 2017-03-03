@@ -30,8 +30,6 @@ header:before {
   position: absolute;
     right: 0;
     top: 0;
-  -webkit-transform: translateY(-4rem);
-          transform: translateY(-4rem);
 }
 
 header:after {
@@ -62,15 +60,6 @@ header:after {
 .header-subtitle {
   margin-bottom: 5rem;
   text-transform: uppercase;
-}
-
-.header-down-arrow {
-    bottom: 4vh;
-    left: 50%;
-  position: absolute;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  z-index: 10;
 }
 
 /* Animations */
