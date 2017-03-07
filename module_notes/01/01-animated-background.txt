@@ -1,4 +1,6 @@
 
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 # Animating the background
 
 In this module we're going to start bringing some animation to the "Hero Header" section of our landing page. By the end of this lesson, you'll know how to set up and animate the background image, as well as how to make sure the animation looks great.
@@ -8,6 +10,8 @@ If you've arrived on a website and been greeted by a large image or video, and s
 There's a great overview of Hero Headers over at [DesignModo](https://designmodo.com/hero-headers/).
 
 [Holy Heck image from article]
+
+Video note: Use https://stripe.com/bitcoin as an example
 
 A carefully chosen header image and text can make a good first impression, and we can make an even better impression by introducing some animation.
 
@@ -38,9 +42,45 @@ This is the main content of our HTML. It's found in `index.html`. It's fairly si
 
 ## CSS
 
-[Include code from the CSS]
-
 Opening our CSS file in `stylesheets/header.css` we can see the initial styles for the landing page. We have the header, which is set to cover the full height of the viewport. To do this I've used the `vh` unit. This is expressed as a percentage, so `100vh` would mean the entire `viewport height`.
+
+    header {
+      align-items: center;
+      background: #333;
+      display: flex;
+      font-size: 18px;
+      height: 100vh;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    header:after {
+      background: #F9FCFF;
+      content: "";
+      height: 40rem;
+      left: -5%;
+      position: absolute;
+        right: -5%;
+        top: 90%;
+      transform-origin: 0 0;
+      transform: rotateZ(-4deg);
+      z-index: 0;
+    }
+
+    .header-content {
+      margin-top: -14rem;
+    }
+
+    .header-title, .header-subtitle {
+      color: #fff;
+    }
+
+    .header-subtitle {
+      text-transform: uppercase;
+      margin-bottom: 5rem;
+    }
 
 Further down the file you'll see the content styling, and the positioning of the down arrow. I've followed a naming convention here where everything starts with `header` so that we can more easily find the source of this styling should we need to change things later.
 
@@ -48,7 +88,7 @@ Lastly you may have noticed the `:after` pseudoelement. A `pseudoelement` is som
 
 ## Before - how it looks
 
-[Image of the starting screen]
+<p data-height="600" data-theme-id="light" data-slug-hash="yMVvzY" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Basic starting HTML for hero header" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/yMVvzY/">Basic starting HTML for hero header</a>.</p>
 
 Here's what we have to begin. It's a nice simple layout - hopefully simple enough that it can be tailored for your needs. Let's start adding some style by getting rid of the plain background colour and bringing in an image instead.
 
@@ -110,7 +150,7 @@ We're using multiple backgrounds here. By itself the image we've chosen is a bit
 
 Lastly we're setting the `background-size` to "cover". This tells the browser to crop the image either horizontally or vertically to fill the entire shape. It will lose some of the image but won't stretch it. It's worth experimenting with different settings here, and trying to see if maybe positioning the image in the center or top or bottom looks best.
 
-[Image of the static screen with background image]
+<p data-height="600" data-theme-id="light" data-slug-hash="NpbyJP" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with background image" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/NpbyJP/">Landing page with background image</a>.</p>
 
 Now we have a background in place, inside it's own pseudo-element container. Let's animate the pseudo-element.
 
@@ -154,7 +194,7 @@ The last one can be a little tricky but it basically means that the animation sh
 
 Let's see this in action. Press "Rerun" on the CodePen to see the animation again.
 
-[CodePen of the animation .5s]
+<p data-height="600" data-theme-id="light" data-slug-hash="RpoQOv" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (.5s)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/RpoQOv/">Landing page with animated background image (.5s)</a>.</p>
 
 So the background fades and slides in. That's good. But the animation is a little bit sudden. Let's try to improve it.
 
@@ -166,7 +206,7 @@ So let's set the duration to two seconds.
 
 Here's how it looks.
 
-[CodePen of the animation 2s]
+<p data-height="600" data-theme-id="light" data-slug-hash="KWNopN" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (2s)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/KWNopN/">Landing page with animated background image (2s)</a>.</p>
 
 That's certainly more relaxed. But it still feels a little stilted. Next, let's look at the timing function.
 
