@@ -6,8 +6,10 @@ header {
   height: 100vh;
   justify-content: center;
   overflow: hidden;
+  perspective: 100px;
   position: relative;
   text-align: center;
+  transform-style: preserve3d;
 }
 
 header:after {
@@ -20,11 +22,6 @@ header:after {
     top: 90%;
   transform-origin: 0 0;
   transform: rotateZ(-4deg);
-  z-index: 0;
-}
-
-.header-content {
-  margin-top: -14rem;
 }
 
 .header-title, .header-subtitle {
@@ -32,6 +29,12 @@ header:after {
 }
 
 .header-subtitle {
-  text-transform: uppercase;
   margin-bottom: 5rem;
+  text-transform: uppercase;
 }
+
+.header-button {
+  position: relative;
+  transform: translateZ(1px);
+}
+

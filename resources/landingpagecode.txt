@@ -1,0 +1,862 @@
+Custom code from the landing page for Level Up Your CSS Animation Skills
+
+BLOCK 1
+
+<!-- General purpose / override styles -->
+<style>
+.btn-header-enroll {
+  margin-top: 2rem !important;
+}
+
+.block.odd-stripe {
+  background: #fff !important;
+}
+
+.discount-callout {
+    font-size: 24px;
+    border: .25em dashed;
+    background:#ff4d00;
+    color: #fff;
+    padding: 1em 2em;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto 2em;
+}
+@media (max-width: 740px) {
+  .discount-callout {
+    width: 95%;
+    font-size: 14px; 
+  }
+}
+
+@media (max-device-width: 500px) {
+  .discount-callout {
+    width: 95%;
+    font-size: 12px; 
+    padding: .25em;
+  }
+}
+
+.nav.navbar-nav > li .fedora-navbar-link.active, .nav.navbar-nav > li .fedora-navbar-link:hover {
+    background: #fff !important;
+}
+
+.navbar-fedora .navbar-brand.header-logo img {
+    height: 80%;
+    margin-top: 6px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    width: 100%;
+    max-width: 1440px;
+  }
+}
+</style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-3481417-30', 'auto');
+  ga('send', 'pageview');
+</script>
+
+BLOCK 2
+
+<section class="hero-container">
+  <div class="animation-container rellax" data-rellax-speed="-7">
+    <div class="animation-pages-container">
+      <div class="animation-parts-page initial-load">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+      </div>
+      <div class="animation-parts-page initial-load">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+      </div>
+      <div class="animation-parts-page initial-load">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+      </div>
+    </div>
+  </div>
+  <div class="course-title-container rellax">
+    <div class="course-title">
+      <h1 class="fade-up">Level up</h1>
+      <h2 class="fade-up">your CSS animation skills</h2>
+      <h3 class="fade-up">A practical video course</h3>
+      <a id="enroll-button-top" class="fade-up btn btn-hg btn-primary btn-header-enroll payment-scroller">
+       <i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Enroll in Course
+    </a>
+    </div>
+  </div>
+</section>
+
+BLOCK 3
+
+<style>
+body {
+  font-family: Helvetica,  Arial, Sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+.hero-container {
+  font-size: 16px;
+  height: 100vh;
+  width: 100%;
+  max-height: 62em;
+  min-height: 32em;
+  text-align: center;
+  position: relative;
+  top: -60px;
+  background-image: -webkit-linear-gradient(293deg, #FFD17C 4%, #E77FE9 96%);
+  background-image: linear-gradient(157deg, #FFD17C 4%, #E77FE9 96%);
+}
+@media (max-width: 740px) {
+  .hero-container {
+    font-size: 14px;
+    margin-bottom: -10em;
+  }
+}
+@media (max-width: 600px) {
+  .hero-container {
+    font-size: 10px; 
+    margin-bottom: -12em;
+  }
+}
+.hero-container h1 {
+  font-size: 8em;
+  margin: 0;
+}
+.hero-container h2 {
+  font-size: 4.5em;
+  margin: 0;
+}
+.hero-container h3 {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+.hero-container:before, .hero-container:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 30%, white);
+  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 30%, white);
+}
+.hero-container:after {
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 90%, white);
+  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 90%, white);
+}
+
+.animation-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-perspective: 1400px;
+          perspective: 1400px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  overflow: hidden;
+  pointer-effects: none;
+}
+
+.animation-pages-container {
+  height: 40em;
+  margin: 0 auto;
+  max-width: 420em;
+  pointer-events: none;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateY(31deg) rotateX(50deg) rotateZ(-5deg) scale(1) translate(0, 5em);
+          transform: rotateY(31deg) rotateX(50deg) rotateZ(-5deg) scale(1) translate(0, 5em);
+  width: 220%;
+}
+
+.animation-parts-page {
+  -webkit-animation: add-page 0.4s 1.5s cubic-bezier(0.21, 0.91, 0.39, 0.99) forwards;
+          animation: add-page 0.4s 1.5s cubic-bezier(0.21, 0.91, 0.39, 0.99) forwards;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 7%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0.5) 7%, rgba(255, 255, 255, 0) 100%);
+  height: 42em;
+  margin: 0 2em;
+  opacity: 0;
+  padding: 1em 0;
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 2.5s cubic-bezier(0.43, 0, 0.31, 1);
+  transition: all 2.5s cubic-bezier(0.43, 0, 0.31, 1);
+  width: 24em;
+}
+.animation-parts-page:nth-child(1) {
+  left: -28em;m
+}
+.animation-parts-page:nth-child(2) {
+  left: 0;
+}
+.animation-parts-page:nth-child(3) {
+  left: 28em;
+}
+.animation-parts-page:nth-child(4) {
+  left: 56em;
+}
+.animation-parts-page:nth-child(5) {
+  left: 84em;
+}
+.animation-parts-page:nth-child(6) {
+  left: 112em;
+}
+.animation-parts-page.initial-load {
+  -webkit-animation: add-page-initial 1s 0.5s cubic-bezier(0.77, 0, 0.35, 1) forwards;
+          animation: add-page-initial 1s 0.5s cubic-bezier(0.77, 0, 0.35, 1) forwards;
+}
+.animation-parts-page.initial-load .box1 {
+  -webkit-animation-delay: .4s;
+          animation-delay: .4s;
+}
+.animation-parts-page.initial-load .box2 {
+  -webkit-animation-delay: .6s;
+          animation-delay: .6s;
+}
+.animation-parts-page.initial-load .box3 {
+  -webkit-animation-delay: .8s;
+          animation-delay: .8s;
+}
+.animation-parts-page.initial-load .box4 {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.animation-parts-page.removing {
+  -webkit-animation: remove-page .6s ease-out forwards;
+          animation: remove-page .6s ease-out forwards;
+  opacity: .8;
+}
+.animation-parts-page .box {
+  -webkit-animation: add-box 0.5s cubic-bezier(1, -0.74, 0, 1.48) forwards;
+          animation: add-box 0.5s cubic-bezier(1, -0.74, 0, 1.48) forwards;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.7);
+}
+.animation-parts-page .box1 {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  width: 90%;
+  height: 20%;
+  margin: 2.5% auto;
+}
+.animation-parts-page .box2 {
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+  width: 40%;
+  height: 10%;
+  margin: 2.5% auto;
+}
+.animation-parts-page .box3 {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  width: 90%;
+  height: 40%;
+  margin: 2.5% auto;
+}
+.animation-parts-page .box4 {
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
+  width: 90%;
+  height: 20%;
+  margin: 2.5% auto;
+}
+
+@-webkit-keyframes add-page {
+  0% {
+    -webkit-transform: translateY(10em) translateZ(10em) rotateZ(20deg);
+            transform: translateY(10em) translateZ(10em) rotateZ(20deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: .8;
+  }
+  100% {
+    -webkit-transform: none;
+            transform: none;
+    opacity: .8;
+  }
+}
+
+@keyframes add-page {
+  0% {
+    -webkit-transform: translateY(10em) translateZ(10em) rotateZ(20deg);
+            transform: translateY(10em) translateZ(10em) rotateZ(20deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: .8;
+  }
+  100% {
+    -webkit-transform: none;
+            transform: none;
+    opacity: .8;
+  }
+}
+@-webkit-keyframes add-page-initial {
+  0% {
+    -webkit-transform: translateZ(-10em);
+            transform: translateZ(-10em);
+    opacity: 0;
+  }
+  30% {
+    opacity: .8;
+  }
+  100% {
+    -webkit-transform: none;
+            transform: none;
+    opacity: .8;
+  }
+}
+@keyframes add-page-initial {
+  0% {
+    -webkit-transform: translateZ(-10em);
+            transform: translateZ(-10em);
+    opacity: 0;
+  }
+  30% {
+    opacity: .8;
+  }
+  100% {
+    -webkit-transform: none;
+            transform: none;
+    opacity: .8;
+  }
+}
+@-webkit-keyframes remove-page {
+  0% {
+    -webkit-transform: none;
+            transform: none;
+    opacity: .8;
+  }
+  100% {
+    -webkit-transform: translateZ(-10em) rotateZ(-45deg) scale(0.3);
+            transform: translateZ(-10em) rotateZ(-45deg) scale(0.3);
+    opacity: 0;
+  }
+}
+@keyframes remove-page {
+  0% {
+    -webkit-transform: none;
+            transform: none;
+    opacity: .8;
+  }
+  100% {
+    -webkit-transform: translateZ(-10em) rotateZ(-45deg) scale(0.3);
+            transform: translateZ(-10em) rotateZ(-45deg) scale(0.3);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes add-box {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-0.25em) scale(0.8);
+            transform: translateY(-0.25em) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@keyframes add-box {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-0.25em) scale(0.8);
+            transform: translateY(-0.25em) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@-webkit-keyframes fade-up {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(0.5em);
+            transform: translateY(0.5em);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(0.5em);
+            transform: translateY(0.5em);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+.cssanimations .fade-up {
+  opacity: 0;
+  -webkit-animation: fade-up 1s 0.2s cubic-bezier(0.77, 0, 0.35, 1) forwards;
+          animation: fade-up 1s 0.2s cubic-bezier(0.77, 0, 0.35, 1) forwards;
+}
+
+.course-title-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.course-title {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+</style>
+
+BLOCK 4
+
+<script>
+
+/*! modernizr 3.3.1 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-cssanimations-setclasses !*/
+!function(e,n,t){function r(e,n){return typeof e===n}function o(){var e,n,t,o,s,i,a;for(var l in C)if(C.hasOwnProperty(l)){if(e=[],n=C[l],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(o=r(n.fn,"function")?n.fn():n.fn,s=0;s<e.length;s++)i=e[s],a=i.split("."),1===a.length?Modernizr[a[0]]=o:(!Modernizr[a[0]]||Modernizr[a[0]]instanceof Boolean||(Modernizr[a[0]]=new Boolean(Modernizr[a[0]])),Modernizr[a[0]][a[1]]=o),g.push((o?"":"no-")+a.join("-"))}}function s(e){var n=_.className,t=Modernizr._config.classPrefix||"";if(S&&(n=n.baseVal),Modernizr._config.enableJSClass){var r=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(r,"$1"+t+"js$2")}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),S?_.className.baseVal=n:_.className=n)}function i(e,n){return!!~(""+e).indexOf(n)}function a(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):S?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function l(e,n){return function(){return e.apply(n,arguments)}}function f(e,n,t){var o;for(var s in e)if(e[s]in n)return t===!1?e[s]:(o=n[e[s]],r(o,"function")?l(o,t||n):o);return!1}function u(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function d(){var e=n.body;return e||(e=a(S?"svg":"body"),e.fake=!0),e}function p(e,t,r,o){var s,i,l,f,u="modernizr",p=a("div"),c=d();if(parseInt(r,10))for(;r--;)l=a("div"),l.id=o?o[r]:u+(r+1),p.appendChild(l);return s=a("style"),s.type="text/css",s.id="s"+u,(c.fake?c:p).appendChild(s),c.appendChild(p),s.styleSheet?s.styleSheet.cssText=e:s.appendChild(n.createTextNode(e)),p.id=u,c.fake&&(c.style.background="",c.style.overflow="hidden",f=_.style.overflow,_.style.overflow="hidden",_.appendChild(c)),i=t(p,e),c.fake?(c.parentNode.removeChild(c),_.style.overflow=f,_.offsetHeight):p.parentNode.removeChild(p),!!i}function c(n,r){var o=n.length;if("CSS"in e&&"supports"in e.CSS){for(;o--;)if(e.CSS.supports(u(n[o]),r))return!0;return!1}if("CSSSupportsRule"in e){for(var s=[];o--;)s.push("("+u(n[o])+":"+r+")");return s=s.join(" or "),p("@supports ("+s+") { #modernizr { position: absolute; } }",function(e){return"absolute"==getComputedStyle(e,null).position})}return t}function m(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function h(e,n,o,s){function l(){u&&(delete P.style,delete P.modElem)}if(s=r(s,"undefined")?!1:s,!r(o,"undefined")){var f=c(e,o);if(!r(f,"undefined"))return f}for(var u,d,p,h,v,y=["modernizr","tspan","samp"];!P.style&&y.length;)u=!0,P.modElem=a(y.shift()),P.style=P.modElem.style;for(p=e.length,d=0;p>d;d++)if(h=e[d],v=P.style[h],i(h,"-")&&(h=m(h)),P.style[h]!==t){if(s||r(o,"undefined"))return l(),"pfx"==n?h:!0;try{P.style[h]=o}catch(g){}if(P.style[h]!=v)return l(),"pfx"==n?h:!0}return l(),!1}function v(e,n,t,o,s){var i=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+b.join(i+" ")+i).split(" ");return r(n,"string")||r(n,"undefined")?h(a,n,o,s):(a=(e+" "+E.join(i+" ")+i).split(" "),f(a,n,t))}function y(e,n,r){return v(e,t,t,n,r)}var g=[],C=[],w={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){C.push({name:e,fn:n,options:t})},addAsyncTest:function(e){C.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=w,Modernizr=new Modernizr;var _=n.documentElement,S="svg"===_.nodeName.toLowerCase(),x="Moz O ms Webkit",b=w._config.usePrefixes?x.split(" "):[];w._cssomPrefixes=b;var E=w._config.usePrefixes?x.toLowerCase().split(" "):[];w._domPrefixes=E;var N={elem:a("modernizr")};Modernizr._q.push(function(){delete N.elem});var P={style:N.elem.style};Modernizr._q.unshift(function(){delete P.style}),w.testAllProps=v,w.testAllProps=y,Modernizr.addTest("cssanimations",y("animationName","a",!0)),o(),s(g),delete w.addTest,delete w.addAsyncTest;for(var z=0;z<Modernizr._q.length;z++)Modernizr._q[z]();e.Modernizr=Modernizr}(window,document);
+
+$(function() {
+  if (!window.heroHeaderStarted) {
+    /* Functions for the hero image part */
+    addNewItem();
+    removeFirstItem();
+    setInterval(addNewItem, 2500);
+    setInterval(removeFirstItem, 2500);
+  }
+
+});
+
+/* Functions for the hero image part */
+function removeFirstItem() {
+  $('.animation-parts-page.removing').remove();
+  $('.animation-parts-page').first().addClass('removing');
+}
+
+function addNewItem() {
+  window.heroHeaderStarted = true;
+  // Build a "page" to add to the container
+  var newPage = $('<div class="animation-parts-page"><div class="box box1"></div><div class="box box2"></div><div class="box box3"></div><div class="box box4"></div></div>');
+  var arrayHeights = randomHeights(),
+      arrayWidths = randomWidths();
+  $(newPage).find('.box').each(function(index, item) {
+    $(item).css({
+      height: arrayHeights[index]+'%',
+      width: arrayWidths[index]+'%'
+    })
+  });
+  $('.animation-pages-container').append(newPage);
+}
+
+function randomHeights() {
+  // Produce 4 numbers that add up to 90
+  var heights = [],
+      total = 0;
+  for (var i = 0; i < 4; i++) {
+    var randomHeight = rand_10(10, 50);
+    if ((total + randomHeight) > (90 - i * 10)) {
+      randomHeight = 10;
+    }
+    if (i === 0) {
+      randomHeight = rand_10(10, 20);
+    }
+    if (i === 3) {
+      randomHeight = 90 - total;
+    }
+    total += randomHeight;
+    heights.push(randomHeight);
+  }
+  return heights;
+}
+
+function randomWidths() {
+  var widths = [];
+  for (var i = 0; i < 4; i++) {
+    widths.push(rand_10(50, 90));
+  }
+  return widths;
+}
+
+function rand_10(min, max) {
+  return Math.round((Math.random()*(max-min)+min)/10)*10;
+}
+</script>
+
+
+BLOCK 5 (text)
+
+Sign up now and get this course for just $100
+(Usual price $240, offer expires soon)
+
+We know the theory. We know about transitions and keyframes, but how do we apply this knowledge to a real project?
+
+Join me for a series of lessons where we’ll build an animated landing page, step by step.
+
+This is a practical course full of real downloadable code examples. Bring what you learn to your own work.
+
+Learn by doing
+
+Most courses concentrate only on the theory. In this course we’ll create a practical example landing page, step by step. Over 6 modules of practical, hands-on lessons, we’ll create real examples of animation you can use on your own projects.
+
+BLOCK
+
+<!-- Custom quote carousel sections -->
+<section class="background-2">
+  <section class="quotes-carousel-container">
+    <section class="quotes-carousel fade-up" id="quotes-carousel">
+      <div class="quote previous">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/liz_myers.png);" alt="Liz Myers"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">I'm really enjoying the #cssAnimation101 class with <a href="https://twitter.com/donovanh">@donovanh</a>. Couldn't recommend it more highly. Just right in every way!</span>
+          <span class="quotee"><a href="https://twitter.com/LizMyers/status/585907961601601536">Liz Myers</a></span>
+        </div>
+      </div>
+      <div class="quote current">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/maile_valentine.jpg);" alt="Maile Valentine"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">I loved that this course provided context for the samples provided in the lessons. I learned new concepts, as well as where and when to apply the techniques.</span>
+          <span class="quotee"><a href="https://twitter.com/mailevalentine">Maile Valentine</a></span>
+        </div>
+      </div>
+      <div class="quote next">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/marie_mosley.jpg);" alt="Marie Mosley"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">I had so much fun with this course! I loved the interactive demos, they helped me use what I learned right away and got me thinking creatively about all the cool things I can do with animation.</span>
+          <span class="quotee"><a href="https://twitter.com/mmosley">Marie Mosley</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/ian_yates.jpg);" alt="Ian Yates"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">CSS Animation 101 is the perfect example of a well structured, well paced and entertaining course. After just the first few lessons you’ll find that CSS animation has become an every day part of your web design!</span>
+          <span class="quotee"><a href="http://www.snaptin.com">Ian Yates</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/brian_rinaldi.jpg);" alt="Brian Rinaldi"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">This course was very accessible to anyone, regardless of their experience level. I found it easy to follow along and learn.</span>
+          <span class="quotee"><a href="https://twitter.com/remotesynth">Brian Rinaldi</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/ronan_costello.jpg);" alt="Ronan Costello"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">Can't recommend this enough. Brilliant lessons, convenient format and great value for money. It's a must!</span>
+          <span class="quotee"><a href="http://ronancostello.com/">Ronan Costello</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/gemma_cagney.jpg);" alt="Ronan Costello"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">I wanted to learn how to use CSS animation in my own work but I had no
+    idea where to start. Donovan's course is like a filter for all the
+    important and useful information, as well as best practice tips. Totally
+    recommend it!</span>
+          <span class="quotee"><a href="http://www.gemmacagney.com">Gemma Cagney</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/dave_larkan.jpg);" alt="Dave Larkan"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">A fantastic resource, I was able to put what I learned into practice straight away. The course did exactly what I hoped it would and taught me about transitions and animations.</span>
+          <span class="quotee"><a href="https://twitter.com/davelarkan">Dave Larkan</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/melanie_kinney.jpg);" alt="Melanie Kinney"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">I loved it! It was great that I could do things at my own pace, it's really nice to have all the emails to go back and review.</span>
+          <span class="quotee"><a href="https://twitter.com/melso0">Melanie Kinney</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/zoran_jambor.jpg);" alt="Zoran Jambor"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">If you want to get better at CSS Animations, you should sign up for this course. It will take you from basic to advanced concepts explaining the inner workings of CSS Animations. It is both useful and fun.</span>
+          <span class="quotee"><a href="http://css-weekly.com/">Zoran Jambor</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/brian_kenny.png);" alt="Brian Kenny"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">CSS Animation 101 was superb. I learn by doing and this course hit the nail on the head. Exceptional.</span>
+          <span class="quotee"><a href="http://www.minicorp.co">Brian Kenny</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/jake_bresnehan.jpg);" alt="Jake Bresnehan"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">20 amazing emails over 4 weeks all on CSS animations will turn you into a pro in no time. Couldn't recommend it enough.</span>
+          <span class="quotee"><a href="https://web-design-weekly.com">Jake Bresnehan</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/michael_flanaghan.png);" alt="Michael Flanaghan"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">This is a well written, well presented, introduction to some of the newer and cooler features of modern CSS. Loved it.</span>
+          <span class="quotee"><a href="http://michael.flanagan.ie/">Michael Flanaghan</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/ioana_manoliu.jpg);" alt="Ioana Manoliu"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">@donovanh's CSS animation course kicks ass!!!!</span>
+          <span class="quotee"><a href="https://twitter.com/Alice_monique1/status/585090068022489088">Ioana Manoliu</a></span>
+        </div>
+      </div>
+      <div class="quote">
+        <div class="quote-person" style="background-image: url(https://cssanimation.rocks/images/quotes/ben.jpg);" alt="Ben Gandhi-Shepard"></div>
+        <div class="quote-text-container">
+          <span class="quote-text">This course rocks. Transitions and animations totally make sense now. If you are looking to level up your CSS animation skills, I would highly recommend taking this course.</span>
+          <span class="quotee"><a href="https://twitter.com/gandhishepard">Ben Gandhi-Shepard</a></span>
+        </div>
+      </div>
+    </section>
+  </section>
+</section>
+
+BLOCK
+
+<style>
+
+
+.background-2 {
+  min-height: 30em;
+  background-image: -webkit-linear-gradient(top, white 10%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 60%, white 100%), -webkit-linear-gradient(293deg, #FFD17C 20%, #E77FE9 96%);
+  background-image: linear-gradient(180deg, white 10%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.6) 60%, white 100%), linear-gradient(157deg, #FFD17C 20%, #E77FE9 96%);
+  background-size: 100% 100%;
+}
+
+.quotes-carousel-container {
+  max-width: 82rem;
+  height: 28em;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.quotes-carousel {
+  position: relative;
+  min-height: 22em;
+  width: 100%;
+}
+.quotes-carousel .quote-person {
+  background-size: 100%;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px 0 rgba(31, 0, 33, 0.5);
+  height: 7em;
+  left: calc(50% - 3.5em);
+  position: absolute;
+  top: -7em;
+  width: 7em;
+  -webkit-transition: all .4s .5s ease-out;
+  transition: all .4s .5s ease-out;
+}
+.quotes-carousel .quotee {
+  display: block;
+}
+.quotes-carousel .quote {
+  cursor: pointer;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(calc(100% + 12rem), -50%) scale(0.6);
+          transform: translate(calc(100% + 12rem), -50%) scale(0.6);
+  -webkit-transition: opacity 0.5s ease-out, -webkit-transform 1s cubic-bezier(0.77, 0, 0.35, 1);
+  transition: opacity 0.5s ease-out, -webkit-transform 1s cubic-bezier(0.77, 0, 0.35, 1);
+  transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 0.5s ease-out;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 0.5s ease-out, -webkit-transform 1s cubic-bezier(0.77, 0, 0.35, 1);
+  display: block;
+  margin: 8em auto 4em;
+  max-width: 18em;
+  min-width: 12em;
+  padding: 1em;
+}
+.quotes-carousel .quote.previous {
+  -webkit-transform: translate(-150%, -50%) scale(0.8);
+          transform: translate(-150%, -50%) scale(0.8);
+  opacity: .5;
+  -webkit-transition: opacity 1s 0.4s ease-out, -webkit-transform 1s cubic-bezier(0.77, 0, 0.35, 1);
+  transition: opacity 1s 0.4s ease-out, -webkit-transform 1s cubic-bezier(0.77, 0, 0.35, 1);
+  transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 1s 0.4s ease-out;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 1s 0.4s ease-out, -webkit-transform 1s cubic-bezier(0.77, 0, 0.35, 1);
+}
+@media only screen and (max-width: 520px) {
+  .quotes-carousel .quote.previous {
+    -webkit-transform: translate(-140%, -50%) scale(0.8);
+            transform: translate(-140%, -50%) scale(0.8);
+  }
+  .quotes-carousel .quote.previous .quote-person {
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+}
+.quotes-carousel .quote.current {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 1;
+  height: auto;
+}
+.quotes-carousel .quote.next {
+  -webkit-transform: translate(50%, -50%) scale(0.8);
+          transform: translate(50%, -50%) scale(0.8);
+  opacity: .5;
+  -webkit-transition: opacity 1s 0.6s ease-out, -webkit-transform 1s cubic-bezier(0.77, 0, 0.35, 1);
+  transition: opacity 1s 0.6s ease-out, -webkit-transform 1s cubic-bezier(0.77, 0, 0.35, 1);
+  transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 1s 0.6s ease-out;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.35, 1), opacity 1s 0.6s ease-out, -webkit-transform 1s cubic-bezier(0.77, 0, 0.35, 1);
+}
+@media only screen and (max-width: 520px) {
+  .quotes-carousel .quote.next {
+    -webkit-transform: translate(40%, -50%) scale(0.8);
+            transform: translate(40%, -50%) scale(0.8);
+  }
+  .quotes-carousel .quote.next .quote-person {
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
+}
+.quotes-carousel .quote.remove-left {
+  -webkit-transform: translate(calc(-150% - 12rem), -50%) scale(0.8);
+          transform: translate(calc(-150% - 12rem), -50%) scale(0.8);
+}
+.quotes-carousel .quote.place-left {
+  -webkit-transform: translate(calc(-150% - 12rem), -50%) scale(0.6);
+          transform: translate(calc(-150% - 12rem), -50%) scale(0.6);
+  -webkit-transition: none;
+  transition: none;
+}
+
+</style>
+
+BLOCK
+
+<script>
+$(function() {
+
+  if (!window.carouselStarted) {
+    // Carousel logic
+    $('#quotes-carousel').on('click', '.next', showNextQuoteClick);
+    $('#quotes-carousel').on('click', '.previous', showPreviousQuoteClick);
+    // Cycle automatically
+    window.carouselRunning = true;
+    window.restartingCarousel = null;
+    var interval = setInterval(function() {
+      if (window.carouselRunning) {
+        showNextQuote();
+      }
+    }, 4000);
+  }
+});
+
+/* Carousel stuff */
+function showNextQuoteClick() {
+  window.carouselRunning = false;
+  clearTimeout(window.restartingCarousel);
+  showNextQuote();
+  restartAutomatic();
+}
+
+function showPreviousQuoteClick() {
+  window.carouselRunning = false;
+  clearTimeout(window.restartingCarousel);
+  showPreviousQuote();
+  restartAutomatic();
+}
+
+function restartAutomatic() {
+  clearTimeout(window.restartingCarousel);
+  window.restartingCarousel = setTimeout(function() {
+    window.carouselRunning = true;
+  }, 10000);
+}
+
+function showNextQuote() {
+  window.carouselStarted = true;
+  var allQuotes = $('#quotes-carousel').find('.quote'),
+      current = $('#quotes-carousel').find('.current'),
+      previous = $('#quotes-carousel').find('.previous'),
+      next = $('#quotes-carousel').find('.next');
+  $(current).removeClass('current').addClass('previous');
+  $(next).removeClass('next').addClass('current');
+  $(previous).removeClass('previous').addClass('remove-left');
+  setTimeout(function() {
+    $(previous).removeClass('remove-left');
+  }, 1000);
+  // Work out what should now be the "next" item
+  $(allQuotes).each(function(index, item) {
+    if ($(item).hasClass('current')) {
+      if (allQuotes[index + 1]) {
+        $(allQuotes[index + 1]).addClass('next').removeClass('remove-left');
+      } else {
+        $(allQuotes[0]).addClass('next').removeClass('remove-left');
+      }
+    }
+  });
+}
+
+function showPreviousQuote() {
+  var allQuotes = $('#quotes-carousel').find('.quote'),
+      current = $('#quotes-carousel').find('.current'),
+      previous = $('#quotes-carousel').find('.previous'),
+      next = $('#quotes-carousel').find('.next');
+  $(current).removeClass('current').addClass('next');
+  $(previous).removeClass('previous').addClass('current');
+  $(next).removeClass('next');
+  // Work out what should now be the "next" item
+  $(allQuotes).each(function(index, item) {
+    if ($(item).hasClass('current')) {
+      if (allQuotes[index - 1]) {
+        $(allQuotes[index - 1]).addClass('place-left');
+        setTimeout(function() {
+          $(allQuotes[index - 1]).addClass('previous').removeClass('place-left');
+        }, 10);
+      } else {
+        $(allQuotes[allQuotes.length - 1]).addClass('place-left');
+        setTimeout(function() {
+          $(allQuotes[allQuotes.length - 1]).addClass('previous').removeClass('place-left');
+        }, 10);
+      }
+    }
+  });
+}
+
+
+
+</script>
+
+

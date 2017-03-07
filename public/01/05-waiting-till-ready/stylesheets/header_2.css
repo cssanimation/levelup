@@ -93,13 +93,11 @@ header:after {
 }
 
 .header-down-arrow {
-  -webkit-animation: pulse 2s 3s ease-out infinite;
-          animation: pulse 2s 3s ease-out infinite;
     bottom: 4vh;
-    left: 0;
+    left: 50%;
   position: absolute;
-    right: 0;
-  text-align: center;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   z-index: 10;
 }
 

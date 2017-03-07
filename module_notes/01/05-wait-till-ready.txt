@@ -1,24 +1,116 @@
-Section 5: Simplify keyframes
+## Waiting till the content is ready
 
-Optimise! Let's cut back on all these keyframe animations
-Write a simpler "no-transform" keyframe
-Why? Well, most of the animation logic can be handled in side the "animation" property - things like timing functions etc
-Plus we can make use of an nice aspect of keyframes, that if we omit a starting state, it can be implied from the element itself
-This means that if we apply a transform to, say the background element, we can then make use of this
-We'll create a simple keyframe function that only has an end state
-Create "no-transform"
-Note on the approach here: it's good to try to keep keyframes as generic as is useful, then they can be reused through your work which results in a more consistent feel across an application or site, as well as reducing file sizes
-First, replace the downarrow animation
+So far we've been working on a website locally, with no noticeable lag every time the content is reloaded. Sadly this isn't the way the web is experienced, and it's likely our images, scripts and other assets will be a lot slower for our visitors.
 
-Next remove the animations we'll replace, screen goes blank
-Do the :before element using no-transform, add a transform for it's starting position
-Next replace the "pop-in" animation on the content elements, adding a transform of scale(.8)
+When our animations assume everything is available stright away we can create broken-looking pages with half-loaded images moving around. Let's make sure out content has loaded before the animations play.
 
-Recap: We now have the same effect, but only two keyframes including a handy "no-transform" set we can reuse any time we want to show something on a page - this will come in very handy elsewhere
+In this lesson we're going to make use of a little JavaScript to trigger a load event, and make use `animation-play-state`.
 
-Intro: what we're going to do
-Context: What we've done so far
-Main content: Walk through of each step
-Recap: What we did
-Next up: What we can do next
+## Adding a load event
+
+Browsers give us a handy JavaScript `load` event when content has finished loading. This includes assets such as images and scripts. We can add a listener and then kick start out animations after the load event is triggered.
+
+To make sure this JavaScript event occurs quickly, we'll add the code to our `index.html` file. Near the end of the file, but before the closing `body` tag, set up the event listener.
+
+    <script>
+
+      window.addEventListener("load", showPage, false);
+
+      function showPage() {
+        alert('Loaded');
+      }
+
+    </script>
+
+What this says is that when the "load" event is triggered, the browser will run a function called `showPage`. The function then currently only calls an alert. Let's wire this up and see if it's working.
+
+In our browser we now see that the alert triggers. It'll seem to happen straight away as the page is running locally and the big image isn't loading across the internet. We'll do some testing later to see how it performs but for now we know that the event is being triggered. 
+
+## Adding some class
+
+Let's make the file do something. change the `showPage` function to add a class to the `body` element.
+
+    <script>
+      document.body.className += " js-loading";
+
+      window.addEventListener("load", showPage, false);
+
+      function showPage() {
+        document.body.className = document.body.className.replace("js-loading","");
+      }
+    </script>
+
+Back in our JavaScript we add a line to add a class to the `body` of our document. This `js-loading` class will be useful to tell when the content is still in the process of loading but hadn't yet completed.
+
+We're using the "+=" so that if there's a class already on the body, as many web servers will do, this won't overwrite the existing classes.
+
+Next, inside the `showPage` function, we remove this `js-loading` class. We do it by taking the `className` and replacing the `js-loading` string.
+
+The idea here is when the page loads, the browser will immediately append a `js-loading` class to the body, and then remove it once the page has finished loading the assets. Let's use this class to make the animations wait until the content is ready.
+
+## Making animations wait
+
+We now have a handy `js-loading` class we can use in our CSS. There are a few ways we could approach using this. One way might be to override the `animation` property from each thing we animate, setting it to `none` so that nothing happens while the `js-loading` class is in place.
+
+    header:before {
+      animation: no-transform 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+      ...
+    }
+
+    .js-loaded header:before {
+      animation: none;
+    }
+
+This would work and might be quite useful, but it comes with the downside of cluttering your CSS with lots and lots of extra rules. It could make your code a lot more cluttered and difficult to browse.
+
+Thankfully there's a more elegant method. We can control the animation's play state using... `animation-play-state`.
+
+## Animation Play State
+
+The [animation-play-state](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state) property is well supported by modern browsers. It tells the browser whether the current animation is running or paused. By default animations are "running".
+
+We can use this property to make any animations on the page "pause" while we're loading the content. We add this to our CSS
+
+    .js-loading *,
+    .js-loading *:before,
+    .js-loading *:after {
+      animation-play-state: paused !important;
+    }
+
+This code sets the play state of everything on the page to "paused", whenever the `body` has the class `js-loading`. I've added a couple of extra lines to make sure it applies to all of the `:before` and `:after` pseudo-elements also.
+
+When JavaScript removes the `js-loading` class from the `body` tag, the rule no longer applies and all animations will be in their expected running state.
+
+A nice benefit of this approach is that we don't have to change anything else in our stylesheet!
+
+## What is JavaScript fails?
+
+This is always a question worth asking if we rely on JavaScript to handle displaying content on screen. Sometimes JavaScript fails. It can be disabled. Plugins can do unpredictable things. While in most cases this will work file, JavaScript is always a little ourside our control so it's good to think about what would happen if the JavaScript didn't work as expected.
+
+In this case I think we're ok. If the JavaScript doesn't run, it won't apply the `js-loading` class. The animations will play straight away. This might result in a little strangeness with the background image loading as it animates, but that's a worst case scenario and a reasonable fallback I think.
+
+## Testing
+
+Let's test this to see it working. We need a larger image. I [this photo of Earth on Unsplash](https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?dpr=2&auto=format&fit=) that looks great and is a hefty 1.8 MB in size. In our CSS we change the background image on the `header:before`.
+
+To really see it in action we can use Chrome's built-in throttling feature. Opening the inspector, select the "Network" tab, then open the dropdown contains speed presets. From this we select "Good 3G", which should be slow enough to see this in action.
+
+[Image of the presets dropdown with 3G selected]
+
+We can now refresh the page, and the result should be blank until the content is ready.
+
+## Loading spinner
+
+If you want to avoid a blank page at this point, you might want to have some loading text or animation that lets people know. It depends how long you think the delay might be. If you have a very large image and the page tends to wait for more than a second or two, then a spinner might be a good idea.
+
+On the other hand it might be worth compressing the image more, or scaling it down so that it loads more quickly. Experiment and see what works best for you. On this example I found that trying to show a separate "loading" message was too cluttered. It only showed for a fraction of a second and looked like a glitch, so having the screen be blank for that half-second was fine.
+
+## Next: Downloads and resources
+
+By now our landing page hero header is looking pretty awesome!
+
+We have an animated background, the content pops into place, we've optimised our keyframes and even ensured that it all works when the content is loaded. It's time to think about how we can apply these ideas to our projects.
+
+In the next lesson you'll find links to examples you can download and make your own. Feel free to use them as you wish.
+
 

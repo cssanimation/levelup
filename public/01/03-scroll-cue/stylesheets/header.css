@@ -89,19 +89,19 @@ header:after {
 }
 
 .header-down-arrow {
+  -webkit-animation: pulse 2s 3s ease-out infinite;
+          animation: pulse 2s 3s ease-out infinite;
     bottom: 4vh;
-    left: 50%;
+    left: 0;
   position: absolute;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+    right: 0;
+  text-align: center;
   z-index: 10;
 }
 
 .header-down-arrow img {
-  -webkit-animation: fade-slide-up 1s 1s ease-out forwards,
-             pulse 2s 3s ease-out infinite;
-          animation: fade-slide-up 1s 1s ease-out forwards,
-             pulse 2s 3s ease-out infinite;
+  -webkit-animation: fade-slide-up 1s 1s ease-out forwards;
+          animation: fade-slide-up 1s 1s ease-out forwards;
   opacity: 0;
 }
 

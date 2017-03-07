@@ -17,14 +17,16 @@ To get started, add some extra HTML to our CSS. I've include a chevron image in 
 We'll use this to position the image. Next, in our CSS, set up style for the chevron's container.
 
     .header-down-arrow {
+      animation: pulse 2s 3s ease-out infinite;
       position: absolute;
         bottom: 4vh;
-        left: 50%;
-      transform: translateX(-50%);
+        left: 0;
+        right: 0;
+      text-align: center;
       z-index: 10;
     }
 
-We're positioning this absolutely and using a transform to place it in the horizontal center of the screen. It's positioned 4% of the screen's height away from the bottom, so should be visible on all screens, whether they be desktop or mobile. I've also made sure to set the `z-index` here to a value higher than 1 as the header content also covers the entire screen and we want to make sure this chevron is on top and visible.
+We're positioning this absolutely and using `text-align: center` to place the image inside it in the horizontal center of the screen. It's positioned 4% of the screen's height away from the bottom, so should be visible on all screens, whether they be desktop or mobile. I've also made sure to set the `z-index` here to a value higher than 1 as the header content also covers the entire screen and we want to make sure this chevron is on top and visible.
 
 Looking at the result we see a nicely positioned down arrow at the bottom of the screen.
 
@@ -101,13 +103,33 @@ We can see it in action here.
 
 [CodePen with chevron and pulse]
 
+## A note about Safari
+
+While the above works well in most browsers, it runs into trouble with Safari. Hopefully this is something that will be fixed in future but for now we can fix it by splitting these two animations up and applying one of them to the container.
+
+First we remove the "pulse" animation from the `.header-down-arrow img` block and move it to the `.header-down-arrow`.
+
+    .header-down-arrow {
+      animation: pulse 2s 3s ease-out infinite;
+      position: absolute;
+        bottom: 4vh;
+        left: 0;
+        right: 0;
+      text-align: center;
+      z-index: 10;
+    }
+
+The animation will wait 3 seconds before starting, and there's no longer any conflict with the "fade-slide-up" keyframes. Phew!
+
 ## Subtle is best
 
 It's easy to go crazy and make all the things animate, but that's rarely a good thing for your visitors. People want to be able to read and use the site without being bombarded with movement, so do go easy on the infinite animations. In this case it's quite a subtle animation. Experiment with what works for you, but do dial it back to the point where the animation *helps* your visitors rather than gets in the way.
 
 ## Next: Simplifying our keyframes
 
-In this lesson we learned how to create `keyframes` with more than two steps, we combined multiple animations onto one element and learned how to make an infinitely running animation. We've covered a lot so far, so in the next lesson we'll take a step back and look at ways we can simplify some of our keyframes.
+In this lesson we learned how to create `keyframes` with more than two steps, we combined multiple animations onto one element and learned how to make an infinitely running animation.
+
+We've covered a lot so far, so in the next lesson we'll take a step back and look at ways we can simplify some of our keyframes.
 
 
 
