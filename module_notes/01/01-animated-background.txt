@@ -46,7 +46,6 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
 
     header {
       align-items: center;
-      background: #333;
       display: flex;
       font-size: 18px;
       height: 100vh;
@@ -54,6 +53,8 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
       overflow: hidden;
       position: relative;
       text-align: center;
+      transform-style: preserve3d;
+      perspective: 100px;
     }
 
     header:after {
@@ -82,15 +83,23 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
       margin-bottom: 5rem;
     }
 
+    .header-button {
+      transform: translateZ(.1px);
+      position: relative;
+      z-index: 10;
+    }
+
 Further down the file you'll see the content styling, and the positioning of the down arrow. I've followed a naming convention here where everything starts with `header` so that we can more easily find the source of this styling should we need to change things later.
 
 Lastly you may have noticed the `:after` pseudoelement. A `pseudoelement` is something we can use to add additional content within CSS, for presentational purposes. In this case I'm adding a slanted white box to the bottom of the page to give it a non-square shape and make the overall design more interesting.
+
+To allow for this, I've also set a couple of properties on the header to tell the browser to handle the positioning in 3D. I've set `perspective` and the `transform-style` property. This is so that I can push the "header-button" element forward to sit in front of the slanted white box. On small screens, the button would sit behind the box.
 
 ## Before - how it looks
 
 <p data-height="600" data-theme-id="light" data-slug-hash="yMVvzY" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Basic starting HTML for hero header" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/yMVvzY/">Basic starting HTML for hero header</a>.</p>
 
-Here's what we have to begin. It's a nice simple layout - hopefully simple enough that it can be tailored for your needs. Let's start adding some style by getting rid of the plain background colour and bringing in an image instead.
+Here's what we have to begin. It's a simple layout - hopefully simple enough that it can be tailored for your needs. Let's start with the boring background. We'll get rid of the plain background colour and animate in an image instead.
 
 ## Let's add a background image
 
@@ -103,11 +112,7 @@ We can now add this to our CSS. Opening the `header.css` file in `stylesheets`, 
 
       display: flex;
       font-size: 18px;
-      height: 100vh;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-      text-align: center;
+      ... etc
     }
 
 Now, rather than simply replacing what we removed with a new `background` property referencing our newly downloaded image, I'm going to do something more interesting. 
@@ -144,6 +149,7 @@ Pseudo-elements need a `content` property, so we'll specify that. We'll also pos
         right: 0;
         bottom: 0;
         left: 0;
+      z-index: -1;
     }
 
 We're using multiple backgrounds here. By itself the image we've chosen is a bit bright, and text might be difficult to read on top of it. So I've added a linear gradient. Multiple backgrounds always confuse me but they start with the front-most background first, then the second background will appear behind that. If you have it the other way round you might not see your gradient as the background image will be in the way.
@@ -220,15 +226,15 @@ I'm a fan of [Cubic-Bezier.com](http://cubic-bezier.com) but you can use the bui
 
 In this case I'm going to create a kind of extreme variation of `ease-in`. Moving the starting point to "0,.5" and the ending point to "0,1" it'll start off really fast, but then take it's time toward the end.
 
-[Image of the cubic bezier]
+![A bezier curve with points 0,.5,0,1](https://cssanimation.rocks/levelup/public/images/01/bezier01.png)
 
-Let's see how that looks.
+Let's see how that looks in the animation property.
 
     animation: fade-slide-down 2s cubic-bezier(0, 0.5, 0, 1) forwards;
 
 We've taken the 4 numbers output by the website and wrapped it in `cubic-bezier()` inside our `animation` property. We can now see it in action.
 
-[CodePen of the animation 2s cubic-bezier]
+<p data-height="600" data-theme-id="light" data-slug-hash="QpGmGG" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (2s + bezier)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/QpGmGG/">Landing page with animated background image (2s + bezier)</a>.</p>
 
 The background now seems to fly in but then slow down gracefully, tapering off to an almost imperceptible finish. That's better.
 
@@ -238,7 +244,7 @@ Before we call this one done, let's think about the timing of when the animation
   
   animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
 
-[CodePen of the animation 2s .5s cubic-bezier]
+<p data-height="600" data-theme-id="light" data-slug-hash="OpbvWV" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (2s + bezier + delay)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/OpbvWV/">Landing page with animated background image (2s + bezier + delay)</a>.</p>
 
 Ouch! That's not great. The background is showing, then it disappears when the animation starts. Let's fix that by adding in a starting `opacity` for the pseudo-element. Our finished CSS for the pseudo-element should now look like this.
 
@@ -254,9 +260,10 @@ Ouch! That's not great. The background is showing, then it disappears when the a
         right: 0;
         bottom: 0;
         left: 0;
+      z-index: -1;
     }
 
-[CodePen of the animation 2s .5s cubic-bezier with opacity]
+<p data-height="600" data-theme-id="light" data-slug-hash="ryWdmJ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (2s + bezier + delay + opacity)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/ryWdmJ/">Landing page with animated background image (2s + bezier + delay + opacity)</a>.</p>
 
 That's better. The background starts empty, then a moment later fades in while sliding down.
 
