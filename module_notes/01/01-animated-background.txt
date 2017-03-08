@@ -45,7 +45,7 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
       perspective: 100px;
       position: relative;
       text-align: center;
-      transform-style: preserve3d;
+      transform-style: preserve-3d;
     }
 
     header:after {

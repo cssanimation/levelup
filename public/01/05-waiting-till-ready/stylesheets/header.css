@@ -18,8 +18,8 @@ header {
   overflow: hidden;
   position: relative;
   text-align: center;
-  -webkit-transform-style: preserve3d;
-          transform-style: preserve3d;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 
   -webkit-perspective: 100px;
 

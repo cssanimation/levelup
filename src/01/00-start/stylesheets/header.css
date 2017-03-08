@@ -9,7 +9,7 @@ header {
   perspective: 100px;
   position: relative;
   text-align: center;
-  transform-style: preserve3d;
+  transform-style: preserve-3d;
 }
 
 header:after {

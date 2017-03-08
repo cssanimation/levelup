@@ -1,6 +1,17 @@
-Section 6: Examples to download and use
+# Examples to download and use
 
-- Walkthrough each of the demo examples
+NOTE: I'm working on this section currently and will have these with you as soon as possible :)
 
--- Fixed background image (with animation?)
--- Video background / fixed also
+Ready to try your hand at some hero header design? I've created some extra examples here for you to download and try. Feel free to copy, reuse, and adapt them to your needs. As far as license goes, you're free to use them in any commercial or non-commercial setting, as long as you don't set up a shop selling them as your own templates. That would be not cool.
+
+If you do use these or any ideas in the course on your projects, do let me know! I'll be happy to add them here as an example to inspire other students!
+
+## Templates [COMING SOON]
+
+1) Fixed background image
+
+This example animates the content onto the scene as before, but affixes the background to the page. Content scrolls up in front.
+
+2) Video background
+
+A popular use of a hero header is to affix a background video.
