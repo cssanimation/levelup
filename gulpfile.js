@@ -25,7 +25,7 @@ gulp.task("javascript", function() {
 });
 
 gulp.task("images", function() {
-  return gulp.src(["./src/**/*.jpg", "./src/**/*.png", "./src/**/*.svg"])
+  return gulp.src(["./src/**/*.jpg", "./src/**/*.png", "./src/**/*.gif", "./src/**/*.svg"])
     .pipe(gulp.dest("public/"));
 });
 
@@ -70,6 +70,7 @@ gulp.task("watch", function() {
   gulp.watch("src/**/*.jpg", ["images", browserSync.reload]);
   gulp.watch("src/**/*.png", ["images", browserSync.reload]);
   gulp.watch("src/**/*.svg", ["images", browserSync.reload]);
+  gulp.watch("src/**/*.gif", ["images", browserSync.reload]);
 });
 
 gulp.task("default", ["html","js","css","images","browser-sync","watch"]);
