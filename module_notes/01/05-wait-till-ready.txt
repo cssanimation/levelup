@@ -1,6 +1,6 @@
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-## Waiting till the content is ready
+# Waiting till the content is ready
 
 So far we've been working on a website locally, with no noticeable lag every time the content is reloaded. Sadly this isn't the way the web is experienced, and it's likely our images, scripts and other assets will be a lot slower for our visitors.
 

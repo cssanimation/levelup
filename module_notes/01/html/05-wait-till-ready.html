@@ -1,5 +1,132 @@
 <div style="max-width: 800px">
 
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+<h1>Waiting till the content is ready</h1>
+
+<p>So far we've been working on a website locally, with no noticeable lag every time the content is reloaded. Sadly this isn't the way the web is experienced, and it's likely our images, scripts and other assets will be a lot slower for our visitors.</p>
+
+<p>When our animations assume everything is available stright away we can create broken-looking pages with half-loaded images moving around. Let's make sure out content has loaded before the animations play.</p>
+
+<p>In this lesson we're going to make use of a little JavaScript to trigger a load event, and make use <code>animation-play-state</code>.</p>
+
+<h2>Adding a load event</h2>
+
+<p>Browsers give us a handy JavaScript <code>load</code> event when content has finished loading. This includes assets such as images and scripts. We can add a listener and then kick start out animations after the load event is triggered.</p>
+
+<p>To make sure this JavaScript event occurs quickly, we'll add the code to our <code>index.html</code> file. Near the end of the file, but before the closing <code>body</code> tag, set up the event listener.</p>
+
+<pre><code>&lt;script&gt;
+
+  window.addEventListener("load", showPage, false);
+
+  function showPage() {
+    alert('Loaded');
+  }
+
+&lt;/script&gt;
+</code></pre>
+
+<p>What this says is that when the "load" event is triggered, the browser will run a function called <code>showPage</code>. The function then currently only calls an alert. Let's wire this up and see if it's working.</p>
+
+<p>In our browser we now see that the alert triggers. It'll seem to happen straight away as the page is running locally and the big image isn't loading across the internet. We'll do some testing later to see how it performs but for now we know that the event is being triggered. </p>
+
+<h2>Adding some class</h2>
+
+<p>Let's make the file do something. change the <code>showPage</code> function to add a class to the <code>body</code> element.</p>
+
+<pre><code>&lt;script&gt;
+  document.body.className += " js-loading";
+
+  window.addEventListener("load", showPage, false);
+
+  function showPage() {
+    document.body.className = document.body.className.replace("js-loading","");
+  }
+&lt;/script&gt;
+</code></pre>
+
+<p>Back in our JavaScript we add a line to add a class to the <code>body</code> of our document. This <code>js-loading</code> class will be useful to tell when the content is still in the process of loading but hadn't yet completed.</p>
+
+<p>We're using the "+=" so that if there's a class already on the body, as many web servers will do, this won't overwrite the existing classes.</p>
+
+<p>Next, inside the <code>showPage</code> function, we remove this <code>js-loading</code> class. We do it by taking the <code>className</code> and replacing the <code>js-loading</code> string.</p>
+
+<p>The idea here is when the page loads, the browser will immediately append a <code>js-loading</code> class to the body, and then remove it once the page has finished loading the assets. Let's use this class to make the animations wait until the content is ready.</p>
+
+<h2>Making animations wait</h2>
+
+<p>We now have a handy <code>js-loading</code> class we can use in our CSS. There are a few ways we could approach using this. One way might be to override the <code>animation</code> property from each thing we animate, setting it to <code>none</code> so that nothing happens while the <code>js-loading</code> class is in place.</p>
+
+<pre><code>header:before {
+  animation: no-transform 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+  ...
+}
+
+.js-loaded header:before {
+  animation: none;
+}
+</code></pre>
+
+<p>This would work and might be quite useful, but it comes with the downside of cluttering your CSS with lots and lots of extra rules. It could make your code a lot more cluttered and difficult to browse.</p>
+
+<p>Thankfully there's a more elegant method. We can control the animation's play state using... <code>animation-play-state</code>.</p>
+
+<h2>Animation Play State</h2>
+
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state">animation-play-state</a> property is well supported by modern browsers. It tells the browser whether the current animation is running or paused. By default animations are "running".</p>
+
+<p>We can use this property to make any animations on the page "pause" while we're loading the content. We add this to our CSS</p>
+
+<pre><code>.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important;
+}
+</code></pre>
+
+<p>This code sets the play state of everything on the page to "paused", whenever the <code>body</code> has the class <code>js-loading</code>. I've added a couple of extra lines to make sure it applies to all of the <code>:before</code> and <code>:after</code> pseudo-elements also.</p>
+
+<p>When JavaScript removes the <code>js-loading</code> class from the <code>body</code> tag, the rule no longer applies and all animations will be in their expected running state.</p>
+
+<p>A nice benefit of this approach is that we don't have to change anything else in our stylesheet!</p>
+
+<p>Let's see it in action. Don't forget you can press "Rerun" on the Pen to play it again.</p>
+
+<p data-height="600" data-theme-id="light" data-slug-hash="qrqGQp" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with JS load event" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/qrqGQp/">Landing page with JS load event</a>.</p>
+
+<h2>What is JavaScript fails?</h2>
+
+<p>This is always a question worth asking if we rely on JavaScript to handle displaying content on screen. Sometimes JavaScript fails. It can be disabled. Plugins can do unpredictable things. While in most cases this will work file, JavaScript is always a little ourside our control so it's good to think about what would happen if the JavaScript didn't work as expected.</p>
+
+<p>In this case I think we're ok. If the JavaScript doesn't run, it won't apply the <code>js-loading</code> class. The animations will play straight away. This might result in a little strangeness with the background image loading as it animates, but that's a worst case scenario and a reasonable fallback I think.</p>
+
+<h2>Testing</h2>
+
+<p>Let's test this to see it working. We need a larger image. I <a href="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?dpr=2&amp;auto=format&amp;fit=">this photo of Earth on Unsplash</a> that looks great and is a hefty 1.8 MB in size. In our CSS we change the background image on the <code>header:before</code>.</p>
+
+<p>To really see it in action we can use Chrome's built-in throttling feature. Opening the inspector, select the "Network" tab, then open the dropdown contains speed presets. From this we select "Good 3G", which should be slow enough to see this in action.</p>
+
+<p><img src="https://cssanimation.rocks/levelup/public/images/01/network-preset.png" alt="A preset Network speed in Chrome" title="" /></p>
+
+<p>We can now refresh the page. Since the image is quote large this time, you should see a blank screen until the content is ready.</p>
+
+<p data-height="600" data-theme-id="light" data-slug-hash="BWQeMg" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with JS load event (with large image)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/BWQeMg/">Landing page with JS load event (with large image)</a>.</p>
+
+<h2>Loading spinner</h2>
+
+<p>If you want to avoid a blank page at this point, you might want to have some loading text or animation that lets people know. It depends how long you think the delay might be. If you have a very large image and the page tends to wait for more than a second or two, then a spinner might be a good idea.</p>
+
+<p>On the other hand it might be worth compressing the image more or scaling it down so that it loads more quickly. Experiment and see what works best for you. On this example I found that trying to show a separate "loading" message was too cluttered. It only showed for a fraction of a second and looked like a glitch, so having the screen be blank for that half-second was fine.</p>
+
+<h2>Next: Downloads and resources</h2>
+
+<p>By now our landing page hero header is looking pretty awesome!</p>
+
+<p>We have an animated background, the content pops into place, we've optimised our keyframes and even ensured that it all works when the content is loaded. It's time to think about how we can apply these ideas to our projects.</p>
+
+<p>In the next lesson you'll find links to examples you can download and make your own. Feel free to use them as you wish.</p>
+
 
 
 </div>

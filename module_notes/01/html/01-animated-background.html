@@ -1,6 +1,6 @@
 <div style="max-width: 800px">
 
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 <h1>Animating the background</h1>
 
@@ -38,15 +38,16 @@
 
 <pre><code>header {
   align-items: center;
+  background: #333;
   display: flex;
   font-size: 18px;
   height: 100vh;
   justify-content: center;
   overflow: hidden;
+  perspective: 100px;
   position: relative;
   text-align: center;
   transform-style: preserve3d;
-  perspective: 100px;
 }
 
 header:after {
@@ -59,11 +60,6 @@ header:after {
     top: 90%;
   transform-origin: 0 0;
   transform: rotateZ(-4deg);
-  z-index: 0;
-}
-
-.header-content {
-  margin-top: -14rem;
 }
 
 .header-title, .header-subtitle {
@@ -71,8 +67,8 @@ header:after {
 }
 
 .header-subtitle {
-  text-transform: uppercase;
   margin-bottom: 5rem;
+  text-transform: uppercase;
 }
 
 .header-button {
@@ -281,5 +277,7 @@ header:after {
 <p>In this lesson we've learned about multiple CSS backgrounds as well as how to apply backgrounds and animations to pseudo-elements. We've also seen how tweaking the timing functions on the animation can make a boring animation more interesting. We've also seen how we can apply an animation delay to add better pacing to the way content is revealed. </p>
 
 <p>Next we'll apply some of these ideas of timing and pacing to the content in front of the background image. We'll create and animate the titles and logo.</p>
+
+
 
 </div>

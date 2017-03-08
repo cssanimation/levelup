@@ -1,8 +1,16 @@
-If you've arrived on a website and been greeted by a large image or video, and some titles on top, then you've encountered the "Hero Header". It's a popular way to introduce our website, and can be a great opportunity to help people quickly understand what it is we're offering.
+# Module 1: Build an impressive animation header
+
+If you've ever arrived on a website and been greeted by a large image or video, and some titles on top, then you've encountered the "Hero Header". It's a popular way to introduce a website, and can be a great opportunity to help people quickly understand what it is the site does.
+
+For many visitors it'll be their first impression of your brand, so you'll want to make the most of this moment to present something that properly shows how great it is.
+
+
 
 There's a great overview of Hero Headers over at [DesignModo](https://designmodo.com/hero-headers/).
 
-[Holy Heck image from article]
+![A bezier curve with points 0, .9, .3, 1.2](https://cssanimation.rocks/levelup/public/images/01/bezier02.png)
+
+![Holy Heck image from DesignModo - https://designmodo.com/hero-headers/](https://cssanimation.rocks/levelup/public/images/01/heck.jpg)
 
 Video note: Use https://stripe.com/bitcoin as an example
 
