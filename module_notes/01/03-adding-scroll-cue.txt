@@ -1,3 +1,5 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 # Adding a scroll cue
 
 In this lesson we're going to add a subtle cue to the bottom of the page that lets people know that they can scroll to see more content. We'll use animation to make it easier to notice.
@@ -17,7 +19,6 @@ To get started, add some extra HTML to our CSS. I've include a chevron image in 
 We'll use this to position the image. Next, in our CSS, set up style for the chevron's container.
 
     .header-down-arrow {
-      animation: pulse 2s 3s ease-out infinite;
       position: absolute;
         bottom: 4vh;
         left: 0;
@@ -30,7 +31,7 @@ We're positioning this absolutely and using `text-align: center` to place the im
 
 Looking at the result we see a nicely positioned down arrow at the bottom of the screen.
 
-[CodePen chevron visible]
+<p data-height="600" data-theme-id="light" data-slug-hash="Ppbvbd" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with scroll cue / chevron (no animation)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/Ppbvbd/">Landing page with scroll cue / chevron (no animation)</a>.</p>
 
 ## Animation 1: Introduce the chevron
 
@@ -53,16 +54,16 @@ If this rings alarm bells, don't worry, we're going to do some optimising in the
 
 We then apply this to our chevron image. We'll apply it directly to the image so that there's no conflict with the `transform` we added to the `div` container.
 
-.header-down-arrow img {
-  animation: fade-slide-up 1s 1s ease-out forwards;
-  opacity: 0;
-}
+    .header-down-arrow img {
+      animation: fade-slide-up 1s 1s ease-out forwards;
+      opacity: 0;
+    }
 
 Here we have the animation name, a duration of 1 second, a delay of 1 second and a basic `ease-out` timing function. We also set the opacity to 0 so that there's no flash at the start before the animation begins.
 
 Here is in in action.
 
-[CodePen with the chevron fading up, no pulse]
+<p data-height="600" data-theme-id="light" data-slug-hash="xqRNrq" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with scroll cue / chevron (slide up animation)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/xqRNrq/">Landing page with scroll cue / chevron (slide up animation)</a>.</p>
 
 If you look carefully you might notice that the chevron animates into place last. It finishes just after the last of the content has stopped moving. The idea is that visitors will subconsciously notice this and be more likely to notice that there's a scroll cue. This is a subtle detail and perhaps easily missed, so we can go further and add a second animation to this chevron. Let's make it pulse.
 
@@ -101,7 +102,7 @@ In this case the "pulse" animation has a duration of 2 seconds, a delay of 3 sec
 
 We can see it in action here.
 
-[CodePen with chevron and pulse]
+<p data-height="600" data-theme-id="light" data-slug-hash="XMNwaj" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with scroll cue / chevron (slide up and pulse animation)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/XMNwaj/">Landing page with scroll cue / chevron (slide up and pulse animation)</a>.</p>
 
 ## A note about Safari
 
@@ -120,6 +121,8 @@ First we remove the "pulse" animation from the `.header-down-arrow img` block an
     }
 
 The animation will wait 3 seconds before starting, and there's no longer any conflict with the "fade-slide-up" keyframes. Phew!
+
+<p data-height="600" data-theme-id="light" data-slug-hash="mWOYBj" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with scroll cue / chevron (slide up and pulse animation - fix for Safari)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/mWOYBj/">Landing page with scroll cue / chevron (slide up and pulse animation - fix for Safari)</a>.</p>
 
 ## Subtle is best
 

@@ -1,3 +1,5 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 ## Waiting till the content is ready
 
 So far we've been working on a website locally, with no noticeable lag every time the content is reloaded. Sadly this isn't the way the web is experienced, and it's likely our images, scripts and other assets will be a lot slower for our visitors.
@@ -83,6 +85,10 @@ When JavaScript removes the `js-loading` class from the `body` tag, the rule no 
 
 A nice benefit of this approach is that we don't have to change anything else in our stylesheet!
 
+Let's see it in action. Don't forget you can press "Rerun" on the Pen to play it again.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="qrqGQp" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with JS load event" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/qrqGQp/">Landing page with JS load event</a>.</p>
+
 ## What is JavaScript fails?
 
 This is always a question worth asking if we rely on JavaScript to handle displaying content on screen. Sometimes JavaScript fails. It can be disabled. Plugins can do unpredictable things. While in most cases this will work file, JavaScript is always a little ourside our control so it's good to think about what would happen if the JavaScript didn't work as expected.
@@ -95,15 +101,17 @@ Let's test this to see it working. We need a larger image. I [this photo of Eart
 
 To really see it in action we can use Chrome's built-in throttling feature. Opening the inspector, select the "Network" tab, then open the dropdown contains speed presets. From this we select "Good 3G", which should be slow enough to see this in action.
 
-[Image of the presets dropdown with 3G selected]
+![A preset Network speed in Chrome](https://cssanimation.rocks/levelup/public/images/01/network-preset.png)
 
-We can now refresh the page, and the result should be blank until the content is ready.
+We can now refresh the page. Since the image is quote large this time, you should see a blank screen until the content is ready.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="BWQeMg" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with JS load event (with large image)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/BWQeMg/">Landing page with JS load event (with large image)</a>.</p>
 
 ## Loading spinner
 
 If you want to avoid a blank page at this point, you might want to have some loading text or animation that lets people know. It depends how long you think the delay might be. If you have a very large image and the page tends to wait for more than a second or two, then a spinner might be a good idea.
 
-On the other hand it might be worth compressing the image more, or scaling it down so that it loads more quickly. Experiment and see what works best for you. On this example I found that trying to show a separate "loading" message was too cluttered. It only showed for a fraction of a second and looked like a glitch, so having the screen be blank for that half-second was fine.
+On the other hand it might be worth compressing the image more or scaling it down so that it loads more quickly. Experiment and see what works best for you. On this example I found that trying to show a separate "loading" message was too cluttered. It only showed for a fraction of a second and looked like a glitch, so having the screen be blank for that half-second was fine.
 
 ## Next: Downloads and resources
 

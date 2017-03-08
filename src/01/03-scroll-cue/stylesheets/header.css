@@ -7,6 +7,8 @@ header {
   overflow: hidden;
   position: relative;
   text-align: center;
+  transform-style: preserve3d;
+  perspective: 100px;
 }
 
 header:before {
@@ -21,10 +23,10 @@ header:before {
     right: 0;
     bottom: 0;
     left: 0;
+  z-index: -1;
 }
 
 header:after {
-  animation: rotate-up .5s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
   background: #F9FCFF;
   content: "";
   height: 40rem;
@@ -33,12 +35,8 @@ header:after {
     right: -5%;
     top: 90%;
   transform-origin: 0 0;
+  transform: rotateZ(-4deg);
   z-index: 0;
-}
-
-.header-content {
-  margin-top: -14rem;
-  transform: translate3d(0,0,0);
 }
 
 .header-title, .header-subtitle {
@@ -48,6 +46,12 @@ header:after {
 .header-subtitle {
   text-transform: uppercase;
   margin-bottom: 5rem;
+}
+
+.header-button {
+  transform: translateZ(.1px);
+  position: relative;
+  z-index: 10;
 }
 
 .animate-pop-in {
@@ -60,7 +64,7 @@ header:after {
 }
 
 .header-title {
-  animation-delay:.8s;
+  animation-delay: .8s;
 }
 
 .header-subtitle {
@@ -121,12 +125,6 @@ header:after {
   }
 }
 
-@keyframes rotate-up {
-  100% {
-    transform: rotateZ(-4deg);
-  }
-}
-
 @keyframes pulse {
   0% {
     opacity: 1;
@@ -141,6 +139,3 @@ header:after {
     transform: none;
   }
 }
-
-
-

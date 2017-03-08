@@ -1,6 +1,8 @@
-## Simplify keyframes
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-Record scratch! Let's pause for a moment and look at what we've built, and see if there might be ways to optimise things.
+# Simplify keyframes
+
+Let's take a moment to look at what we've built, and see if there might be ways to optimise things.
 
 In this lesson we'll look at how we can make a more general-purpose set of keyframes that can be used in all manner of different ways, and eliminate some of the clutter from our CSS files.
 
@@ -103,7 +105,7 @@ Next let's have the chevron at the bottom of the screen use the "no-transform" k
 
 And finally we remove the three keyframes we're no longer using, "fade-slide-down", "fade-slide-up" and "pop-in".
 
-[CodePen with the optimised CSS using no-transform]
+<p data-height="265" data-theme-id="light" data-slug-hash="OpbYzd" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with simplified keyframes" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/OpbYzd/">Landing page with simplified keyframes</a>.</p>
 
 The result should again look no different, but we've removed quite a lot of code, as well as creating a versatile little keyframes we can now apply any time we want an animation to end in a "non-transformed" state. 
 
