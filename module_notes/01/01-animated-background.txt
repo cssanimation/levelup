@@ -7,7 +7,9 @@ In this module we're going to start bringing some animation to the "Hero Header"
 
 ## Getting started
 
-To get started, open the code provided in folder `00-start`. In this you'll find there's an `index.html` file, containing some initial HTML to get us started, as well as `stylesheets` and `images` folders.
+Open the <a href="https://cssanimation.rocks/levelup/public/01/01.zip">sample code zip file</a> and open folder `00-start`. A completed version of this lesson's code is in the folder `01-animated-background`.
+
+In this you'll find there's an `index.html` file, containing some initial HTML to get us started, as well as `stylesheets` and `images` folders.
 
 In our HTML we can see references to both the CSS files. I've separated them so that the site's general styling can be used and moved the parts we'll be most interested in for this lesson to the file called `header.css`. 
 

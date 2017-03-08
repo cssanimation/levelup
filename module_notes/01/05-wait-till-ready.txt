@@ -8,6 +8,8 @@ When our animations assume everything is available stright away we can create br
 
 In this lesson we're going to make use of a little JavaScript to trigger a load event, and make use `animation-play-state`.
 
+To continue from the previous lesson, open the <a href="https://cssanimation.rocks/levelup/public/01/01.zip">sample code zip file</a> and look for folder `04-simplify-keyframes`.  A completed version of this lesson's code is in the folder `05-wait-till-ready`.
+
 ## Adding a load event
 
 Browsers give us a handy JavaScript `load` event when content has finished loading. This includes assets such as images and scripts. We can add a listener and then kick start out animations after the load event is triggered.

@@ -8,6 +8,8 @@ So far we've animated the background, used staggered animations to introduce the
 
 Whether we need an arrow to tell people to scroll is a topic for debate. Some would suggest that it's no better than a sticky plaster, and that a better idea would be to design the layout of the page in such a way that scrolling is more obvious. Let's leave the discussion aside for the moment, and instead we'll use this as an opportunity to see how multiple CSS animations can be combined in one little detail.
 
+To continue from the previous lesson, open the <a href="https://cssanimation.rocks/levelup/public/01/01.zip">sample code zip file</a> and look for folder `02-introduce-titles`.  A completed version of this lesson's code is in the folder `03-adding-scroll-cue`.
+
 ## Adding the HTML and CSS
 
 To get started, add some extra HTML to our CSS. I've include a chevron image in the `images` folder. Add the following HTML to the `header` section of the HTML, outside the `header-content` section.

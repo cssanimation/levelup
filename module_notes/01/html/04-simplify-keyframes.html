@@ -8,11 +8,11 @@
 
 <p>In this lesson we'll look at how we can make a more general-purpose set of keyframes that can be used in all manner of different ways, and eliminate some of the clutter from our CSS files.</p>
 
+<p>To continue from the previous lesson, open the <a href="https://cssanimation.rocks/levelup/public/01/01.zip">sample code zip file</a> and look for folder <code>03-adding-scroll-cue</code>.  A completed version of this lesson's code is in the folder <code>04-simplify-keyframes</code>.</p>
+
 <h2>The power of the <code>animation</code> property</h2>
 
 <p>When we use animations in CSS, we build our animations as series of keyframes. We then apply these keyframes to our elements using the <code>animation</code> property. While both are important, it turns out there's a lot of power we can pack into that <code>animation</code> property. We can control timing, duration, and even direction to create all sorts of very different styles of animation, even using the same original keyframes.</p>
-
-<p>With this in mind let's see how we can make use of t</p>
 
 <h2>Generic keyframes</h2>
 
@@ -112,7 +112,7 @@
 
 <p>And finally we remove the three keyframes we're no longer using, "fade-slide-down", "fade-slide-up" and "pop-in".</p>
 
-<p data-height="265" data-theme-id="light" data-slug-hash="OpbYzd" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with simplified keyframes" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/OpbYzd/">Landing page with simplified keyframes</a>.</p>
+<p data-height="600" data-theme-id="light" data-slug-hash="OpbYzd" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with simplified keyframes" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/OpbYzd/">Landing page with simplified keyframes</a>.</p>
 
 <p>The result should again look no different, but we've removed quite a lot of code, as well as creating a versatile little keyframes we can now apply any time we want an animation to end in a "non-transformed" state. </p>
 
