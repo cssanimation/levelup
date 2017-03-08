@@ -1,3 +1,5 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 # Introducing the titles
 
 So far we've set the scene for our animated landing page with the background image. We've seen how to add and animate pseudo-elements, and even delved into custom timing functions. Let's take that further.
@@ -46,7 +48,11 @@ We've added the `animate-pop-in` class to the image, headings and paragraph text
       animation: pop-in .6s ease-out forwards;
     }
 
-This applies the animation `pop-in` to every element. It's making them appear with a duration of .6 seconds, and using that old `ease-out` timing function. It's a start! But we can do better.
+This applies the animation `pop-in` to every element. It's making them appear with a duration of .6 seconds, and using that old `ease-out` timing function.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="MpbRLd" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/MpbRLd/">Landing page with animated foreground elements (not staggered)</a>.</p>
+
+It's a start! But we can do better.
 
 ## Choreography
 
@@ -90,9 +96,16 @@ These 4 elements will need to appear, one at a time. Thankfully we don't need to
       animation-delay: 1.6s;
     }
 
-We've added a delay that starts at 1 second, then each item waits a further .2 seconds before starting. When we look at the result we see the animations staggered.
+We also need to set these elements to be invisible on load, to avoid the flash where they're visible then they animate after a delay. Set the opacity on the "animate-pop-in" element.
 
-[Codepen of staggered timings but no cubic bezier]
+    .animate-pop-in {
+      animation: pop-in .6s ease-out forwards;
+      opacity: 0;
+    }
+
+So let's see the result. We've added a delay that starts at 1 second, then each item waits a further .2 seconds before starting. When we look at the result we see the animations staggered.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="mWOYbp" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (staggered1)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/mWOYbp/">Landing page with animated foreground elements (staggered1)</a>.</p>
 
 It might just be my opinion but I reckon these seem to be appearing just a little bit late. Let's go back through and change the numbers so they start at .6s instead.
 
@@ -114,7 +127,7 @@ It might just be my opinion but I reckon these seem to be appearing just a littl
 
 On second thoughts, let's make that last item, the `header-button` appear a little more closely with just a .1 second gap. It should now all feel a bit tighter.
 
-[CodePen of the staggered timings #2]
+<p data-height="600" data-theme-id="light" data-slug-hash="ryWgaV" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (staggered2)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/ryWgaV/">Landing page with animated foreground elements (staggered2)</a>.</p>
 
 That's better. It's a good idea to take time to tweak things like animation delays and timing functions by eye. Sometimes an animation won't feel right and it might just be a question of messing around with the timings until it all works together.
 
@@ -124,13 +137,15 @@ So, now we have a staggered animation. It's looking pretty good, but the way the
 
 Time to replace that old `ease-out` timing function with something more interesting. Over on [Cubic-Bezier.com](http://cubic-bezier.com) we'll create a curve that starts fast but then shoots right past the top and settles back to the finishing point. Place first point on the left axis near the top to give it that fast start, then the second point above the top line. The resulting curve should be a long steep arc that tapers back at the end.
 
-[Image of the cubic bezier]
+![A bezier curve with points 0, .9, .3, 1.2](https://cssanimation.rocks/levelup/public/images/01/bezier02.png)
 
 Taking the coordinates and putting them into our animation property now looks like this.
 
     animation: pop-in .6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
 
-[CodePen of the animations with bounciness]
+Let's see how that looks.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="xqRNwE" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (staggered and cubic bezier)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/xqRNwE/">Landing page with animated foreground elements (staggered and cubic bezier)</a>.</p>
 
 It's starting to look a lot better now. 
 
@@ -169,7 +184,7 @@ First we add the `animation` property, giving it the animation name of `rotate-u
 
 Lastly we want this to begin without any `transform`, so we remove that line. It should now use the `rotate-up` keyframes to rotate from no transform, to -4 degrees.
 
-[CodePen of finished result]
+<p data-height="600" data-theme-id="light" data-slug-hash="PpbvZB" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (staggered and cubic bezier and wedge)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/PpbvZB/">Landing page with animated foreground elements (staggered and cubic bezier and wedge)</a>.</p>
 
 ## Next: Adding a scroll cue
 

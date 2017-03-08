@@ -1,0 +1,9 @@
+If you've arrived on a website and been greeted by a large image or video, and some titles on top, then you've encountered the "Hero Header". It's a popular way to introduce our website, and can be a great opportunity to help people quickly understand what it is we're offering.
+
+There's a great overview of Hero Headers over at [DesignModo](https://designmodo.com/hero-headers/).
+
+[Holy Heck image from article]
+
+Video note: Use https://stripe.com/bitcoin as an example
+
+A carefully chosen header image and text can make a good first impression, and we can make an even better impression by introducing some animation.

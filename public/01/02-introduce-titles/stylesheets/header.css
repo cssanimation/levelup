@@ -13,6 +13,12 @@ header {
   overflow: hidden;
   position: relative;
   text-align: center;
+  -webkit-transform-style: preserve3d;
+          transform-style: preserve3d;
+
+  -webkit-perspective: 100px;
+
+          perspective: 100px;
 }
 
 header:before {
@@ -30,6 +36,7 @@ header:before {
   position: absolute;
     right: 0;
     top: 0;
+  z-index: -1;
 }
 
 header:after {
@@ -47,12 +54,6 @@ header:after {
   z-index: 0;
 }
 
-.header-content {
-  margin-top: -14rem;
-  -webkit-transform: translate3d(0,0,0);
-          transform: translate3d(0,0,0);
-}
-
 .header-title, .header-subtitle {
   color: #fff;
 }
@@ -60,6 +61,13 @@ header:after {
 .header-subtitle {
   margin-bottom: 5rem;
   text-transform: uppercase;
+}
+
+.header-button {
+  position: relative;
+  -webkit-transform: translateZ(.1px);
+          transform: translateZ(.1px);
+  z-index: 10;
 }
 
 .animate-pop-in {

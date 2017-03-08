@@ -34,7 +34,8 @@ header:after {
 }
 
 .header-button {
+  transform: translateZ(.1px);
   position: relative;
-  transform: translateZ(1px);
+  z-index: 10;
 }
 

@@ -1,0 +1,285 @@
+<div style="max-width: 800px">
+
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script></p>
+
+<h1>Animating the background</h1>
+
+<p>In this module we're going to start bringing some animation to the "Hero Header" section of our landing page. By the end of this lesson, you'll know how to set up and animate the background image, as well as how to make sure the animation looks great.</p>
+
+<h2>Getting started</h2>
+
+<p>To get started, open the code provided in folder <code>00-start</code>. In this you'll find there's an <code>index.html</code> file, containing some initial HTML to get us started, as well as <code>stylesheets</code> and <code>images</code> folders.</p>
+
+<p>In our HTML we can see references to both the CSS files. I've separated them so that the site's general styling can be used and moved the parts we'll be most interested in for this lesson to the file called <code>header.css</code>. </p>
+
+<h3>On prefixes</h3>
+
+<p>Just to note, I'll not be including prefixes in the code we write. This means adding <code>-webkit-</code> to properties such as <code>transform</code> and <code>animation</code>. Generally you'll want to put these in place before publishing your work but to keep things readible I won't be showing them during the coding. The downloaded files do include the needed prefixes.</p>
+
+<h2>HTML</h2>
+
+<pre><code>&lt;body&gt;
+  &lt;header&gt;
+    &lt;section class="header-content"&gt;
+      &lt;img src="images/rocky-dashed.svg" class="rocky-dashed"&gt;
+      &lt;h1 class="header-title"&gt;Your awesome landing page&lt;/h1&gt;
+      &lt;h3 class="header-subtitle"&gt;A useful start for your projects&lt;/h3&gt;
+      &lt;p class="header-button"&gt;&lt;a href="#calls-to-action" class="button"&gt;Get started today&lt;/a&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/header&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>This is the main content of our HTML. It's found in <code>index.html</code>. It's fairly simple for now, just a <code>header</code> element containing some content, images, text and headings. We'll be styling and animating this using our CSS.</p>
+
+<h2>CSS</h2>
+
+<p>Opening our CSS file in <code>stylesheets/header.css</code> we can see the initial styles for the landing page. We have the header, which is set to cover the full height of the viewport. To do this I've used the <code>vh</code> unit. This is expressed as a percentage, so <code>100vh</code> would mean the entire <code>viewport height</code>.</p>
+
+<pre><code>header {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transform-style: preserve3d;
+  perspective: 100px;
+}
+
+header:after {
+  background: #F9FCFF;
+  content: "";
+  height: 40rem;
+  left: -5%;
+  position: absolute;
+    right: -5%;
+    top: 90%;
+  transform-origin: 0 0;
+  transform: rotateZ(-4deg);
+  z-index: 0;
+}
+
+.header-content {
+  margin-top: -14rem;
+}
+
+.header-title, .header-subtitle {
+  color: #fff;
+}
+
+.header-subtitle {
+  text-transform: uppercase;
+  margin-bottom: 5rem;
+}
+
+.header-button {
+  transform: translateZ(.1px);
+  position: relative;
+  z-index: 10;
+}
+</code></pre>
+
+<p>Further down the file you'll see the content styling, and the positioning of the down arrow. I've followed a naming convention here where everything starts with <code>header</code> so that we can more easily find the source of this styling should we need to change things later.</p>
+
+<p>Lastly you may have noticed the <code>:after</code> pseudoelement. A <code>pseudoelement</code> is something we can use to add additional content within CSS, for presentational purposes. In this case I'm adding a slanted white box to the bottom of the page to give it a non-square shape and make the overall design more interesting.</p>
+
+<p>To allow for this, I've also set a couple of properties on the header to tell the browser to handle the positioning in 3D. I've set <code>perspective</code> and the <code>transform-style</code> property. This is so that I can push the "header-button" element forward to sit in front of the slanted white box. On small screens, the button would sit behind the box.</p>
+
+<h2>Before - how it looks</h2>
+
+<p data-height="600" data-theme-id="light" data-slug-hash="yMVvzY" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Basic starting HTML for hero header" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/yMVvzY/">Basic starting HTML for hero header</a>.</p>
+
+<p>Here's what we have to begin. It's a simple layout - hopefully simple enough that it can be tailored for your needs. Let's start with the boring background. We'll get rid of the plain background colour and animate in an image instead.</p>
+
+<h2>Let's add a background image</h2>
+
+<p>A great resource I often turn to for high quality images is <a href="https://unsplash.com">Unsplash</a>. Set up a few years ago as a reaction to the lack of good, free online photography resources, the site now offers a massive range of useful images that you can use in your designs for free. I chose <a href="https://unsplash.com/photos/jLwVAUtLOAQ">this image</a> for our example header. To prepare it for our use I scaled it down a bit, compressed it with <a href="http://tinypng.com">TinyPNG</a> and saved it in the <code>images</code> folder as <code>background.jpg</code>.</p>
+
+<p>We can now add this to our CSS. Opening the <code>header.css</code> file in <code>stylesheets</code>, you'll see there's a <code>header</code> block at the top. In this we've set the background colour to a dark grey. We can remove that.</p>
+
+<pre><code>header {
+  align-items: center;
+
+  display: flex;
+  font-size: 18px;
+  ... etc
+}
+</code></pre>
+
+<p>Now, rather than simply replacing what we removed with a new <code>background</code> property referencing our newly downloaded image, I'm going to do something more interesting. </p>
+
+<h2>Animating the background position</h2>
+
+<p>We could set a <code>background-position</code> on our background and then animate that, but I don't think that'll be a good idea.</p>
+
+<p>There are two properties that animate very well in the browser. These are <code>opacity</code> and <code>transform</code>. We use the <code>transform</code> for positioning, scaling and rotating elements. Which is great, because browsers can animate these movements smoothly. However this means that if we were to try to animate the <code>background-position</code> property of our new background image, we might see "jankyness", where the animation isn't smooth.</p>
+
+<p>So let's find a way to use <code>transform</code> to animate our background image more smoothly.</p>
+
+<h2>Adding a pseudo-element</h2>
+
+<p>Since the <code>transform</code> property needs to apply to individual HTML elements, we need to either add a "container" element to our page for the background image, or we can skip that and use a pseudo-element.</p>
+
+<p>I love pseudo-elements. It's a way we can use CSS to create "virtual" elements on our page without adding more markup and can be quite versatile. They can be used for anything from adding extra text to an element, or in this case, adding extra layers of content.</p>
+
+<p>If you look at the content in our <code>header.css</code>, you'll see we already have one pseudo-element, called <code>header:after</code>. This positions a white box at an angle at the bottom of the screen. Let's add another above that:</p>
+
+<pre><code>header:before {
+
+}
+</code></pre>
+
+<p>Pseudo-elements need a <code>content</code> property, so we'll specify that. We'll also position this element so that it covers the entire <code>header</code> using absolute positioning. We then add the background:</p>
+
+<pre><code>header:before {
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.8)),
+              url(../images/background.jpg) no-repeat bottom;
+  background-size: cover;
+  content: "";
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  z-index: -1;
+}
+</code></pre>
+
+<p>We're using multiple backgrounds here. By itself the image we've chosen is a bit bright, and text might be difficult to read on top of it. So I've added a linear gradient. Multiple backgrounds always confuse me but they start with the front-most background first, then the second background will appear behind that. If you have it the other way round you might not see your gradient as the background image will be in the way.</p>
+
+<p>Lastly we're setting the <code>background-size</code> to "cover". This tells the browser to crop the image either horizontally or vertically to fill the entire shape. It will lose some of the image but won't stretch it. It's worth experimenting with different settings here, and trying to see if maybe positioning the image in the center or top or bottom looks best.</p>
+
+<p data-height="600" data-theme-id="light" data-slug-hash="NpbyJP" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with background image" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/NpbyJP/">Landing page with background image</a>.</p>
+
+<p>Now we have a background in place, inside it's own pseudo-element container. Let's animate the pseudo-element.</p>
+
+<h2>Fading slide down</h2>
+
+<p>We'd like this image to fade in, but also slide down. Combining animations like this can make for a nice result and it will allow us to try some timing functions to get a really smooth result.</p>
+
+<p>To begin let's write our <code>keyframes</code>. We set out keyframes like so, with a name, <code>fade-slide-down</code> and in this case a starting and end position. </p>
+
+<pre><code>@keyframes fade-slide-down {
+  0% {
+
+  }
+  100% {
+
+  }
+}
+</code></pre>
+
+<p>At "0%" we want to tell the browser the background's starting position. It needs to be invisible, and also positioned a little higher. We do this using the <code>transform</code> property with <code>translate</code>. </p>
+
+<pre><code>@keyframes fade-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+</code></pre>
+
+<p>At "100%" we have the ending position. It has an <code>opacity</code> of 1 so that we can see it, and there is no <code>transform</code>. This gives us both vertical movement and a change in opacity.</p>
+
+<p>With the <code>keyframes</code> built, let's apply them to the pseudo-element. Inside the <code>header:before</code> block, add the following line.</p>
+
+<pre><code>animation: fade-slide-down .5s ease-out forwards;
+</code></pre>
+
+<p>This applies our animation to the pseudo-element. Going from left to right, it first tells it the name of the animation, then the duration of 1/2 a second, the timing function of <code>ease-out</code> and finally the <code>animation-fill-mode</code>.</p>
+
+<p>The last one can be a little tricky but it basically means that the animation should stop on the last keyframe and stay there. In this way the styles in the "100%" keyframe are the styles that will remain once the animation has finished.</p>
+
+<p>Let's see this in action. Press "Rerun" on the CodePen to see the animation again.</p>
+
+<p data-height="600" data-theme-id="light" data-slug-hash="RpoQOv" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (.5s)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/RpoQOv/">Landing page with animated background image (.5s)</a>.</p>
+
+<p>So the background fades and slides in. That's good. But the animation is a little bit sudden. Let's try to improve it.</p>
+
+<p>First let's try adjusting the duration. UI animations tend to need to happen quite fast, and usually a value of 0.5 seconds is good as a rule of thumb. However for our landing page we'd like the animation to feel a little more luxurious, like it's not in a big hurry. </p>
+
+<p>So let's set the duration to two seconds.</p>
+
+<pre><code>animation: fade-slide-down 2s ease-out forwards;
+</code></pre>
+
+<p>Here's how it looks.</p>
+
+<p data-height="600" data-theme-id="light" data-slug-hash="KWNopN" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (2s)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/KWNopN/">Landing page with animated background image (2s)</a>.</p>
+
+<p>That's certainly more relaxed. But it still feels a little stilted. Next, let's look at the timing function.</p>
+
+<h2>Rolling your own timings</h2>
+
+<p>Browsers give us a set of pre-built timing functions to work with. This include <code>ease-in</code>, <code>ease-out</code> and more. They're handy but they tend to be a little bit boring and not always ideal for larger animations. We can instead create our own timing function to change the way our pseudo-element moves on the screen.</p>
+
+<p>What would be better would be if the animation starts a little quicker but then very gradually slows with more of an elongated glide toward the end. It would create a more subtle effect toward the end of the animation, ideally making it less likely to clash with any other animations going on after the background has appeared.</p>
+
+<p>I'm a fan of <a href="http://cubic-bezier.com">Cubic-Bezier.com</a> but you can use the built-in inspector tools in Chrome or Firefox to edit your cubic bezier curves. </p>
+
+<p>In this case I'm going to create a kind of extreme variation of <code>ease-in</code>. Moving the starting point to "0,.5" and the ending point to "0,1" it'll start off really fast, but then take it's time toward the end.</p>
+
+<p><img src="https://cssanimation.rocks/levelup/public/images/01/bezier01.png" alt="A bezier curve with points 0,.5,0,1" title="" /></p>
+
+<p>Let's see how that looks in the animation property.</p>
+
+<pre><code>animation: fade-slide-down 2s cubic-bezier(0, 0.5, 0, 1) forwards;
+</code></pre>
+
+<p>We've taken the 4 numbers output by the website and wrapped it in <code>cubic-bezier()</code> inside our <code>animation</code> property. We can now see it in action.</p>
+
+<p data-height="600" data-theme-id="light" data-slug-hash="QpGmGG" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (2s + bezier)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/QpGmGG/">Landing page with animated background image (2s + bezier)</a>.</p>
+
+<p>The background now seems to fly in but then slow down gracefully, tapering off to an almost imperceptible finish. That's better.</p>
+
+<h2>Not so fast</h2>
+
+<p>Before we call this one done, let's think about the timing of when the animation starts. It's a little bit sudden. The page loads and the animation starts immediately. The effect is a little jarring. Let's add some delay. We update our CSS to include a delay of ".5s".</p>
+
+<pre><code>animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+</code></pre>
+
+<p data-height="600" data-theme-id="light" data-slug-hash="OpbvWV" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (2s + bezier + delay)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/OpbvWV/">Landing page with animated background image (2s + bezier + delay)</a>.</p>
+
+<p>Ouch! That's not great. The background is showing, then it disappears when the animation starts. Let's fix that by adding in a starting <code>opacity</code> for the pseudo-element. Our finished CSS for the pseudo-element should now look like this.</p>
+
+<pre><code>header:before {
+  animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.8)),
+              url(../images/background.jpg) no-repeat bottom;
+  background-size: cover;
+  content: "";
+  opacity: 0;
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  z-index: -1;
+}
+</code></pre>
+
+<p data-height="600" data-theme-id="light" data-slug-hash="ryWdmJ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (2s + bezier + delay + opacity)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/ryWdmJ/">Landing page with animated background image (2s + bezier + delay + opacity)</a>.</p>
+
+<p>That's better. The background starts empty, then a moment later fades in while sliding down.</p>
+
+<h2>Experiment and find your own style</h2>
+
+<p>With timing functions it's always worth experimenting and finding what works for you and the project you're working on. Never stick to the pre-built timing functions!</p>
+
+<p>We'll be using lots of different timing functions as we go through creating the animations on this landing page. it's always worthwhile trying your own and seeing what works for you.</p>
+
+<h2>Next: Introducing the titles</h2>
+
+<p>In this lesson we've learned about multiple CSS backgrounds as well as how to apply backgrounds and animations to pseudo-elements. We've also seen how tweaking the timing functions on the animation can make a boring animation more interesting. We've also seen how we can apply an animation delay to add better pacing to the way content is revealed. </p>
+
+<p>Next we'll apply some of these ideas of timing and pacing to the content in front of the background image. We'll create and animate the titles and logo.</p>
+
+</div>

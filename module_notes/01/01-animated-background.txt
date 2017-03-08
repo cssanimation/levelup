@@ -5,16 +5,6 @@
 
 In this module we're going to start bringing some animation to the "Hero Header" section of our landing page. By the end of this lesson, you'll know how to set up and animate the background image, as well as how to make sure the animation looks great.
 
-If you've arrived on a website and been greeted by a large image or video, and some titles on top, then you've encountered the "Hero Header". It's a popular way to introduce our website, and can be a great opportunity to help people quickly understand what it is we're offering.
-
-There's a great overview of Hero Headers over at [DesignModo](https://designmodo.com/hero-headers/).
-
-[Holy Heck image from article]
-
-Video note: Use https://stripe.com/bitcoin as an example
-
-A carefully chosen header image and text can make a good first impression, and we can make an even better impression by introducing some animation.
-
 ## Getting started
 
 To get started, open the code provided in folder `00-start`. In this you'll find there's an `index.html` file, containing some initial HTML to get us started, as well as `stylesheets` and `images` folders.
@@ -46,15 +36,16 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
 
     header {
       align-items: center;
+      background: #333;
       display: flex;
       font-size: 18px;
       height: 100vh;
       justify-content: center;
       overflow: hidden;
+      perspective: 100px;
       position: relative;
       text-align: center;
       transform-style: preserve3d;
-      perspective: 100px;
     }
 
     header:after {
@@ -67,11 +58,6 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
         top: 90%;
       transform-origin: 0 0;
       transform: rotateZ(-4deg);
-      z-index: 0;
-    }
-
-    .header-content {
-      margin-top: -14rem;
     }
 
     .header-title, .header-subtitle {
@@ -79,8 +65,8 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
     }
 
     .header-subtitle {
-      text-transform: uppercase;
       margin-bottom: 5rem;
+      text-transform: uppercase;
     }
 
     .header-button {
@@ -242,7 +228,7 @@ The background now seems to fly in but then slow down gracefully, tapering off t
 
 Before we call this one done, let's think about the timing of when the animation starts. It's a little bit sudden. The page loads and the animation starts immediately. The effect is a little jarring. Let's add some delay. We update our CSS to include a delay of ".5s".
   
-  animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+    animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
 
 <p data-height="600" data-theme-id="light" data-slug-hash="OpbvWV" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated background image (2s + bezier + delay)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/OpbvWV/">Landing page with animated background image (2s + bezier + delay)</a>.</p>
 
