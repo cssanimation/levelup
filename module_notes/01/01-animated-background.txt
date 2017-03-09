@@ -3,7 +3,7 @@
 
 # Animating the background
 
-In this module we're going to start bringing some animation to the "Hero Header" section of our landing page. By the end of this lesson, you'll know how to set up and animate the background image, as well as how to make sure the animation looks great.
+In this lesson we're going to start bringing some animation to the "Hero Header" section of our landing page. By the end of this lesson, you'll know how to set up and animate the background image, as well as how to make sure the animation looks great.
 
 ## Getting started
 
@@ -77,7 +77,7 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
       z-index: 10;
     }
 
-Further down the file you'll see the content styling, and the positioning of the down arrow. I've followed a naming convention here where everything starts with `header` so that we can more easily find the source of this styling should we need to change things later.
+Further down the file you'll see the content styling. I've followed a naming convention here where everything starts with `header` so that we can more easily find the source of this styling should we need to change things later.
 
 Lastly you may have noticed the `:after` pseudoelement. A `pseudoelement` is something we can use to add additional content within CSS, for presentational purposes. In this case I'm adding a slanted white box to the bottom of the page to give it a non-square shape and make the overall design more interesting.
 
@@ -259,7 +259,7 @@ That's better. The background starts empty, then a moment later fades in while s
 
 With timing functions it's always worth experimenting and finding what works for you and the project you're working on. Never stick to the pre-built timing functions!
 
-We'll be using lots of different timing functions as we go through creating the animations on this landing page. it's always worthwhile trying your own and seeing what works for you.
+We'll be using lots of different timing functions as we go through creating the animations on this landing page. It's always worthwhile trying your own and seeing what works for you.
 
 ## Next: Introducing the titles
 

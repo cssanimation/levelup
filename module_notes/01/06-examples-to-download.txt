@@ -12,6 +12,20 @@ If you do use these or any ideas in the course on your projects, do let me know!
 
 This example animates the content onto the scene as before, but affixes the background to the page. Content scrolls up in front.
 
+[Download]()
+
 2) Video background
 
-A popular use of a hero header is to affix a background video.
+A popular use of a hero header is to affix a background video. Here's a basic one to get you started.
+
+[Download]()
+
+3) TV-show style reveal
+
+Inspired by the credits to the show "Elemental", a blurry image resolves into sharp focus as the letters reveal themselves one at a time.
+
+[Download]()
+
+4) Animated SVG background
+
+

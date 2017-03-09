@@ -1,12 +1,11 @@
 <div style="max-width: 800px">
 
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-
 <h1>Introducing the titles</h1>
 
 <p>So far we've set the scene for our animated landing page with the background image. We've seen how to add and animate pseudo-elements, and even delved into custom timing functions. Let's take that further.</p>
 
-<p>In this lesson we'll animate in the content on top, and take the opportunity to experiment more with bouncy timung functions, animation choreography and creating reusable sets of keyframes.</p>
+<p>In this lesson we'll animate in the content on top, and take the opportunity to experiment more with bouncy timing functions, animation choreography and creating reusable sets of keyframes.</p>
 
 <p>To continue from the previous lesson, open the <a href="https://cssanimation.rocks/levelup/public/01/01.zip">sample code zip file</a> and look for folder <code>01-animated-background</code>.  A completed version of this lesson's code is in the folder <code>02-introduce-titles</code>.</p>
 
@@ -34,7 +33,7 @@
 
 <h2>Moving the elements</h2>
 
-<p>We can now apply these keyframes to our content. However rather than adding an <code>animation</code> property to each element one at a time, let's take this opportunity to set up a reusable class for the animation. If we have create a new class called <code>animate-pop-in</code>, we can then have this apply the animation more efficiently.</p>
+<p>We can now apply these keyframes to our content. However rather than adding an <code>animation</code> property to each element one at a time, let's take this opportunity to set up a reusable class for the animation. If we create a new class called <code>animate-pop-in</code>, we can then have this apply the animation more efficiently.</p>
 
 <p>To get started, in the HTML, we add this class to each of the content items we want to animate.</p>
 
@@ -146,7 +145,7 @@
 
 <h2>Bounciness</h2>
 
-<p>Time to replace that old <code>ease-out</code> timing function with something more interesting. Over on <a href="http://cubic-bezier.com">Cubic-Bezier.com</a> we'll create a curve that starts fast but then shoots right past the top and settles back to the finishing point. Place first point on the left axis near the top to give it that fast start, then the second point above the top line. The resulting curve should be a long steep arc that tapers back at the end.</p>
+<p>Time to replace that old <code>ease-out</code> timing function with something more interesting. Over on <a href="http://cubic-bezier.com">Cubic-Bezier.com</a> we'll create a curve that starts fast but then shoots right past the top and settles back to the finishing point. Place the first point on the left axis near the top to give it that fast start, then the second point above the top line. The resulting curve should be a long steep arc that tapers back at the end.</p>
 
 <p><img src="https://cssanimation.rocks/levelup/public/images/01/bezier02.png" alt="A bezier curve with points 0, .9, .3, 1.2" title="" /></p>
 
@@ -165,11 +164,11 @@
 
 <p>The purpose of this choreography is to not only to look cool, but to draw attention to what we want our visitors to see. In this case it's straightforward, we want people to see the title and then have their attention drawn to the big "call to action" button in the middle.</p>
 
-<p>There's a second goal here though, and that's to let people know that there's more content further down the page. We're going to help draw attention to that using the chevron at the bottom there, but we can add a subtle animation to the header also. Let's try our hand at a rotate <code>transform</code> by animating that big white wedge at the bottom of the screen.</p>
+<p>There's a second goal here though, and that's to let people know that there's more content further down the page. We're going to help draw attention to that using a chevron at the bottom , but we can add a subtle animation to the header also. Let's try our hand at a rotate <code>transform</code> by animating that big white wedge at the bottom of the screen.</p>
 
 <h2>Animating the wedge</h2>
 
-<p>As ever we'll create the <code>keyframes</code> for this new animation.</p>
+<p>As before we'll create the <code>keyframes</code> for this new animation.</p>
 
 <pre><code>@keyframes rotate-up {
   100% {

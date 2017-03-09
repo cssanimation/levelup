@@ -6,7 +6,7 @@ Let's take a moment to look at what we've built, and see if there might be ways 
 
 In this lesson we'll look at how we can make a more general-purpose set of keyframes that can be used in all manner of different ways, and eliminate some of the clutter from our CSS files.
 
-To continue from the previous lesson, open the <a href="https://cssanimation.rocks/levelup/public/01/01.zip">sample code zip file</a> and look for folder `03-adding-scroll-cue`.  A completed version of this lesson's code is in the folder `04-simplify-keyframes`.
+To continue from the previous lesson, open the <a href="https://cssanimation.rocks/levelup/public/01/01.zip">sample code zip file</a> and look for folder `03-scroll-cue`.  A completed version of this lesson's code is in the folder `04-simplify-keyframes`.
 
 ## The power of the `animation` property
 
