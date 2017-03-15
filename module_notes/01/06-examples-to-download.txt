@@ -29,3 +29,5 @@ Inspired by the credits to the show "Elemental", a blurry image resolves into sh
 4) Animated SVG background
 
 
+5) Animated Gradient background (rotating)
+

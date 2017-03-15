@@ -9,7 +9,9 @@ figure { margin: 1em 40px; }
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
 }
-
+#__bs_notify__ {
+  display: none !important;
+}
 main {
   margin: 0 auto;
   max-width: 1280px;

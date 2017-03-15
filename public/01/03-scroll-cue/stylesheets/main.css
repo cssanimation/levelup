@@ -16,6 +16,9 @@ figure {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
 }
+#__bs_notify__ {
+    display: none !important;
+}
 main {
     margin: 0 auto;
     padding: 0 2rem;

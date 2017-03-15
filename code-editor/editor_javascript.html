@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript Editing</title>
+<script type="text/javascript">       
+    window.onbeforeunload = function() {
+      var message = "Are you sure you want to navigate away from this page?";
+      if (confirm(message)) return true;
+      else return false;
+    }
+</script>
+<style type="text/css" media="screen">
+  body {
+    background: #272822;
+    padding: 1em;
+  }
+  .editor-container {
+    width: calc(1921px - 1em); 
+    height: 1082px;
+    position: relative;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+  }
+  #editor { 
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+  }
+  .ace_gutter-layer {
+    display: none;
+  }
+  span.ace_indent-guide {
+    background: none !important;
+  }
+  .ace_content {
+  }
+</style>
+</head>
+<body>
+
+<div class="editor-container">
+  <div id="editor">
+.class {
+  position: relative;
+  padding: 4rem;
+}
+  </div>
+</div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.getSession().setTabSize(4);
+    document.getElementById('editor').style.fontSize='48px';
+    editor.getSession().setUseWrapMode(true);
+    editor.setHighlightActiveLine(false);
+    editor.setShowPrintMargin(false);
+</script>
+</body>
+</html>
