@@ -7,8 +7,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: -webkit-linear-gradient(293deg, #FFD17C 4%, #E77FE9 96%);
-  background: linear-gradient(157deg, #FFD17C 4%, #E77FE9 96%);
+  background: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,7 +28,19 @@ header {
           perspective: 100px;
 }
 
-header:before {
+.header-mask-container {
+  background: #fff;
+  height: 100vh;
+  left: 50%;
+  max-width: 1200px;
+  overflow: hidden;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+}
+
+.header-mask-container:before {
   -webkit-animation: spin 20s linear infinite;
           animation: spin 20s linear infinite;
   background-image: -webkit-linear-gradient(293deg, #FFD17C 4%, #E77FE9 96%);
@@ -42,10 +53,9 @@ header:before {
   position: absolute;
     right: 0;
     top: 0;
-  z-index: -1;
 }
 
-header:after {
+.header-mask-container:after {
   -webkit-animation: spin 20s 10s linear infinite;
           animation: spin 20s 10s linear infinite;
   background-image: -webkit-linear-gradient(137deg, #FFFE19 0%, #FF6464 100%);
@@ -58,7 +68,6 @@ header:after {
   position: absolute;
     right: 0;
     top: 0;
-  z-index: -1;
 }
 
 .header-mask {
@@ -71,6 +80,7 @@ header:after {
     bottom: 0;
   height: 100vh;
     left: 50%;
+  max-width: 1200px;
   min-width: 800px;
   position: absolute;
     right: 0;
@@ -78,6 +88,7 @@ header:after {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 100vw;
+  z-index: 10;
 }
 
 .header-title {

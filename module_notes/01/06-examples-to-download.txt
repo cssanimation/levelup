@@ -1,36 +1,34 @@
 # Examples to download and use
 
-NOTE: I'm working on this section currently and will have these with you as soon as possible :)
-
-Ready to try your hand at some hero header design? I've created some extra examples here for you to download and try. Feel free to copy, reuse, and adapt them to your needs. As far as license goes, you're free to use them in any commercial or non-commercial setting, as long as you don't set up a shop selling them as your own templates. That would be not cool.
+Ready to try your hand at some hero header design? I've created some extra examples here for you to download and try. Feel free to copy, reuse, and adapt them to your needs.
 
 If you do use these or any ideas in the course on your projects, do let me know! I'll be happy to add them here as an example to inspire other students!
 
 ## Templates
 
-You'll find all these in your downloaded zip file, [01.zip](https://cssanimation.rocks/levelup/public/01/01.zip) in the folder "examples".
+You'll find all these in your downloaded zip file, [01.zip](https://cssanimation.rocks/levelup/public/01/01.zip) in the folder.
 
 ### Fixed background image
 
-![Fixed background image](https://cssanimation.rocks/levelup/public/images/01/example-fixed.png)
+![Fixed background image](https://cssanimation.rocks/levelup/public/images/01/example-fixed.jpg)
 
 This example animates the content onto the scene as before, but affixes the background to the page. Content scrolls up in front.
 
 ### Video background
 
-![Video background image](https://cssanimation.rocks/levelup/public/images/01/example-video.png)
+![Video background image](https://cssanimation.rocks/levelup/public/images/01/example-video.jpg)
 
 A popular use of a hero header is to affix a background video. Here's one to get you started.
 
 ### Blurry-background depth zoom
 
-![Blurry background animation](https://cssanimation.rocks/levelup/public/images/01/example-blurry.png)
+![Blurry background animation](https://cssanimation.rocks/levelup/public/images/01/example-blurry.jpg)
 
-A sci-fi esque header that zooms back to reveal a massive star scape. The trick is to have to images, one with the zoom effect and the second without.
+A sci-fi style header that zooms back to reveal a massive star scape. The trick is to have to images, one with the zoom effect and the second without.
 
-### Animated Gradient background (rotating)
+### Animated gradient background
 
-![Gradient background animation](https://cssanimation.rocks/levelup/public/images/01/example-gradient.png)
+![Gradient background animation](https://cssanimation.rocks/levelup/public/images/01/example-circle.jpg)
 
 A simple effect in which two gradients rotate on top of each other. The effect is quite neat. Try changing the gradient values!
 

@@ -1,8 +1,5 @@
 # Module 1: Build an animated hero header
 
-<p style="color: #900;font-weight: bold">Important note: This is a work in progress - I'm working on creating videos for these lessons, and I'll upload them as soon as they're available. Thank you for your patience!
-  </p>
-
 If you've ever arrived on a website and been greeted by a large image or video, and some titles on top, then you've encountered the "Hero Header". It's a popular way to introduce a website, and can be a great opportunity to help people quickly understand what it is your site does.
 
 For many visitors it'll be their first impression of your brand, so you'll want to make the most of this moment to present something that properly shows how great it is.
