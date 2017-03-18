@@ -34,6 +34,11 @@ gulp.task("zips", function() {
     .pipe(gulp.dest("public/"));
 });
 
+gulp.task("video", function() {
+  return gulp.src(["./src/**/*.mp4", "./src/**/*.webm"])
+    .pipe(gulp.dest("public/"));
+});
+
 gulp.task("css", function () {
     var postcss    = require("gulp-postcss");
     //var sourcemaps = require("gulp-sourcemaps");
@@ -77,6 +82,8 @@ gulp.task("watch", function() {
   gulp.watch("src/**/*.svg", ["images", browserSync.reload]);
   gulp.watch("src/**/*.gif", ["images", browserSync.reload]);
   gulp.watch("src/**/*.zip", ["zips"]);
+  gulp.watch("src/**/*.mp4", ["video"]);
+  gulp.watch("src/**/*.webm", ["video"]);
 });
 
-gulp.task("default", ["html","js","css","images","browser-sync","zips","watch"]);
+gulp.task("default", ["html","js","css","images","browser-sync","zips","video","watch"]);

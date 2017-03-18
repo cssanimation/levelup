@@ -1,0 +1,130 @@
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important;
+}
+
+header {
+  align-items: center;
+  background: linear-gradient(157deg, #FFD17C 4%, #E77FE9 96%);
+  display: flex;
+  font-family: Pacifico, cursive;
+  font-size: 18px;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transform-style: preserve-3d;
+  perspective: 100px;
+}
+
+header:before {
+  animation: spin 20s linear infinite;
+  background-image: linear-gradient(157deg, #FFD17C 4%, #E77FE9 96%);
+  background-size: cover;
+  content: "";
+  opacity: 0;
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  z-index: -1;
+}
+
+header:after {
+  animation: spin 20s 10s linear infinite;
+  background-image: linear-gradient(-47deg, #FFFE19 0%, #FF6464 100%);
+  background-size: cover;
+  content: "";
+  opacity: 0;
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  z-index: -1;
+}
+
+.header-mask {
+  background: url(../images/circle.svg),
+              radial-gradient(50% 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,.3) 100%);
+  background-size: cover;
+  background-position: center;
+  min-width: 800px;
+  position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+  height: 100vh;
+  width: 100vw;
+  transform: translate(-50%, -50%);
+}
+
+.header-title {
+  color: #333;
+  font-weight: 200;
+}
+
+.header-button {
+  transform: translateZ(.1px);
+  position: relative;
+  z-index: 10;
+}
+
+.header-button a {
+  background: #333;
+  font-weight: 200;
+  box-shadow: 0 0 .5em .2em rgba(255,255,255,.5);
+}
+
+.animate-pop-in {
+  animation: no-transform .6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
+  opacity: 0;
+  transform: translateY(-4rem) scale(.8);
+}
+
+.rocky-dashed {
+  animation-delay: .6s;
+}
+
+.header-title {
+  animation-delay: .8s;
+}
+
+.header-button {
+  animation-delay: 1.1s;
+}
+
+/* Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotateZ(360deg);
+  }
+}
+
+
+@keyframes no-transform {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}

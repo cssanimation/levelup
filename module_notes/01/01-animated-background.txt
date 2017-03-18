@@ -204,7 +204,7 @@ Here's how it looks.
 
 That's certainly more relaxed. But it still feels a little stilted. Next, let's look at the timing function.
 
-## Rolling your own timings
+## Custom timing functions 
 
 Browsers give us a set of pre-built timing functions to work with. This include `ease-in`, `ease-out` and more. They're handy but they tend to be a little bit boring and not always ideal for larger animations. We can instead create our own timing function to change the way our pseudo-element moves on the screen.
 

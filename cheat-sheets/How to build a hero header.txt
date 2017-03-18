@@ -1,0 +1,11 @@
+How to build a hero header
+
+- Structure, what to include in a Hero Header
+- Image sizes / dimensions
+- Video sizes / dimensions
+- Using a semi-transparent layer on top
+- Headline - writing a good one, colour, fonts
+- Call to action
+- Explainer animation tips
+- Embedding video - tips on optimising Youtube
+- Tip: Avoid loading spinners by introducing content as soon as possible / use JavaScript to wait for larger media to become available but load other content, or containers / placeholders

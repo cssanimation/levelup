@@ -6,28 +6,37 @@ Ready to try your hand at some hero header design? I've created some extra examp
 
 If you do use these or any ideas in the course on your projects, do let me know! I'll be happy to add them here as an example to inspire other students!
 
-## Templates [COMING SOON]
+## Templates
 
-1) Fixed background image
+You'll find all these in your downloaded zip file, [01.zip](https://cssanimation.rocks/levelup/public/01/01.zip) in the folder "examples".
+
+### Fixed background image
+
+![Fixed background image](https://cssanimation.rocks/levelup/public/images/01/example-fixed.png)
 
 This example animates the content onto the scene as before, but affixes the background to the page. Content scrolls up in front.
 
-[Download]()
+### Video background
 
-2) Video background
+![Video background image](https://cssanimation.rocks/levelup/public/images/01/example-video.png)
 
-A popular use of a hero header is to affix a background video. Here's a basic one to get you started.
+A popular use of a hero header is to affix a background video. Here's one to get you started.
 
-[Download]()
+### Blurry-background depth zoom
 
-3) TV-show style reveal
+![Blurry background animation](https://cssanimation.rocks/levelup/public/images/01/example-blurry.png)
 
-Inspired by the credits to the show "Elemental", a blurry image resolves into sharp focus as the letters reveal themselves one at a time.
+A sci-fi esque header that zooms back to reveal a massive star scape. The trick is to have to images, one with the zoom effect and the second without.
 
-[Download]()
+### Animated Gradient background (rotating)
 
-4) Animated SVG background
+![Gradient background animation](https://cssanimation.rocks/levelup/public/images/01/example-gradient.png)
+
+A simple effect in which two gradients rotate on top of each other. The effect is quite neat. Try changing the gradient values!
+
+## Resources
+
+There's all sorts of great tools and info out there. Here's some you might find useful when you're building your animated hero header.
 
 
-5) Animated Gradient background (rotating)
 

@@ -40,6 +40,8 @@ header:before {
 }
 
 header:after {
+  -webkit-animation: rotate-up .5s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+          animation: rotate-up .5s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
   background: #F9FCFF;
   content: "";
   height: 40rem;
@@ -47,8 +49,6 @@ header:after {
   position: absolute;
     right: -5%;
     top: 90%;
-  -webkit-transform: rotateZ(-4deg);
-          transform: rotateZ(-4deg);
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
   z-index: 0;
@@ -226,5 +226,19 @@ header:after {
     opacity: 1;
     -webkit-transform: none;
             transform: none;
+  }
+}
+
+@-webkit-keyframes rotate-up {
+  100% {
+    -webkit-transform: rotateZ(-4deg);
+            transform: rotateZ(-4deg);
+  }
+}
+
+@keyframes rotate-up {
+  100% {
+    -webkit-transform: rotateZ(-4deg);
+            transform: rotateZ(-4deg);
   }
 }

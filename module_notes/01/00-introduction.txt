@@ -1,4 +1,4 @@
-# Module 1: Build an impressive animation header
+# Module 1: Build an animated hero header
 
 <p style="color: #900;font-weight: bold">Important note: This is a work in progress - I'm working on creating videos for these lessons, and I'll upload them as soon as they're available. Thank you for your patience!
   </p>
