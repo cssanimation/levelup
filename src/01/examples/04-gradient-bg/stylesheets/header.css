@@ -31,8 +31,10 @@ header {
 }
 
 .header-mask-container:before {
-  animation: spin 20s linear infinite;
+  animation: spin 10s linear infinite;
   background-image: linear-gradient(157deg, #FFD17C 4%, #E77FE9 96%);
+  /* Rectangle: */
+background-image: linear-gradient(-225deg, #1D26CF 0%, #4EC754 100%);
   background-size: cover;
   content: "";
   opacity: 0;
@@ -44,7 +46,7 @@ header {
 }
 
 .header-mask-container:after {
-  animation: spin 20s 10s linear infinite;
+  animation: spin 10s 7s linear infinite;
   background-image: linear-gradient(-47deg, #FFFE19 0%, #FF6464 100%);
   background-size: cover;
   content: "";

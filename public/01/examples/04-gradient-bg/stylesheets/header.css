@@ -41,10 +41,13 @@ header {
 }
 
 .header-mask-container:before {
-  -webkit-animation: spin 20s linear infinite;
-          animation: spin 20s linear infinite;
+  -webkit-animation: spin 10s linear infinite;
+          animation: spin 10s linear infinite;
   background-image: -webkit-linear-gradient(293deg, #FFD17C 4%, #E77FE9 96%);
   background-image: linear-gradient(157deg, #FFD17C 4%, #E77FE9 96%);
+  /* Rectangle: */
+background-image: -webkit-linear-gradient(315deg, #1D26CF 0%, #4EC754 100%);
+background-image: linear-gradient(-225deg, #1D26CF 0%, #4EC754 100%);
   background-size: cover;
     bottom: 0;
   content: "";
@@ -56,8 +59,8 @@ header {
 }
 
 .header-mask-container:after {
-  -webkit-animation: spin 20s 10s linear infinite;
-          animation: spin 20s 10s linear infinite;
+  -webkit-animation: spin 10s 7s linear infinite;
+          animation: spin 10s 7s linear infinite;
   background-image: -webkit-linear-gradient(137deg, #FFFE19 0%, #FF6464 100%);
   background-image: linear-gradient(-47deg, #FFFE19 0%, #FF6464 100%);
   background-size: cover;
