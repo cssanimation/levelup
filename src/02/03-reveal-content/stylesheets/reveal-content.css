@@ -1,0 +1,89 @@
+/* Styles for highlighting the current hovered content area */
+
+/* Hide the parts we'll show on hover */
+
+.option .call-to-action {
+  opacity: 0;
+  transform: scale(.2);
+  visibility: hidden;
+}
+
+.option .more-info {
+  opacity: 0;
+  transform: translateY(-1.5em);
+  visibility: hidden;
+}
+
+/* Set up the "highlighted" (and hover) state */
+
+.option.highlighted {
+  background: #fff;
+  border-radius: .2em;
+  border: 1px solid #eee;
+  transform: scale(1.2) translateY(1em);
+  z-index: 100;
+}
+
+.option.highlighted .badge {
+  transform: translateY(-5em) scale(1.2);
+}
+
+.option.highlighted h2 {
+  transform: translateY(-3.5em);
+}
+
+.option.highlighted .more-info {
+  left: 10%;
+  opacity: 1;
+  right: 10%;
+  transform: translateY(-4em);
+  visibility: visible;
+}
+
+.option.highlighted .call-to-action {
+  opacity: 1;
+  transform: translateY(1.25em) scale(1);
+  visibility: visible;
+}
+
+.option.highlighted .summary {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Transitions */
+
+.option {
+  transition: transform 4s cubic-bezier(0,1.7,.3,1),
+              background 1s ease-out;
+}
+
+.option.highlighted {
+  transition: transform 8s cubic-bezier(0,1.67,.29,1);
+}
+
+.option .badge {
+  transition: transform .8s cubic-bezier(0,1,.3,1);
+}
+
+.option.highlighted .badge {
+  transition: transform .5s cubic-bezier(0,1,.3,1);
+}
+
+.option h2 {
+  transition: transform .6s cubic-bezier(0,1,.3,1);
+}
+
+.option.highlighted h2 {
+  transition: transform .4s cubic-bezier(0,1,.3,1);
+}
+
+.option.highlighted .more-info {
+  transition: transform .3s cubic-bezier(0,1,.3,1),
+              opacity .4s ease-out;
+}
+
+.option.highlighted .call-to-action {
+  transition: transform .6s cubic-bezier(0,1.5,.3,1),
+              opacity .6s ease-out;
+}

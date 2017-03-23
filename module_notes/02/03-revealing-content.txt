@@ -1,0 +1,25 @@
+Steps
+
+- Explain what we're aiming for, include an animation showing the intended goal
+- Explain starting html
+- Add the "highlighted" class - we'd like to make this stand out
+- Explain starting CSS (very little) (just hiding a couple of elements we don't want to see by default)
+- Add CSS to hide the elements we do want to see appear in the highlighted item
+
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+- Activating transitions on mouseover or tap
+- Choreographing multiple transitions
+- When not to transition
+- Designing timing functions that feel more organic
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

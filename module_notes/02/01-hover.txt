@@ -1,0 +1,78 @@
+01-hover-effect-1.txt
+
+Steps: 
+
+- Show the HTML
+- Initial CSS empty using browser default styling for the links to begin with
+
+- Set text decoration none (why)
+- Add border-bottom: .1em solid blue; - see how it's too low
+- Instead add a pseudo element:
+  a {
+    text-decoration: none;
+    position: relative;
+  }
+
+  a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: .14em;
+    border-top: .1em solid blue;
+  }
+
+- Looks the same as the link unstyled
+- But since it's a border we can do more, such as border-radius
+- Show border radius 50% for a wedge shape
+- Adjust back to 1em to match the rounded style of our text border-radius: 1em;
+
+- Animating the pseudo element
+- First get rid of the underline on hover
+- Add in the :hover:after block positioning right: 0
+- Add in the transition transition: all .4s cubic-bezier(0,.5,0,1);
+- Note that we're animating the "left" and "right" attributes - this is often dangerous especially if it means making pages adjust their layouts. In this case though...
+
+- Add in a colour animation - first add color and border-color to the two elements
+- Add transition to the anchor block itself
+- Add in a hover colour and a hover:after border colour, then add a transition for the border colour to match the anchor transition
+
+- Sert up keyframes for a simple left to right animation
+- Explain about how multiple percentages represent a "pause" in the keyframes
+
+    a:hover:after {
+      animation: anchor-underline 2s cubic-bezier(0,.5,0,1) infinite;
+      border-color: #457DFB;
+    }
+
+    @keyframes anchor-underline {
+      0%, 10% {
+        left: 0;
+      }
+      40%, 60% {
+        left: 0;
+        right: 0;
+      }
+      90%, 100% {
+        right: 0;
+        left: 100%;
+      }
+    }
+
+- You'll find more examples of link hover transitions and animations in the examples folder under /02/ 
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+* Styling links underlines
+* Adding multiple transitions to elements
+* Multiple comma separated keyframes
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

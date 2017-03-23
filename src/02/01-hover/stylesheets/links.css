@@ -1,0 +1,45 @@
+/* Styles for the links */
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  color: #2F56B0;
+  transition: color .4s ease-out;
+}
+
+a:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: .14em;
+  border-top: .1em solid #2F56B0;
+  border-radius: 1em;
+  transition: border-color .4s ease-out;
+}
+
+a:hover {
+  color: #457DFB;
+  text-decoration: none;
+  right: 0;
+}
+
+a:hover:after {
+  animation: anchor-underline 2s cubic-bezier(0,.5,0,1) infinite;
+  border-color: #457DFB;
+}
+
+@keyframes anchor-underline {
+  0%, 10% {
+    left: 0;
+  }
+  40%, 60% {
+    left: 0;
+    right: 0;
+  }
+  90%, 100% {
+    right: 0;
+    left: 100%;
+  }
+}

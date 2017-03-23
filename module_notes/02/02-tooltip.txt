@@ -1,0 +1,74 @@
+Steps
+
+- Going to write some JavaScript to prepare the tooltips
+- First add a "title" attribute to links
+- Then a class we can use to make sure JS gets the right links
+- Write the JS
+- Put in jQuery reference and reference to the tooltips.js
+
+- Set up styles for the tooltips
+- Add the following, explaining line by line
+
+    /* Styles for the title tooltips */
+
+    .title-container {
+      background: rgba(255,255,255,.9);
+      border: 2px solid #457DFB;
+      border-radius: .1em;
+      font-size: .7em;
+      max-width: 16em;
+      min-width: 12em;
+      padding: .25em .5em;
+      position: absolute;
+        bottom: 2em;
+        left: 50%;
+      text-align: center;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .title-container:after {
+      content: "";
+      border-style: solid;
+      border-color: #457DFB transparent;
+      border-radius: 0;
+      border-width: .2em .2em 0 .2em;
+      position: absolute;
+        bottom: -.2em;
+        left: calc(50% - .2em);
+      z-index: 20;
+      width: 0;
+    }
+
+- Show how on hover, the title tooltip appears
+- Let's add some polish to this by using multiple transitions
+- When we start we want it to be invisible, and we can achieve this by adding "visibility: hidden".
+- Add the block to show the element on hover
+  .anchor-tooltip:hover .title-container {
+      visibility: visible;
+    }
+- Next, transitions, add transitions for visbility, opacity and transform to the tooltip container
+- Add transform to position it up slightly at start
+- Add hover state with opacity and no transform:  .anchor-tooltip:hover .title-container
+- Test - show how it's good one direction but disappears suddenly
+- Copy transitions into the hover state - explain difference
+- Add delay to visibility transition on the container (non-hover)
+- Lastly, adjust the outgoing transition to be a smooth ease-out, and slower opacity change
+
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+- Build tooltips using JavaScript and the title attribute
+- Transitions on multiple properties
+- Transitioning the "visibility" property
+- Different transitions for mouse over and mouse out
+
+[Main content]
+
+## What we learned
+
+[Next: Title]
