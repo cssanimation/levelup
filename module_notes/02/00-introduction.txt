@@ -1,0 +1,1 @@
+- Why transitions are nicely suited to hover events, more that animations generally

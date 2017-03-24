@@ -208,10 +208,15 @@ footer {
 .actions {
   margin: 8em 0;
 
-  .badge, h2, p, .call-to-action {
+  .badge, h2, p {
     position: absolute;
     left: 20%;
     right: 20%;
+  }
+
+  .call-to-action {
+    display: inline-block;
+    margin: 1em auto;
   }
 
   h2 {
@@ -224,10 +229,10 @@ footer {
   }
 
   .col {
+    height: 18em;
     margin: 2em 0;
     text-align: center;
     width: 20em;
-    height: 18em;
 
     p:nth-child(2) {
       flex-grow: 1;
@@ -242,11 +247,10 @@ footer {
 
 .button {
   background: #269300;
-  border-radius: .8rem;
+  border-radius: .25em;
   color: #fff;
-  display: block;
-  padding: 2rem;
+  display: inline-block;
+  padding: .25em .5em;
   margin: 0 auto;
   text-align: center;
-  width: 20rem;
 }

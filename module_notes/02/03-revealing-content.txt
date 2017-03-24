@@ -1,10 +1,20 @@
 Steps
 
 - Explain what we're aiming for, include an animation showing the intended goal
+- Show how combining multiple transitions together requires keeping each quite simple so we don't overdo it
 - Explain starting html
 - Add the "highlighted" class - we'd like to make this stand out
 - Explain starting CSS (very little) (just hiding a couple of elements we don't want to see by default)
 - Add CSS to hide the elements we do want to see appear in the highlighted item
+- Mention the transforms - even though these are invisible, we'd like to animate them in
+- Go through each of the highlight rules showing how each positions and adjusts the element for the "highlighted" state
+- Once the highlighted state is nicely placed, add interaction
+- Set up JS file, add the hover state that adds or removes class
+- Put in the optional extra to highlight the "featured" one when nothing is selected
+- Test the hover effect (codepen)
+- Start adding transitions by adding the highlighted ones first
+- Why 5 seconds? The timing function takes the edge of the end of the animation. It doesn't seem to suddenly stop moving. The timing function ensures the animation is very gradual toward the end, so that people can still read the content but it feels more alive.
+- Talk about what "isn't" being animated - no opacity animation. It can be distracting if it's too noticeable - a fast transform can often trick the eye. Experiment and see what feels right.
 
 
 # Title
@@ -14,9 +24,9 @@ Steps
 [What we will learn]
 
 - Activating transitions on mouseover or tap
-- Choreographing multiple transitions
+- Setting up multiple transitions efficiently
 - When not to transition
-- Designing timing functions that feel more organic
+- Using CSS variables for consistent timing
 
 [Main content]
 

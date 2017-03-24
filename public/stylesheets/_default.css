@@ -187,7 +187,9 @@ footer li:first-child:before { content: ""; }
   margin: 8em 0;
 }
 
-.actions .badge, .actions h2, .actions p, .actions .call-to-action { left: 20%; position: absolute; right: 20%; }
+.actions .badge, .actions h2, .actions p { left: 20%; position: absolute; right: 20%; }
+
+.actions .call-to-action { display: inline-block; margin: 1em auto; }
 
 .actions h2 { top: 5em; }
 
@@ -203,11 +205,10 @@ footer li:first-child:before { content: ""; }
 
 .button {
   background: #269300;
-  border-radius: .8rem;
+  border-radius: .25em;
   color: #fff;
-  display: block;
+  display: inline-block;
   margin: 0 auto;
-  padding: 2rem;
+  padding: .25em .5em;
   text-align: center;
-  width: 20rem;
 }

@@ -1,0 +1,41 @@
+- Steps
+
+Again this example is all about setting up good beginning and end states. The transition property is very simple but makes a big difference with the right timing function.
+
+- Show the HTML - very simple link with the class "button"
+- Behind the scenes I've added some background colour and styles to the button
+- Let's make use of animating pseudo elements to make the button more fun
+- First remove the existing background colour, text decoration and make the position relative
+- Then add the two pseudo elements
+- Then we want some hover states. First the main button hover state. We'll make it scale up on hover
+- Then the before and after pseudo elements need hover states - the first is the shadow, it moves down a little to make the button look like it's moving out from the page
+- The after has a brighter background colour, like it's waking up
+- Test the hover states, without animation 
+- Next we need to decide what happens when the visitor clicks the button. For this we use the "active" state
+- First, have the button move down, past it's initial starting position. Initially is has a little shadow, we'd like it to go past this point to feel more like it's being pushed down properly
+- Then we move the "active:before" pseudoelement up to hide the shadow [Note: no transitions in the code yet]
+- Test by clicking the button
+- With the hover and active states done, we can tie it all together using a transform
+- Add in the transform rule (using the same cubic bezier as earlier)
+- Show the click effect, with transitions both directions
+- Fix the "squishiness"
+- Add in "transition none" to both the active states. This means that when the browser is applying active state, it won't use any transition, it'll jump straight to the lower position.
+- We now have a snappier feel when pressing the button, but it still responds by pushing back up smoothly
+- Show the finished result with hover and click effect
+
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+* Creating a tactile button interaction with 3 states
+* Animating the "Active" state
+* Different transitions going there and back
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

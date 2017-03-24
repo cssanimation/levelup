@@ -10,8 +10,9 @@ $(function() {
       $(this).removeClass('highlighted');
       setTimeout(function() {
         if (!$('.option.highlighted').length) {
-          $('.popular').addClass('highlighted');
+          $('.option.featured').addClass('highlighted');
         }
       }, 500);
     }); 
+  
 });

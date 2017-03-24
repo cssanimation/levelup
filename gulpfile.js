@@ -50,7 +50,8 @@ gulp.task("css", function () {
         require("autoprefixer"),
         require("postcss-nested"),
         require("precss"),
-        require('postcss-partial-import')()
+        require('postcss-partial-import')(),
+        require('postcss-css-variables')
       ]) )
       //.pipe( sourcemaps.write(".") )
       .pipe( gulp.dest("public/") );

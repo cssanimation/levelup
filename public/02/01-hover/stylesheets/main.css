@@ -198,10 +198,10 @@ footer li:first-child:before {
   max-width: 80%;
 }
 .actions .col {
+  height: 18em;
   margin: 2em 0;
   text-align: center;
   width: 20em;
-  height: 18em;
 }
 .actions .col p:nth-child(2) {
   flex-grow: 1;
