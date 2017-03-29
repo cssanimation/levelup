@@ -1,4 +1,11 @@
-Steps
+# Animated tooltips
+
+Let's learn more about how transitions work creating and animating tooltips on our links.
+
+In this lesson we'll write a simple script to generate tooltips for our links, using JavaScript and the link's `title` attribute. We'll then make use of transitions on multiple properties and set up different transitions for mouse over and mouse out. We'll also see how we can use transition for a property that might not seem like something we can transition, the "visibility" property.
+
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and open folder `01-anchors`. A completed version of this lesson's code is in the folder `02-tooltips`.
+
 
 - Going to write some JavaScript to prepare the tooltips
 - First add a "title" attribute to links
@@ -56,19 +63,13 @@ Steps
 - Lastly, adjust the outgoing transition to be a smooth ease-out, and slower opacity change
 
 
-# Title
 
-[Intro]
-
-[What we will learn]
+## What we learned
 
 - Build tooltips using JavaScript and the title attribute
 - Transitions on multiple properties
-- Transitioning the "visibility" property
 - Different transitions for mouse over and mouse out
+- Transitioning the "visibility" property
 
-[Main content]
-
-## What we learned
 
 [Next: Title]
