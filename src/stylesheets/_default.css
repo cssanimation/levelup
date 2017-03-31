@@ -205,13 +205,23 @@ footer {
   margin-left: -2rem;
 }
 
-.actions {
+.options {
   margin: 8em 0;
+
+  .option {
+    border-radius: .2em;
+    border: 1px solid transparent;
+  }
 
   .badge, h2, p {
     position: absolute;
     left: 20%;
     right: 20%;
+  }
+
+  .more-info {
+    left: 10%;
+    right: 10%;
   }
 
   .call-to-action {

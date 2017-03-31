@@ -1,35 +1,225 @@
-Steps
+# Revealing content on hover
 
-- Explain what we're aiming for, include an animation showing the intended goal
-- Show how combining multiple transitions together requires keeping each quite simple so we don't overdo it
-- Explain starting html
-- Add the "highlighted" class - we'd like to make this stand out
-- Explain starting CSS (very little) (just hiding a couple of elements we don't want to see by default)
-- Add CSS to hide the elements we do want to see appear in the highlighted item
-- Mention the transforms - even though these are invisible, we'd like to animate them in
-- Go through each of the highlight rules showing how each positions and adjusts the element for the "highlighted" state
-- Once the highlighted state is nicely placed, add interaction
-- Set up JS file, add the hover state that adds or removes class
-- Put in the optional extra to highlight the "featured" one when nothing is selected
-- Test the hover effect (codepen)
-- Start adding transitions by adding the highlighted ones first
-- Why 5 seconds? The timing function takes the edge of the end of the animation. It doesn't seem to suddenly stop moving. The timing function ensures the animation is very gradual toward the end, so that people can still read the content but it feels more alive.
-- Talk about what "isn't" being animated - no opacity animation. It can be distracting if it's too noticeable - a fast transform can often trick the eye. Experiment and see what feels right.
+So far we've seen how transitions can smooth over the state changes from one state to another. In this lesson we'll create a more complex looking animation, where the content of the page adjusts on hover with many movements happening at the same time.
 
+In this lesson we'll be using some JavaScript to apply a class on mouseover, or tap if it's a mobile device. We'll be coordinating a complex looking series of transitions that work together, and we'll be learning when it's OK to not have a visible transition when changing states. In the fact the resulting animation will seem complex but actually be achieved using very few animations.
 
-# Title
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and look for folder `03-start` in the `02` folder. A completed version of this lesson's code is in the folder `03-end`.
 
-[Intro]
+Here's what we're going to build.
 
-[What we will learn]
+[CodePen of the finished result]
 
-- Activating transitions on mouseover or tap
-- Setting up multiple transitions efficiently
-- When not to transition
-- Using CSS variables for consistent timing
+Let's get started.
 
-[Main content]
+## Planning the states
+
+You may have noticed how we spend most of the lesson setting up the beginning and end states, and the transition part of our CSS is quite small. I've found that this tends to be the way when working with transitions. Keyframe animations take more work, setting up each of the percentages in a keyframe animation for example. When we're using transitions though, we put most of the work into building the beginning and the end states, and let the browser handle everything in between. 
+
+That's what we'll do in this lesson. I've set up some initial code to get us started. It's going to look a little crazy but both the content we want to see by default, and the content we want to reveal on hover are in the HTML. We'll add some CSS to arrange them properly in a moment. First though, in our `index.html` file we find a set of "options":
+
+    <div class="col option highlighted featured">
+      <div class="badge second"><img src="/images/rocks.svg" class="rocky-badge"></div>
+      <h2>Option 2</h2>
+      <p class="summary">A short description of the feature or option.</p>
+      <p class="more-info">Some more info about this awesome option you are considering!</p>
+      <p class="call-to-action"><a class="button" href="https://cssanimation.rocks">Do it</a></p>
+    </div>
+
+Each option has a badge at the top, a title, a summary, along with more-info and call-to-action sections. We're going to hide these last two, and then show them on hover while also hiding the summary text. 
+
+You'll notice there's a class name `highlighted` added to the container of this option. This is the "hook" we'll use to decide whether the option is showing the extra content or not. Later we'll write some JavaScript to add or remove this class on hover but for now it'll give it something to style.
+
+[CodePen - initial state of 3-start]
+
+Looking at it in the browser it's a bit of a mess, I'm positioning each element using "absolute" positioning, but we'll arrange them using CSS.
+
+Opening the file `reveal-content.css` in the `stylesheets` folder we'll start arranging these elements.
+
+## Showing / hiding content
+
+We begin by hiding the content that will only be visible on the `highlighted` option. 
+
+To start we specify the `more-info` and `call-to-action`  blocks.
+
+    .option .more-info {
+      visibility: hidden;
+    }
+
+    .option .call-to-action {
+      transform: scale(.2);
+      visibility: hidden;
+    }
+
+We want these elements to be invisible and not interfere with the content, so we set `visibility` to "hidden".
+
+In the case of the `call-to-action` we add a transform to scale it down. When we animate this later it'll grow to full size. This will create an effect where the button kind of zooms into place from the distance.
+
+For the `more-info` element we do the same but instead of scaling it, we use a `transform` to pull the element up by 1em. This will cause it to slide down to it's normal state when we animate it later. What we're doing here is setting up the initial state for these elements. Even though they're invisible, they're essentially "primed" for animation to their finished state.
+
+Back in the browser we can see the result. The more-info and call-to-action blocks are invisible. Let's style the `highlighted` state next.
+
+First we want the option container itself to have a white background and be bigger than the other options.
+
+    .option.highlighted {
+      background: #fff;
+      border-color: #eee;
+      transform: scale(1.2) translateY(1em);
+    }
+
+We specify `option.highlighted` first to make sure we're being specific enough, just in case there's another "highlighted" class floating around somewhere. We then style the `option` container using the `background` and `border-color` properties, then a `transform` to scale it up to 1.2 times the normal size, and lastly translate to push it down to sit better alongside the other options.
+
+Next we style the badge and the title. We'd like them to move up to make space for the "more-info" content beneath. 
+
+    .option.highlighted .badge {
+      transform: translateY(-5em) scale(1.2);
+    }
+
+    .option.highlighted h2 {
+      transform: translateY(-3.5em);
+    }
+
+For the badge we translate it up by 5em, and make it stand out by scaling it up also. We're using an SVG for this badge, so it'll look good when scaled up. If this is going to be a bitmap image, it could be worth making sure it's large enough to handle being scaled up.
+
+For the title we move it up by 3.5em so that it sits under the badge.
+
+It's time to show the hidden content. 
+
+    .option.highlighted .more-info {
+      transform: translateY(-4em);
+      visibility: visible;
+    }
+
+    .option.highlighted .call-to-action {
+      transform: translateY(1.25em);
+      visibility: visible;
+    }
+
+For each of the "more-info" and "call-to-action" blocks we set out how they need to look when they've finished their transition. They each have an opacity of 1, so that they fade in. The "more-info" block needs to move up also to sit beneath the title so we apply a transform to translate it on the Y axis a negative 4em.
+
+The "call-to-action" element will move the other way, it'll move down to make space for the "more-info". Since this `transform` doesn't specify `scale`, this implies that it should return to it's full size.
+
+Lastly we're going to have to hide the `summary` text.
+
+    .option.highlighted .summary {
+      visibility: hidden;
+    }
+
+We'll remove the summary by setting the `visibility` to `hidden`.
+
+Let's take a look at the result.
+
+[CodePen of the highlighted item but no hover effect]
+
+This is looking good, but there's no interaction. Let's add in the hover event to these options.
+
+## Adding a hover event
+
+In the start folder I've added a `javascripts` folder with a file `highlight.js`. This file is called at the bottom of the `index.html` along with jQuery. We'll be using jQuery this time as it has a nice "hover" method we can use that also works on mobile devices where our visitors will be able to "tap" instead of hover.
+
+In the JavaScript file you'll find a little bit of code that runs when jQuery is ready. Inside the curly braces we add an event listener for the hover event on the "option"
+
+    $(function() {
+
+      $('.option').hover(
+        
+      ); 
+
+    });
+
+This method is passed in two functions. The first runs when the mouse goes over the element, and the second runs when the mouse leaves the element.
+
+In the first we want to remove any "highlighted" classes from the options, then add a "highlighted" class to the option we hover over. We achieve this using the "this" keyword.
+
+    $(function() {
+
+      $('.option').hover(
+        function() {
+          $('.option').removeClass('highlighted');
+          $(this).addClass('highlighted');
+        },
+        function() {
+          $(this).removeClass('highlighted');
+        }
+      ); 
+
+    });
+
+For the second function we remove the "highlighted" class. This is relatively simple to do using JavaScript but it would be more complicated to try to achieve this using CSS, as we don't just want this to be a hover effect but instead have one of the items "highlighted" when the page first loads.
+
+In the finished version of this code I've added a little extra JavaScript to the second function. It sets a timeout, and returns the "highlighted" state to the "featured" option. 
+
+    $(function() {
+
+      $('.option').hover(
+        function() {
+          $('.option').removeClass('highlighted');
+          $(this).addClass('highlighted');
+        },
+        function() {
+          $(this).removeClass('highlighted');
+          setTimeout(function() {
+            if (!$('.option.highlighted').length) {
+              $('.option.featured').addClass('highlighted');
+            }
+          }, 500);
+        }
+      ); 
+      
+    });
+
+Let's see it in action.
+
+[CodePen of the highlighted state but no transitions]
+
+## Adding transitions
+
+We've done a lot of work so far but none of it has been animations! Thankfully the hard work is done. We have a nice beginning and end state for each of the elements in our options, and we've built in the logic to switch between these states. Let's smooth the transition between these states using transitions.
+
+In our `reveal-content.css` file we can first add the necessary transitions for the `option` container itself.
+
+    .option {
+      transition: transform 5s cubic-bezier(0,1.7,.3,1),
+                  background .2s ease-out;
+    }
+
+We add the "option" block and a `transition`, first being the `transform` which will animate the scale and Y-axis position. We set a duration of 5 seconds and a cubic bezier timing function with co-ordinates "0, 1.7, .3, 1". You'll notice that the duration is very long, at 5 seconds. This is because of the timing function. This animation starts off very fast, and zooms right past the end state before very slowly and gradually settling back. The majority of the 5 seconds will be spend on this latter part, resulting in a more fluid looking animation.
+
+We then add another transition, this time for the background. It'll fade in quickly, in just .2 seconds with a simple "ease-out" timing function.
+
+Next we need to add transitions for all the other elements inside the "option". Let's see if we can do this quickly.
+
+    .option * {
+      transition: transform .5s cubic-bezier(0,1,.3,1);
+    }
+
+We begin with the "option" and then an asterisk - which translates to "any element inside the option container".
+
+Adding a transition then we limit it to just the `transform` property, give it a reasonably quick duration of half a second, and we'll use the same exponential ease-out timing function we used earlier.
+
+Here we have the finished result.
+
+[CodePen of finished result]
+
+It's worth mentioning that we're not animating opacity here. When setting up the styles for each element's default and highlighted states we didn't specify opacity. Often when showing hidden elements it would be
+useful to have them fade in and out using opacity but this time I chose not to. I suspect that if we had the elements fading in as well as doing the other movement, it would feel overdone. What we're doing here is a kind of sleight-of-hand in that the old content disappears suddenly but it's replaced by the new content. Our eyes sometimes try to "fill in the blanks" when this happens, and it looks to us like a really fast animation.
+
+The animation on these elements looks fast and slick and really doesn't need anything else added.
+
+It's a good idea to experiment with your animations. See if you can make them faster, or animate less things while still getting the right effect. When you do you might find your CSS code is leaner, you have an animation result that is more cohesive and still look impressive.
 
 ## What we learned
 
-[Next: Title]
+In this lesson we put together a complex looking hover effect using very little styles and just two transitions. We learned how JavaScript can help provide a "hover-style" event that allows more advanced interaction that the simple CSS hover state, and we saw how we don't always need to apply a transition when changing state and still end up with an impressive result.
+
+## Next: Animating buttons
+
+Next we'll take a look at something we've neglected to style so far - the "call-to-action" buttons. In the next lesson we'll take a look at animating the hover as well as the "active" state for a button, as well as experiment more with how different transitions can apply to mouse over and mouse out.
+
+
+
+
+
+
+
+

@@ -10,7 +10,7 @@ In this lesson we will learn how we style and animate the underlines on our link
 * Multiple comma separated keyframes
 * Transitions vs animations
 
-To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and open folder `00-start`. A completed version of this lesson's code is in the folder `01-anchors`.
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and open folder `00-start` in the `02` folder. A completed version of this lesson's code is in the folder `01-anchors`.
 
 ## Starting HTML and CSS
 
@@ -252,7 +252,9 @@ For as long as we hold the hover state, the animation plays.
 
 ## Transition vs animation
 
-This is one advantage the `animation` property has over `transition`. We can have animations that repeat, or alternate, or go through multiple stages in their animating. Transitions are more limited in this sense in that they only afford us the animation between one state and another. Having said that, there's a significant advantage to the transition approach, in that the hover effect gets a second, "out" transition for free. By applying the transition property to the anchor styles, the browser transitions both to and from the hover state. As we can see, this gives us a smoother mouse out effect.
+This is one advantage the `animation` property has over `transition`. We can have animations that repeat, or alternate, or go through multiple stages in their animating. Transitions are more limited in this sense in that they only afford us the animation between one state and another. Having said that, there's a significant advantage to the transition approach, in that the hover effect gets a second, "out" transition for free. By applying the transition property to the anchor styles, the browser transitions both to and from the hover state, even if the mouse leaves halfway through the animation.
+
+As we can see, this gives us a smoother mouse out effect.
 
 When choosing whether to use animation or transition for interactions it good to keep in mind this benefit. For the rest of this module we'll be focusing on how we can make the most of the transitions to provide smooth animated responses to interactions.
 

@@ -1,41 +1,162 @@
-- Steps
+# Animating buttons
 
-Again this example is all about setting up good beginning and end states. The transition property is very simple but makes a big difference with the right timing function.
+We've seen how efficient transitions can be. Let's see if we can apply this approach to animating a button's default, hover and active states.
 
-- Show the HTML - very simple link with the class "button"
-- Behind the scenes I've added some background colour and styles to the button
-- Let's make use of animating pseudo elements to make the button more fun
-- First remove the existing background colour, text decoration and make the position relative
-- Then add the two pseudo elements
-- Then we want some hover states. First the main button hover state. We'll make it scale up on hover
-- Then the before and after pseudo elements need hover states - the first is the shadow, it moves down a little to make the button look like it's moving out from the page
-- The after has a brighter background colour, like it's waking up
-- Test the hover states, without animation 
-- Next we need to decide what happens when the visitor clicks the button. For this we use the "active" state
-- First, have the button move down, past it's initial starting position. Initially is has a little shadow, we'd like it to go past this point to feel more like it's being pushed down properly
-- Then we move the "active:before" pseudoelement up to hide the shadow [Note: no transitions in the code yet]
-- Test by clicking the button
-- With the hover and active states done, we can tie it all together using a transform
-- Add in the transform rule (using the same cubic bezier as earlier)
-- Show the click effect, with transitions both directions
-- Fix the "squishiness"
-- Add in "transition none" to both the active states. This means that when the browser is applying active state, it won't use any transition, it'll jump straight to the lower position.
-- We now have a snappier feel when pressing the button, but it still responds by pushing back up smoothly
-- Show the finished result with hover and click effect
+In this lesson we'll create a hover state for a button, with a stylised, animated drop shadow as well as create the animation for when the button is clicked. The result should be a button that feels fun and intuitive to interact with.
 
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and look for folder `04-start` in the `02` folder. A completed version of this lesson's code is in the folder `04-end`.
 
-# Title
+Here's what we're aiming for. The button seems to move forward toward us on hover, it brightens, and the shadow grows to make it feel like it's moving further from the page. Then on click the button presses down flat, resulting in no shadow. 
 
-[Intro]
+[Codepen of the finished result]
 
-[What we will learn]
+Let's do this.
 
-* Creating a tactile button interaction with 3 states
-* Animating the "Active" state
-* Different transitions going there and back
+## Starting HTML
 
-[Main content]
+To begin with we have some simple HTML for the button. For the purposes of this example we're using a link in this case, but you could always use a `button`. 
+
+    <p><a class="button" href="#">Do the thing</a></p>
+
+To get things set up I've some basic styles in place, but we'll be overriding these to build the button with a shadow that we can animate. To do this we'll use a favourite of mine, the pseudo-element.
+
+[Codepen of the start state]
+
+### Styling the button
+
+The first thing we do is remove the background. In our `buttons.css` file in the stylesheets folder, create a new style block for the "button" class.
+
+    .button {
+      background: none;
+      position: relative;
+      text-decoration: none;
+    }
+
+We also set the position to relative so that we can position our pseudo-elements using absolute positioning, and then we set the text-decoration to none.
+
+With the background gone we'll use two pseudo-elements. One with the background colour and a second with the foreground colour.
+
+    .button:before {
+      background: rgba(200,200,200,.8);
+      border-radius: .25em;
+      content: "";
+      position: absolute;
+        top: .5em;
+        right: .1em;
+        bottom: -.1em;
+        left: .1em;
+      z-index: -1;
+    }
+
+We begin with the "button:before" pseudo-element. This is the grey shadow, so we give it a slightly transparent grey colour. A border radius to give it a rounded corner, and then we set the empty "content" property and position the pseudo-element so that it sits slight down from the top and beneath the bottom of the container.
+
+Lastly we set the `z-index` to -1. We want this to sit behind the content and this seems to achieve our goal. Next we'll create the foreground colour.
+
+    .button:after {
+      background: #1A9E3F;
+      border-radius: .25em;
+      content: "";
+      position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      z-index: -1;
+    }
+
+In the "button:after" pseudo-element we again set a background colour. Green this time. Then border radius and content, before positioning it also. This time it covers the container entirely. Again we set the z-index to -1 so that it sits behind the text. Because this is the "after" pseudo-element, it will sit in front of the shadow even though they both share the same z-index value.
+
+Checking our progress we should now see a nicely styled button with a grey shadow peeking out beneath.
+
+[CodePen of basic styled button with no hover effect]
+
+## Hover and active states
+
+For our button to grow on hover we'll need to scale it up.
+
+    .button:hover {
+      text-decoration: none;
+      transform: scale(1.1);
+    }
+
+In our `buttons.css` file we add a "button:hover" state. To ensure the underline stays hidden we set `text-decoration` to none. We could improve this by bringing in some of what we learned earlier and have the line animate also but for now we'll keep it simple. We then add a `transform` that scales the button up to 1.1 times it's usual size.
+
+Next we want to move the shadow down a bit.
+
+We create a style block called "button:hover:before". This means that when the hover state is entered, the following styles will apply to the "before" pseudo-element.
+
+    .button:hover:before {
+      transform: translateY(.1em);
+    }
+
+Here we'll push the shadow down by ".1" em. This should be enough to make it look like the shadow is getting further from the button as it grows toward us. We'll now change the button colour on hover by setting the colour on the "after" pseudo-element.
+
+    .button:hover:after {
+      background: #28B54F;
+    }
+
+With this in place we now have a hover state! But we're not done yet. Let's also add in an "active" state. This is the state that the link or button goes into when it's pressed.
+
+    .button:active {
+      transform: translateY(.2em);
+    }
+
+We add a "button:active" block, and within this we transform the button down by ".2" em. Because we're not setting the scale here, it'll scale back down to the normal size.
+
+Lastly we want the shadow to move in the "active" state. Since the visual effect we're going for is that of the button pressing flat to the page, there should be no shadow. So we'll pull it up underneath the button. We add a "button:active:before" state.
+
+    .button:active:before {
+      transform: translateY(-.1em);
+    }
+
+We set a `transform` on this to move the shadow up by ".1" em. This should be enough to hide it under the button.
+
+Let's see it in action. Looks like it has the three states alright but it could do with being smoother. Let's smooth the changes with transitions.
+
+[CodePen of the button with no transitions but just hover and active states]
+
+## Adding transitions
+
+Like before, we've created the states we want the elements to go through. With each state's styles in place we can now use transitions to smooth the flow between these states.
+
+We have 3 states, the "button", as well as the "before" and "after" pseudo-elements. We can list them and then apply one transition to all 3.
+
+    .button,
+    .button:before,
+    .button:after {
+      transition: all .5s cubic-bezier(0,1,.3,1);
+    }
+
+The transition will apply to "all" properties, have a duration of .5 seconds and we'll use the exponential ease-out timing function. This should mean that any changing properties that can be animated, such as transform, colours, will be animated on hover, active state and back to the original starting position. Let's see how this looks.
+
+[CodePen with just one transition - not the return transitions]
+
+This looks better, but not right yet. The active state has a "squishiness" to it, like it's on a firm spring or full of air that needs to be squeezed out. Depending on your design this might be good, but I think it would be better if this button pressed down immediately.
+
+To do this we can make use of the fact that we can set transitions target state and the transition then applies in that direction. In this case, back in our CSS, we can apply a transition to the two "active" states.
+
+    .button:active {
+      transform: translateY(.2em);
+      transition: none;
+    }
+
+    .button:active:before {
+      transform: translateY(-.1em);
+      transition: none;
+    }
+
+We add a `transition` of "none" to each of the "active" and "active:before" states. This means that the change from "hover" to "pressed" will be sudden. Let's check.
+
+[CodePen with the full effect]
+
+We can now see the effect. The button "clicks" down quickly but still animates up to the hover position when the click is released.
 
 ## What we learned
 
-[Next: Title]
+In this lesson we learned how to create an animated button with 3 states. We used pseudo elements and animated both the hover and active state. We also used multiple transitions to change the feel of the animation between states.
+
+## Next: Examples to download
+
+In the next section you'll find some links to more examples of link hover animations, tooltip styles and button animations. Feel free to download them, be inspired and even use them on your own projects if you wish.
+
+

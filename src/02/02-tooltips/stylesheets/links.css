@@ -43,48 +43,5 @@ a:hover:after {
   }
 }
 
-/* Styles for the title tooltips */
 
-.title-container {
-  background: rgba(255,255,255,.9);
-  border: 2px solid #457DFB;
-  border-radius: .1em;
-  visibility: hidden;
-  font-size: .7em;
-  max-width: 16em;
-  min-width: 12em;
-  opacity: 0;
-  padding: .25em .5em;
-  position: absolute;
-    bottom: 2em;
-    left: 50%;
-  text-align: center;
-  transform: translateX(-50%) translateY(-.25em);
-  transition: visibility 0s .5s,
-              opacity .3s ease-out,
-              transform .3s ease-out;
-  z-index: 10;
-}
-
-.title-container:after {
-  content: "";
-  border-style: solid;
-  border-color: #457DFB transparent;
-  border-radius: 0;
-  border-width: .2em .2em 0 .2em;
-  position: absolute;
-    bottom: -.2em;
-    left: calc(50% - .2em);
-  width: 0;
-  z-index: 20;
-}
-
-.anchor-tooltip:hover .title-container {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(-50%);
-  transition: visibility 0s,
-              opacity .2s ease-out,
-              transform .5s cubic-bezier(0,1,.5,1);
-}
 

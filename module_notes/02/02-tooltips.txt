@@ -1,40 +1,72 @@
 # Animated tooltips
 
-Let's learn more about how transitions work creating and animating tooltips on our links.
+Let's learn more about how transitions work by creating and animating tooltips on our links.
 
-In this lesson we'll write a simple script to generate tooltips for our links, using JavaScript and the link's `title` attribute. We'll then make use of transitions on multiple properties and set up different transitions for mouse over and mouse out. We'll also see how we can use transition for a property that might not seem like something we can transition, the "visibility" property.
+In this lesson we'll write a simple script to generate tooltips for our links, using a bit of JavaScript and the link's `title` attribute. We'll then make use of transitions on multiple properties and set up different transitions for mouse over and mouse out. We'll also see how we can use transition for a property that might not seem like something we can transition, the "visibility" property.
 
-To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and open folder `01-anchors`. A completed version of this lesson's code is in the folder `02-tooltips`.
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and open folder `01-anchors` in the `02` folder. A completed version of this lesson's code is in the folder `02-tooltips`.
 
+Here's what we're going to build. We begin with the same hover effect we created in lesson 1. When we hover the link, we see a tooltip appear containing some helpful information related to the link.
 
-- Going to write some JavaScript to prepare the tooltips
-- First add a "title" attribute to links
-- Then a class we can use to make sure JS gets the right links
-- Write the JS
-- Put in jQuery reference and reference to the tooltips.js
+[CodePen of the finished result]
 
-- Set up styles for the tooltips
-- Add the following, explaining line by line
+Let's get started.
 
-    /* Styles for the title tooltips */
+## Generating tooltips
 
-    .title-container {
+We begin by adding a little extra to our HTML. In the `index.html` file, add a "title" attribute to the anchor tag. We'll also add a class, `anchor-tooltip` which we can use later to make sure our JavaScript only works to build tooltips from the right links.
+
+     <p>... and here is some text. This text shows how <a href="https://cssanimation.rocks/" title="Learn all about animating in the browser" class="anchor-tooltip">CSS animation</a> can help us make links be more fun and useful...</p>
+
+Next we'll create our JavaScript file. Start by making a new folder called `javascripts` and within that a file called `tooltips.js`.
+
+We want our JavaScript to look for any links with the class `anchor-tooltip`, so we'll use the `document.querySelectorAll` method to get them. Then we set up a loop within which we can generate the tooltips.
+
+    var anchors = document.querySelectorAll('.anchor-tooltip');
+    anchors.forEach(function(anchor) {
+      
+    });
+
+Inside this loop we want to get the title attribute, and then set up a `span` element to contain our text from the title attribute. We then set the `className` so that we can style the attribute, and apply the title content to this new element. Lastly we append this to the anchor so that the `span` element is inside the link. This will allow us to position it above the link.
+
+    var anchors = document.querySelectorAll('.anchor-tooltip');
+    anchors.forEach(function(anchor) {
+      var toolTipText = anchor.getAttribute('title'),
+          toolTip = document.createElement('span');
+      toolTip.className = 'title-tooltip';
+      toolTip.innerHTML = toolTipText;
+      anchor.appendChild(toolTip);
+    });
+
+With this in place we'll link to our JavaScript file before the closing `body` tag in our `index.html` file.
+
+    <script src="./javascripts/tooltips.js"></script>
+
+## Styling the tooltips
+
+With our JavaScript generating our `title-tooltip` elements we can now style them. We start by creating a new file called `tooltips.css`, and linking it from our `index.html`.
+
+In the `head` of our `index.html` file, add the link to the new stylesheet.
+
+    <link href="stylesheets/tooltips.css" rel="stylesheet">
+
+Now in `tooltips.css` we can style our tooltip. First we add some initial styles for the tooltips. If you're typing along, you might want to pause this for a moment to set up the styles.
+
+    .title-tooltip {
       background: rgba(255,255,255,.9);
       border: 2px solid #457DFB;
       border-radius: .1em;
       font-size: .7em;
-      max-width: 16em;
-      min-width: 12em;
+      width: 16em;
       padding: .25em .5em;
       position: absolute;
         bottom: 2em;
-        left: 50%;
+        left: calc(50% - 8em);
       text-align: center;
-      transform: translateX(-50%);
       z-index: 10;
     }
 
-    .title-container:after {
+    .title-tooltip:after {
       content: "";
       border-style: solid;
       border-color: #457DFB transparent;
@@ -47,29 +79,162 @@ To get started, open the the <a href="https://cssanimation.rocks/levelup/public/
       width: 0;
     }
 
-- Show how on hover, the title tooltip appears
-- Let's add some polish to this by using multiple transitions
-- When we start we want it to be invisible, and we can achieve this by adding "visibility: hidden".
-- Add the block to show the element on hover
-  .anchor-tooltip:hover .title-container {
-      visibility: visible;
+Let's go through what we have here. We're giving the tooltip a background colour, border, font size, width and padding. We're positioning them absolutely and using a little bit of CSS trickery in the `left` property to calculate the halfway point, then shift it back half the width of the tooltip. This ensures the tooltip sits over the center of the link.
+
+Lastly we set the text to be center aligned and apply a `z-index` to make sure it sits in front of other content.
+
+The second block is a subtle detail, it generates a small arrow and positions it in the middle beneath the tooltip. This makes it look more like a speech bubble.
+
+let's see how it looks.
+
+[Codepen of the tooltip without hover effect]
+
+## Show tooltip on hover
+
+With the tooltip in place we can next make it show on hover. First we'll make the tooltip invisible, and use a transform to move it up a little. That way it'll animate downward when it shows.
+
+    .title-tooltip {
+      background: rgba(255,255,255,.9);
+      border: 2px solid #457DFB;
+      border-radius: .1em;
+      font-size: .7em;
+      width: 16em;
+      opacity: 0;
+      padding: .25em .5em;
+      position: absolute;
+        bottom: 2em;
+        left: calc(50% - 8em);
+      text-align: center;
+      transform: translateY(-.25em);
+      z-index: 10;
     }
-- Next, transitions, add transitions for visbility, opacity and transform to the tooltip container
-- Add transform to position it up slightly at start
-- Add hover state with opacity and no transform:  .anchor-tooltip:hover .title-container
-- Test - show how it's good one direction but disappears suddenly
-- Copy transitions into the hover state - explain difference
-- Add delay to visibility transition on the container (non-hover)
-- Lastly, adjust the outgoing transition to be a smooth ease-out, and slower opacity change
 
+Next we need some way to make this tooltip visible. Since we know it's going to be inside an anchor with class `anchor-tooltip`, we can put the hover on the anchor itself.
 
+    .anchor-tooltip:hover .title-tooltip {
+      opacity: 1;
+      transform: none;
+    }
+
+We set up a block of styles for the `anchor-tooltip:hover .title-tooltip`, and set the opacity to 1, and no transform. We should now have two states.
+
+[Codepen of the tooltip with basic hover effect + show hovering from the top, trying to select text]
+
+This looks like we're along the right track but there's a problem. Even though the element has `opacity` set to zero, it's still technically part of the page. If we hover near the top of the link, the tooltip appears. It could also get in the way if we wanted to select text or even interfere with other elements. Let's hide it using the `visibility` property.
+
+Back in the `title-tooltip` block, set `visibility` to "hidden". 
+
+    .title-tooltip {
+      background: rgba(255,255,255,.9);
+      border: 2px solid #457DFB;
+      border-radius: .1em;
+      visibility: hidden;
+      font-size: .7em;
+      width: 16em;
+      opacity: 0;
+      padding: .25em .5em;
+      position: absolute;
+        bottom: 2em;
+        left: calc(50% - 8em);
+      text-align: center;
+      transform: translateY(-.25em);
+      z-index: 10;
+    }
+
+Similarly on the hover state, we set `visibility` to "visible".
+
+    .anchor-tooltip:hover .title-tooltip {
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+    }
+
+[Codepen of the tooltip with fixed hover effect using visibility]
+
+We now have the tooltip invisible both in terms of `opacity` but also `visibility`, so it no longer blocks the content sitting behind it.
+
+## Tooltip transitions
+
+Now that we have the hidden and visible states working let's adding some transitions to pull it all together.
+
+In the `title-tooltip` block, we add a transition for the opacity and transform.
+
+    .title-tooltip {
+      background: rgba(255,255,255,.9);
+      border: 2px solid #457DFB;
+      border-radius: .1em;
+      visibility: hidden;
+      font-size: .7em;
+      width: 16em;
+      opacity: 0;
+      padding: .25em .5em;
+      position: absolute;
+        bottom: 2em;
+        left: calc(50% - 8em);
+      text-align: center;
+      transform: translateY(-.25em);
+      transition: opacity .2s ease-out,
+                  transform .5s cubic-bezier(0,1,.5,1);
+      z-index: 10;
+    }
+
+First we add a transition for the opacity, making it fade in fast at just .2 seconds with the ease-out timing function. Then we add a second transition, for the transform. This time it'll take a little longer at .5s seconds and we'll use the exponential ease-out timing function from earlier.
+
+[Codepen of the tooltip with basic transition on hover, dissapearing suddenly on mouse out]
+
+Here it is in action. It looks good on hover, the tooltip fades in while sliding into place nicely. But the mouse out transition is very sudden.
+
+When we move the mouse out of the link, the transition tries to animate the opacity and transform back to their beginning positions. However there's the small matter of the `visibility` property. Since we've set that to `hidden` in the CSS, the tooltip is immediately invisible. Let's fix that.
+
+## Mouse over vs mouse out
+
+We can have different transitions for when the mouse hovers over an element and for when the mouse leaves. Often we only need to add a transition to the main element and let the browser play the transition backwards to come back from the hover state. As we see here though, this won't work. Let's add two different transitions, one for when the mouse hovers the link, and another for when it leaves.
+
+Begin by copying the transitions from the `title-tooltip` block and putting them into the "hover" state. The transition in the hover state is the way we want to get "to" this state, so these transitions will only apply when the mouse hovers the element.
+
+    .anchor-tooltip:hover .title-tooltip {
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+      transition: opacity .2s ease-out,
+                  transform .5s cubic-bezier(0,1,.5,1);
+    }
+
+Next we'll adjust the transitions in the non-hover state. First we add a new transition just for the `visibility` property. We don't need any duration as this property can't be animated, it'll simple switch from visible to invisible. Instead we'll add a delay of .5s.
+
+    .title-tooltip {
+      background: rgba(255,255,255,.9);
+      border: 2px solid #457DFB;
+      border-radius: .1em;
+      visibility: hidden;
+      font-size: .7em;
+      width: 16em;
+      opacity: 0;
+      padding: .25em .5em;
+      position: absolute;
+        bottom: 2em;
+        left: calc(50% - 8em);
+      text-align: center;
+      transform: translateY(-.25em);
+      transition: visibility 0s .5s,
+                  opacity .2s ease-out,
+                  transform .5s ease-out;
+      z-index: 10;
+    }
+
+We could take this opportunity also to adjust the timings so that the animation on the way out is different from when it arrives. For now though we'll keep it simple and use the same values. We'll be delving deeper into creating different types of transitions to and from states in lesson 4 when we animate a button.
+
+Here's how it looks. On hover the tooltip arrives, and the outward transition is also smooth. When it leaves it's also no longer blocking the content behind.
+
+[Codepen of the tooltip with finished hover effect]
 
 ## What we learned
 
-- Build tooltips using JavaScript and the title attribute
-- Transitions on multiple properties
-- Different transitions for mouse over and mouse out
-- Transitioning the "visibility" property
+In this lesson we've learned how transitions can be set to both the mouse over as well as the mouse out states on hover, and used the `visibility` property to hide content when it's no longer visible. We used a little JavaScript to generate tooltips from the HTML "title" attribute and we combined transitions on multiple properties.
+
+## Next: Revealing content
+
+Next we'll create a more advanced effect, with multiple elements being revealed and animated on hover, and we'll learn how to make seemingly complex transitions with very little code.
 
 
-[Next: Title]
+

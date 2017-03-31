@@ -182,32 +182,40 @@ footer li:first-child:before {
     width: 150%;
     margin-left: -2rem;
 }
-.actions {
+.options {
     margin: 8em 0;
 }
-.actions .badge, .actions h2, .actions p {
+.options .option {
+    border-radius: .2em;
+    border: 1px solid transparent;
+}
+.options .badge, .options h2, .options p {
     position: absolute;
     left: 20%;
     right: 20%;
 }
-.actions .call-to-action {
+.options .more-info {
+    left: 10%;
+    right: 10%;
+}
+.options .call-to-action {
     display: inline-block;
     margin: 1em auto;
 }
-.actions h2 {
+.options h2 {
     top: 5em;
 }
-.actions p {
+.options p {
     top: 7em;
     max-width: 80%;
 }
-.actions .col {
+.options .col {
     height: 18em;
     margin: 2em 0;
     text-align: center;
     width: 20em;
 }
-.actions .col p:nth-child(2) {
+.options .col p:nth-child(2) {
     flex-grow: 1;
 }
 .section-title {
