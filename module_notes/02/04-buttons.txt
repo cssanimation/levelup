@@ -1,3 +1,5 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 # Animating buttons
 
 We've seen how efficient transitions can be. Let's see if we can apply this approach to animating a button's default, hover and active states.
@@ -8,7 +10,7 @@ To get started, open the the <a href="https://cssanimation.rocks/levelup/public/
 
 Here's what we're aiming for. The button seems to move forward toward us on hover, it brightens, and the shadow grows to make it feel like it's moving further from the page. Then on click the button presses down flat, resulting in no shadow. 
 
-[Codepen of the finished result]
+<p data-height="600" data-theme-id="light" data-slug-hash="JWwZmZ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/JWwZmZ/">See the example on CodePen</a>.</p>
 
 Let's do this.
 
@@ -20,7 +22,7 @@ To begin with we have some simple HTML for the button. For the purposes of this 
 
 To get things set up I've some basic styles in place, but we'll be overriding these to build the button with a shadow that we can animate. To do this we'll use a favourite of mine, the pseudo-element.
 
-[Codepen of the start state]
+<p data-height="600" data-theme-id="light" data-slug-hash="KWbeeg" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/KWbeeg/">See the example on CodePen</a>.</p>
 
 ### Styling the button
 
@@ -68,7 +70,7 @@ In the "button:after" pseudo-element we again set a background colour. Green thi
 
 Checking our progress we should now see a nicely styled button with a grey shadow peeking out beneath.
 
-[CodePen of basic styled button with no hover effect]
+<p data-height="600" data-theme-id="light" data-slug-hash="OprEoJ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/OprEoJ/">See the example on CodePen</a>.</p>
 
 ## Hover and active states
 
@@ -113,7 +115,7 @@ We set a `transform` on this to move the shadow up by ".1" em. This should be en
 
 Let's see it in action. Looks like it has the three states alright but it could do with being smoother. Let's smooth the changes with transitions.
 
-[CodePen of the button with no transitions but just hover and active states]
+<p data-height="600" data-theme-id="light" data-slug-hash="yMGExM" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/yMGExM/">See the example on CodePen</a>.</p>
 
 ## Adding transitions
 
@@ -129,7 +131,7 @@ We have 3 states, the "button", as well as the "before" and "after" pseudo-eleme
 
 The transition will apply to "all" properties, have a duration of .5 seconds and we'll use the exponential ease-out timing function. This should mean that any changing properties that can be animated, such as transform, colours, will be animated on hover, active state and back to the original starting position. Let's see how this looks.
 
-[CodePen with just one transition - not the return transitions]
+<p data-height="600" data-theme-id="light" data-slug-hash="NpezOx" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/NpezOx/">See the example on CodePen</a>.</p>
 
 This looks better, but not right yet. The active state has a "squishiness" to it, like it's on a firm spring or full of air that needs to be squeezed out. Depending on your design this might be good, but I think it would be better if this button pressed down immediately.
 
@@ -147,7 +149,7 @@ To do this we can make use of the fact that we can set transitions target state 
 
 We add a `transition` of "none" to each of the "active" and "active:before" states. This means that the change from "hover" to "pressed" will be sudden. Let's check.
 
-[CodePen with the full effect]
+<p data-height="600" data-theme-id="light" data-slug-hash="JWwZmZ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/JWwZmZ/">See the example on CodePen</a>.</p>
 
 We can now see the effect. The button "clicks" down quickly but still animates up to the hover position when the click is released.
 

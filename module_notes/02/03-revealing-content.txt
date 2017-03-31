@@ -1,3 +1,5 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 # Revealing content on hover
 
 So far we've seen how transitions can smooth over the state changes from one state to another. In this lesson we'll create a more complex looking animation, where the content of the page adjusts on hover with many movements happening at the same time.
@@ -8,6 +10,7 @@ To get started, open the the <a href="https://cssanimation.rocks/levelup/public/
 
 Here's what we're going to build.
 
+<p data-height="600" data-theme-id="light" data-slug-hash="JWwZmZ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/JWwZmZ/">See the example on CodePen</a>.</p>
 [CodePen of the finished result]
 
 Let's get started.

@@ -1,3 +1,5 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 # Animated tooltips
 
 Let's learn more about how transitions work by creating and animating tooltips on our links.
