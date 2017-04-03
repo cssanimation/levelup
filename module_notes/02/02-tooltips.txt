@@ -1,6 +1,6 @@
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-# Animated tooltips
+# Generating animated tooltips
 
 Let's learn more about how transitions work by creating and animating tooltips on our links.
 
@@ -10,7 +10,7 @@ To get started, open the the <a href="https://cssanimation.rocks/levelup/public/
 
 Here's what we're going to build. We begin with the same hover effect we created in lesson 1. When we hover the link, we see a tooltip appear containing some helpful information related to the link.
 
-[CodePen of the finished result]
+<p data-height="600" data-theme-id="light" data-slug-hash="bqOjqq" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/bqOjqq/">See the example on CodePen</a>.</p>
 
 Let's get started.
 
@@ -89,7 +89,7 @@ The second block is a subtle detail, it generates a small arrow and positions it
 
 let's see how it looks.
 
-[Codepen of the tooltip without hover effect]
+<p data-height="600" data-theme-id="light" data-slug-hash="bqOjoW" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/bqOjoW/">See the example on CodePen</a>.</p>   
 
 ## Show tooltip on hover
 
@@ -120,7 +120,7 @@ Next we need some way to make this tooltip visible. Since we know it's going to 
 
 We set up a block of styles for the `anchor-tooltip:hover .title-tooltip`, and set the opacity to 1, and no transform. We should now have two states.
 
-[Codepen of the tooltip with basic hover effect + show hovering from the top, trying to select text]
+<p data-height="600" data-theme-id="light" data-slug-hash="oZJMpv" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/oZJMpv/">See the example on CodePen</a>.</p>  
 
 This looks like we're along the right track but there's a problem. Even though the element has `opacity` set to zero, it's still technically part of the page. If we hover near the top of the link, the tooltip appears. It could also get in the way if we wanted to select text or even interfere with other elements. Let's hide it using the `visibility` property.
 
@@ -151,7 +151,7 @@ Similarly on the hover state, we set `visibility` to "visible".
       transform: none;
     }
 
-[Codepen of the tooltip with fixed hover effect using visibility]
+<p data-height="600" data-theme-id="light" data-slug-hash="aJPjEM" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/aJPjEM/">See the example on CodePen</a>.</p>  
 
 We now have the tooltip invisible both in terms of `opacity` but also `visibility`, so it no longer blocks the content sitting behind it.
 
@@ -182,7 +182,7 @@ In the `title-tooltip` block, we add a transition for the opacity and transform.
 
 First we add a transition for the opacity, making it fade in fast at just .2 seconds with the ease-out timing function. Then we add a second transition, for the transform. This time it'll take a little longer at .5s seconds and we'll use the exponential ease-out timing function from earlier.
 
-[Codepen of the tooltip with basic transition on hover, dissapearing suddenly on mouse out]
+<p data-height="600" data-theme-id="light" data-slug-hash="WpLKzZ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/WpLKzZ/">See the example on CodePen</a>.</p> 
 
 Here it is in action. It looks good on hover, the tooltip fades in while sliding into place nicely. But the mouse out transition is very sudden.
 
@@ -224,11 +224,11 @@ Next we'll adjust the transitions in the non-hover state. First we add a new tra
       z-index: 10;
     }
 
-We could take this opportunity also to adjust the timings so that the animation on the way out is different from when it arrives. For now though we'll keep it simple and use the same values. We'll be delving deeper into creating different types of transitions to and from states in lesson 4 when we animate a button.
+We could take this opportunity also to adjust the timings so that the animation on the way out is different from when it arrives. For now though we'll keep it simple and use the same values. We'll be creating different types of transitions to and from states later when we animate a button.
 
 Here's how it looks. On hover the tooltip arrives, and the outward transition is also smooth. When it leaves it's also no longer blocking the content behind.
 
-[Codepen of the tooltip with finished hover effect]
+<p data-height="600" data-theme-id="light" data-slug-hash="bqOjqq" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/bqOjqq/">See the example on CodePen</a>.</p>
 
 ## What we learned
 

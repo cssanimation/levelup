@@ -10,8 +10,7 @@ To get started, open the the <a href="https://cssanimation.rocks/levelup/public/
 
 Here's what we're going to build.
 
-<p data-height="600" data-theme-id="light" data-slug-hash="JWwZmZ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/JWwZmZ/">See the example on CodePen</a>.</p>
-[CodePen of the finished result]
+<p data-height="600" data-theme-id="light" data-slug-hash="VpqdOR" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/VpqdOR/">See the example on CodePen</a>.</p>
 
 Let's get started.
 
@@ -33,7 +32,7 @@ Each option has a badge at the top, a title, a summary, along with more-info and
 
 You'll notice there's a class name `highlighted` added to the container of this option. This is the "hook" we'll use to decide whether the option is showing the extra content or not. Later we'll write some JavaScript to add or remove this class on hover but for now it'll give it something to style.
 
-[CodePen - initial state of 3-start]
+<p data-height="600" data-theme-id="light" data-slug-hash="MpZBaO" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/MpZBaO/">See the example on CodePen</a>.</p>
 
 Looking at it in the browser it's a bit of a mess, I'm positioning each element using "absolute" positioning, but we'll arrange them using CSS.
 
@@ -112,7 +111,7 @@ We'll remove the summary by setting the `visibility` to `hidden`.
 
 Let's take a look at the result.
 
-[CodePen of the highlighted item but no hover effect]
+<p data-height="600" data-theme-id="light" data-slug-hash="MpZBKr" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/MpZBKr/">See the example on CodePen</a>.</p> 
 
 This is looking good, but there's no interaction. Let's add in the hover event to these options.
 
@@ -173,7 +172,7 @@ In the finished version of this code I've added a little extra JavaScript to the
 
 Let's see it in action.
 
-[CodePen of the highlighted state but no transitions]
+<p data-height="600" data-theme-id="light" data-slug-hash="PpXBNZ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/PpXBNZ/">See the example on CodePen</a>.</p>  
 
 ## Adding transitions
 
@@ -202,7 +201,7 @@ Adding a transition then we limit it to just the `transform` property, give it a
 
 Here we have the finished result.
 
-[CodePen of finished result]
+<p data-height="600" data-theme-id="light" data-slug-hash="VpqdOR" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/VpqdOR/">See the example on CodePen</a>.</p>
 
 It's worth mentioning that we're not animating opacity here. When setting up the styles for each element's default and highlighted states we didn't specify opacity. Often when showing hidden elements it would be
 useful to have them fade in and out using opacity but this time I chose not to. I suspect that if we had the elements fading in as well as doing the other movement, it would feel overdone. What we're doing here is a kind of sleight-of-hand in that the old content disappears suddenly but it's replaced by the new content. Our eyes sometimes try to "fill in the blanks" when this happens, and it looks to us like a really fast animation.

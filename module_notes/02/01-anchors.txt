@@ -25,7 +25,7 @@ We're going to style this link using CSS, so let's open the stylesheet `links.cs
 
 Testing in the browser we see a simple paragraph with a "normal" looking link, complete with the default blue colour and text underline.
 
-[Codepen of the link unstyled]
+<p data-height="600" data-theme-id="light" data-slug-hash="xqmJzN" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/xqmJzN/">See the example on CodePen</a>.</p>
 
 ## Replacing the underline
 
@@ -52,7 +52,7 @@ One possible approach could be to add a `border-bottom` to the links. We'll see 
 
 In the browser we can see the result. It's not great, the border sits very low, far away from the text.
 
-[Codepen of the link's border-bottom underline]
+<p data-height="600" data-theme-id="light" data-slug-hash="KWbBxR" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/KWbBxR/">See the example on CodePen</a>.</p>
 
 Let's try another approach, using a pseudo-element.
 
@@ -74,7 +74,7 @@ We add an `after` pseudo-element, giving it the empty "content" property it need
 
 We're setting the `right` and the `left` to "0" so that the line goes all the way across the link. Lastly the "bottom" is set to be slightly higher than the bottom of the container, in this case ".14em" from the bottom. In the browser we can see that this now positions nicely.
 
-[Codepen of the link's pseudo-element underline]
+<p data-height="600" data-theme-id="light" data-slug-hash="qrLyJW" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/qrLyJW/">See the example on CodePen</a>.</p>
 
 ## Styling the underline
 
@@ -104,9 +104,7 @@ For this example though we'll keep it simple so that we can focus on the animati
         left: 0;
     }
 
-[Codepen of the link's pseudo-element underline with border radius]
-
-It's looking tidy! Time to add some animation.
+Time to add some animation.
 
 ## Animating the underline (transitions)
 
@@ -136,9 +134,9 @@ This contains the hover style for the pseudo-element. Let's adjust the positioni
 
 Testing this in the browser, it doesn't look like much yet.
 
-[Codepen of the link's pseudo-element hover effect with no transition]
+<p data-height="600" data-theme-id="light" data-slug-hash="ZeVjqq" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/ZeVjqq/">See the example on CodePen</a>.</p>
 
-We'll need to add a transition.
+We'll need to add a transition to see this change from left to right.
 
 In the pseudo-element, add a transition that will transition the "right" property over a duration of .4s and using the cubic-bezier timing function with coordinates "0,.5,0,1". This timing function starts very fast and tapers off, like an exponential ease-out. 
 
@@ -155,7 +153,7 @@ In the pseudo-element, add a transition that will transition the "right" propert
 
 We now see the underline animate from left to right on hover.
 
-[Codepen of the link's pseudo-element hover effect with transition]
+<p data-height="600" data-theme-id="light" data-slug-hash="QpzBzm" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/QpzBzm/">See the example on CodePen</a>.</p>
 
 It's worth noting that we're animating the `right` property here. This is potentially a source of problems as it's not as optimised as if we'd animated the `transform` or `opacity`, but in this case it'll be ok as this transition doesn't move the element or cause any page reflowing.
 
@@ -199,7 +197,7 @@ The anchor has the new colour set, and then the same colour is applied to the `b
 
 In the transition we add a comma, then a second transition specific to the `border-color` property. This will match the timing and duration of the anchor's `color` transition.
 
-[Codepen of the link's pseudo-element hover effect with colour transition also]
+<p data-height="600" data-theme-id="light" data-slug-hash="xqmJNK" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/xqmJNK/">See the example on CodePen</a>.</p>
 
 ### How we use transitions
 
@@ -240,14 +238,14 @@ We add styles initially for the `left` and `right` positions. At first these sty
 
 We then change our `:hover:after` block, removing the `right` property and replacing it with the `animation` property.
 
-  a:hover:after {
-    animation: anchor-underline 2s cubic-bezier(0,.5,0,1) infinite;
-    border-color: #457DFB;
-  }
+    a:hover:after {
+      animation: anchor-underline 2s cubic-bezier(0,.5,0,1) infinite;
+      border-color: #457DFB;
+    }
 
 We specify the animation name, a duration of 2 seconds, the same timing function as earlier and lastly we give it an iteration count of "infinite". This means it will run forever, as long as the link is hovered over. Let's see this in action.
 
-[Codepen of the link's pseudo-element hover effect with colour transition also]
+<p data-height="600" data-theme-id="light" data-slug-hash="EWGpzB" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/EWGpzB/">See the example on CodePen</a>.</p>
 
 For as long as we hold the hover state, the animation plays.
 
