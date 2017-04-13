@@ -15,7 +15,7 @@ a {
 
 a::before {
     bottom: 0;
-  color: #2D36DF;
+  color: #1BE051;
   content: attr(data-linktext);
     left: 0;
   position: absolute;
@@ -34,7 +34,7 @@ a::before {
 
 a::after {
     bottom: 0;
-  color: #1BE051;
+  color: #2D36DF;
   content: attr(data-linktext);
     left: 0;
   opacity: 0;

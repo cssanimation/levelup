@@ -10,7 +10,7 @@ a {
 }
 
 a::before {
-  color: #2D36DF;
+  color: #1BE051;
   content: attr(data-linktext);
   position: absolute;
     top: 0;
@@ -22,7 +22,7 @@ a::before {
 }
 
 a::after {
-  color: #1BE051;
+  color: #2D36DF;
   content: attr(data-linktext);
   opacity: 0;
   position: absolute;
