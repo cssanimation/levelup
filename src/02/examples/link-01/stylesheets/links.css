@@ -1,0 +1,29 @@
+/* Styles for the links */
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  color: #333;
+}
+
+a::before {
+  content: "";
+  position: absolute;
+  left: -.05em;
+  right: -.05em;
+  bottom: .14em;
+  border-top: .4em solid #BEE6F6;
+  transition: all .4s cubic-bezier(0,1,.3,1);
+  z-index: -1;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:hover::before {
+  border-width: 1.1em;
+  bottom: .25em;
+  transition: all .3s cubic-bezier(0,1.5,.5,1);
+}

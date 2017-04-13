@@ -1,0 +1,19 @@
+@import "../../../../stylesheets/settings";
+@import "../../../../stylesheets/default";
+
+/* Overrides for the links examples */
+a {
+  text-decoration: underline;
+}
+
+.content {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+p {
+  font-size: 4.7em;
+  max-width: 80%;
+}

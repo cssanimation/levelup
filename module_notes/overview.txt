@@ -15,13 +15,13 @@ Example: https://digital.scotch.io
 (2) Hover effects
 - Goal: Make our designs feel alive with touch and hover animations
 
-(3) Scrolling magic (and grabbing attention)
+(3) Grabbing attention with scroll animations
 - Goal: Trigger custom animations when scrolling
 
-(4) Quote carousel
+(4) Build an animated carousel
 - Goal: Build an animated, interactive series of quotes to showcase content
 
-(5) Responsive animation
+(5) Adjusting animations for all screen sizes
 - Goal: Adapt our animations for a wide range of screen sizes
 
 (6) Putting it all together (free bonus for the full-package supporters?)
