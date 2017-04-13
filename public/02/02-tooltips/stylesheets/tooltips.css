@@ -1,4 +1,4 @@
-/* Styles for the title tooltips */
+/* Styles for the tooltips */
 
 .title-tooltip {
   background: rgba(255,255,255,.9);
@@ -15,23 +15,23 @@
           transform: translateY(-.25em);
   -webkit-transition: visibility 0s .5s,
               opacity .2s ease-out,
-              -webkit-transform .5s ease-out;
+              -webkit-transform .5s cubic-bezier(0,1,.5,1);
   transition: visibility 0s .5s,
               opacity .2s ease-out,
-              -webkit-transform .5s ease-out;
+              -webkit-transform .5s cubic-bezier(0,1,.5,1);
   transition: visibility 0s .5s,
               opacity .2s ease-out,
-              transform .5s ease-out;
+              transform .5s cubic-bezier(0,1,.5,1);
   transition: visibility 0s .5s,
               opacity .2s ease-out,
-              transform .5s ease-out,
-              -webkit-transform .5s ease-out;
+              transform .5s cubic-bezier(0,1,.5,1),
+              -webkit-transform .5s cubic-bezier(0,1,.5,1);
   visibility: hidden;
   width: 16em;
   z-index: 10;
 }
 
-.title-tooltip:after {
+.title-tooltip::after {
   border-color: #457DFB transparent;
   border-radius: 0;
   border-style: solid;
@@ -41,7 +41,6 @@
     left: calc(50% - .2em);
   position: absolute;
   width: 0;
-  z-index: 20;
 }
 
 .anchor-tooltip:hover .title-tooltip {

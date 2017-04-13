@@ -1,6 +1,6 @@
 .js-loading *,
-.js-loading *:before,
-.js-loading *:after {
+.js-loading *::before,
+.js-loading *::after {
   animation-play-state: paused !important;
 }
 
@@ -17,7 +17,7 @@ header {
   perspective: 100px;
 }
 
-header:after {
+header::after {
   background: #F9FCFF;
   content: "";
   height: 40rem;

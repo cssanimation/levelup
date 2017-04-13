@@ -167,9 +167,9 @@ As before we'll create the `keyframes` for this new animation.
       }
     }
 
-You'll notice there's no "0%" this time. That's because it's optional. You can choose to leave out either the starting or even the ending keyframe and the browser will infer it based on the styles given to the element. In this case, it'll go from having no transform, to being rotated. We apply this by making a couple of changes to our `header:after` block.
+You'll notice there's no "0%" this time. That's because it's optional. You can choose to leave out either the starting or even the ending keyframe and the browser will infer it based on the styles given to the element. In this case, it'll go from having no transform, to being rotated. We apply this by making a couple of changes to our `header::after` block.
 
-    header:after {
+    header::after {
       animation: rotate-up .5s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
       background: #F9FCFF;
       content: "";

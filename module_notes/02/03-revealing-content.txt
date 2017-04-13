@@ -2,11 +2,11 @@
 
 # Revealing content on hover
 
-So far we've seen how transitions can smooth over the state changes from one state to another. In this lesson we'll create a more complex looking animation, where the content of the page adjusts on hover with many movements happening at the same time.
+So far we've seen how transitions can smooth over the state changes from one state to another. Let's create a more complex looking animation, where the content of the page adjusts on hover with many movements happening at the same time.
 
-In this lesson we'll be using some JavaScript to apply a class on mouseover, or tap if it's a mobile device. We'll be coordinating a complex looking series of transitions that work together, and we'll be learning when it's OK to not have a visible transition when changing states. In the fact the resulting animation will seem complex but actually be achieved using very few animations.
+In this lesson we'll be using some JavaScript to apply a class on mouseover, or tap if it's a mobile device. We'll be coordinating a complex looking series of transitions that work together, and we'll be learning when it's OK to not have a visible transition when changing states. In the end the resulting animation will seem complex but actually be achieved using very few animations.
 
-To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and look for folder `03-start` in the `02` folder. A completed version of this lesson's code is in the folder `03-end`.
+To get started, open the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and look for folder `03-start` in the `02` folder. A completed version of this lesson's code is in the folder `03-end`.
 
 Here's what we're going to build.
 
@@ -34,7 +34,7 @@ You'll notice there's a class name `highlighted` added to the container of this 
 
 <p data-height="600" data-theme-id="light" data-slug-hash="MpZBaO" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/MpZBaO/">See the example on CodePen</a>.</p>
 
-Looking at it in the browser it's a bit of a mess, I'm positioning each element using "absolute" positioning, but we'll arrange them using CSS.
+Looking at it in the browser it's a bit of a mess, I'm positioning each element using "absolute" positioning. Let's arrange the content.
 
 Opening the file `reveal-content.css` in the `stylesheets` folder we'll start arranging these elements.
 
@@ -42,7 +42,7 @@ Opening the file `reveal-content.css` in the `stylesheets` folder we'll start ar
 
 We begin by hiding the content that will only be visible on the `highlighted` option. 
 
-To start we specify the `more-info` and `call-to-action`  blocks.
+To start we specify the `more-info` and `call-to-action` blocks.
 
     .option .more-info {
       visibility: hidden;
@@ -57,9 +57,9 @@ We want these elements to be invisible and not interfere with the content, so we
 
 In the case of the `call-to-action` we add a transform to scale it down. When we animate this later it'll grow to full size. This will create an effect where the button kind of zooms into place from the distance.
 
-For the `more-info` element we do the same but instead of scaling it, we use a `transform` to pull the element up by 1em. This will cause it to slide down to it's normal state when we animate it later. What we're doing here is setting up the initial state for these elements. Even though they're invisible, they're essentially "primed" for animation to their finished state.
+What we're doing here is setting up the initial state for these elements. Even though they're invisible, they're essentially "primed" for animation to their finished state.
 
-Back in the browser we can see the result. The more-info and call-to-action blocks are invisible. Let's style the `highlighted` state next.
+Let's style the `highlighted` state next.
 
 First we want the option container itself to have a white background and be bigger than the other options.
 
@@ -97,7 +97,7 @@ It's time to show the hidden content.
       visibility: visible;
     }
 
-For each of the "more-info" and "call-to-action" blocks we set out how they need to look when they've finished their transition. They each have an opacity of 1, so that they fade in. The "more-info" block needs to move up also to sit beneath the title so we apply a transform to translate it on the Y axis a negative 4em.
+For each of the "more-info" and "call-to-action" blocks we set out how they need to look when they've finished their transition. We set their visibility to `visible`. The "more-info" block needs to move up also to sit beneath the title so we apply a transform to translate it on the Y axis a negative 4em.
 
 The "call-to-action" element will move the other way, it'll move down to make space for the "more-info". Since this `transform` doesn't specify `scale`, this implies that it should return to it's full size.
 
@@ -131,7 +131,7 @@ In the JavaScript file you'll find a little bit of code that runs when jQuery is
 
 This method is passed in two functions. The first runs when the mouse goes over the element, and the second runs when the mouse leaves the element.
 
-In the first we want to remove any "highlighted" classes from the options, then add a "highlighted" class to the option we hover over. We achieve this using the "this" keyword.
+In the first we want to remove any "highlighted" classes from the options, then add a "highlighted" class to the option we hover over. 
 
     $(function() {
 
@@ -147,7 +147,7 @@ In the first we want to remove any "highlighted" classes from the options, then 
 
     });
 
-For the second function we remove the "highlighted" class. This is relatively simple to do using JavaScript but it would be more complicated to try to achieve this using CSS, as we don't just want this to be a hover effect but instead have one of the items "highlighted" when the page first loads.
+For the second function we remove the "highlighted" class. 
 
 In the finished version of this code I've added a little extra JavaScript to the second function. It sets a timeout, and returns the "highlighted" state to the "featured" option. 
 
@@ -185,7 +185,7 @@ In our `reveal-content.css` file we can first add the necessary transitions for 
                   background .2s ease-out;
     }
 
-We add the "option" block and a `transition`, first being the `transform` which will animate the scale and Y-axis position. We set a duration of 5 seconds and a cubic bezier timing function with co-ordinates "0, 1.7, .3, 1". You'll notice that the duration is very long, at 5 seconds. This is because of the timing function. This animation starts off very fast, and zooms right past the end state before very slowly and gradually settling back. The majority of the 5 seconds will be spend on this latter part, resulting in a more fluid looking animation.
+We add the "option" block and a `transition`, first being the `transform` which will animate the scale and Y-axis position. We set a duration of 5 seconds and a cubic bezier timing function with co-ordinates "0, 1.7, .3, 1". You'll notice that the duration is very long, at 5 seconds. This is because of the timing function. This animation starts off very fast, and zooms right past the end state before very slowly and gradually settling back. The majority of the 5 seconds will be spent on this latter part, resulting in a more fluid looking animation.
 
 We then add another transition, this time for the background. It'll fade in quickly, in just .2 seconds with a simple "ease-out" timing function.
 
@@ -208,7 +208,7 @@ useful to have them fade in and out using opacity but this time I chose not to. 
 
 The animation on these elements looks fast and slick and really doesn't need anything else added.
 
-It's a good idea to experiment with your animations. See if you can make them faster, or animate less things while still getting the right effect. When you do you might find your CSS code is leaner, you have an animation result that is more cohesive and still look impressive.
+It's a good idea to experiment with your animations. See if you can make them faster, or animate less things while still getting the right effect. When you do you might find your CSS code is leaner, and you have an animation that still achieves the result you want.
 
 ## What we learned
 

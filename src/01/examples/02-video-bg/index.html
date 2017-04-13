@@ -36,15 +36,12 @@
     </header>
     <script   src="https://code.jquery.com/jquery-3.2.0.slim.min.js"   integrity="sha256-qLAv0kBAihcHZLI3fv3WITKeRsUX27hd6upBBa0MSow="   crossorigin="anonymous"></script>
     <script>
-      // Prepare the body tag by adding a "js-paused" class
-      document.body.className += " js-loading";
+      document.body.classList.add('js-loading');
 
-      // Listen for when everything has loaded
-      window.addEventListener("load", showPage, false);
+      window.addEventListener("load", showPage);
 
       function showPage() {
-        // Remove the "js-paused" class
-        document.body.className = document.body.className.replace("js-loading","");
+        document.body.classList.remove('js-loading');
       }
 
       // Embed code adapted from Coverr.co

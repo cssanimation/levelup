@@ -1,4 +1,4 @@
-.js-loading *, .js-loading *:before, .js-loading *:after {
+.js-loading *, .js-loading *::before, .js-loading *::after {
   -webkit-animation-play-state: paused !important;
           animation-play-state: paused !important;
 }
@@ -40,7 +40,7 @@ header {
   width: 100%;
 }
 
-.header-mask-container:before {
+.header-mask-container::before {
   -webkit-animation: spin 10s linear infinite;
           animation: spin 10s linear infinite;
   background-image: -webkit-linear-gradient(293deg, #FFD17C 4%, #E77FE9 96%);
@@ -58,7 +58,7 @@ background-image: linear-gradient(-225deg, #1D26CF 0%, #4EC754 100%);
     top: 0;
 }
 
-.header-mask-container:after {
+.header-mask-container::after {
   -webkit-animation: spin 10s 7s linear infinite;
           animation: spin 10s 7s linear infinite;
   background-image: -webkit-linear-gradient(137deg, #FFFE19 0%, #FF6464 100%);

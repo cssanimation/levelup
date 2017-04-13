@@ -1,12 +1,12 @@
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-# Generating animated tooltips
+# Animating tooltips
 
 Let's learn more about how transitions work by creating and animating tooltips on our links.
 
 In this lesson we'll write a simple script to generate tooltips for our links, using a bit of JavaScript and the link's `title` attribute. We'll then make use of transitions on multiple properties and set up different transitions for mouse over and mouse out. We'll also see how we can use transition for a property that might not seem like something we can transition, the "visibility" property.
 
-To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and open folder `01-anchors` in the `02` folder. A completed version of this lesson's code is in the folder `02-tooltips`.
+To get started, open the  <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and open folder `01-anchors` in the `02` folder. A completed version of this lesson's code is in the folder `02-tooltips`.
 
 Here's what we're going to build. We begin with the same hover effect we created in lesson 1. When we hover the link, we see a tooltip appear containing some helpful information related to the link.
 
@@ -33,11 +33,11 @@ Inside this loop we want to get the title attribute, and then set up a `span` el
 
     var anchors = document.querySelectorAll('.anchor-tooltip');
     anchors.forEach(function(anchor) {
-      var toolTipText = anchor.getAttribute('title'),
-          toolTip = document.createElement('span');
-      toolTip.className = 'title-tooltip';
-      toolTip.innerHTML = toolTipText;
-      anchor.appendChild(toolTip);
+      var tooltipText = anchor.getAttribute('title'),
+          tooltip = document.createElement('span');
+      tooltip.className = 'title-tooltip';
+      tooltip.innerHTML = toolTipText;
+      anchor.appendChild(tooltip);
     });
 
 With this in place we'll link to our JavaScript file before the closing `body` tag in our `index.html` file.
@@ -52,23 +52,23 @@ In the `head` of our `index.html` file, add the link to the new stylesheet.
 
     <link href="stylesheets/tooltips.css" rel="stylesheet">
 
-Now in `tooltips.css` we can style our tooltip. First we add some initial styles for the tooltips. If you're typing along, you might want to pause this for a moment to set up the styles.
+Now in `tooltips.css` we can style our tooltip. First we add some initial styles for the tooltips.
 
     .title-tooltip {
       background: rgba(255,255,255,.9);
       border: 2px solid #457DFB;
       border-radius: .1em;
       font-size: .7em;
-      width: 16em;
       padding: .25em .5em;
       position: absolute;
         bottom: 2em;
         left: calc(50% - 8em);
       text-align: center;
+      width: 16em;
       z-index: 10;
     }
 
-    .title-tooltip:after {
+    .title-tooltip::after {
       content: "";
       border-style: solid;
       border-color: #457DFB transparent;
@@ -77,7 +77,6 @@ Now in `tooltips.css` we can style our tooltip. First we add some initial styles
       position: absolute;
         bottom: -.2em;
         left: calc(50% - .2em);
-      z-index: 20;
       width: 0;
     }
 
@@ -87,7 +86,7 @@ Lastly we set the text to be center aligned and apply a `z-index` to make sure i
 
 The second block is a subtle detail, it generates a small arrow and positions it in the middle beneath the tooltip. This makes it look more like a speech bubble.
 
-let's see how it looks.
+Let's see how it looks.
 
 <p data-height="600" data-theme-id="light" data-slug-hash="bqOjoW" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/bqOjoW/">See the example on CodePen</a>.</p>   
 
@@ -100,7 +99,6 @@ With the tooltip in place we can next make it show on hover. First we'll make th
       border: 2px solid #457DFB;
       border-radius: .1em;
       font-size: .7em;
-      width: 16em;
       opacity: 0;
       padding: .25em .5em;
       position: absolute;
@@ -108,6 +106,7 @@ With the tooltip in place we can next make it show on hover. First we'll make th
         left: calc(50% - 8em);
       text-align: center;
       transform: translateY(-.25em);
+      width: 16em;
       z-index: 10;
     }
 
@@ -130,9 +129,7 @@ Back in the `title-tooltip` block, set `visibility` to "hidden".
       background: rgba(255,255,255,.9);
       border: 2px solid #457DFB;
       border-radius: .1em;
-      visibility: hidden;
       font-size: .7em;
-      width: 16em;
       opacity: 0;
       padding: .25em .5em;
       position: absolute;
@@ -140,15 +137,17 @@ Back in the `title-tooltip` block, set `visibility` to "hidden".
         left: calc(50% - 8em);
       text-align: center;
       transform: translateY(-.25em);
+      visibility: hidden;
+      width: 16em;
       z-index: 10;
     }
 
 Similarly on the hover state, we set `visibility` to "visible".
 
     .anchor-tooltip:hover .title-tooltip {
-      visibility: visible;
       opacity: 1;
       transform: none;
+      visibility: visible;
     }
 
 <p data-height="600" data-theme-id="light" data-slug-hash="aJPjEM" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/aJPjEM/">See the example on CodePen</a>.</p>  
@@ -157,7 +156,7 @@ We now have the tooltip invisible both in terms of `opacity` but also `visibilit
 
 ## Tooltip transitions
 
-Now that we have the hidden and visible states working let's adding some transitions to pull it all together.
+Now that we have the hidden and visible states working let's add some transitions to pull it all together.
 
 In the `title-tooltip` block, we add a transition for the opacity and transform.
 
@@ -165,9 +164,7 @@ In the `title-tooltip` block, we add a transition for the opacity and transform.
       background: rgba(255,255,255,.9);
       border: 2px solid #457DFB;
       border-radius: .1em;
-      visibility: hidden;
       font-size: .7em;
-      width: 16em;
       opacity: 0;
       padding: .25em .5em;
       position: absolute;
@@ -177,6 +174,8 @@ In the `title-tooltip` block, we add a transition for the opacity and transform.
       transform: translateY(-.25em);
       transition: opacity .2s ease-out,
                   transform .5s cubic-bezier(0,1,.5,1);
+      visibility: hidden;
+      width: 16em;
       z-index: 10;
     }
 
@@ -195,22 +194,20 @@ We can have different transitions for when the mouse hovers over an element and 
 Begin by copying the transitions from the `title-tooltip` block and putting them into the "hover" state. The transition in the hover state is the way we want to get "to" this state, so these transitions will only apply when the mouse hovers the element.
 
     .anchor-tooltip:hover .title-tooltip {
-      visibility: visible;
       opacity: 1;
       transform: none;
       transition: opacity .2s ease-out,
                   transform .5s cubic-bezier(0,1,.5,1);
+      visibility: visible;
     }
 
-Next we'll adjust the transitions in the non-hover state. First we add a new transition just for the `visibility` property. We don't need any duration as this property can't be animated, it'll simple switch from visible to invisible. Instead we'll add a delay of .5s.
+Next we'll adjust the transitions in the non-hover state. First we add a new transition just for the `visibility` property. We don't need any duration as this property can't be animated, it'll simply switch from visible to invisible. Instead we'll add a delay of .5s.
 
     .title-tooltip {
       background: rgba(255,255,255,.9);
       border: 2px solid #457DFB;
       border-radius: .1em;
-      visibility: hidden;
       font-size: .7em;
-      width: 16em;
       opacity: 0;
       padding: .25em .5em;
       position: absolute;
@@ -220,7 +217,9 @@ Next we'll adjust the transitions in the non-hover state. First we add a new tra
       transform: translateY(-.25em);
       transition: visibility 0s .5s,
                   opacity .2s ease-out,
-                  transform .5s ease-out;
+                  transform .5s cubic-bezier(0,1,.5,1);
+      visibility: hidden;
+      width: 16em;
       z-index: 10;
     }
 

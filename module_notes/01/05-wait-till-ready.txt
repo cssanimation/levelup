@@ -35,12 +35,12 @@ In our browser we now see that the alert triggers. It'll seem to happen straight
 Let's make the file do something. Change the `showPage` function to add a class to the `body` element.
 
     <script>
-      document.body.className += " js-loading";
+      document.body.classList.add('js-loading');
 
-      window.addEventListener("load", showPage, false);
+      window.addEventListener("load", showPage);
 
       function showPage() {
-        document.body.className = document.body.className.replace("js-loading","");
+        document.body.classList.remove('js-loading');
       }
     </script>
 
@@ -56,12 +56,12 @@ The idea here is when the page loads, the browser will immediately append a `js-
 
 We now have a handy `js-loading` class we can use in our CSS. There are a few ways we could approach using this. One way might be to override the `animation` property from each thing we animate, setting it to `none` so that nothing happens while the `js-loading` class is in place.
 
-    header:before {
+    header::before {
       animation: no-transform 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
       ...
     }
 
-    .js-loaded header:before {
+    .js-loaded header::before {
       animation: none;
     }
 
@@ -76,12 +76,12 @@ The [animation-play-state](https://developer.mozilla.org/en-US/docs/Web/CSS/anim
 We can use this property to make any animations on the page "pause" while we're loading the content. We add this to our CSS.
 
     .js-loading *,
-    .js-loading *:before,
-    .js-loading *:after {
+    .js-loading *::before,
+    .js-loading *::after {
       animation-play-state: paused !important;
     }
 
-This code sets the play state of everything on the page to "paused", whenever the `body` has the class `js-loading`. I've added a couple of extra lines to make sure it applies to all of the `:before` and `:after` pseudo-elements also.
+This code sets the play state of everything on the page to "paused", whenever the `body` has the class `js-loading`. I've added a couple of extra lines to make sure it applies to all of the `::before` and `::after` pseudo-elements also.
 
 When JavaScript removes the `js-loading` class from the `body` tag, the rule no longer applies and all animations will be in their expected running state.
 
@@ -99,7 +99,7 @@ In this case I think we're ok. If the JavaScript doesn't run, it won't apply the
 
 ## Testing
 
-Let's test this to see it working. We need a larger image. I found [this photo of Earth on Unsplash](https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?dpr=2&auto=format&fit=) that looks great and is a hefty 1.8 MB in size. In our CSS we change the background image on the `header:before`.
+Let's test this to see it working. We need a larger image. I found [this photo of Earth on Unsplash](https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?dpr=2&auto=format&fit=) that looks great and is a hefty 1.8 MB in size. In our CSS we change the background image on the `header::before`.
 
 To really see it in action we can use Chrome's built-in throttling feature. Opening the inspector, select the "Network" tab, then open the dropdown containing speed presets. From this we select "Good 3G", which should be slow enough to see this in action.
 

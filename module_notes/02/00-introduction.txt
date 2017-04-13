@@ -1,1 +1,19 @@
-- Why transitions are nicely suited to hover events, more that animations generally
+# Module 2: Touch and hover animations
+
+In this module we're going to look into the ways our visitors interact with our web pages and apps. Specifically we will look at what happens when visitors hover, focus or tap on links and content and see how animation can help these interactions.
+
+## Working with state
+
+When we build our designs on the web we think about the "state" of the elements on the screen. Our links, for example, have a default state, a visited state, hover, focus as well as active states. Each of these is built into CSS and each state provides meaningful feedback to our visitors. When a link is hovered, a visual change of state helps let people know that what they hovered really is a link.
+
+We can also use hover events to reveal secondary content on our pages. For example if we have a series of articles with headlines, we can use the hover event as an opportunity to reveal a little more information, rewarding exploration while not cluttering our page with all the content.
+
+In this module we'll take on the challenge of bringing animation to these interactions. Along the way we'll animate the underlines on our anchor links, we'll animate helpful tooltips over the text, we'll reveal content on hover, and animate all the states of a button.
+
+To do all this we'll be mostly focusing on the `transition` property in this module. We'll be exploring how we build up each state of an element, and then apply transitions to smooth the changes between states.
+
+As we do this we'll see how we can use the `transition` property efficiently, combining multiple transitions and getting the most out of very few lines of CSS.
+
+**Download files:** You should find attached to this lesson a file called `02.zip`. This contains all the code for each lesson.
+
+Let's get going!

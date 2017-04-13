@@ -133,10 +133,10 @@ footer li {
     display: inline-block;
     margin: 0;
 }
-footer li:before {
+footer li::before {
     content: "\2022 \A0";
 }
-footer li:first-child:before {
+footer li:first-child::before {
     content: "";
 }
 /* Custom styling for the content */
@@ -158,7 +158,7 @@ footer li:first-child:before {
     position: relative;
     box-shadow: 0 .2rem .1rem .1rem rgba(0,0,0,0.2);
 }
-.badge:before {
+.badge::before {
     border-radius: 50%;
     content: "";
     position: absolute;

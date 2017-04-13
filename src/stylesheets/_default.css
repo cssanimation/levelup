@@ -144,11 +144,11 @@ footer {
     display: inline-block;
     margin: 0;
 
-    &:before {
+    &::before {
       content: "\2022 \A0";
     }
 
-    &:first-child:before {
+    &:first-child::before {
       content: "";
     }
   }
@@ -175,7 +175,7 @@ footer {
   position: relative;
   box-shadow: 0 .2rem .1rem .1rem rgba(0,0,0,0.2);
   
-  &:before {
+  &::before {
     border-radius: 50%;
     content: "";
     position: absolute;

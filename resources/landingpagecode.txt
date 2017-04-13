@@ -145,7 +145,7 @@ body {
   font-size: 1.5em;
   text-transform: uppercase;
 }
-.hero-container:before, .hero-container:after {
+.hero-container::before, .hero-container::after {
   content: "";
   position: absolute;
   top: 0;
@@ -155,7 +155,7 @@ body {
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 30%, white);
   background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 30%, white);
 }
-.hero-container:after {
+.hero-container::after {
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 90%, white);
   background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 90%, white);
 }

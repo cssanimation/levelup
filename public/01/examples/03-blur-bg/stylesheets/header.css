@@ -1,4 +1,4 @@
-.js-loading *, .js-loading *:before, .js-loading *:after {
+.js-loading *, .js-loading *::before, .js-loading *::after {
   -webkit-animation-play-state: paused !important;
           animation-play-state: paused !important;
 }
@@ -27,7 +27,7 @@ header {
           perspective: 100px;
 }
 
-header:before {
+header::before {
   -webkit-animation: zoom-back 20s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
           animation: zoom-back 20s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
   background: -webkit-linear-gradient(top, rgba(0,0,0,.1), rgba(0,0,0,1)),

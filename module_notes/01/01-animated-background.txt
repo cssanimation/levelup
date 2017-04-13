@@ -50,7 +50,7 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
       transform-style: preserve-3d;
     }
 
-    header:after {
+    header::after {
       background: #F9FCFF;
       content: "";
       height: 40rem;
@@ -79,7 +79,7 @@ Opening our CSS file in `stylesheets/header.css` we can see the initial styles f
 
 Further down the file you'll see the content styling. I've followed a naming convention here where everything starts with `header` so that we can more easily find the source of this styling should we need to change things later.
 
-Lastly you may have noticed the `:after` pseudoelement. A `pseudoelement` is something we can use to add additional content within CSS, for presentational purposes. In this case I'm adding a slanted white box to the bottom of the page to give it a non-square shape and make the overall design more interesting.
+Lastly you may have noticed the `::after` pseudoelement. A `pseudoelement` is something we can use to add additional content within CSS, for presentational purposes. In this case I'm adding a slanted white box to the bottom of the page to give it a non-square shape and make the overall design more interesting.
 
 To allow for this, I've also set a couple of properties on the header to tell the browser to handle the positioning in 3D. I've set `perspective` and the `transform-style` property. This is so that I can push the "header-button" element forward to sit in front of the slanted white box. On small screens, the button would sit behind the box.
 
@@ -119,15 +119,15 @@ Since the `transform` property needs to apply to individual HTML elements, we ne
 
 I love pseudo-elements. It's a way we can use CSS to create "virtual" elements on our page without adding more markup and can be quite versatile. They can be used for anything from adding extra text to an element, or in this case, adding extra layers of content.
 
-If you look at the content in our `header.css`, you'll see we already have one pseudo-element, called `header:after`. This positions a white box at an angle at the bottom of the screen. Let's add another above that:
+If you look at the content in our `header.css`, you'll see we already have one pseudo-element, called `header::after`. This positions a white box at an angle at the bottom of the screen. Let's add another above that:
 
-    header:before {
+    header::before {
 
     }
 
 Pseudo-elements need a `content` property, so we'll specify that. We'll also position this element so that it covers the entire `header` using absolute positioning. We then add the background:
 
-    header:before {
+    header::before {
       background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.8)),
                   url(../images/background.jpg) no-repeat bottom;
       background-size: cover;
@@ -178,7 +178,7 @@ At "0%" we want to tell the browser the background's starting position. It needs
 
 At "100%" we have the ending position. It has an `opacity` of 1 so that we can see it, and there is no `transform`. This gives us both vertical movement and a change in opacity.
 
-With the `keyframes` built, let's apply them to the pseudo-element. Inside the `header:before` block, add the following line.
+With the `keyframes` built, let's apply them to the pseudo-element. Inside the `header::before` block, add the following line.
 
     animation: fade-slide-down .5s ease-out forwards;
 
@@ -236,7 +236,7 @@ Before we call this one done, let's think about the timing of when the animation
 
 Ouch! That's not great. The background is showing, then it disappears when the animation starts. Let's fix that by adding in a starting `opacity` for the pseudo-element. Our finished CSS for the pseudo-element should now look like this.
 
-    header:before {
+    header::before {
       animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
       background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.8)),
                   url(../images/background.jpg) no-repeat bottom;

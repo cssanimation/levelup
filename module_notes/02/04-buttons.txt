@@ -6,7 +6,7 @@ We've seen how efficient transitions can be. Let's see if we can apply this appr
 
 In this lesson we'll create a hover state for a button, with a stylised, animated drop shadow as well as create the animation for when the button is clicked. The result should be a button that feels fun and intuitive to interact with.
 
-To get started, open the the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and look for folder `04-start` in the `02` folder. A completed version of this lesson's code is in the folder `04-end`.
+To get started, open the <a href="https://cssanimation.rocks/levelup/public/02/02.zip">module 2 sample code zip file</a> and look for folder `04-start` in the `02` folder. A completed version of this lesson's code is in the folder `04-end`.
 
 Here's what we're aiming for. The button seems to move forward toward us on hover, it brightens, and the shadow grows to make it feel like it's moving further from the page. Then on click the button presses down flat, resulting in no shadow. 
 
@@ -36,9 +36,9 @@ The first thing we do is remove the background. In our `buttons.css` file in the
 
 We also set the position to relative so that we can position our pseudo-elements using absolute positioning, and then we set the text-decoration to none.
 
-With the background gone we'll use two pseudo-elements. One with the background colour and a second with the foreground colour.
+With the background gone we'll use two pseudo-elements. One with the shadow colour and a second with the button colour.
 
-    .button:before {
+    .button::before {
       background: rgba(200,200,200,.8);
       border-radius: .25em;
       content: "";
@@ -50,11 +50,11 @@ With the background gone we'll use two pseudo-elements. One with the background 
       z-index: -1;
     }
 
-We begin with the "button:before" pseudo-element. This is the grey shadow, so we give it a slightly transparent grey colour. A border radius to give it a rounded corner, and then we set the empty "content" property and position the pseudo-element so that it sits slight down from the top and beneath the bottom of the container.
+We begin with the "button::before" pseudo-element. This is the grey shadow, so we give it a slightly transparent grey colour. A border radius to give it rounded corners, and then we set the empty "content" property and position the pseudo-element so that it sits slightly down from the top and beneath the bottom of the container.
 
 Lastly we set the `z-index` to -1. We want this to sit behind the content and this seems to achieve our goal. Next we'll create the foreground colour.
 
-    .button:after {
+    .button::after {
       background: #1A9E3F;
       border-radius: .25em;
       content: "";
@@ -66,7 +66,7 @@ Lastly we set the `z-index` to -1. We want this to sit behind the content and th
       z-index: -1;
     }
 
-In the "button:after" pseudo-element we again set a background colour. Green this time. Then border radius and content, before positioning it also. This time it covers the container entirely. Again we set the z-index to -1 so that it sits behind the text. Because this is the "after" pseudo-element, it will sit in front of the shadow even though they both share the same z-index value.
+In the "button::after" pseudo-element we again set a background colour. Green this time. Then border radius and content, before positioning it also. This time it covers the container entirely. Again we set the z-index to -1 so that it sits behind the text. Because this is the "after" pseudo-element, it will sit in front of the shadow even though they both share the same z-index value.
 
 Checking our progress we should now see a nicely styled button with a grey shadow peeking out beneath.
 
@@ -85,15 +85,15 @@ In our `buttons.css` file we add a "button:hover" state. To ensure the underline
 
 Next we want to move the shadow down a bit.
 
-We create a style block called "button:hover:before". This means that when the hover state is entered, the following styles will apply to the "before" pseudo-element.
+We create a style block called "button:hover::before". This means that when the hover state is entered, the following styles will apply to the "before" pseudo-element.
 
-    .button:hover:before {
+    .button:hover::before {
       transform: translateY(.1em);
     }
 
 Here we'll push the shadow down by ".1" em. This should be enough to make it look like the shadow is getting further from the button as it grows toward us. We'll now change the button colour on hover by setting the colour on the "after" pseudo-element.
 
-    .button:hover:after {
+    .button:hover::after {
       background: #28B54F;
     }
 
@@ -105,9 +105,9 @@ With this in place we now have a hover state! But we're not done yet. Let's also
 
 We add a "button:active" block, and within this we transform the button down by ".2" em. Because we're not setting the scale here, it'll scale back down to the normal size.
 
-Lastly we want the shadow to move in the "active" state. Since the visual effect we're going for is that of the button pressing flat to the page, there should be no shadow. So we'll pull it up underneath the button. We add a "button:active:before" state.
+Lastly we want the shadow to move in the "active" state. Since the visual effect we're going for is that of the button pressing flat to the page, there should be no shadow. So we'll pull it up underneath the button. We add a "button:active::before" state.
 
-    .button:active:before {
+    .button:active::before {
       transform: translateY(-.1em);
     }
 
@@ -121,11 +121,11 @@ Let's see it in action. Looks like it has the three states alright but it could 
 
 Like before, we've created the states we want the elements to go through. With each state's styles in place we can now use transitions to smooth the flow between these states.
 
-We have 3 states, the "button", as well as the "before" and "after" pseudo-elements. We can list them and then apply one transition to all 3.
+We have 3 elements, the "button", as well as the "before" and "after" pseudo-elements. We can list them and then apply one transition to all 3.
 
     .button,
-    .button:before,
-    .button:after {
+    .button::before,
+    .button::after {
       transition: all .5s cubic-bezier(0,1,.3,1);
     }
 
@@ -142,12 +142,12 @@ To do this we can make use of the fact that we can set transitions target state 
       transition: none;
     }
 
-    .button:active:before {
+    .button:active::before {
       transform: translateY(-.1em);
       transition: none;
     }
 
-We add a `transition` of "none" to each of the "active" and "active:before" states. This means that the change from "hover" to "pressed" will be sudden. Let's check.
+We add a `transition` of "none" to each of the "active" and "active::before" states. This means that the change from "hover" to "pressed" will be sudden. Let's check.
 
 <p data-height="600" data-theme-id="light" data-slug-hash="JWwZmZ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Landing page with animated foreground elements (not staggered)" class="codepen">See the Pen <a href="http://codepen.io/donovanh/pen/JWwZmZ/">See the example on CodePen</a>.</p>
 
@@ -155,7 +155,7 @@ We can now see the effect. The button "clicks" down quickly but still animates u
 
 ## What we learned
 
-In this lesson we learned how to create an animated button with 3 states. We used pseudo elements and animated both the hover and active state. We also used multiple transitions to change the feel of the animation between states.
+In this lesson we learned how to create an animated button with 3 states. We used pseudo-elements and animated both the hover and active state. We also used multiple transitions to change the feel of the animation between states.
 
 ## Next: Examples to download
 

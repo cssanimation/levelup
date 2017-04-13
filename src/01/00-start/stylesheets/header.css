@@ -12,7 +12,7 @@ header {
   transform-style: preserve-3d;
 }
 
-header:after {
+header::after {
   background: #F9FCFF;
   content: "";
   height: 40rem;

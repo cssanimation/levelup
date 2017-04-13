@@ -1,4 +1,4 @@
-.js-loading *, .js-loading *:before, .js-loading *:after {
+.js-loading *, .js-loading *::before, .js-loading *::after {
   -webkit-animation-play-state: paused !important;
           animation-play-state: paused !important;
 }
@@ -26,7 +26,7 @@ header {
           perspective: 100px;
 }
 
-header:before {
+header::before {
   -webkit-animation: no-transform 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
           animation: no-transform 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
   background: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,.8)),
@@ -46,7 +46,7 @@ header:before {
   z-index: -1;
 }
 
-header:after {
+header::after {
   -webkit-animation: rotate-up .5s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
           animation: rotate-up .5s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
   background: #F9FCFF;

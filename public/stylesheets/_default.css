@@ -134,9 +134,9 @@ footer ul { margin: 0; padding: 0; }
 
 footer li { display: inline-block; margin: 0; }
 
-footer li:before { content: "\2022 \A0"; }
+footer li::before { content: "\2022 \A0"; }
 
-footer li:first-child:before { content: ""; }
+footer li:first-child::before { content: ""; }
 
 /* Custom styling for the content */
 
@@ -167,7 +167,7 @@ footer li:first-child:before { content: ""; }
   width: 10rem;
 }
 
-.badge:before { border: 6px solid #fff; border-radius: 50%; bottom: 2.5px; content: ""; left: 2.5px; position: absolute; right: 2.5px; top: 2.5px; }
+.badge::before { border: 6px solid #fff; border-radius: 50%; bottom: 2.5px; content: ""; left: 2.5px; position: absolute; right: 2.5px; top: 2.5px; }
 
 .badge.first { background: red; }
 
