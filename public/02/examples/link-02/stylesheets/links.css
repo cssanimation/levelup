@@ -22,14 +22,14 @@ a::before {
     right: 0;
     top: 0;
   -webkit-transition: opacity .2s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
   transition: opacity .2s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
               opacity .2s ease-out;
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
               opacity .2s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
 }
 
 a::after {
@@ -41,32 +41,32 @@ a::after {
   position: absolute;
     right: 0;
     top: 0;
-  -webkit-transform: translateY(-.5em) rotateX(90deg);
-          transform: translateY(-.5em) rotateX(90deg);
-  -webkit-transition: opacity .2s .4s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
-  transition: opacity .2s .4s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
-              opacity .2s .4s ease-out;
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
-              opacity .2s .4s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
+  -webkit-transform: translateY(-.6em) rotateX(90deg);
+          transform: translateY(-.6em) rotateX(90deg);
+  -webkit-transition: opacity .2s ease-out,
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
+  transition: opacity .2s ease-out,
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
+              opacity .2s ease-out;
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
+              opacity .2s ease-out,
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
 }
 
 a:hover::before {
   opacity: 0;
-  -webkit-transform: translateY(.5em) rotateX(-90deg);
-          transform: translateY(.5em) rotateX(-90deg);
-  -webkit-transition: opacity .2s .4s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
-  transition: opacity .2s .4s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
-              opacity .2s .4s ease-out;
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
-              opacity .2s .4s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
+  -webkit-transform: translateY(.6em) rotateX(-90deg);
+          transform: translateY(.6em) rotateX(-90deg);
+  -webkit-transition: opacity .2s ease-out,
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
+  transition: opacity .2s ease-out,
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
+              opacity .2s ease-out;
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
+              opacity .2s ease-out,
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
 }
 
 
@@ -75,13 +75,13 @@ a:hover::after {
   -webkit-transform: none;
           transform: none;
   -webkit-transition: opacity .2s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
   transition: opacity .2s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
               opacity .2s ease-out;
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
               opacity .2s ease-out,
-              -webkit-transform 1.4s cubic-bezier(0,1,.3,1);
+              -webkit-transform .4s cubic-bezier(.2,1.5,1,1);
 }
 

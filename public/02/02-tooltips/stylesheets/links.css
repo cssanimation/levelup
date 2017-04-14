@@ -12,13 +12,15 @@ a {
 a::after {
   border-radius: 1em;
   border-top: .1em solid #2F56B0;
-  bottom: .14em;
+    bottom: .14em;
   content: "";
-  left: 0;
+    left: 0;
   position: absolute;
-  right: 100%;
-  -webkit-transition: right .4s cubic-bezier(0,.5,0,1), border-color .4s ease-out;
-  transition: right .4s cubic-bezier(0,.5,0,1), border-color .4s ease-out;
+    right: 100%;
+  -webkit-transition: border-color .4s ease-out,
+              right .4s cubic-bezier(0,.5,0,1);
+  transition: border-color .4s ease-out,
+              right .4s cubic-bezier(0,.5,0,1);
 }
 
 a:hover {
@@ -30,34 +32,4 @@ a:hover::after {
   border-color: #457DFB;
   right: 0;
 }
-
-@-webkit-keyframes anchor-underline {
-  0%, 10% {
-    left: 0;
-  }
-  40%, 60% {
-    left: 0;
-    right: 0;
-  }
-  90%, 100% {
-    left: 100%;
-    right: 0;
-  }
-}
-
-@keyframes anchor-underline {
-  0%, 10% {
-    left: 0;
-  }
-  40%, 60% {
-    left: 0;
-    right: 0;
-  }
-  90%, 100% {
-    left: 100%;
-    right: 0;
-  }
-}
-
-
 

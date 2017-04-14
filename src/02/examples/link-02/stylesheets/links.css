@@ -17,7 +17,7 @@ a::before {
     right: 0;
     bottom: 0;
     left: 0;
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
               opacity .2s ease-out;
 }
 
@@ -30,22 +30,22 @@ a::after {
     right: 0;
     bottom: 0;
     left: 0;
-  transform: translateY(-.5em) rotateX(90deg);
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
-              opacity .2s .4s ease-out;
+  transform: translateY(-.6em) rotateX(90deg);
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
+              opacity .2s ease-out;
 }
 
 a:hover::before {
   opacity: 0;
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
-              opacity .2s .4s ease-out;
-  transform: translateY(.5em) rotateX(-90deg);
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
+              opacity .2s ease-out;
+  transform: translateY(.6em) rotateX(-90deg);
 }
 
 
 a:hover::after {
   opacity: 1;
-  transition: transform 1.4s cubic-bezier(0,1,.3,1),
+  transition: transform .4s cubic-bezier(.2,1.5,1,1),
               opacity .2s ease-out;
   transform: none;
 }

@@ -8,53 +8,51 @@
 
 .button::before {
   background: rgba(200,200,200,.8);
-  border-radius: .25em;
   content: "";
   position: absolute;
     top: .5em;
-    right: .1em;
+    right: 0;
     bottom: -.1em;
-    left: .1em;
+    left: 0;
   z-index: -1;
 }
 
 .button::after {
-  background: #1A9E3F;
-  border-radius: .25em;
+  background: linear-gradient(to bottom, #48CA24, #FD0A69 90%);
+  background-size: 100% 500%;
   content: "";
   position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+  transition: all 10s cubic-bezier(0,.5,.5,1);
   z-index: -1;
 }
 
 .button:hover {
+  animation: pulse 1s ease-out infinite;
   text-decoration: none;
-  transform: scale(1.1);
-}
-
-.button:hover::before {
-  transform: translateY(.1em);
 }
 
 .button:hover::after {
-  background: #28B54F;
+  background-position: 0 100%;
 }
 
 .button:active {
+  animation: none;
   transform: translateY(.2em);
-  transition: none;
 }
 
 .button:active::before {
   transform: translateY(-.1em);
-  transition: none;
 }
 
-.button,
-.button::before,
-.button::after {
-  transition: all .5s cubic-bezier(0,1,.3,1);
+@keyframes pulse {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
