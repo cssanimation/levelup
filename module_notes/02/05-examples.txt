@@ -1,0 +1,9 @@
+# Examples to download
+
+Time to create your own delightful and helpful interactive animations! To get you started I've created some link hover effects, tooltips and button styles.
+
+You'll find all these in your downloaded zip file, [02.zip](https://cssanimation.rocks/levelup/public/02/02.zip) in the `examples` folder.
+
+If you do use these or any ideas in the course on your projects, do let me know! I'll be happy to add them here as an example to inspire other students!
+
+
