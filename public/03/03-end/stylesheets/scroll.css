@@ -1,0 +1,75 @@
+header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #000 url(../images/moon.jpg) center no-repeat;
+  background-size: 100% auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.example-logo {
+
+}
+
+.content {
+  position: relative;
+}
+
+.content p {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  z-index: 10;
+}
+
+.floating-rocks {
+  position: absolute;
+}
+
+.floating-rock-container {
+  -webkit-animation: float-around 60s ease alternate infinite;
+          animation: float-around 60s ease alternate infinite;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.floating-rocks.front-one {
+  right: -20px;
+}
+
+.floating-rocks.front-two {
+  left: -30px;
+}
+
+.floating-rocks.back-one {
+  left: -150px;
+  opacity: .2;
+  z-index: 0;
+}
+
+.floating-rocks.back-two {
+  opacity: .1;
+  right: -250px;
+  z-index: 0;
+}
+
+@-webkit-keyframes float-around {
+  to {
+    -webkit-transform: translateX(10em) translateY(-2em);
+            transform: translateX(10em) translateY(-2em);
+  }
+}
+
+@keyframes float-around {
+  to {
+    -webkit-transform: translateX(10em) translateY(-2em);
+            transform: translateX(10em) translateY(-2em);
+  }
+}

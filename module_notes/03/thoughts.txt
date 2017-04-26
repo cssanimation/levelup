@@ -1,0 +1,15 @@
+Set up some examples that demonstrate the following:
+
+- When a user scrolls to a certain point, trigger an animation
+- Fading in content as a user scrolls down page
+- Animating the scrolling to a certain point on a page
+- Adding parallax effects when scrolling
+- Triggering a one-time animation when the user reaches the bottom of the page (investigate requestAnimationFrame for this)
+
+Scrolling stuff
+
+Showing an image in the content on scroll, like in Wired.com articles
+Triggering an animation using http://scrollmagic.io 
+Parallax: rellax https://github.com/dixonandmoe/rellax`
+This: Home-spun parallax based on requestAnimationFrame to add a parallax effect to one section of the site? (Rellax relies on the entire page context)
+Or this: CSS only parallax https://developers.google.com/web/updates/2016/12/performant-parallaxing

@@ -1,0 +1,21 @@
+@import "../../../stylesheets/settings";
+@import "../../../stylesheets/default";
+
+html, body {
+  background: #222;
+  color: #aaa;
+}
+
+a {
+  text-decoration: underline;
+}
+
+.content {
+  margin: 10em auto;
+  max-width: 740px;
+  width: 80%;
+}
+
+p {
+  font-size: 3em;
+}

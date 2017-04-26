@@ -1,0 +1,58 @@
+header {
+  align-items: center;
+  background: #000 url(../images/moon.jpg) center no-repeat;
+  background-size: 100% auto;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  width: 100vw;
+}
+
+.example-logo {
+
+}
+
+.content {
+  position: relative;
+}
+
+.content p {
+  transform: translateZ(0);
+  z-index: 10;
+}
+
+.floating-rocks {
+  position: absolute;
+}
+
+.floating-rock-container {
+  animation: float-around 60s ease alternate infinite;
+  transform-origin: 50% 50%;
+}
+
+.floating-rocks.front-one {
+  right: -20px;
+}
+
+.floating-rocks.front-two {
+  left: -30px;
+}
+
+.floating-rocks.back-one {
+  left: -150px;
+  opacity: .2;
+  z-index: 0;
+}
+
+.floating-rocks.back-two {
+  right: -250px;
+  opacity: .1;
+  z-index: 0;
+}
+
+@keyframes float-around {
+  to {
+    transform: translateX(10em) translateY(-2em);
+  }
+}
