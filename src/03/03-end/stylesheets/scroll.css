@@ -77,8 +77,8 @@ header:after {
 }
 
 footer {
-  background: url(../images/moon2.jpg) top center no-repeat;
   background-size: cover;
+  background: url(../images/moon2.jpg) top center no-repeat;
   height: 1014px;
   margin-top: 10em;
   position: relative;
@@ -88,4 +88,15 @@ footer .heading {
   color: rgba(0,0,0,1);
   top: 40%;
   bottom: auto;
+}
+
+.credit {
+  font-size: 1.75em;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+    top: auto;
+    right: 0;
+    bottom: .5em;
+    left: 0;
 }
