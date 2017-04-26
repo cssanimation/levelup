@@ -70,8 +70,9 @@ header:after {
 }
 
 .back-three {
+  border-radius: 50%;
   left: -5em;
-  opacity: .1;
+  opacity: .9;
   z-index: 0;
 }
 
