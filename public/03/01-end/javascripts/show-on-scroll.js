@@ -1,17 +1,28 @@
-$(function() {
-  // When jQuery is ready, attach listeners
-  $(window).on('DOMContentLoaded load resize scroll', addClassIfVisible); 
-});
+// Detect request animation frame
+var scroll = window.requestAnimationFrame ||
+             window.webkitRequestAnimationFrame ||
+             window.mozRequestAnimationFrame ||
+             window.msRequestAnimationFrame ||
+             window.oRequestAnimationFrame ||
+             // IE Fallback, you can even fallback to onscroll
+             function(callback){ window.setTimeout(callback, 1000/60) };
+var elementsToShow = document.querySelectorAll('.show-on-scroll'); 
 
-var addClassIfVisible = function() {
-  $('.show-on-scroll').each(function(index, item) {
-    if (isElementInViewport(item)) {
-      $(item).addClass('is-visible');
-    } else {
-      $(item).removeClass('is-visible');
-    }
-  });
+function loop() {
+
+    Array.prototype.forEach.call(elementsToShow, function(element){
+      if (isElementInViewport(element)) {
+        element.classList.add('is-visible');
+      } else {
+        element.classList.remove('is-visible');
+      }
+    });
+
+    scroll(loop);
 }
+
+// Call the loop for the first time
+loop();
 
 // Helper function from: http://stackoverflow.com/a/7557433/274826
 function isElementInViewport(el) {
