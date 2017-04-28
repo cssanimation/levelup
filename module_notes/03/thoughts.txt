@@ -13,3 +13,11 @@ Triggering an animation using http://scrollmagic.io
 Parallax: rellax https://github.com/dixonandmoe/rellax`
 This: Home-spun parallax based on requestAnimationFrame to add a parallax effect to one section of the site? (Rellax relies on the entire page context)
 Or this: CSS only parallax https://developers.google.com/web/updates/2016/12/performant-parallaxing
+
+
+Videos
+
+1) Show images on scroll
+2) Fly-in article prompt
+3) Parallax with Rellax
+4) ... trigger animations with Scrollmagic?
