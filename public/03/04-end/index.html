@@ -92,7 +92,7 @@
           <input id="subscribe-email" type="email" value="" placeholder="Your email" name="member[email]" class="email">
           <input type="submit" name="member[subscribe]" class="button" value="Subscribe">
         </form>
-      <p class="close" id="close-modal">No thanks</p>
+      <p><a href="https://cssanimation.rocks/levelup/public/03/04-end/" class="close" id="close-modal">No thanks</a></p>
       </section>
     </section>
 
@@ -115,7 +115,6 @@
       document.getElementById('close-modal').onclick = function(e) {
         e.preventDefault();
         document.documentElement.classList.remove('mouse-out');
-        // For politeness, take a note to not show this again
         sessionStorage.setItem('modalSeen', true);
       }
     </script>
