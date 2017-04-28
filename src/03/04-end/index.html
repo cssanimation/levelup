@@ -106,7 +106,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
       $(window).mouseleave(function(event) {
-        if (event.toElement == null) {
+        var modalSeen = sessionStorage.getItem('modalSeen');
+        if (event.toElement == null && !modalSeen) {
           document.documentElement.classList.add('mouse-out');
         }
       });
@@ -114,6 +115,8 @@
       document.getElementById('close-modal').onclick = function(e) {
         e.preventDefault();
         document.documentElement.classList.remove('mouse-out');
+        // For politeness, take a note to not show this again
+        sessionStorage.setItem('modalSeen', true);
       }
     </script>
   </body>
