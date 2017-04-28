@@ -70,6 +70,8 @@ input[type=submit] {
 
 .modal .close {
   cursor: pointer;
-  text-align: center;
+  color: #333;
+  display: block;
   font-weight: bold;
+  text-align: center;
 }
