@@ -297,10 +297,12 @@ header:after {
   background-size: cover;
   border-radius: 50%;
   box-shadow: 0 0 30em 5em rgba(255,255,255,.5);
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
   height: 20em;
     left: calc(50% - 25em);
   position: absolute;
-    top: calc(50% - 25em);
+    top: calc(50% - 25.5em);
   width: 20em;
 }
 
