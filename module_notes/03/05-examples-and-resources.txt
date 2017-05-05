@@ -1,0 +1,25 @@
+# Examples to download
+
+Can you think of other interesting effects your can achieve with scrolling? Perhaps trigger more complex animations or connect the scrolling to the animation itself.
+
+Below you'll find links to some tools to make it all easier. Experiment and find what works for you!
+
+I've also created some more examples of scroll-based animations. You'll find them in your downloaded zip file, [03.zip](https://cssanimation.rocks/levelup/public/03/03.zip) in the `examples` folder.
+
+Ideas for examples:
+
+- Explodal
+- Pull quotes
+- Animated full-page quote with background photo sliding in and text from opposite sides (maybe an SVG outline of a person flashing to reveal the person?)
+
+
+## Scrolling and parallax libraries
+
+* Scrollmagic
+* Scrolltrigger
+* Rellax
+...
+
+If you do use these or any ideas in the course on your projects, do let me know! I'll be happy to add them here as an example to inspire other students!
+
+

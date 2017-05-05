@@ -1,0 +1,164 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+# Mouse leave animation
+
+While we're looking into ways scrolling can be used to trigger animations, I thought it would be interesting to listen for another event - when the mouse leaves the browser viewport.
+
+In this lesson we'll use JavaScript to detect when a visitor is about to leave our page, and has moved their mouse out of the viewport. We'll respond by showing a modal and use animation to make it really stand out. We'll also look into ways we can make sure this modal doesn't appear every time, so that we don't nag our visitors too much.
+
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/03/03.zip">module 3 sample code file</a> and look for folder `04-start`. A completed version of this lesson's code is in the folder `04-end`.
+
+## Popups, modals and annoying design
+
+As someone who creates and shares content online, I love that the web gives us such an easy way to publish and share knowledge. However it's not as simple as publishing it and waiting for people to turn up.
+
+Instead a popular approach is to show a modal window when visitors are about to leave. The thinking is that at this point, you've read the article and are about to move on, so it's a less invasive approach that trying to ask for an email address up-front.
+
+Now, love them or loathe them, these modal windows can be effective. When it comes to marketing, building mailing lists and audiences, using a modal window at the right time to ask for a mailing list is a great way to build up that list and build an audience for your content.
+
+In this lesson we'll look for a way to capture our visitors attention just as they're about to leave our site - when they move their mouse cursor outside the viewport. 
+
+## Adding HTML
+
+We get started by adding some HTML to our landing page. In the file `index.html`, near the bottom, we'll add in a container for the modal. Notice that we're putting it after the `article-container` div closes.
+
+We're putting the modal here so that we can animate the `article-container` out of the way. 
+
+    <div class="modal-container">
+      ... Your content here ...
+    </div>
+
+I'm using a signup form for the [CSS Animation Weekly](http://weekly.cssanimation.rocks/) mailing list, but you could put whatever content you like here. Here's how it looks before we add in the code to hide it until the right moment.
+
+<p data-height="600" data-theme-id="12592" data-slug-hash="wdrXYx" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Moon Rocks (Parallax demo with signup prompt)" class="codepen"></p>
+
+## Mouse-leave JavaScript
+
+Let's write a function to add a class to our page when the mouse leaves the viewport. We will be able to use that class to change the visibility of this modal window.
+
+In our `index.html` file in the `04-start` folder I've added a reference to a new JavaScript file called `mouseleave.js`. I've also added a reference to jQuery. We'll need jQuery for this one as it gives us a very useful `mouseleave` event.
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/mouseleave.js"></script>
+
+Opening the file `mouseleave.js` we find some code that will run when jQuery is ready. Inside this we'll add our `mouseleave` listener.
+
+    $(window).mouseleave(function(e) {
+      if (e.toElement == null) {
+        document.documentElement.classList.add('mouse-out');
+      }
+    });
+
+We begin by attaching this listener to the "window" and passing in a function. Inside this function we'll want to check that the `toElement` is null, which means that mouse has actually left the window, and if so we'll add the class `mouse-out` to the `html` tag.
+
+Next we need to give some way to close the modal. The HTML has a link with ID `close-modal`. We can target that and set up a click event listener. Inside that we'll prevent the link action using `preventDefault`, then remove the `mouse-out` class from the `html` tag on the page.
+
+    $('#close-modal').click(function(e) {
+      e.preventDefault();
+      document.documentElement.classList.remove('mouse-out');
+    });
+
+## Less pestering 
+
+Before we finish with this JavaScript we might want think about how often we want to show people this modal. At the moment this is going to appear every time the visitor goes to press back or change the address. This could be tiresome so let's change the code a little so that it only asks once and if the person says "No thanks", they won't see it again.
+
+There are a couple of ways we can do this. We could set a cookie, or use `localStorage` to remember that this visitor saw the modal already. I'd recommend using the latter - it's simpler and has fewer security issues.
+
+For this example though I'm going to use `sessionStorage`. It'll help us when testing our code as we work on it. It'll only remember that the user has seen the modal for the duration of their browser session. Opening a new tab or window will be a new session.
+
+You can replace the following instances of `sessionStorage` with `localStorage` if you want to make their action last between sessions.
+
+First we add a line to our "close-modal" click event.
+
+    $('#close-modal').click(function(e) {
+      e.preventDefault();
+      document.documentElement.classList.remove('mouse-out');
+      sessionStorage.setItem('modalSeen', true);
+    });
+
+We add `sessionStorage` and the method `setItem` in which we say the value for "modalSeen" is "true".
+
+Next we look for this value in the `mouseleave` event.
+
+    $(window).mouseleave(function(e) {
+      var modalSeen = sessionStorage.getItem('modalSeen');
+      if (e.toElement == null && !modalSeen) {
+        document.documentElement.classList.add('mouse-out');
+      }
+    });
+
+We set up a variable called "modalSeen" and use `getItem` to retrieve this value. At this point the value will be either "true" or "null" so we can use this to decide whether to show the modal.
+
+Inside the "if" condition we add "&& !modalSeen" which means "if the value of 'modalSeen' is not truthy".
+
+This will stop the modal showing if 'modalSeen' is true.
+
+## Animating the modal
+
+Now that we have the JavaScript done, let's add some CSS to take advantage of this "mouse-out" class being added to the `html` tag.
+
+In the file `modal.css` in the stylesheets folder we'll begin by defining what happens when the mouse leaves the viewport.
+
+    .mouse-out .article-container {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.2);
+      transition: all 1s cubic-bezier(.5,0,1,.5);
+    }
+
+We start by specifying the `article-container`, giving it an opacity of zero, as well as setting pointer-events to none so that it doesn't get in the way. For this animation we'd like the content to scale up so we'll use a `transform`. 
+
+Lastly we add a `transition` to smooth the state change. We transition all properties, with a duration of 1 second, and using a cubic bezier that starts off very slow and speeds up. This kind of "exponential ease-in" timing function will make it feel like the content is zooming toward us from a long way away.
+
+Next we'll add another transition to the `article-container`. 
+
+    .article-container {
+      transition: all 3s .5s cubic-bezier(0,1,.3,1);
+    }
+
+Where the first transition defines how it is to animate to the invisible state, this transition defines how it should come back. This time we want the animation to be slower, to allow time for the modal to animate out of the way, and we'll use a delay of half a second also for this purpose.
+
+Lastly we'll use the opposite kind of timing function, the exponential ease-out. This starts fast and slows down toward the end.
+
+Next we need to add some styles to show and hide the modal window.
+
+    .modal {
+      opacity: 0;
+      transform: scale(0) rotateX(30deg) translateY(10em);
+    }
+
+    .mouse-out .modal {
+      opacity: 1;
+      transform: none;
+      transition: transform 1s .3s cubic-bezier(1,0,.3,1.5),
+                  opacity .2s .6s ease-out;
+    }
+
+The modal will begin invisible, with an opacity of zero. The idea will be to have it fly into view like a spaceship, so for that to work I'll set the scale to zero, tilt it a little on the X-axis, and push it a little down the screen. When it appears it'll seem to zoom in while flying up into view.
+
+We can now set out the styles for how it will look when the mouse leaves. We type `.mouse-out` then `.modal` and give it an opacity of 1, and no transform. To transition this we'll transition both the `transform` and `opacity` properties. To give the `transform` some bounce I'll use a timing function that starts slow, and zooms past before correcting position at the end.
+
+The `opacity` transition needs to start a little way into the movement and finish well before the `transform` has done it's thing.
+
+Lastly, before we test this, we need to add one more transition to the `modal`. The animation is a bit slow when going back to the hidden state so we'll set up a transition on the element's normal state to get it to disappear a little more quickly.
+
+    .modal {
+      opacity: 0;
+      transform: scale(0) rotateX(30deg) translateY(10em);
+      transition: transform .5s cubic-bezier(1,0,.3,1),
+                  opacity .2s .3s ease-out;
+    }
+
+There we have it. When the mouse cursor leaves the screen, the content zooms forward and disappears, while the modal window zooms into view.
+
+<p data-height="600" data-theme-id="12592" data-slug-hash="wdqBwo" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Moon Rocks (Parallax demo with signup prompt)" class="codepen"></p>
+
+## What we learned
+
+In this lesson we learned how to use the `mouseleave` jQuery event to add a class to our page, and use this as an opportunity to display a modal window to our leaving visitors. We made use of multiple transforms, as well as the `pointer-events` property.
+
+Being able to change the look of our pages using events like this can be very useful. It's worth checking out what sorts of other events browsers give us.
+
+## Next: Examples to download
+
+In the next lesson you'll find some more examples of scroll animations, parallax effects and modal animations.

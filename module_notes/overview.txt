@@ -25,8 +25,10 @@ Example: https://digital.scotch.io
 - Goal: Adapt our animations for a wide range of screen sizes
 
 (6) Putting it all together (free bonus for the full-package supporters?)
-- Goal: Get organised using Sass, reusing animation keyframes and preparing for production (modernizr, concatenation etc)
-- Convert the timng functions to CSS variables that we can then reuse elsewhere
+- Goal: Get organised using Sass, reusing animation timing functions and keyframes
+- Preparing for older browsers using Modernizr (detecting css animations, requestAnimationFrame)
+- Adding will-change to the correct properties
+- Autoprefixer and Gulp Sass
 
 
 :root {

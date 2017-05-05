@@ -1,0 +1,19 @@
+# Module 3: Scroll animations
+
+We've seen how to introduce our hero headers, and how to design animations and transitions for interactions, and in this module we're going to look at how we can attach animations and trigger transitions on scroll.
+
+Websites are made for scrolling. With mobile devices being tall and thin, our web pages often end up long and involve scrolling. Luckily enough, with touchscreen devices this is no problem. Scrolling comes naturally and people even prefer it to tapping on links.
+
+## Animating on scroll
+
+A popular technique in articles is to animate into place photos and pull-quotes when people scroll. Product landing pages use this same technique to start explainer animations or just add a little polish to a website by fading in the content as needed.
+
+In this module we'll learn how to trigger these animations by creating our very own JavaScript tool to help us. We'll use this tool to show photos as well as learn how to create a slide-in message at the end of a page.
+
+As well as triggering animations we'll see how scrolling can be used to dynamically position elements on our pages and create parallax effects.
+
+Lastly we'll look at how we can animate in a modal window when our visitors have finished scrolling and go to leave our page.
+
+**Download files:** You should find attached to this lesson a file called `03.zip`. This contains all the code for each lesson.
+
+Let's get going!

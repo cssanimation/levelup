@@ -1,16 +1,12 @@
 // Detect request animation frame
 var scroll = window.requestAnimationFrame ||
-             window.webkitRequestAnimationFrame ||
-             window.mozRequestAnimationFrame ||
-             window.msRequestAnimationFrame ||
-             window.oRequestAnimationFrame ||
-             // IE Fallback, you can even fallback to onscroll
-             function(callback){ window.setTimeout(callback, 1000/60) };
+             // IE Fallback
+             function(callback){ window.setTimeout(callback, 1000/60)};
 var elementsToShow = document.querySelectorAll('.show-on-scroll'); 
 
 function loop() {
 
-    Array.prototype.forEach.call(elementsToShow, function(element){
+    elementsToShow.forEach(function (element) {
       if (isElementInViewport(element)) {
         element.classList.add('is-visible');
       } else {

@@ -20,4 +20,4 @@ Videos
 1) Show images on scroll
 2) Fly-in article prompt
 3) Parallax with Rellax
-4) ... trigger animations with Scrollmagic?
+4) Mouseleave animation

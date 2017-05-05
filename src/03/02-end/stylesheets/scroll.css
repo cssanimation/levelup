@@ -46,8 +46,7 @@ header.is-visible {
 
 .main-photo,
 .heading {
-  transition: transform 4s .25s cubic-bezier(0,1,.3,1),
-              filter 10s 2s ease-out;
+  transition: transform 4s .25s cubic-bezier(0,1,.3,1);
   will-change: transform;
 }
 

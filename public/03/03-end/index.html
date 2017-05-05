@@ -47,25 +47,25 @@
 
       <p>"10, 9, ignition sequence start, 6, 5, 4, 3, 2, 1, zero. All engines running. Liftoff! We have a liftoff!"</p>
 
-      <div class="floating-rocks back-one rellax" data-rellax-speed="-2" data-rellax-percentage="0.5">
+      <div class="floating-rocks back-one rellax" data-rellax-speed="-2">
         <img src="images/rock3.svg">
       </div>
 
       <p>"Houston, Tranquility Base here. The Eagle has landed."</p>
 
-      <div class="floating-rocks front-two rellax" data-rellax-speed="3" data-rellax-percentage="0.5">
+      <div class="floating-rocks front-two rellax" data-rellax-speed="3">
         <img src="images/rock2.svg">
       </div>
 
       <p>"Here we first set foot upon the Moon. July 1969 AD. We came in peace for all mankind."</p>
 
-      <div class="floating-rocks back-two rellax" data-rellax-speed="-3" data-rellax-percentage="0.5">
+      <div class="floating-rocks back-two rellax" data-rellax-speed="-3">
         <img src="images/rock4.svg">
       </div>
 
       <p>"This is the LM pilot. I'd like to take this opportunity to ask every person listening in, whoever and wherever they may be, to pause for a moment and contemplate the events of the past few hours and to give thanks in his or her own way."</p>
 
-      <div class="floating-rocks planet-earth rellax" data-rellax-speed="-4" data-rellax-percentage="0.5">
+      <div class="floating-rocks planet-earth rellax" data-rellax-speed="-4">
         <img src="./images/earth.png" width="100">
       </div>
 
@@ -74,7 +74,7 @@
     </article>
 
     <footer>
-      <h1 class="heading rellax" data-rellax-speed="-2" data-rellax-percentage="0.5">MOON ROCKS</h1>
+      <h1 class="heading rellax" data-rellax-speed="-2">MOON ROCKS</h1>
       <p class="credit">Images from <a href="https://www.flickr.com/photos/projectapolloarchive/albums">NASA</a> &middot;
       Parallax by <a href="https://github.com/dixonandmoe/rellax">Rellax.js</a> &middot;
       <a href="http://courses.cssanimation.rocks/p/level-up">Learn CSS animation</a>
@@ -82,7 +82,9 @@
 
     <script src="./javascripts/rellax.min.js"></script>
     <script>
-      var rellax = new Rellax('.rellax');
+      var rellax = new Rellax('.rellax', {
+        center: true
+      });
     </script>
   </body>
 </html>
