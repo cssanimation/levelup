@@ -2,7 +2,7 @@
 
 # Animating a slide-in banner
 
-Now that we've built a handy JavaScript utility that attached a class to visible elements, we can reuse this to create a slide-in banner that will appear at the end of the page.
+Now that we've built a handy JavaScript utility that attaches a class to visible elements, we can reuse this to create a slide-in banner that will appear at the end of the page.
 
 In this lesson we'll see how a simple utility that adds a class can give us a handy hook for different styles of animation and we'll consider some other scroll animation frameworks we might want to investigate if we need more advanced animations.
 
@@ -22,7 +22,7 @@ Let's begin with some HTML.
       <p><a href="#">Read now</a></p>
     </section>
 
-In our `index.html` file add a new `section` to the bottom, just above the last image. We're going to position this using absolute positioning so that it slides in beside this last image.
+In our `index.html` file add a new `section` to the bottom . We're going to position this using absolute positioning so that it slides in beside this last image.
 
 We give the section the class "next-article" and we'd like this to also show on scroll. Inside the `section` we'll add a heading and some text as well as a link to the next article. I'm using the pound symbol here for testing but you'll want to use a URL instead.
 
@@ -54,7 +54,7 @@ Next we'll add a transition for it, transitioning all properties over .5 seconds
 
 Lastly we give it a width and set the z-index so that it will sit in front of other content, such as the inline photo next to it.
 
-So far so good - the section will be invisible, hidden off the site of the page at first. Let's now style it for when it needs to be visible.
+So far so good - the section will be invisible, hidden off the side of the page at first. Let's now style it for when it needs to be visible.
 
     .next-article.is-visible {
       transform: rotateZ(5deg) translateX(50px);
@@ -66,7 +66,7 @@ In the browser we can now scroll to the bottom of the page and see the result.
 
 <p data-height="600" data-theme-id="12592" data-slug-hash="RVZwJz" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
 
-## Going further
+## Experiment and try for yourself
 
 Since we're really just adding a class to an element once it's visible, there's a lot we can do with CSS at this point. Experiment and find your own ideas for scroll-triggered animations. You might want to have a `keyframe` based animation that goes through a sequence of steps and should always start from the beginning. You could even add in a transition as well that fades the animating element into view.
 
@@ -86,8 +86,8 @@ Another example is [Animate On Scroll](http://michalsnik.github.io/aos/). This i
 
 In this lesson we learned how to re-use our handy little JavaScript tool to show a slide-in banner on scroll. We saw how an eye-catching animation could be put together with very little code, and we explored other ways this could be useful in our projects as well as other frameworks we might want to use.
 
-## Next: Parallax
+## Next: Parallax scrolling
 
-Next up, we'll take off to space and explore how we can make use of [Rellax.js] to create a parallax scrolling effect.
+Next up, we'll take off to space and explore how we can make use of [Rellax](https://github.com/dixonandmoe/rellax) to create a parallax scrolling effect.
 
 

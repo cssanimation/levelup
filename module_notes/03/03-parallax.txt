@@ -8,7 +8,7 @@ In this lesson we'll look into what parallax can do for our designs, and we'll u
 
 To get started, open the the <a href="https://cssanimation.rocks/levelup/public/03/03.zip">module 3 sample code file</a> and look for folder `03-start`. A completed version of this lesson's code is in the folder `03-end`.
 
-## Parallax 
+## What is parallax? 
 
 Parallax movement is when things move at different speeds relative to each other. It's a popular effect that can be used to create an illusion of depth. If we're moving, we see objects close to us move faster than objects further away.
 
@@ -63,7 +63,7 @@ With the class applied to each of the rocks we can see the effect in the browser
 
 So it's working, the rocks are scrolling at a slower speed than the text, but it's not right yet. All the rocks are moving at the same speed as each other. We'd like to have some sit in front of the text and some behind, so let's achieve this using some Rellax settings.
 
-## Speed and percentage
+## Rellax settings
 
 When working with Rellax we have two pieces of data we can pass in that will change the way the movement occurs. The first is speed.
 
@@ -81,7 +81,7 @@ Lastly for planet earth we'll set it far back into the scene with a speed of "-4
 
 There's one more thing, "centering".
 
-When Rellax calulates how far to move the elements it does so based on the height of the page. This means that elements further down the page will have moved more than elements at the top, as by the time we've scrolled all the way down there, they've been parallaxed to somewhere we may not expect.
+When Rellax calculates how far to move the elements it does so based on the height of the page. This means that elements further down the page will have moved more than elements at the top, as by the time we've scrolled all the way down there, they've been parallaxed to somewhere we may not expect.
 
 We can get around this using centering. This will adjust the element's position so that when we scroll to it, it'll still be visible on the page. We can either do this by adding a `data-rellax-percentage` value to each of the rocks, or we can set this globally in our original JavaScript at the bottom of the page.
 
@@ -99,7 +99,7 @@ The rocks now float in front as well as far away behind the text.
 
 Before we finish up this example, let's also see how Rellax can bring our header and footer elements to life.
 
-## Animating the header
+## Animating the header and footer
 
 At the top our document we have a `header` element containing an SVG logo and heading text. The SVG is inline so we can apply Rellax to each of the individual parts. That way on scroll, the logo will come apart as it scrolls away.
 
@@ -108,7 +108,7 @@ We start with the two `circle` elements.
     <circle class="rellax" data-rellax-speed="-1" stroke="#000000" stroke-width="3" fill="#333333" style="opacity:.5" cx="100.5" cy="100.5" r="100.5"></circle>
     <circle class="rellax" data-rellax-speed="-.5" stroke="#000000" stroke-width="3" fill="#aaa" style="opacity:.5" opacity="0.9" cx="100.5" cy="99.225" r="79.875"></circle>
 
-Adding a class of "rellax" to each we can specify speeds. These two are farthest away so we'll use negative values of "-1" and "-.5" so thdy move quite slowly. 
+Adding a class of "rellax" to each we can specify speeds. These two are farthest away so we'll use negative values of "-1" and "-.5" so they move quite slowly. 
 
 Next we have some `<g>` groups we can use to hook Rellax onto. The first contains the large boulder. We'll use this containing `<g>` rather than the `large-boulder` group as there's already a `transform` on that group. Since Rellax uses transforms, this would cause a clash so it's safest to use the container.
 
@@ -118,7 +118,7 @@ We'll add the "rellax" class and give this a speed of "2".
 
 We then do the same for the "medium-boulder" and "small-boulder" containers, giving them a speed of "1.5" and "1.25" so that they move a little slower than the large boulder.
 
-With that done lets add parallax to the heading. There's a gradient on the `header` element at the bottom that makes it fade to black. It would be cool if this logo was to scroll in behind that gradient. We can do this by giving the title a very slow scroll speed.
+With that done lets add parallax to the heading. There's a gradient on the `header` element at the bottom that makes it fade to black. It would be cool if this text was to scroll in behind that gradient. We can do this by giving the title a very slow scroll speed.
 
     <h1 class="heading rellax" data-rellax-speed="-5">MOON ROCKS</h1>
 
@@ -130,9 +130,19 @@ Let's see how this is looking.
 
 <p data-height="600" data-theme-id="12592" data-slug-hash="ZKJOBe" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
 
+## Fixing the header
+
+After recording this lesson I noticed that the "center" setting caused the header and footer elements to position wrongly. Turns out the header elements don't need this to be set, and we can get around this by declaring another set of "Rellax" elements in the JavaScript.
+
+    var rellaxNonCentered = new Rellax('.rellax-non-centered', {
+      center: false
+    });
+
+By using the class "rellax-non-centered" on the header and footer elements instead of "rellax", this should fix the issue! The code in the <a href="https://cssanimation.rocks/levelup/public/03/03.zip">download zip file</a> has been updated with this change.
+
 ## Parallax using CSS
 
-While this example does use CSS for the positioning of the elements on scroll, it's possible to create a parallax effect using pure CSS. There's a [great write-up of this approach](https://developers.google.com/web/updates/2016/12/performant-parallaxing) by Paul Lewis and Robert Flack goes into more detail. It's a great approach and seems to perform well. 
+While this example uses CSS and JavaScript for the positioning of the elements on scroll, it's possible to create a parallax effect using pure CSS. There's a [great write-up of this approach](https://developers.google.com/web/updates/2016/12/performant-parallaxing) by Paul Lewis and Robert Flack that goes into more detail. It's a great approach and seems to perform well. 
 
 ## What we learned
 

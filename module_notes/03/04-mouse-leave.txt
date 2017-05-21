@@ -1,6 +1,6 @@
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-# Mouse leave animation
+# Mouse-leave animation
 
 While we're looking into ways scrolling can be used to trigger animations, I thought it would be interesting to listen for another event - when the mouse leaves the browser viewport.
 
@@ -8,17 +8,7 @@ In this lesson we'll use JavaScript to detect when a visitor is about to leave o
 
 To get started, open the the <a href="https://cssanimation.rocks/levelup/public/03/03.zip">module 3 sample code file</a> and look for folder `04-start`. A completed version of this lesson's code is in the folder `04-end`.
 
-## Popups, modals and annoying design
-
-As someone who creates and shares content online, I love that the web gives us such an easy way to publish and share knowledge. However it's not as simple as publishing it and waiting for people to turn up.
-
-Instead a popular approach is to show a modal window when visitors are about to leave. The thinking is that at this point, you've read the article and are about to move on, so it's a less invasive approach that trying to ask for an email address up-front.
-
-Now, love them or loathe them, these modal windows can be effective. When it comes to marketing, building mailing lists and audiences, using a modal window at the right time to ask for a mailing list is a great way to build up that list and build an audience for your content.
-
-In this lesson we'll look for a way to capture our visitors attention just as they're about to leave our site - when they move their mouse cursor outside the viewport. 
-
-## Adding HTML
+## Starting HTML
 
 We get started by adding some HTML to our landing page. In the file `index.html`, near the bottom, we'll add in a container for the modal. Notice that we're putting it after the `article-container` div closes.
 

@@ -4,10 +4,6 @@
 
 It's time to add some animation to our page when a visitor scrolls. For this lesson I've set up a demo page all about pizza. The content isn't important but it'll act as a long scrollable page. Let's bring some animation to the page.
 
-* RequestAnimationFrame
-* Will Change property
-* Showing items on scroll
-
 In this lesson we'll learn how to make use of the `requestAnimationFrame` method and detect when elements are within the viewport of the browser. We'll introduce a new `will-change` property and use that to make sure our animations are smooth, and we'll put these together with some transitions to create animations that are triggered on scroll.
 
 To get started, open the the <a href="https://cssanimation.rocks/levelup/public/03/03.zip">module 3 sample code file</a> and look for folder `01-start`. A completed version of this lesson's code is in the folder `01-end`.
@@ -80,7 +76,7 @@ Let's set up that looping function.
 
 We begin by setting up the function `loop`. This is a function we want to loop through all the elements and check if they're visible. We do this using the `forEach` method. For each of the `show-on-scroll` elements found this loop will check if it's in the viewport, and if so, add the class `is-visible`. Otherwise it'll remove the class.
 
-Lastly we want to keep firing this function so well make use of our `requestAnimationFrame` helper we set up earlier, and pass this function as a callback.
+Lastly we want to keep firing this function so we'll make use of our `requestAnimationFrame` helper we set up earlier, and pass this function as a callback.
 
 This means that as soon as `requestAnimationFrame` allows us, it'll repeat this function and update classes as needed.
 
@@ -181,7 +177,7 @@ Earlier we added the `show-on-scroll` class to the header. We can make use of th
 
 Since we're doing this by applying a class, we have a situation where there's a change from one state to another. When we change from one state to another it's a good opportunity to use transitions, but if we wanted to do something more advanced here we could also use `keyframes` and animations.
 
-For now though we'll get by with a couple of transitions. Wherever possible I like to try to use the simplest approach possible before jumping into more complex solutions.
+For now though we'll get by with a couple of transitions. Whenever possible I like to try to use the simplest approach before jumping into more complex solutions.
 
 We begin by fading in the `header`.
 
@@ -248,7 +244,7 @@ We also made use of the `will-change` property, which allows us to hint to the b
 
 ## Next: Slide-in banner
 
-In the next lesson we'll show how our handy JavaScript can be re-used to show a handy "slide-in" banner that will appear when people reach the end of the article.
+In the next lesson we'll show how our JavaScript can be re-used to show a handy "slide-in" banner that will appear when people reach the end of the article.
 
 
 
