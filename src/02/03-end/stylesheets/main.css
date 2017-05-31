@@ -18,7 +18,6 @@ a {
   display: flex;
   height: 100vh;
   justify-content: center;
-  transform: scale(1.2);
 }
 
 .content .calls-to-action {

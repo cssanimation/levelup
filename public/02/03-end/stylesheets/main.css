@@ -254,8 +254,6 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
 }
 
 .content .calls-to-action {

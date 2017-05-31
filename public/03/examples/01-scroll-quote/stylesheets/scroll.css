@@ -47,8 +47,8 @@
   position: absolute;
   -webkit-transform: translateY(2em) scale(1.4);
           transform: translateY(2em) scale(1.4);
-  -webkit-transition: all 0s;
-  transition: all 0s;
+  -webkit-transition: none;
+  transition: none;
   width: 80%;
   z-index: 1;
 }
@@ -69,8 +69,8 @@
     top: 0;
   -webkit-transform: translateX(-10%);
           transform: translateX(-10%);
-  -webkit-transition: all 0s;
-  transition: all 0s;
+  -webkit-transition: none;
+  transition: none;
   z-index: 0;
 }
 

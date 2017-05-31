@@ -232,8 +232,10 @@ footer li:first-child::before {
 }
 
 html, body {
-  background: #000;
-  color: #aaa;
+  background: #eef;
+  background-image: -webkit-linear-gradient(top, #ccf, #fff);
+  background-image: linear-gradient(to bottom, #ccf, #fff);
+  color: #333;
 }
 
 a {
@@ -244,6 +246,10 @@ a {
   margin: 10em auto;
   max-width: 740px;
   width: 80%;
+}
+
+h1 {
+  font-size: 5em;
 }
 
 p {
