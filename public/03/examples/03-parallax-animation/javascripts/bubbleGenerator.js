@@ -41,6 +41,8 @@ function generateBubble() {
   $(bubbleContainer).attr('data-lifespan', bubbleLifespan);
   $(bubbleContainer).find('.bubble-rellax-container').attr('data-rellax-speed', bubbleDepth);
 
+  var thisRellaxClass = 'rellax' + window.totalBubbles;
+
   $(bubbleContainer).find('.bubble-rellax-container').addClass(thisRellaxClass);
   $(bubbleContainer).find('.bubble-rellax-container').attr('data-rellax-id', window.totalBubbles);
   
@@ -48,14 +50,13 @@ function generateBubble() {
   $('body').append(bubbleContainer);
   window.totalBubbles++;
 
+  // Instantiate a new "rellax123" class for this bubble (otherwise all bubbles would be re-calculated)
+  var newRellax = new Rellax('.' + thisRellaxClass, { center: true });
+  
   // Set a random delay before generating another
   setTimeout(function() {
     generateBubble();
   }, Math.floor(Math.random() * 2000) + 200);
-
-  // Instantiate a new "rellax123" class for this bubble (otherwise all bubbles would be re-calculated)
-  var thisRellaxClass = 'rellax' + window.totalBubbles;
-  var newRellax = new Rellax('.' + thisRellaxClass, { center: true })
   
 }
 
