@@ -28,14 +28,6 @@ $(function() {
 
 });
 
-function handleVisibilityChange() {
-  if (document[hidden]) {
-    window.carouselRunning = false;
-  } else {
-    window.carouselRunning = true;
-  }
-}
-
 function showNextQuote() {
   // Calculate the indices needed to show the next quote
   if (window.currentCarouselIndex === window.carouselLength - 1) {
@@ -165,4 +157,12 @@ if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and 
 // Add listener
 if (typeof document.addEventListener !== "undefined" && typeof document[hidden] !== "undefined") {
   document.addEventListener(visibilityChange, handleVisibilityChange, false);
+}
+
+function handleVisibilityChange() {
+  if (document[hidden]) {
+    window.carouselRunning = false;
+  } else {
+    window.carouselRunning = true;
+  }
 }

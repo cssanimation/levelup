@@ -1,0 +1,4 @@
+Extra JavaScript stuff:
+
+Clicking on the quotes to move forward and back
+Pausing animation when tab not visible

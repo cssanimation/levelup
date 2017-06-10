@@ -1,0 +1,1 @@
+Theming the carousel, making one like the apple.com carousel with parallax items (as simple as possible anyway)
