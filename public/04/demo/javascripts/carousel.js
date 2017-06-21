@@ -12,7 +12,6 @@ $(function() {
 
   // Generate pips
   generatePips();
-  updatePips();
 
   // Cycle automatically
   window.carouselRunning = true;
@@ -35,7 +34,7 @@ function showNextQuote() {
   } else {
     window.currentCarouselIndex++;
   }
-  showQuoteByIndex(window.currentCarouselIndex);
+  showQuoteByClick(window.currentCarouselIndex);
 }
 
 function showPreviousQuote() {
@@ -45,10 +44,10 @@ function showPreviousQuote() {
   } else {
     window.currentCarouselIndex--;
   }
-  showQuoteByIndex(window.currentCarouselIndex);
+  showQuoteByClick(window.currentCarouselIndex);
 }
 
-function showQuoteByIndex(index) {
+function showQuoteByClick(index) {
   // Calculates the previous and next indices, and updates the carousel
   var prevIndex = index === 0 ? window.carouselLength - 1 : index - 1;
   var nextIndex = index === window.carouselLength - 1 ? 0 : index + 1;
@@ -58,20 +57,21 @@ function showQuoteByIndex(index) {
   window.nextCarouselIndex = nextIndex;
 
   updateCarouselPosition();
+  setLeftClass();
   updatePips();
 
-  // Stop automatic movement for a few seconds
+  // Since this is by click, pause the automatic movement for a few seconds
   window.carouselRunning = false;
   clearTimeout(window.restartingCarousel);
   restartAutomatic();
 }
 
 function updateCarouselPosition() {
+  var allQuotes = $('#quotes-carousel').find('.quote');
   // Remove any previous, current, next classes
   $('#quotes-carousel').find('.previous').removeClass('previous');
   $('#quotes-carousel').find('.current').removeClass('current');
   $('#quotes-carousel').find('.next').removeClass('next');
-  var allQuotes = $('#quotes-carousel').find('.quote');
   $(allQuotes[window.previousCarouselIndex]).addClass('previous');
   $(allQuotes[window.currentCarouselIndex]).addClass('current');
   $(allQuotes[window.nextCarouselIndex]).addClass('next');
@@ -108,6 +108,7 @@ function generatePips() {
     var newPip = $('<li class="pip"></li>');
     $(listContainer).append(newPip);
   }
+  updatePips();
 }
 
 function updatePips() {
@@ -137,7 +138,20 @@ function showFromPip(e) {
   while( (e.target = e.target.previousSibling) != null ) {
     i++;
   }
-  showQuoteByIndex(i);
+  showQuoteByClick(i);
+}
+
+function setLeftClass() {
+  // For when we want the item to appear from the left side if it's "earlier" in the list
+  var allQuotes = $('#quotes-carousel').find('.quote');
+  // Clear any previous "left" item
+  $('.quote.left').removeClass('left');
+  if (window.previousCarouselIndex > 0) {
+    $(allQuotes[window.previousCarouselIndex - 1]).addClass('left');
+  } else {
+    // It's the first item, so add "left" to the last in the list
+    $(allQuotes[allQuotes.length - 1]).addClass('left');
+  }
 }
 
 // Lastly, add a listener for situations where the browser is in another tab / not visible

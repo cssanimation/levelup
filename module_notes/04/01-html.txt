@@ -1,1 +1,21 @@
-00-html.txt
+- Setting up the initial HTML
+- Explain the thoughts behind each element and how we can keep animation in mind as we plan the HTML
+
+STRUCTURE
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+## What we're building
+
+Plan the components we need to put together and sketch out the main structure, in code
+
+
+
+
+## What we learned
+
+[Next: Title]

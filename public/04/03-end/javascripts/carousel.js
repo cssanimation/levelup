@@ -1,0 +1,149 @@
+$(function() {
+  // Set up the carousel's "state"
+  window.previousCarouselIndex = 0;
+  window.currentCarouselIndex = 1;
+  window.nextCarouselIndex = 2;
+  window.carouselLength = $('#quotes-carousel').find('.quote').length;
+
+  // Actions to listen for
+  $('#quotes-carousel').on('click', '.previous', showPrevQuoteClick);
+  $('#quotes-carousel').on('click', '.next', showNextQuoteClick);
+  $('#quotes-carousel-pips').on('click', '.pip', showFromPip);
+
+  // Generate pips
+  generatePips();
+
+  // Cycle automatically
+  window.carouselRunning = true;
+  window.restartingCarousel = null;
+
+  // Set the carousel working
+  var interval = setInterval(function() {
+    if (window.carouselRunning) {
+      showNextQuote();
+      updatePips();
+    }
+  }, 4000);
+
+});
+
+function showNextQuote() {
+  // Calculate the indices needed to show the next quote
+}
+
+function showPreviousQuote() {
+  // Calculate the indices needed to show the previous quote
+}
+
+function showQuoteByIndex(index) {
+  // Calculates the previous and next indices, and updates the carousel
+
+
+  // Stop automatic movement for a few seconds
+  window.carouselRunning = false;
+  clearTimeout(window.restartingCarousel);
+  restartAutomatic();
+}
+
+function updateCarouselPosition() {
+  var allQuotes = $('#quotes-carousel').find('.quote');
+  // Remove any previous, current, next classes
+  $('#quotes-carousel').find('.previous').removeClass('previous');
+  $('#quotes-carousel').find('.current').removeClass('current');
+  $('#quotes-carousel').find('.next').removeClass('next');
+  $(allQuotes[window.previousCarouselIndex]).addClass('previous');
+  $(allQuotes[window.currentCarouselIndex]).addClass('current');
+  $(allQuotes[window.nextCarouselIndex]).addClass('next');
+}
+
+function showNextQuoteClick() {
+  // Helper for when someone clicks the next quote
+  window.carouselRunning = false;
+  clearTimeout(window.restartingCarousel);
+  showNextQuote();
+  restartAutomatic();
+}
+
+function showPrevQuoteClick() {
+  // Helper for when someone clicks the previous quote
+  window.carouselRunning = false;
+  clearTimeout(window.restartingCarousel);
+  showPreviousQuote();
+  restartAutomatic();
+}
+
+function restartAutomatic() {
+  // Set up a timer that will bring back the automatic scrolling after 10 seconds
+  clearTimeout(window.restartingCarousel);
+  window.restartingCarousel = setTimeout(function() {
+    window.carouselRunning = true;
+  }, 10000);
+}
+
+function generatePips() {
+  // Add pips to the ul element in index.html
+  var listContainer = $('#quotes-carousel-pips').find('ul');
+  for (var i = window.carouselLength - 1; i >= 0; i--) {
+    var newPip = $('<li class="pip"></li>');
+    $(listContainer).append(newPip);
+  }
+  // Update the pips classes to represent the "state"
+  updatePips();
+}
+
+function updatePips() {
+  // Update the classes on the pips depending on the current indices
+  var allPips = $('#quotes-carousel-pips').find('.pip');
+  $(allPips).each(function(index, item) {
+    if (index === window.previousCarouselIndex) {
+      setClassOnPip(index, 'previous');
+    } else if (index === window.currentCarouselIndex) {
+      setClassOnPip(index, 'current');
+    } else if (index === window.nextCarouselIndex) {
+      setClassOnPip(index, 'next');
+    }
+  });
+}
+
+function setClassOnPip(index, className) {
+  // Helper function to set a class on a pip by clearing other instances of the class
+  var allPips = $('#quotes-carousel-pips').find('.pip');
+  $('#quotes-carousel-pips').find('.pip').removeClass(className);
+  $(allPips[index]).addClass(className);
+}
+
+function showFromPip(e) {
+  // Helper for when someone clicks a pip
+  var i = 0;
+  while( (e.target = e.target.previousSibling) != null ) {
+    i++;
+  }
+  showQuoteByIndex(i);
+}
+
+// Lastly, add a listener for situations where the browser is in another tab / not visible
+// Set the name of the hidden property and the change event for visibility
+var hidden, visibilityChange; 
+if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+  hidden = "hidden";
+  visibilityChange = "visibilitychange";
+} else if (typeof document.msHidden !== "undefined") {
+  hidden = "msHidden";
+  visibilityChange = "msvisibilitychange";
+} else if (typeof document.webkitHidden !== "undefined") {
+  hidden = "webkitHidden";
+  visibilityChange = "webkitvisibilitychange";
+}
+
+// Add listener
+if (typeof document.addEventListener !== "undefined" && typeof document[hidden] !== "undefined") {
+  document.addEventListener(visibilityChange, handleVisibilityChange, false);
+}
+
+function handleVisibilityChange() {
+  if (document[hidden]) {
+    window.carouselRunning = false;
+  } else {
+    window.carouselRunning = true;
+  }
+}
