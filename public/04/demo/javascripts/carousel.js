@@ -6,12 +6,13 @@ $(function() {
   window.carouselLength = $('#quotes-carousel').find('.quote').length;
 
   // Actions to listen for
-  $('#quotes-carousel').on('click', '.previous', showPrevQuoteClick);
-  $('#quotes-carousel').on('click', '.next', showNextQuoteClick);
+  $('#quotes-carousel').on('click', '.previous', showQuote);
+  $('#quotes-carousel').on('click', '.next', showQuote);
   $('#quotes-carousel-pips').on('click', '.pip', showFromPip);
 
   // Generate pips
   generatePips();
+  setLeftClass();
 
   // Cycle automatically
   window.carouselRunning = true;
@@ -21,7 +22,6 @@ $(function() {
   var interval = setInterval(function() {
     if (window.carouselRunning) {
       showNextQuote();
-      updatePips();
     }
   }, 4000);
 
@@ -34,20 +34,20 @@ function showNextQuote() {
   } else {
     window.currentCarouselIndex++;
   }
-  showQuoteByClick(window.currentCarouselIndex);
+  showQuoteByIndex(window.currentCarouselIndex);
 }
 
-function showPreviousQuote() {
-  // Calculate the indices needed to show the previous quote
-  if (!window.currentCarouselIndex) {
-    window.currentCarouselIndex = window.carouselLength - 1;
-  } else {
-    window.currentCarouselIndex--;
+function showQuote(event) {
+  // Get the index of the clicked quote and show it
+  var target = $(event.target);
+  if (!$(event.target).hasClass('quote')) {
+    target = $(event.target).parent();
   }
-  showQuoteByClick(window.currentCarouselIndex);
+  var index = $('.quote').index(target);
+  showQuoteByIndex(index);
 }
 
-function showQuoteByClick(index) {
+function showQuoteByIndex(index) {
   // Calculates the previous and next indices, and updates the carousel
   var prevIndex = index === 0 ? window.carouselLength - 1 : index - 1;
   var nextIndex = index === window.carouselLength - 1 ? 0 : index + 1;
@@ -66,6 +66,7 @@ function showQuoteByClick(index) {
   restartAutomatic();
 }
 
+
 function updateCarouselPosition() {
   var allQuotes = $('#quotes-carousel').find('.quote');
   // Remove any previous, current, next classes
@@ -75,22 +76,6 @@ function updateCarouselPosition() {
   $(allQuotes[window.previousCarouselIndex]).addClass('previous');
   $(allQuotes[window.currentCarouselIndex]).addClass('current');
   $(allQuotes[window.nextCarouselIndex]).addClass('next');
-}
-
-function showNextQuoteClick() {
-  // Helper for when someone clicks the next quote
-  window.carouselRunning = false;
-  clearTimeout(window.restartingCarousel);
-  showNextQuote();
-  restartAutomatic();
-}
-
-function showPrevQuoteClick() {
-  // Helper for when someone clicks the previous quote
-  window.carouselRunning = false;
-  clearTimeout(window.restartingCarousel);
-  showPreviousQuote();
-  restartAutomatic();
 }
 
 function restartAutomatic() {
@@ -132,13 +117,13 @@ function setClassOnPip(index, className) {
   $(allPips[index]).addClass(className);
 }
 
-function showFromPip(e) {
+function showFromPip(event) {
   // Helper for when someone clicks a pip
   var i = 0;
-  while( (e.target = e.target.previousSibling) != null ) {
+  while( (event.target = event.target.previousSibling) != null ) {
     i++;
   }
-  showQuoteByClick(i);
+  showQuoteByIndex(i);
 }
 
 function setLeftClass() {
@@ -147,7 +132,13 @@ function setLeftClass() {
   // Clear any previous "left" item
   $('.quote.left').removeClass('left');
   if (window.previousCarouselIndex > 0) {
-    $(allQuotes[window.previousCarouselIndex - 1]).addClass('left');
+    var index = window.previousCarouselIndex - 1;
+    $(allQuotes[index]).addClass('left');
+    // for (i = 0; i < window.previousCarouselIndex; i++) {
+    //   if (!$(allQuotes[i]).hasClass('next') && !$(allQuotes[i]).hasClass('current')) {
+    //     $(allQuotes[i]).addClass('left');
+    //   }
+    // }
   } else {
     // It's the first item, so add "left" to the last in the list
     $(allQuotes[allQuotes.length - 1]).addClass('left');

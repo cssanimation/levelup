@@ -1,21 +1,114 @@
-- Setting up the initial HTML
-- Explain the thoughts behind each element and how we can keep animation in mind as we plan the HTML
+# Carousel HTML
 
-STRUCTURE
+Let's get started building our carousel. In this lesson we'll start by planning out the HTML we need and build the initial structure for our carousel.
 
-# Title
+We'll do this by setting out a specification for ourselves and making sure we have the right classes and HTML elements that we can style using CSS later.
 
-[Intro]
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/04/04.zip">module 4 code file</a> and look for folder `01-start`. A completed version of this lesson's code is in the folder `01-end`.
 
-[What we will learn]
+## Quotes HTML
 
-## What we're building
+This module brings together a few things, we'll think about how we can apply animation to when classes are applied to elements, and we'll be using a bit of JavaScript to make it all work, but before we get into that we need a basic HTML structure.
 
-Plan the components we need to put together and sketch out the main structure, in code
+In our carousel we're going to have quotes. Each quote will need a photo, and the content of the quote. To keep the content simple in this example we'll be using one source of quotes, Bill Murray.
+
+Each quote will need to be part of a list of quotes so will be suited to being an unordered list.
+
+Let's start with the HTML then. Opening `index.html` we find an empty page, containing just the links to our CSS files, jQuery and our carousel JavaScript file.
+
+We begin with a container for our quote carousel. We can use this when we position our list of quotes, as well as apply a background to the carousel.
+
+    <section class="quotes-carousel-container">
+
+    </section>
+
+We'll use a `section` for this, as it's likely to exist as a section of a larger page. To avoid possible class name confusion we'll use the long `quotes-carousel-container` class. I find it's often helpful to use slightly longer class names rather than aim for bevity as it makes it easier for other developers to understand what's going on, or even myself when reading it later.
+
+Inside our container let's set up that list of quotes. First the unordered list container.
+
+    <ul class="quotes-carousel" id="quotes-carousel">
+
+    </ul>
+
+We give this both the `class` and `id` of `quotes-carousel`. The class is for when using CSS to style it, and the `id` is for when we want to locate this container using JavaScript. Using an `id` for the element will make locating it using JavaScript more efficient so it's generally a good idea. For this example our expectation is that we'll have just one carousel on the page. If we wanted more than one carousel, an `id` might not be right and we'd want to make use of classes instead.
+
+Inside our `ul` tags let's set out the actual quote structure.
+
+  <li class="quote">
+    <div class="quote-image" style="background-image: url(...);"></div>
+    <div class="quote-text">
+      ... quote text here ....
+    </div>
+  </li>
+
+We start with the list item, with class `quote`. Inside this we add a `div` to contain the image, and give it the class `quote-image`. Since each of these images will act as decoration for the quote, my preference here is to set the image as a background image using an inline style declaration. You could place the images here in image tags if you wish.
+
+For the content of these images I'm using the website [FillMurray.com](http://fillmurray.com).
+
+Next we add the quote text, in a `div` with class `quote-text`.
+
+For the sake of this demo I'll be setting up some random quotes I found online. Feel free to use whatever content you like! To save your searching for images I've added some to the `images` folder. They're named `murray1.jpg`, through to `murray8.jpg`.
+
+(Skip to filled in list of quote content)
+
+So here we have a list of quotes. Next we need to think about how they'll be presented.
+
+## States
+
+We want to highlight one quote in particular, but at the same time let people know that there are more quotes in the list. To do this we can set classes on these quotes to say which is the `current`, which is `previous` and which is `next`.
 
 
+    <li class="quote previous">
+      <div class="quote-image" style="background-image: url(...);"></div>
+      <div class="quote-text">
+        ... quote text here ....
+      </div>
+    </li>
+    <li class="quote current">
+      <div class="quote-image" style="background-image: url(...);"></div>
+      <div class="quote-text">
+        ... quote text here ....
+      </div>
+    </li>
+    <li class="quote next">
+      <div class="quote-image" style="background-image: url(...);"></div>
+      <div class="quote-text">
+        ... quote text here ....
+      </div>
+    </li>
 
+We can add them to the `quote` list items like this. First add the "previous" class, then "current" and lastly "next".
+
+This will be the initial state for the carousel when it first loads. We will be updating these classes using JavaScript later. When these classes change, that'll be our opportunity to introduce some animation.
+
+## Progress indicators
+
+Before we finish up with the HTML we'll need to add some kind of UI to show people how many quotes there are, as well as offer a means of navigating them. We'll do this by adding a series of bullet points, or pips to the bottom of the carousel.
+
+    <section class="quotes-carousel-pips" id="quotes-carousel-pips">
+      <ul>
+        <li class="pip"></li>
+      </ul>
+    </section>
+
+We begin by adding a new section called `quotes-carousel-pips`, and again we'll make use of an `id` so that we can access this efficiently using JavaScript. Next we set up another list, this time with the list items having the class `pip`.
+
+    <section class="quotes-carousel-pips" id="quotes-carousel-pips">
+      <ul>
+        <li class="pip"></li>
+        <li class="pip previous"></li>
+        <li class="pip current"></li>
+        <li class="pip next"></li>
+        <li class="pip"></li>
+      </ul>
+    </section>
+
+We could set these up manually to have the same number of pips as there are quotes, but this might be a problem later if we were to add or remove a quote and forget to update the pips. Instead we'll generate this list using JavaScript. For now though, so that we can style them, we add in a few extra pips for the `previous`, `current` and `next` classes. This way we'll be able to style the 3 pips to match the 3 quotes that will be visible on screen at once.
 
 ## What we learned
 
-[Next: Title]
+So there we go! To recap, we've added a list of quotes inside a `quotes-carousel` container, and we've set up some pips to sit beneath the quotes to show how many quotes there are while allowing navigation.
+
+## Next: Adding CSS
+
+Next we'll set up the styles needed to position these quotes, as well as plan out the animations or transitions we'll need when the `previous`, `current` and `next` classes update.

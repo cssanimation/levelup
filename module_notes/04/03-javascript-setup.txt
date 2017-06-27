@@ -1,5 +1,32 @@
 - Setting up the initial javascript to include each of the functions we'll need, including clicking on the pips
 
+# Setting up JavaScript
+
+Now that we have our carousel looking good, it's time to think about how the whole thing should work.
+
+In this lesson we'll set out what we want our carousel to do, and build the skeleton that will become our JavaScript back-end for the carousel. 
+
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/04/04.zip">module 4 code file</a> and look for folder `03-start`. A completed version of this lesson's code is in the folder `03-end`.
+
+## Planning our JavaScript tool
+
+What we want to build is a JavaScript engine that changes the "state" of the carousel, both automatically but also when people click on the quotes or pips.
+
+While the code we write to do this might seem quite complicated, what it's really doing is switching around the classes on the HTML, so that the CSS transitions can tell the browser how to animate between these states.
+
+Let's start by listing out some goals for what we want this to do.
+
+* Move the current quote along automatically
+* Show next/previous quote when selected
+* Loop infinitely
+* Allow selecting any pip to go to that quote
+* Animate quotes in from left and right
+
+
+
+## Initial structure
+
+
 STRUCTURE
 
 # Title

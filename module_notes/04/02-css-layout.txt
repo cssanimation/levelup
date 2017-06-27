@@ -1,15 +1,227 @@
-- Applying CSS for layout, while thinking about how things are going to move (relying on transforms for prev next etc)
+# Carousel CSS
 
-STRUCTURE
+Now that we have the HTML we need for our list of quotes, let's add the CSS to make it look a bit more like a carousel!
 
-# Title
+In this lesson we'll be styling the list of quotes we build using HTML, as well as the progress indicator pips that we added. We'll also think about the "states" of the carousel and how we might be able to use CSS transitions to animate between these states.
 
-[Intro]
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/04/04.zip">module 4 code file</a> and look for folder `02-start`. A completed version of this lesson's code is in the folder `02-end`.
 
-[What we will learn]
+## Styling the quotes
 
-[Main content]
+[CodePen of the unstyled list]
+
+So far we've created a couple of unstyled lists. Let's transform this boring list into something more interesting. In the CSS folder you'll find an empty file called `carousel.css`. This is where we'll add the styles. 
+
+First up we'll need to style our container. 
+
+    .quotes-carousel-container {
+      height: 28em;
+      margin: 0 auto;
+      width: 30em;
+      position: relative;
+    }
+
+We add the style block for `quotes-carousel-container`. This simply gives the container a height, width, and places it in the center of the screen using the "auto" value for left and right margins.
+
+Lastly we set the `position` to "relative" so that we can perform absolute positioning within this container.
+
+Inside this container we have two lists, one for the quotes and one for the pips. We begin with the quotes.
+
+    .quotes-carousel {
+      height: 22em;
+      position: relative;
+      width: 100%;
+    }
+
+This is a container for each of the quotes, so we're giving it a height and width as well as it's own `position` value so that we can also use absolute positioning.
+
+Next we'll style the quotes. 
+
+    .quote {
+      cursor: pointer;
+      margin: 8em auto 4em;
+      opacity: 0;
+      list-style: none;
+      padding: 1em;
+      position: absolute;
+        top: 50%;
+        left: 50%;
+      transform: translate(calc(100% + 12em), -50%) scale(.6);
+      transition: transform 1.5s cubic-bezier(.7,-0.3,.2,1.3),
+                  opacity .5s .6s ease-out;
+      width: 16em;
+    }
+
+Firstly we'd like to let people click or tap on the previous and next quotes to prompt the carousel to move that direction. We can make this visible using the `cursor` property. This will make the mouse cursor show a hand as if it's a link. We then give the quote some margin and padding, set the `opacity` to 0 so that the quotes are invisible by default and set the `list-style` to none.
+
+Next we want to think about how we're positioning and moving these around. Initially it would make sense for the quotes to sit off to the right of our carousel, and then animate in from the right. We also want them to be centered vertically.
+
+To do this we'll use `position` to set the top and left to "50%". We can then use a `transform` to push the quote over to the right. I'm using `calc` here to push it to the edge of the container (100%), then a further "12em" so that it's beginning outside the container. I'm then pulling it up by applying "-50%" to the Y-axis transform, so that it'll be centered vertically.
+
+Just to make sure this is making sense. What we're doing here is placing the element close to the middle using absolute positioning, but then using a transform to move it across to the right. We could have positioned the quote way over on the right using the `left` or `right` properties, but then we'd have to animate these properties later. It's better to focus on animating the `transform` property.
+
+When we're setting up the "current" and other states, this should also be easier to manage as the quotes all begin somewhere around the middle before any transform is applied.
+
+Lastly we have the `transition`. For this we're transitioning the `transform` property, over 1.5 seconds, and using a bouncy cubic bezier timing function. We then add a second transition property, `opacity` as that will be animating also. This time a little quicker at ".5s", and we'll add a delay of ".6s", with a basic `ease-out` timing function.
+
+With the containers and the quotes styles, that leaves the images.
+
+    .quote-image {
+      background-size: cover;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,.5) inset;
+      height: 7em;
+      position: absolute;
+        top: -7em;
+        left: calc(50% - 3.5em);
+      width: 7em;
+    }
+
+For the images we'll make sure the background fits by using the "cover" background size, we'll make them circular using a `border-radius` of "50%", and add a little box shadow to make it look like the image is showing through a cut-out in the page. We also give the images a height and width, and position them at the top of the quote container.
+
+So far we've added a lot of styling but since the quotes have an opacity of zero, there's not much to see. Let's change that by styling the "previous", "current" and "next" quotes.
+
+## Styling the states
+
+The visible quotes we want will have one of three states. We add them to our CSS like so:
+
+    .quote.previous {
+
+    }
+
+    .quote.current {
+
+    }
+
+    .quote.next {
+ 
+    }
+
+Starting with the "previous" quote, we'd like that to be visible but somewhat faded out, and sit on the left side of the screen. We'd also like it to be a little smaller than the main "current" quote.
+
+  .quote.previous {
+    opacity: .5;
+    transform: translate(-150%, -50%) scale(.8);
+  }
+
+We can do this by applying an `opacity` and then applying a `transform` to pull it left by "150%", keeping the same Y-axis transform, and applying a scale of ".8".
+
+The "current" quote is to be front and center.
+
+    .quote.current {
+      cursor: default;
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+
+For this we set the `cursor` back to "default" so that it doesn't behave like a link, give it an opacity of "1" and apply a `transform` to put it properly centered in the container. This is because the "top" and "left" values we set earlier only apply to the top-left corner of the element, so this `transform` puts it in the right place.
+
+Next we want the "next" quote to be over on the right side.
+
+    .quote.next {
+      opacity: .5;
+      transform: translate(50%, -50%) scale(.8);
+    }
+
+As with the "previous" quote we give it an `opacity` of ".5", and we'll use a `transform` to push it across to the right and scale it down.
+
+Lastly we'll add one more style that will become useful later. If we think about the way our animations are going to flow - the quotes are going to animate in from the right. But then when a "previous" quote is removed, it'll try to go back across to the right also. This will look odd. To fix this we can have a special state called "left" which will position the quote off to the left. We'll be able to use this to make sure quotes that are vanishing on the left side go the correct direction.
+
+    .quote.left {
+      transform: translate(calc(-150% - 12em), -50%) scale(.6);
+    }
+
+Here we pull the quote to the left by a calculated "-150% - 12em" to make sure it's well over there on the left. Because we don't specify any `opacity` here, it'll revert to being invisible.
+
+Lets check how this is looking!
+
+[Code pen of just the quotes part (no pip styling)]
+
+
+## Styling the pips
+
+Alright! We're nearly there. Let's finish up by adding some styles for the progress indicator and the pips within it.
+
+We want the pips to be visible at the bottom of the carousel, which we can do with absolute positioning. Using `text-align` set to "center" will make sure they're in the middle of the screen.
+
+    .quotes-carousel-pips {
+      position: absolute;
+        bottom: 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    .quotes-carousel-pips ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+Next up we style the `ul` by getting rid of any margin and padding and list styles. 
+
+Next we style the pips themselves.
+
+    .pip {
+      background: #888;
+      border-radius: 50%;
+      border: 2px solid #555;
+      cursor: pointer;
+      display: inline-block;
+      height: 20px;
+      margin: 0 .1em;
+      padding: 0;
+      transform: scale(.5);
+      transition: all .8s cubic-bezier(0,1,.3,1);
+      width: 20px;
+    }
+
+For this design we'll make the pips grey circles, which when hovered over will show the hand cursor. We'll place then inline, 20px in size with a little margin between each.
+
+We'll then use a transform to scale them down to half their original size - this will be useful for a hover effect in which they grow on hover. To help with this, I'll add a `transition`.
+
+In this case the transition will apply to all properties, a duration of .8 seconds, and the exponential ease-out timing function.
+
+We then add some styles for the states.
+
+    .pip.previous,
+    .pip.next {
+      background: #ccc;
+      transform: scale(.6);
+    }
+
+    .pip.current {
+      background: #fff;
+      cursor: default;
+      transform: scale(.7);
+    }
+
+For the "previous" and "next" states we set the background to a lighter colour, and scale them up slightly to ".6".
+
+Then we highlight the current item by making it's background white, and scaling it slightly larger to ".7". We also set the cursor to default as clicking this one won't do anything.
+
+Lastly we'd like to create a hover effect where the pip scales up on hover. For this we want any pip to have the hover effect, apart from the current one. We can do this using the `:not` pseudo-selector.
+
+    .pip:not(.current):hover {
+      transform: scale(1);
+    }
+
+What this says is, for each "pip" that does *not* have the `.current` class, on hover we should apply the `transform` to scale the pip to full size.
+
+Checking in the browser we can see the layout taking shape.
+
+[CodePen of full layout with no JS]
+
+When we hover over the previous and next quotes, the mouse cursor turns to a pointer. Similarly, hovering over any of the pips other than the current one causes the hover effect.
 
 ## What we learned
 
-[Next: Title]
+In this lesson we built the layout for what will be an animated carousel of quotes. We set out the styles for the carousel, set out the styles for each "state" of the highlighted quotes, as well as added transitions to create animation between these states.
+
+In the end we only needed 2 transitions.
+
+We also made use of the "not" selector when adding a hover effect. 
+
+## Next: Setting up JavaScript
+
+Next we'll begin building the JavaScript needed to power this carousel. There will be quite a few moving parts to this, so in the next lesson we'll plan and build the basic structure of our JavaScript before getting into the finished code.
