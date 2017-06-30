@@ -1,20 +1,236 @@
-The javascript functionality we need to make the carousel work
+# JavaScript Functionality
 
-Functionality needed:
+In this lesson we're going to continue where we left off last time with our carousel JavaScript functions. So far we've put together a skeleton of functions, it's time to fill in the actual functionality.
 
-...
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/04/04.zip">module 4 code file</a> and look for folder `04-start`. A completed version of this lesson's code is in the folder `04-end`.
+
+## Showing the next quote
+
+We begin by opening our `carousel.js` file in the `JavaScripts` folder.
+
+When set set up our code last lesson we put in an interval that will run every 4 seconds, and it'll run a function called `showNextQuote`. Let's start with that.
+
+In the `showNextQuote` function block, let's work out what this needs to do. First it needs to work out what the next "current" item needs to be. That's simple enough, it'll either be the `currentIndex` plus 1, unless the current quote is the late one, in which case we want to loop back to number zero.
+
+We can write this as so.
+
+    function showNextQuote() {
+      // Calculate the indices needed to show the next quote
+      if (currentIndex === lastIndex) {
+        currentIndex = 0;
+      } else {
+        currentIndex++;
+      }
+      updateState(currentIndex);
+    }
+
+This means that if the current item is the last one, it'll set the `currentIndex` to zero, otherwise it'll simply add one to the current index value. That's what the "++" stands for, it's a shorthand way of saying `currentIndex + 1`.
+
+What we're doing here is working out what quote (refereced by it's "index", or number in the sequence) we'd like to show, we then call our `updateState` function and pass it that number. We're saying "update the state with the current quote being number `currentIndex`".
+
+## Showing a specific quote
+
+Let's next create our function that lets us show a specific quote, `showQuote`.
+
+    function showQuote(event) {
+      // Get the index of the clicked quote and show it
+      if ($(event.target).hasClass('quote')) {
+        var target = $(event.target);
+      } else {
+        var target = $(event.target).parent();
+      }
+      var index = $('.quote').index(target);
+      updateState(index);
+    }
+
+What we want to do here is get the "index" of the quote being selected. It'll likely be either the previous or next quote, but we're not assuming those are the only quotes that will be potentially "clickable". Instead we'll work out the index for the clicked quote, and again, pass that to the `updateState` function.
+
+We begin by checking if the clicked item has the class `quote`. If it does, cool, let's assign that to the variable "target". If not, if must be a child item of the quote, so let's get the immediate parent and apply that to the variable "target" instead. 
+
+We can now use the jQuery "index" helper. This will tell is what index value our "target" quote has within the set of quotes. It says "select all quotes, and run the `index` method, looking for our `target`". This returns a number we'll pass in to our handy `updateState` function.
+
+## Updating the carousel state
+
+Speaking of which, we've now written to functions that both work in a similar way, they work out the index of the quote we'd like to show, and give it to `updateState`. Let's write that now.
+
+    function updateState(index) {
+      // Calculates the previous and next indices, and updates the carousel
+      prevIndex = index === 0 ? lastIndex : index - 1;
+      currentIndex = index;
+      nextIndex = index === lastIndex ? 0 : index + 1;
+
+      updateCarouselPosition();
+      setLeftClass();
+      updatePips();
+    }
+
+What we'd like to do here is use the given "index" value to work out a value for the previous and next quotes, and then update the visible carousel items to reflect this new state.
+
+We begin by calculating new values for our "prevIndex", "currentIndex" and "nextIndex" globals. We set these values to 0, 1 and 2 up at the top, and they represent the "state" of the carousel. Let's update each.
+
+First we'll work out the `prevIndex`. We can use a ternary statement here. In case you haven't seen this before, a ternary is a way of putting an "if/else" into one line. it's useful when you want to choose between two values based on a comparison.
+
+In this case we're saying "if the given index is zero, return the last item, otherwise return the index minus 1".
+
+We then set the `currentIndex` to the given "index" value.
+
+Next we calculate the `nextIndex` by using another ternary. This time we say "if the given index is equal to the last quote, then we use 0, otherwise we use the value of our given index plus 1".
+
+Now that we've established our new carousel state, we'll call a function that updates the visible carousel items, `updateCarouselPosition`.
+
+We also want to set the special "left" item that will animate in from the left side if we were to click the "previous" carousel item. Our soon-to-be-written `setLeftClass` will handle that. Next we update the pips using `updatePips`.
+
+These 3 functions all act on the current "state" of the carousel, which we set there when we updated the three index values.
+
+## Updating the visible carousel
+
+Now that we've updated the state, let's actually apply the "previous", "current" and "next" classes to our HTML. We'll do this in the function `updateCarouselPosition`.
+
+    function updateCarouselPosition() {
+      // Remove any previous, current, next classes
+      $('#quotes-carousel').find('.previous').removeClass('previous');
+      $('#quotes-carousel').find('.current').removeClass('current');
+      $('#quotes-carousel').find('.next').removeClass('next');
+      var allQuotes = $('#quotes-carousel').find('.quote');
+      $(allQuotes[prevIndex]).addClass('previous');
+      $(allQuotes[currentIndex]).addClass('current');
+      $(allQuotes[nextIndex]).addClass('next');
+    }
+
+We begin by removing any "previous", "current" or "next" classes from the quotes. This clears the deck and we can now set new classes.
+
+Before we can apply the classes we need an array of all the quotes. We'll create this as the array `allQuotes`, containing all items with class `quote` inside the carousel.
+
+Now that we have an array, we can simply apply classes using our index values! We can pass into the jQuery object the quote at index position `prevIndex`, and add class "previous". Same for the `currentIndex` and `nextIndex`.
+
+## Check our progress
+
+Let's take a moment to check out progress! We've created quite a few functions so far so lets load it in the browser and check that two things are working - firstly that it's automatically moving forward to the next quote every few seconds, and secondly that we can select the previous and next quotes to see them.
+
+It's far from perfect yet, but we've got some progress! If it's not working for you - open your browser's inspector and look for any errors in the "Console" tab. You might have a typo. If you're like me, that's a fairly likely possibility. If you're still stuck, you can look at the code in the folder `04-end`.
+
+[Codepen - up to the generatePips part]
+
+It's a good idea to jump across to the browser when coding to check nothing's breaking and things are taking shape as expected. If all's looking well, let's move on and set up the progress indicator.
+
+## Generating the pips
+
+Let's take a look at the next function, in which we'll generate the progress indicator pips for the bottom of the screen. Before we create this function we'll want to go to our `index.html` file and update the list of pip list items.
+
+We remove all the `li` items and leave just the `ul` container. We'll fill this using JavaScript.
 
 
-STRUCTURE
+    <section class="quotes-carousel-pips" id="quotes-carousel-pips">
+      <ul></ul>
+    </section>
 
-# Title
+Back in our `carousel.js` file let's write the `generatePips` function.
 
-[Intro]
+    function generatePips() {
+      // Add pips to the ul element in index.html
+      var listContainer = $('#quotes-carousel-pips').find('ul');
+      for (var i = lastIndex; i >= 0; i--) {
+        var newPip = $('<li class="pip"></li>');
+        $(listContainer).append(newPip);
+      }
+      updatePips();
+    }
 
-[What we will learn]
+We begin by finding the `listContainer` item on the page. In this case it's the `ul` tags we left earlier.
 
-[Main content]
+We'll then use a `for` loop to create and append new pip items until we've hit the last item in the carousel. We set `var i` to the `lastIndex`, then as long as this is greater than or equal to zero, keep subtracting one each time. 
+
+Inside the loop we'll create a new pip list item and give it the class `pip`. We can put this into the `listContainer` using the jQuery "append" method. 
+
+Lastly, outside the `for` loop we'll run a function to apply the appropriate "previous", "current" and "next" classes to our pips. Let's write that next.
+
+## Updating the pips
+
+In this `updatePips` function we want to set the "previous", "current" and "next" classes on the relevant pips. We can do so using a function very like the one we used for the carousel position.
+
+    function updatePips() {
+      // Update the classes on the pips depending on the current indices
+      $('#quotes-carousel-pips').find('.previous').removeClass('previous');
+      $('#quotes-carousel-pips').find('.current').removeClass('current');
+      $('#quotes-carousel-pips').find('.next').removeClass('next');
+      var allPips = $('#quotes-carousel-pips').find('.pip');
+      $(allPips[prevIndex]).addClass('previous');
+      $(allPips[currentIndex]).addClass('current');
+      $(allPips[nextIndex]).addClass('next');
+    }
+
+In this function we begin by removing the relevent classes within the `quotes-carousel-pips` element. We then get an array of all the pips, and use the same approach as earlier, setting the "previous", "current" and "next" classes based on their index.
+
+Let's take a look in the browser to check this is working.
+
+[Codepen ... everything up to updatePips function in place]
+
+We see the pips generated by JavaScript, and the classes have been applied. 
+
+## Showing from the pips
+
+We're almost done! Let's next write the code to help us show specific quotes when people click on one of the pips.
+
+This function is passed an `event`, which contains as a `target` the item clicked. We can use this target to find the "index" of the clicked pip, from within the set of list items.
+
+    function showFromPip(event) {
+      // Helper for when someone clicks a pip
+      var index = $('#quotes-carousel-pips li').index(event.target);
+      updateState(index);
+    }
+
+We then pass the index into the `updateState` function, which will set the carousel state, update the positions of the quotes, and even update the pips. Awesome!
+
+Let's quickly test this to see it working.
+
+[CodePen - code up to the showFromPip function]
+
+Looking good! However there's one more thing to fix. Notice how the "previous" item flies away to the right when it's being removed or added? We need to create the function that applies our special "left" class to these quotes.
+
+## Setting the "left" class
+
+Before we wrap up this initial version of our carousel, let's fix this "left" issue.
+
+    function setLeftClass() {
+      // For when we want the item to appear from the left side if it's "earlier" in the list
+      var allQuotes = $('#quotes-carousel').find('.quote');
+      // Clear any previous "left" item
+      $('.quote.left').removeClass('left');
+      if (prevIndex > 0) {
+        var index = prevIndex - 1;
+        $(allQuotes[index]).addClass('left');
+      } else {
+        // It's the first item, so add "left" to the last in the list
+        $(allQuotes[lastIndex]).addClass('left');
+      }
+    }
+
+We want the item *before* the "previous" item to have this special "left" class so that it moves to and from a position over on the left side of the carousel. To do this we'll first get an array of all the quotes so that we can access them by index.
+
+We then clear out any previous "left" classes. Next we want to find the quote before the "previous" quote. If the `prevIndex` is greater than zero, then that'll mean we can just decrement the `prevIndex` value by 1. We then apply the class "left" to this index in the `allQuotes` array.
+
+Otherwise, if the `prevIndex` is actually zero, then we want this "left" item to be the last in the array. We have our handy `lastIndex` global value we can use to apply this class to the last item.
+
+## Setting left class on load
+
+When we press the previous item on first load, the new quote swings across from the right side. We can fix this by running `setLeftClass` at the initial load of the page. We'll add it under the `generatePips` function call.
+
+    // Generate pips
+    generatePips();
+    // Set the left item on load
+    setLeftClass();
+
+Let's do a final check of the progress so far.
+
+[CodePen - completed code]
+
+It's looking very good! Clicking on the quotes navigates back and forth, they loop nicely, and selecting the pips lets us jump to a specific quote.
 
 ## What we learned
 
-[Next: Title]
+This was a big one, and we've covered a lot in this lesson. We put together a quite complex piece of JavaScript that lets us interact with our content, triggering animations by changing classes in the HTML. We did it by putting together chains of small functions, all based around this idea of a "state" for the carousel.
+
+## Next: Extra functionality
+
+While the carousel does most of what we want, there are a few ways we can add some polish to it. In the next lesson we're going to look into ways we can make the carousel pause, and then resume when people interact with it. We'll also look at how we can have it pause when the browser's tab is out of view, both saving resources and avoid any unsightly jumps in the animation when the browser comes back into focus.
+

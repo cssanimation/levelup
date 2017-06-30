@@ -3,7 +3,7 @@ $(function() {
   var prevIndex = 0;
   var currentIndex = 1;
   var nextIndex = 2;
-  var lastIndex = $('#quotes-carousel').find('.quote').length - 1;
+  var carouselLength = $('#quotes-carousel').find('.quote').length;
 
   // Click actions to listen for
   $('#quotes-carousel').on('click', '.previous', showQuote);
