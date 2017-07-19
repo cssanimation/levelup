@@ -19,7 +19,7 @@ Let's transform this boring list into something more interesting. In the CSS fol
 First up we'll need to style our container. 
 
     .quotes-carousel-container {
-      height: 28em;
+      height: 23em;
       margin: 0 auto;
       width: 30em;
       position: relative;
@@ -43,7 +43,7 @@ Next we'll style the quotes.
 
     .quote {
       cursor: pointer;
-      margin: 8em auto 4em;
+      margin: 4em auto;
       opacity: 0;
       list-style: none;
       padding: 1em;
