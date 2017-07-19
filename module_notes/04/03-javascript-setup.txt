@@ -1,3 +1,5 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 # Setting up JavaScript
 
 Now that we have our carousel looking good, it's time to think about how the whole thing should work.
@@ -84,12 +86,12 @@ For now we'll just run the function, and we'll actually write it in the next les
 
 Next step is to tell the carousel to begin. We've set up the state, we're listening for clicks, and in theory we've generated out pips so let's set up the code that starts it running.
 
-  var carouselRunning = true;
-  var interval = setInterval(function() {
-    if (carouselRunning) {
-      showNextQuote();
-    }
-  }, 4000);
+    var carouselRunning = true;
+    var interval = setInterval(function() {
+      if (carouselRunning) {
+        showNextQuote();
+      }
+    }, 4000);
 
 We begin with a variable that says whether the carousel is running. This will be `true` initially but we want to be able to set this to false later when people click on the carousel, so that it pauses the automatic movement.
 
@@ -103,51 +105,51 @@ Before we start coding the logic for how this works let's finish by setting out 
 
 Starting with the most recent one, we'll add the "showNextQuote" and "showQuote" functions. The first will be used when the carousel is moving automatically. The second will be used when we want to show one specific quote, either by clicking or tapping.
 
-  function showNextQuote() {
-    // Calculate the indices needed to show the next quote
-  }
+    function showNextQuote() {
+      // Calculate the indices needed to show the next quote
+    }
 
-  function showQuote(event) {
-    // Get the index of the clicked quote and show it
-  }
+    function showQuote(event) {
+      // Get the index of the clicked quote and show it
+    }
 
 The "showQuote" function is given an "event" which we can then use to work out which quote was clicked, and then work out it's index.
 
 These two functions will be primarily concerned with calculating the index of the quote we want to be the "current" one. We can keep our code clean by then making a helper function that updates the state based on this index value.
 
-  function updateState(index) {
-    // Updates the previous and next indices, and updates the carousel
-  }
+    function updateState(index) {
+      // Updates the previous and next indices, and updates the carousel
+    }
 
 When the state updates, we then want to update the visual carousel positions. Let's add a function for that then.
 
-  function updateCarouselPosition() {
-    // Update the carousel depending on the "state"
-  }
+    function updateCarouselPosition() {
+      // Update the carousel depending on the "state"
+    }
 
 This covers the carousel part, so next can think about the pips. First we want to generate them. We can do that by creating the function we called earlier.
 
-  function generatePips() {
-    // Add pips to the ul element in index.html
-  }
+    function generatePips() {
+      // Add pips to the ul element in index.html
+    }
 
 With the pips generated, we need to tell the pips which one is the previous, current and next item. Since we have the "state" set up, we can make use of that to set "previous", "current" and "next" classes on the pips. We'll call this function "updatePips".
 
-  function updatePips() {
-    // Update the classes on the pips depending on the current indices
-  }
+    function updatePips() {
+      // Update the classes on the pips depending on the current indices
+    }
 
 Next we'll add a function to catch the click event on a pip. We used it earlier in the click listeners, the function being "showFromPip". We'll pass in the click event so that we can use that to work out the quote to show, just like in the "showQuote" event.
 
-  function showFromPip(event) {
-    // Helper for when someone clicks a pip
-  }
+    function showFromPip(event) {
+      // Helper for when someone clicks a pip
+    }
 
 Lastly we have a bit of an edge case to think about. When the "previous" carousel item animates away, it's currently going to fly over to the right where the default hidden quotes live. This would look odd, so to get around it we'll set a "left" class on the "previous" item when it's removed. To prepare for this we'll set up a function to take care of this eventuality.
 
-  function setLeftClass() {
-    // For when we want the item to appear from the left side if it's "earlier" in the list
-  } 
+    function setLeftClass() {
+      // For when we want the item to appear from the left side if it's "earlier" in the list
+    } 
 
 And there we do! Remember that in order to work, all these functions need to be inside the jQuery ready block, as that's where we've declared our state variables. If these functions were set up outside those curly braces, there would be no way they'd be able to access the carousel's state. Instead it's all wrapped up nicely in this block.
 
@@ -155,6 +157,6 @@ And there we do! Remember that in order to work, all these functions need to be 
 
 In this lesson we took a fairly big leap into the JavaScript development of this carousel. While it won't work yet, we've set up the structure that we can next fill in by building the logic for each of these functions.
 
-## Next: JavaScript functionality
+## Next: Making it work
 
 Next up we'll go through each of these functions and build our carousel. By the end of the next lesson we should have a working carousel!

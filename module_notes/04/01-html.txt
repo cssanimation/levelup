@@ -34,12 +34,12 @@ We give this both the `class` and `id` of `quotes-carousel`. The class is for wh
 
 Inside our `ul` tags let's set out the actual quote structure.
 
-  <li class="quote">
-    <div class="quote-image" style="background-image: url(...);"></div>
-    <div class="quote-text">
-      ... quote text here ....
-    </div>
-  </li>
+    <li class="quote">
+      <div class="quote-image" style="background-image: url(...);"></div>
+      <div class="quote-text">
+        ... quote text here ....
+      </div>
+    </li>
 
 We start with the list item, with class `quote`. Inside this we add a `div` to contain the image, and give it the class `quote-image`. Since each of these images will act as decoration for the quote, my preference here is to set the image as a background image using an inline style declaration. You could place the images here in image tags if you wish.
 
@@ -48,8 +48,6 @@ For the content of these images I'm using the website [FillMurray.com](http://fi
 Next we add the quote text, in a `div` with class `quote-text`.
 
 For the sake of this demo I'll be setting up some random quotes I found online. Feel free to use whatever content you like! To save your searching for images I've added some to the `images` folder. They're named `murray1.jpg`, through to `murray8.jpg`.
-
-(Skip to filled in list of quote content)
 
 So here we have a list of quotes. Next we need to think about how they'll be presented.
 

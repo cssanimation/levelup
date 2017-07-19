@@ -1,3 +1,5 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 # Finishing touches
 
 We've almost finished building our carousel! But before we move on, let's tidy up a couple of rough edges. In this lesson we're going to have our carousel pause when people interact with it, using the JavaScript `setTimeout` function. We'll also mmake use of `document.hidden` to ensure the browser behaves properly when switching between tabs.
@@ -35,7 +37,7 @@ Next we set up the timeout to restart the carousel. In the `carouselRestartTimeo
 
 Let's try this in the browser. Now when I press a quote, everything stops moving for a full 10 seconds, leaving me with time to read the quote without the carousel moving it away.
 
-[CodePen - everything except the hidden/visibility change bit]
+<p data-height="600" data-theme-id="12592" data-slug-hash="YQoYYv" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
 
 ## Animating when hidden
 
@@ -63,7 +65,7 @@ When the "visibilitychange" event occurs, we run a function that checks whether 
 
 Let's check this. Switching to a new tab, we can now return to the original and see that it's in the same position as when we left it. This is a handy trick we can use any time we have some automated timer running and want to make sure our animations don't "bunch up" and all run at once when we return to a tab.
 
-[CodePen - everything] 
+<p data-height="600" data-theme-id="12592" data-slug-hash="YQoYev" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
 
 ## What we learned
 

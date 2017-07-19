@@ -1,3 +1,5 @@
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
 # Carousel CSS
 
 Now that we have the HTML we need for our list of quotes, let's add the CSS to make it look a bit more like a carousel!
@@ -8,9 +10,11 @@ To get started, open the the <a href="https://cssanimation.rocks/levelup/public/
 
 ## Styling the quotes
 
-[CodePen of the unstyled list]
+So far we've created a couple of unstyled lists.
 
-So far we've created a couple of unstyled lists. Let's transform this boring list into something more interesting. In the CSS folder you'll find an empty file called `carousel.css`. This is where we'll add the styles. 
+<p data-height="600" data-theme-id="12592" data-slug-hash="yXdpeB" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+
+Let's transform this boring list into something more interesting. In the CSS folder you'll find an empty file called `carousel.css`. This is where we'll add the styles. 
 
 First up we'll need to style our container. 
 
@@ -210,7 +214,7 @@ What this says is, for each "pip" that does *not* have the `.current` class, on 
 
 Checking in the browser we can see the layout taking shape.
 
-[CodePen of full layout with no JS]
+<p data-height="600" data-theme-id="12592" data-slug-hash="yXdzPz" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
 
 When we hover over the previous and next quotes, the mouse cursor turns to a pointer. Similarly, hovering over any of the pips other than the current one causes the hover effect.
 
