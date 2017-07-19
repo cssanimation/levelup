@@ -1,18 +1,79 @@
-Extra JavaScript stuff:
+# Finishing touches
 
-Pausing animation when tab not visible
+We've almost finished building our carousel! But before we move on, let's tidy up a couple of rough edges. In this lesson we're going to have our carousel pause when people interact with it, using the JavaScript `setTimeout` function. We'll also mmake use of `document.hidden` to ensure the browser behaves properly when switching between tabs.
 
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/04/04.zip">module 4 code file</a> and look for folder `05-start`. A completed version of this lesson's code is in the folder `05-end`.
 
-STRUCTURE
+## Pausing the carousel
 
-# Title
+Let's begin with the `carousel.js` JavaScript file we used before. Near the top you'll find some code we wrote with the variable `carouselRunning`.
 
-[Intro]
+This isn't actually doing anything useful yet. We set it to "true" then check whether it's true when running our `showNextQuote` function every 4 seconds.
 
-[What we will learn]
+What this means is that even if we click on the carousel, the timer counting down those 4 seconds will continue, and we might find the quote we select whisked away before we have time to read it. This is not a good experience.
 
-[Main content]
+So let's make the carousel pause for a while when someone clicks on a quote. This should give them time to read it, and then we can have the carousel start moving again after a little while.
+
+Before we add this let's create one more variable we'll find useful. Beneath the line with `carouselRunning` we add another variable called `carouselRestartTimeout`. This will be a container for the `timeOut` we set later. 
+
+    var carouselRunning = true;
+    var carouselRestartTimeout;
+
+Next we scroll down to the `showQuote` function. This function is only called on click or tap, so we'll want to put some logic in here to tell the carousel to pause.
+
+    clearTimeout(carouselRestartTimeout);
+    carouselRunning = false;
+    carouselRestartTimeout = setTimeout(function() {
+      carouselRunning = true;
+    }, 10000);
+
+We begin by clearing any existing "timeout" that might have been set earlier. We do this so that when a click occurs, it'll be a full pause before resuming. Otherwise we could have a situation where either we have multiple timeouts, or the timeout runs out shortly after a click happens.
+
+We then set the variable `carouselRunning` to false. Back up at the top in the `interval` this will mean that every 4 seconds, the carousel will check whether `carouselRunning` is true and in this case, will not move the carousel forwards automatically.
+
+Next we set up the timeout to restart the carousel. In the `carouselRestartTimeout` we apply `setTimeout` and give it a simple function that sets `carouselRunning` to true. We'll set a delay as a parameter, of 10 seconds or 10000 milliseconds.
+
+Let's try this in the browser. Now when I press a quote, everything stops moving for a full 10 seconds, leaving me with time to read the quote without the carousel moving it away.
+
+[CodePen - everything except the hidden/visibility change bit]
+
+## Animating when hidden
+
+Any time we create animations that play on a timer like this, it's possible to run into unintended side effects. One big one is that the timer driving the animation will continue to play in the background while you're on another tab. This would be less of a big deal if the browser also updated what it showed to match the timer, but browsers often optimise to not show animations when the browser is invisible, as it would be a waste of CPU cycles and power.
+
+This means that when we change back to the tab we might see a jump as the timer has continues, but the UI has to suddenly catch up with the current state of the carousel, which has moved on while the tab was invisible.
+
+We can see this by switching tab away for a few seconds, and when we come back, the quotes jump around.
+
+Let's fix this using `document.hidden`. This is a boolean value, meaning it's set to either false, when the document is visible, or true, when the document is hidden.
+
+We can use this to pause our animation when the document is hidden, and then restart the animation when the document is back in view.
+
+    document.addEventListener("visibilitychange", function() {
+      if (document.hidden) {
+        carouselRunning = false;
+      } else {
+        carouselRunning = true;
+      }
+    });
+
+Browser support for `document.hidden` is not universal, but it's getting pretty good so we should be able to use this and have it work in modern versions of Internet Explorer, Safari, Firefox and Chrome. We begin by adding an event listener, with the event being "visibilitychange".
+
+When the "visibilitychange" event occurs, we run a function that checks whether the `document.hidden` value is true, and if so, sets the `carouselRunning` boolean to "false", otherwise it is set to "true".
+
+Let's check this. Switching to a new tab, we can now return to the original and see that it's in the same position as when we left it. This is a handy trick we can use any time we have some automated timer running and want to make sure our animations don't "bunch up" and all run at once when we return to a tab.
+
+[CodePen - everything] 
 
 ## What we learned
 
-[Next: Title]
+In this lesson we fixed some potential issues, making sure that our carousel behaves nicely when people select a quote or when the browser tab is out of sight. To do this we made use of the JavaScript `setTimeout` function as well as `document.hidden`.
+
+## Next: Examples to download
+
+In the next lesson you'll find this full example ready to download and customise to your own needs, along with some other examples to show how this carousel can be adjusted for different situations.
+
+
+
+
+

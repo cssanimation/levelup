@@ -16,7 +16,6 @@ $(function() {
 
   // Cycle automatically
   var carouselRunning = true;
-  var carouselRestartTimeout;
 
   // Set the carousel working
   var interval = setInterval(function() {
@@ -44,13 +43,6 @@ $(function() {
     }
     var index = $('.quote').index(target);
     updateState(index);
-
-    // Since this is by click, pause the automatic movement for a few seconds
-    clearTimeout(carouselRestartTimeout);
-    carouselRunning = false;
-    carouselRestartTimeout = setTimeout(function() {
-      carouselRunning = true;
-    }, 10000);
   }
 
   function updateState(index) {
@@ -63,7 +55,6 @@ $(function() {
     setLeftClass();
     updatePips();
   }
-
 
   function updateCarouselPosition() {
     // Remove any previous, current, next classes
@@ -99,10 +90,7 @@ $(function() {
 
   function showFromPip(event) {
     // Helper for when someone clicks a pip
-    var index = 0;
-    while( (event.target = event.target.previousSibling) != null ) {
-      index++;
-    }
+    var index = $('#quotes-carousel-pips li').index(event.target);
     updateState(index);
   }
 
@@ -116,18 +104,9 @@ $(function() {
       $(allQuotes[index]).addClass('left');
     } else {
       // It's the first item, so add "left" to the last in the list
-      $(allQuotes[allQuotes.length - 1]).addClass('left');
+      $(allQuotes[lastIndex]).addClass('left');
     }
   }
-
-  // Lastly, add a listener for situations where the browser is in another tab / not visible
-  document.addEventListener("visibilitychange", function() {
-    if (document.hidden) {
-      carouselRunning = false;
-    } else {
-      carouselRunning = true;
-    }
-  });
 
 });
 

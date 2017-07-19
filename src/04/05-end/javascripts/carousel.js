@@ -16,7 +16,7 @@ $(function() {
 
   // Cycle automatically
   var carouselRunning = true;
-  var restartingCarousel = null;
+  var carouselRestartTimeout;
 
   // Set the carousel working
   var interval = setInterval(function() {
@@ -46,9 +46,11 @@ $(function() {
     updateState(index);
 
     // Since this is by click, pause the automatic movement for a few seconds
+    clearTimeout(carouselRestartTimeout);
     carouselRunning = false;
-    clearTimeout(restartingCarousel);
-    restartAutomatic();
+    carouselRestartTimeout = setTimeout(function() {
+      carouselRunning = true;
+    }, 10000);
   }
 
   function updateState(index) {
@@ -72,14 +74,6 @@ $(function() {
     $(allQuotes[prevIndex]).addClass('previous');
     $(allQuotes[currentIndex]).addClass('current');
     $(allQuotes[nextIndex]).addClass('next');
-  }
-
-  function restartAutomatic() {
-    // Set up a timer that will bring back the automatic scrolling after 10 seconds
-    clearTimeout(restartingCarousel);
-    restartingCarousel = setTimeout(function() {
-      carouselRunning = true;
-    }, 10000);
   }
 
   function generatePips() {
@@ -127,31 +121,13 @@ $(function() {
   }
 
   // Lastly, add a listener for situations where the browser is in another tab / not visible
-  // Set the name of the hidden property and the change event for visibility
-  var hidden, visibilityChange; 
-  if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
-    hidden = "hidden";
-    visibilityChange = "visibilitychange";
-  } else if (typeof document.msHidden !== "undefined") {
-    hidden = "msHidden";
-    visibilityChange = "msvisibilitychange";
-  } else if (typeof document.webkitHidden !== "undefined") {
-    hidden = "webkitHidden";
-    visibilityChange = "webkitvisibilitychange";
-  }
-
-  // Add listener
-  if (typeof document.addEventListener !== "undefined" && typeof document[hidden] !== "undefined") {
-    document.addEventListener(visibilityChange, handleVisibilityChange, false);
-  }
-
-  function handleVisibilityChange() {
-    if (document[hidden]) {
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
       carouselRunning = false;
     } else {
       carouselRunning = true;
     }
-  }
+  });
 
 });
 

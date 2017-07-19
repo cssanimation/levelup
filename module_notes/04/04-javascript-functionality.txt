@@ -1,6 +1,6 @@
 # JavaScript Functionality
 
-In this lesson we're going to continue where we left off last time with our carousel JavaScript functions. So far we've put together a skeleton of functions, it's time to fill in the actual functionality.
+In this lesson we're going to continue where we left off last time with our carousel JavaScript functions. So far we've put together a skeleton of functions, let's make them work.
 
 To get started, open the the <a href="https://cssanimation.rocks/levelup/public/04/04.zip">module 4 code file</a> and look for folder `04-start`. A completed version of this lesson's code is in the folder `04-end`.
 
@@ -28,7 +28,7 @@ This means that if the current item is the last one, it'll set the `currentIndex
 
 What we're doing here is working out what quote (refereced by it's "index", or number in the sequence) we'd like to show, we then call our `updateState` function and pass it that number. We're saying "update the state with the current quote being number `currentIndex`".
 
-## Showing a specific quote
+## Showing a quote
 
 Let's next create our function that lets us show a specific quote, `showQuote`.
 

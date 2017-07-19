@@ -1,19 +1,14 @@
-00-introduction.txt
+# Module 4: Animated carousel
 
-- What are the main goals (high level)
-- What small things will be learned along the way
-- What will be the takeaway - downloads and learning combined
+So far we've learned how to introduce a web page with animation, we've learned about hover and touch interactions, and build attention-grabbing scroll-triggered animations. Let's apply some of what we've learned to a more practical project, putting together a more complex piece of work that makes use of animation, an animated carousel.
 
-STRUCTURE
+## Carousels
 
-# Title
+We see examples of carousels everywhere. They're not always needed, but when they are done well they can be a helpful way to showcase products, news stories, live data streams or any set of information grouped together.  
 
-[Intro]
+In this module we're going to build an animated carousel of Bill Murray quotes. Along the way we'll be using JavaScript to set classes in our HTML, and apply transitions to make it all animate nicely. We'll also explore ways we can make the carousel pleasant to interact with, letting people select quotes and have the carousel animate their chosen quote into place.
 
-[What we will learn]
+By the end of this lesson you should be more familiar with using JavaScript to manage the "state" of our UI elements, and how we can use these state changes along with CSS to create animated elements. You should also be able to approach building standalone JavaScript plugins and making sure they 
 
-[Main content]
+**Download files:** You should find attached to this lesson a file called `04.zip`. This contains all the code for each lesson.
 
-## What we learned
-
-[Next: Title]
