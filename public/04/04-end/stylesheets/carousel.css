@@ -1,5 +1,5 @@
 .quotes-carousel-container {
-  height: 28em;
+  height: 23em;
   margin: 0 auto;
   position: relative;
   width: 30em;
@@ -15,7 +15,7 @@
   cursor: pointer;
     left: 50%;
   list-style: none;
-  margin: 8em auto 4em;
+  margin: 4em auto 4em;
   opacity: 0;
   padding: 1em;
   position: absolute;
