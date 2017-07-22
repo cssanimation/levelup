@@ -64,7 +64,7 @@ We set up the styles for the `next-article` class when it also has `is-visible` 
 
 In the browser we can now scroll to the bottom of the page and see the result.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="RVZwJz" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="RVZwJz" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen">&nbsp;</p>
 
 ## Experiment and try for yourself
 

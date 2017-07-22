@@ -4,7 +4,7 @@
 
 Now that we have the HTML we need for our list of quotes, let's add the CSS to make it look a bit more like a carousel!
 
-In this lesson we'll be styling the list of quotes we build using HTML, as well as the progress indicator pips that we added. We'll also think about the "states" of the carousel and how we might be able to use CSS transitions to animate between these states.
+In this lesson we'll be styling the list of quotes we built using HTML, as well as the progress indicator pips that we added. We'll also think about the "states" of the carousel and how we might be able to use CSS transitions to animate between these states.
 
 To get started, open the the <a href="https://cssanimation.rocks/levelup/public/04/04.zip">module 4 code file</a> and look for folder `02-start`. A completed version of this lesson's code is in the folder `02-end`.
 
@@ -12,7 +12,7 @@ To get started, open the the <a href="https://cssanimation.rocks/levelup/public/
 
 So far we've created a couple of unstyled lists.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="yXdpeB" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="yXdpeB" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/yXdpeB">See example on CodePen</a></p>
 
 Let's transform this boring list into something more interesting. In the CSS folder you'll find an empty file called `carousel.css`. This is where we'll add the styles. 
 
@@ -68,7 +68,7 @@ When we're setting up the "current" and other states, this should also be easier
 
 Lastly we have the `transition`. For this we're transitioning the `transform` property, over 1.5 seconds, and using a bouncy cubic bezier timing function. We then add a second transition property, `opacity` as that will be animating also. This time a little quicker at ".5s", and we'll add a delay of ".6s", with a basic `ease-out` timing function.
 
-With the containers and the quotes styles, that leaves the images.
+With the containers and the quotes styled, that leaves the images.
 
     .quote-image {
       background-size: cover;
@@ -139,7 +139,7 @@ Here we pull the quote to the left by a calculated "-150% - 12em" to make sure i
 
 Lets check how this is looking!
 
-[Code pen of just the quotes part (no pip styling)]
+<p data-height="600" data-theme-id="light" data-slug-hash="PjrRRO" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/PjrRRO">See example on CodePen</a></p>
 
 
 ## Styling the pips
@@ -214,7 +214,7 @@ What this says is, for each "pip" that does *not* have the `.current` class, on 
 
 Checking in the browser we can see the layout taking shape.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="yXdzPz" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="gRNogd" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/gRNogd">See example on CodePen</a></p>
 
 When we hover over the previous and next quotes, the mouse cursor turns to a pointer. Similarly, hovering over any of the pips other than the current one causes the hover effect.
 

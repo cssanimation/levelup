@@ -10,9 +10,9 @@ To get started, open the the <a href="https://cssanimation.rocks/levelup/public/
 
 We begin by opening our `carousel.js` file in the `JavaScripts` folder.
 
-When set set up our code last lesson we put in an interval that will run every 4 seconds, and it'll run a function called `showNextQuote`. Let's start with that.
+When we set up our code last lesson we put in an interval that will run every 4 seconds, and it'll run a function called `showNextQuote`. Let's start with that.
 
-In the `showNextQuote` function block, let's work out what this needs to do. First it needs to work out what the next "current" item needs to be. That's simple enough, it'll either be the `currentIndex` plus 1, unless the current quote is the late one, in which case we want to loop back to number zero.
+In the `showNextQuote` function block, let's work out what this needs to do. First it needs to work out what the next "current" item needs to be. That's simple enough, it'll either be the `currentIndex` plus 1, unless the current quote is the last, in which case we want to loop back to number zero.
 
 We can write this as so.
 
@@ -28,7 +28,7 @@ We can write this as so.
 
 This means that if the current item is the last one, it'll set the `currentIndex` to zero, otherwise it'll simply add one to the current index value. That's what the "++" stands for, it's a shorthand way of saying `currentIndex + 1`.
 
-What we're doing here is working out what quote (refereced by it's "index", or number in the sequence) we'd like to show, we then call our `updateState` function and pass it that number. We're saying "update the state with the current quote being number `currentIndex`".
+What we're doing here is working out what quote (referenced by it's "index", or number in the sequence) we'd like to show, we then call our `updateState` function and pass it that number. We're saying "update the state with the current quote being number `currentIndex`".
 
 ## Showing a quote
 
@@ -53,7 +53,7 @@ We can now use the jQuery "index" helper. This will tell is what index value our
 
 ## Updating the carousel state
 
-Speaking of which, we've now written to functions that both work in a similar way, they work out the index of the quote we'd like to show, and give it to `updateState`. Let's write that now.
+Speaking of which, we've now written two functions that both work in a similar way, they work out the index of the quote we'd like to show, and give it to `updateState`. Let's write that now.
 
     function updateState(index) {
       // Calculates the previous and next indices, and updates the carousel
@@ -82,7 +82,7 @@ Now that we've established our new carousel state, we'll call a function that up
 
 We also want to set the special "left" item that will animate in from the left side if we were to click the "previous" carousel item. Our soon-to-be-written `setLeftClass` will handle that. Next we update the pips using `updatePips`.
 
-These 3 functions all act on the current "state" of the carousel, which we set there when we updated the three index values.
+These 3 functions all act on the current "state" of the carousel, which we updated when we updated the three index values.
 
 ## Updating the visible carousel
 
@@ -99,7 +99,7 @@ Now that we've updated the state, let's actually apply the "previous", "current"
       $(allQuotes[nextIndex]).addClass('next');
     }
 
-We begin by removing any "previous", "current" or "next" classes from the quotes. This clears the deck and we can now set new classes.
+We begin by removing any "previous", "current" or "next" classes from the quotes. This clears the way and we can now set new classes.
 
 Before we can apply the classes we need an array of all the quotes. We'll create this as the array `allQuotes`, containing all items with class `quote` inside the carousel.
 
@@ -109,9 +109,9 @@ Now that we have an array, we can simply apply classes using our index values! W
 
 Let's take a moment to check out progress! We've created quite a few functions so far so lets load it in the browser and check that two things are working - firstly that it's automatically moving forward to the next quote every few seconds, and secondly that we can select the previous and next quotes to see them.
 
-It's far from perfect yet, but we've got some progress! If it's not working for you - open your browser's inspector and look for any errors in the "Console" tab. You might have a typo. If you're like me, that's a fairly likely possibility. If you're still stuck, you can look at the code in the folder `04-end`.
+It's far from perfect yet, but we've made some progress! If it's not working for you - open your browser's inspector and look for any errors in the "Console" tab. You might have a typo. If you're like me, that's a fairly likely possibility. If you're still stuck, you can look at the code in the folder `04-end`.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="PjrEWy" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="PjrEWy" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/PjrEWy">See example on CodePen</a></p>
 
 It's a good idea to jump across to the browser when coding to check nothing's breaking and things are taking shape as expected. If all's looking well, let's move on and set up the progress indicator.
 
@@ -140,7 +140,7 @@ Back in our `carousel.js` file let's write the `generatePips` function.
 
 We begin by finding the `listContainer` item on the page. In this case it's the `ul` tags we left earlier.
 
-We'll then use a `for` loop to create and append new pip items until we've hit the last item in the carousel. We set `var i` to the `lastIndex`, then as long as this is greater than or equal to zero, keep subtracting one each time. 
+We'll then use a `for` loop to create and append new pip items until we've hit the last item in the carousel. We set variable `i` to the `lastIndex`, then as long as this is greater than or equal to zero, keep subtracting one each time. 
 
 Inside the loop we'll create a new pip list item and give it the class `pip`. We can put this into the `listContainer` using the jQuery "append" method. 
 
@@ -165,7 +165,7 @@ In this function we begin by removing the relevent classes within the `quotes-ca
 
 Let's take a look in the browser to check this is working.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="awgEwJ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="awgEwJ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/awgEwJ">See example on CodePen</a></p>
 
 We see the pips generated by JavaScript, and the classes have been applied. 
 
@@ -181,11 +181,11 @@ This function is passed an `event`, which contains as a `target` the item clicke
       updateState(index);
     }
 
-We then pass the index into the `updateState` function, which will set the carousel state, update the positions of the quotes, and even update the pips. Awesome!
+We then pass the index into the `updateState` function, which will set the carousel state, update the positions of the quotes, and even update the pips. 
 
 Let's quickly test this to see it working.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="XgLVaN" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="XgLVaN" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/XgLVaN">See example on CodePen</a></p>
 
 Looking good! However there's one more thing to fix. Notice how the "previous" item flies away to the right when it's being removed or added? We need to create the function that applies our special "left" class to these quotes.
 
@@ -224,7 +224,7 @@ When we press the previous item on first load, the new quote swings across from 
 
 Let's do a final check of the progress so far.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="YQoYxL" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="YQoYxL" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/YQoYxL">See example on CodePen</a></p>
 
 It's looking very good! Clicking on the quotes navigates back and forth, they loop nicely, and selecting the pips lets us jump to a specific quote.
 
@@ -234,5 +234,5 @@ This was a big one, and we've covered a lot in this lesson. We put together a qu
 
 ## Next: Finishing touches
 
-While the carousel does most of what we want, there are a few ways we can add some polish to it. In the next lesson we're going to look into ways we can make the carousel pause, and then resume when people interact with it. We'll also look at how we can have it pause when the browser's tab is out of view, both saving resources and avoid any unsightly jumps in the animation when the browser comes back into focus.
+While the carousel does most of what we want, there are a few ways we can add some polish to it. In the next lesson we're going to look into ways we can make the carousel pause, and then resume when people interact with it. We'll also look at how we can have it pause when the browser's tab is out of view, both saving resources and avoiding any unsightly jumps in the animation when the browser comes back into focus.
 

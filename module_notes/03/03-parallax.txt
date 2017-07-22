@@ -16,7 +16,7 @@ The technique is popular in many places including video games, where it's usuall
 
 In this example we see how parallax works when scrolling a website. 
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="zwdBzP" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="zwdBzP" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen">&nbsp;</p>
 
 Each of these boxes scrolls upward as I scroll down the page. The box in the middle, marked "No parallax" is scrolling at the same speed as the page. To it's left is a box that scrolls faster, and the box on the right scrolls slower.
 
@@ -38,7 +38,7 @@ Let's use it to bring our page some parallax movement.
 
 To get started we have a space-themed page taking us on a trip to the moon. Along the way we pass a bunch of rocks. We can use Rellax to have these elements scroll at different speeds.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="gWxMLJ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="gWxMLJ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen">&nbsp;</p>
 
 We begin by adding Rellax to our page. In our `index.html` file, just before the closing `body` tag, add a reference to the script. 
 
@@ -59,7 +59,7 @@ We add the `rellax` class to each like so.
 
 With the class applied to each of the rocks we can see the effect in the browser.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="xdXYKv" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="xdXYKv" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen">&nbsp;</p>
 
 So it's working, the rocks are scrolling at a slower speed than the text, but it's not right yet. All the rocks are moving at the same speed as each other. We'd like to have some sit in front of the text and some behind, so let's achieve this using some Rellax settings.
 
@@ -93,7 +93,7 @@ We can get around this using centering. This will adjust the element's position 
 
 In our JavaScript we add an object to be passed in to the `Rellax` method and in it we specify "center" be true. Back in our browser we can see the results.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="PmJQPj" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="PmJQPj" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen">&nbsp;</p>
 
 The rocks now float in front as well as far away behind the text. 
 
@@ -128,7 +128,7 @@ Lastly let's do the same with the header at the bottom of the page. Inside the `
 
 Let's see how this is looking.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="ZKJOBe" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="ZKJOBe" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen">&nbsp;</p>
 
 ## Fixing the header
 

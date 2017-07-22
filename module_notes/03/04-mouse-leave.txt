@@ -20,7 +20,7 @@ We're putting the modal here so that we can animate the `article-container` out 
 
 I'm using a signup form for the [CSS Animation Weekly](http://weekly.cssanimation.rocks/) mailing list, but you could put whatever content you like here. Here's how it looks before we add in the code to hide it until the right moment.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="wdrXYx" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Moon Rocks (Parallax demo with signup prompt)" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="wdrXYx" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Moon Rocks (Parallax demo with signup prompt)" class="codepen">&nbsp;</p>
 
 ## Mouse-leave JavaScript
 
@@ -141,7 +141,7 @@ Lastly, before we test this, we need to add one more transition to the `modal`. 
 
 There we have it. When the mouse cursor leaves the screen, the content zooms forward and disappears, while the modal window zooms into view.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="wdqBwo" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Moon Rocks (Parallax demo with signup prompt)" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="wdqBwo" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="Moon Rocks (Parallax demo with signup prompt)" class="codepen">&nbsp;</p>
 
 ## What we learned
 

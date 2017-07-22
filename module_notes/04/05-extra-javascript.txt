@@ -2,7 +2,7 @@
 
 # Finishing touches
 
-We've almost finished building our carousel! But before we move on, let's tidy up a couple of rough edges. In this lesson we're going to have our carousel pause when people interact with it, using the JavaScript `setTimeout` function. We'll also mmake use of `document.hidden` to ensure the browser behaves properly when switching between tabs.
+We've almost finished building our carousel! But before we move on, let's tidy up a couple of rough edges. In this lesson we're going to have our carousel pause when people interact with it, using the JavaScript `setTimeout` function. We'll also make use of `document.hidden` to ensure the browser behaves properly when switching between tabs.
 
 To get started, open the the <a href="https://cssanimation.rocks/levelup/public/04/04.zip">module 4 code file</a> and look for folder `05-start`. A completed version of this lesson's code is in the folder `05-end`.
 
@@ -37,13 +37,13 @@ Next we set up the timeout to restart the carousel. In the `carouselRestartTimeo
 
 Let's try this in the browser. Now when I press a quote, everything stops moving for a full 10 seconds, leaving me with time to read the quote without the carousel moving it away.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="YQoYYv" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="YQoYYv" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/YQoYYv">See example on CodePen</a></p>
 
 ## Animating when hidden
 
 Any time we create animations that play on a timer like this, it's possible to run into unintended side effects. One big one is that the timer driving the animation will continue to play in the background while you're on another tab. This would be less of a big deal if the browser also updated what it showed to match the timer, but browsers often optimise to not show animations when the browser is invisible, as it would be a waste of CPU cycles and power.
 
-This means that when we change back to the tab we might see a jump as the timer has continues, but the UI has to suddenly catch up with the current state of the carousel, which has moved on while the tab was invisible.
+This means that when we change back to the tab we might see a jump as the timer has continued, but the UI has to suddenly catch up with the current state of the carousel, which has moved on while the tab was invisible.
 
 We can see this by switching tab away for a few seconds, and when we come back, the quotes jump around.
 
@@ -65,7 +65,7 @@ When the "visibilitychange" event occurs, we run a function that checks whether 
 
 Let's check this. Switching to a new tab, we can now return to the original and see that it's in the same position as when we left it. This is a handy trick we can use any time we have some automated timer running and want to make sure our animations don't "bunch up" and all run at once when we return to a tab.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="YQoYev" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="YQoYev" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/YQoYev">See example on CodePen</a></p>
 
 ## What we learned
 

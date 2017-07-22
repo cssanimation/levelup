@@ -16,7 +16,7 @@ Beneath this we have a longer article. It's made up of paragraphs and images. I'
 
 Let's see how it looks. We can see the images and the text, but no animation yet.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="BRdaGj" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="BRdaGj" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen">&nbsp;</p>
 
 ## Showing on scroll
 
@@ -167,7 +167,7 @@ We add a new rule for the `is-visible` classed elements. In this we make them vi
 
 Here's how it looks, showing the images as we scroll down the page.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="aWyPpP" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="aWyPpP" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen">&nbsp;</p>
 
 ## Animating the header
 
@@ -232,7 +232,7 @@ We'll also add a `will-change` property here to tell the browser to optimise the
 
 Let's see it in action.
 
-<p data-height="600" data-theme-id="12592" data-slug-hash="rmzNZJ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"></p>
+<p data-height="600" data-theme-id="light" data-slug-hash="rmzNZJ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen">&nbsp;</p>
 
 Here we see that on load, the header fades in and the photo and text transition into place. If we scroll the page we see each of the photos fading in as they enter the viewport.
 

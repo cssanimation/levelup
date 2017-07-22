@@ -1,6 +1,6 @@
 # Module 4: Animated carousel
 
-So far we've learned how to introduce a web page with animation, we've learned about hover and touch interactions, and build attention-grabbing scroll-triggered animations. Let's apply some of what we've learned to a more practical project, putting together a more complex piece of work that makes use of animation, an animated carousel.
+So far we've learned how to introduce a web page with animation, we've learned about hover and touch interactions, and built attention-grabbing scroll-triggered animations. Let's apply some of what we've learned to a more practical project, putting together a more complex piece of work that makes use of animation, an animated carousel.
 
 ## Carousels
 

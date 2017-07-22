@@ -151,7 +151,7 @@ Lastly we have a bit of an edge case to think about. When the "previous" carouse
       // For when we want the item to appear from the left side if it's "earlier" in the list
     } 
 
-And there we do! Remember that in order to work, all these functions need to be inside the jQuery ready block, as that's where we've declared our state variables. If these functions were set up outside those curly braces, there would be no way they'd be able to access the carousel's state. Instead it's all wrapped up nicely in this block.
+And there we go! Remember that in order to work, all these functions need to be inside the jQuery ready block, as that's where we've declared our state variables. If these functions were set up outside those curly braces, there would be no way they'd be able to access the carousel's state. Instead it's all wrapped up nicely in this block.
 
 ## What we learned
 
