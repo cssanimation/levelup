@@ -64,7 +64,7 @@ So that's the initial state. Next we add in some click actions.
 
 ## Click actions
 
-Since we're usng jQuery we'll be able to let people click or tap and then change the state of our carousel when this happens. We'd like people to be able to click on the previous and next quotes, as well as click on the pips at the bottom to navigate the quotes. We can attach listeners to do this.
+Since we're using jQuery we'll be able to let people click or tap and then change the state of our carousel when this happens. We'd like people to be able to click on the previous and next quotes, as well as click on the pips at the bottom to navigate the quotes. We can attach listeners to do this.
 
     $('#quotes-carousel').on('click', '.previous', showQuote);
     $('#quotes-carousel').on('click', '.next', showQuote);
