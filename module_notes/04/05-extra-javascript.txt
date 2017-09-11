@@ -71,7 +71,7 @@ Let's check this. Switching to a new tab, we can now return to the original and 
 
 In this lesson we fixed some potential issues, making sure that our carousel behaves nicely when people select a quote or when the browser tab is out of sight. To do this we made use of the JavaScript `setTimeout` function as well as `document.hidden`.
 
-## Next: Examples to download
+## Next:  
 
 In the next lesson you'll find this full example ready to download and customise to your own needs, along with some other examples to show how this carousel can be adjusted for different situations.
 
