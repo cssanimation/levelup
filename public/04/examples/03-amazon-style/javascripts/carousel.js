@@ -5,8 +5,12 @@ $(function() {
   var nextIndex = 1;
   var lastIndex = $('#carousel').find('.item').length - 1;
 
-  // Generate pips
-  generatePips();
+  // Actions to listen for
+  $('#carousel').on('click', '.previous', showQuote);
+  $('#carousel').on('click', '.next', showQuote);
+  // $('#carousel-pips').on('click', '.pip', showFromPip);
+  $('#control-previous').click(showPrevious);
+  $('#control-next').click(showNextQuote);
 
   // Cycle automatically
   var carouselRunning = true;
@@ -30,7 +34,37 @@ $(function() {
     } else {
       currentIndex++;
     }
-    updateState(currentIndex);
+    updateState(currentIndex, "left");
+    carouselRunning = false;
+  }
+
+  function showPrevious() {
+    // Calculate the indices needed to show the next quote
+    if (currentIndex === 0) {
+      currentIndex = lastIndex;
+    } else {
+      currentIndex--;
+    }
+    updateState(currentIndex, "right");
+    carouselRunning = false;
+  }
+
+  function showQuote(event) {
+    // Get the index of the clicked quote and show it
+    if ($(event.target).hasClass('quote')) {
+      var target = $(event.target);
+    } else {
+      var target = $(event.target).parent();
+    }
+    var index = $('.item').index(target);
+    updateState(index);
+
+    // Since this is by click, pause the automatic movement for a few seconds
+    clearTimeout(carouselRestartTimeout);
+    carouselRunning = false;
+    carouselRestartTimeout = setTimeout(function() {
+      carouselRunning = true;
+    }, 10000);
   }
 
   function updateState(index, direction) {
@@ -38,9 +72,7 @@ $(function() {
     prevIndex = index === 0 ? lastIndex : index - 1;
     currentIndex = index;
     nextIndex = index === lastIndex ? 0 : index + 1;
-
-    updateCarouselPosition();
-    updatePips();
+    updateCarouselPosition(direction);
   }
 
 
@@ -61,27 +93,6 @@ $(function() {
       $(allQuotes[prevIndex]).css('z-index', 1);
       $(allQuotes[nextIndex]).css('z-index', 0);
     }
-  }
-
-  function generatePips() {
-    // Add pips to the ul element in index.html
-    var listContainer = $('#carousel-pips').find('ul');
-    for (var i = lastIndex; i >= 0; i--) {
-      var newPip = $('<li class="pip"></li>');
-      $(listContainer).append(newPip);
-    }
-    updatePips();
-  }
-
-  function updatePips() {
-    // Update the classes on the pips depending on the current indices
-    $('#carousel-pips').find('.previous').removeClass('previous');
-    $('#carousel-pips').find('.current').removeClass('current');
-    $('#carousel-pips').find('.next').removeClass('next');
-    var allPips = $('#carousel-pips').find('.pip');
-    $(allPips[prevIndex]).addClass('previous');
-    $(allPips[currentIndex]).addClass('current');
-    $(allPips[nextIndex]).addClass('next');
   }
 
   // Lastly, add a listener for situations where the browser is in another tab / not visible

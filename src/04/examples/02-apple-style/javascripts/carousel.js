@@ -5,14 +5,8 @@ $(function() {
   var nextIndex = 1;
   var lastIndex = $('#carousel').find('.item').length - 1;
 
-  // Actions to listen for
-  $('#carousel').on('click', '.previous', showQuote);
-  $('#carousel').on('click', '.next', showQuote);
-  $('#carousel-pips').on('click', '.pip', showFromPip);
-
   // Generate pips
   generatePips();
-  setLeftClass();
 
   // Cycle automatically
   var carouselRunning = true;
@@ -39,37 +33,18 @@ $(function() {
     updateState(currentIndex);
   }
 
-  function showQuote(event) {
-    // Get the index of the clicked quote and show it
-    if ($(event.target).hasClass('quote')) {
-      var target = $(event.target);
-    } else {
-      var target = $(event.target).parent();
-    }
-    var index = $('.item').index(target);
-    updateState(index);
-
-    // Since this is by click, pause the automatic movement for a few seconds
-    clearTimeout(carouselRestartTimeout);
-    carouselRunning = false;
-    carouselRestartTimeout = setTimeout(function() {
-      carouselRunning = true;
-    }, 10000);
-  }
-
-  function updateState(index) {
+  function updateState(index, direction) {
     // Calculates the previous and next indices, and updates the carousel
     prevIndex = index === 0 ? lastIndex : index - 1;
     currentIndex = index;
     nextIndex = index === lastIndex ? 0 : index + 1;
 
     updateCarouselPosition();
-    setLeftClass();
     updatePips();
   }
 
 
-  function updateCarouselPosition() {
+  function updateCarouselPosition(direction) {
     // Remove any previous, current, next classes
     $('#carousel').find('.previous').removeClass('previous');
     $('#carousel').find('.current').removeClass('current');
@@ -78,6 +53,14 @@ $(function() {
     $(allQuotes[prevIndex]).addClass('previous');
     $(allQuotes[currentIndex]).addClass('current');
     $(allQuotes[nextIndex]).addClass('next');
+    $(allQuotes[currentIndex]).css('z-index', 10)
+    if (direction === "right") {
+      $(allQuotes[prevIndex]).css('z-index', 0);
+      $(allQuotes[nextIndex]).css('z-index', 1);
+    } else {
+      $(allQuotes[prevIndex]).css('z-index', 1);
+      $(allQuotes[nextIndex]).css('z-index', 0);
+    }
   }
 
   function generatePips() {
@@ -99,19 +82,6 @@ $(function() {
     $(allPips[prevIndex]).addClass('previous');
     $(allPips[currentIndex]).addClass('current');
     $(allPips[nextIndex]).addClass('next');
-  }
-
-  function showFromPip(event) {
-    // Helper for when someone clicks a pip
-    var index = 0;
-    while( (event.target = event.target.previousSibling) != null ) {
-      index++;
-    }
-    updateState(index);
-  }
-
-  function setLeftClass() {
-    
   }
 
   // Lastly, add a listener for situations where the browser is in another tab / not visible

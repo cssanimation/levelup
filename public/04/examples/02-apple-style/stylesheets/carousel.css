@@ -1,8 +1,9 @@
 .carousel-container {
-  height: 28em;
+  height: 20em;
   margin: 0 auto;
+  overflow: hidden;
   position: relative;
-  width: 30em;
+  width: 100vw;
 }
 
 .carousel {
@@ -21,7 +22,7 @@
   overflow: hidden;
   padding: 1em;
   position: absolute;
-    top: 50%;
+    top: 0;
   -webkit-transform: translate(calc(100% + 12em), -50%) scale(.6);
           transform: translate(calc(100% + 12em), -50%) scale(.6);
   -webkit-transition: opacity 1s cubic-bezier(.8,0,.2,1),
@@ -126,10 +127,11 @@
 /* styling pips */
 
 .carousel-pips {
-    bottom: 0;
+    bottom: 2em;
   position: absolute;
   text-align: center;
   width: 100%;
+  z-index: 20;
 }
 
 .carousel-pips ul {
@@ -143,7 +145,6 @@
   background: #333;
   border: 2px solid #000;
   border-radius: .5em;
-  cursor: pointer;
   display: inline-block;
   height: 10px;
   margin: 0 .1em;
