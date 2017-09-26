@@ -23,6 +23,27 @@ Example: https://digital.scotch.io
 
 (5) Adjusting animations for all screen sizes
 - Goal: Adapt our animations for a wide range of screen sizes
+Content:
+- Planning for difference screen sizes: Percentages and ems
+- Walkthrough: ems and breakpoints
+- Walkthrough: %-sized animation based on screen size
+- Scaling SVGs (two examples)
+- Tips for testing various screen sizes in browser
+
+
+Module 5 examples:
+
+x- A % based animation in CSS
+x- Same but made with ems
+x- Above but with media queries setting the font size for different layouts
+- SVG created with relative positioning / size so that it can be scaled to container
+- SVG that does different things depending on media query
+
+
+
+^ References
+https://css-tricks.com/scaling-responsive-animations/
+https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/
 
 (6) Putting it all together (free bonus for the full-package supporters?)
 - Goal: Get organised using Sass, reusing animation timing functions and keyframes

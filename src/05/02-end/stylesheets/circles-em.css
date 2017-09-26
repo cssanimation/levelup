@@ -1,0 +1,223 @@
+
+.animation-example {
+  font-size: 8px;
+  border: 2px dotted #aaa;
+  background: #fff;
+  width: 32em;
+  height: 32em;
+  position: absolute;
+    top: calc(50% - 16em);
+    left: calc(50% - 16em);
+
+  .large-shapes {
+    animation: spin 10s linear infinite;
+    display: block;
+    position: absolute;
+      top: 50%;
+      left: 50%;
+  }
+
+  .small-shapes {
+    animation: spin 20s linear infinite;
+    display: block;
+    position: absolute;
+      top: 50%;
+      left: 50%;
+  }
+
+  .middle-circle {
+    background: #eee;
+    border: 1px solid #333;
+    border-radius: 50%;
+    box-shadow: 0 0 4em rgba(0,0,0,.8), 0 0 2em rgba(0,0,0,.8) inset;
+    position: absolute;
+      top: calc(50% - 2em);
+      left: calc(50% - 2em);
+    width: 4em;
+    height: 4em;
+  }
+}
+
+@media (min-width: 350px) {
+  .animation-example {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 410px) {
+  .animation-example {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 700px) {
+  .animation-example {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .animation-example {
+    font-size: 29px;
+  }
+}
+
+@media (min-height: 1200px) {
+  .animation-example {
+    font-size: 38px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateZ(0);
+  }
+  50% {
+    transform: rotateZ(180deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.circle,
+.square {
+  position: absolute;
+  background-color: grey;
+  border-top: 0.1em solid rgba(255,255,255,0.4);
+  height: 12.5em;
+  width: 12.5em;
+  
+  &.small {
+    width: 4em;
+    height: 4em;
+  }
+  
+}
+
+.circle {
+  border-radius: 50%;
+  box-shadow: 0 1em 2em rgba(0,0,0,0.5);
+  
+  &.large {
+    left: calc(50% - 6.25em);
+    top: calc(50% - 12.5em);
+    transform-origin: 50% 12.5em;
+  }
+  
+  &.small {
+    left: calc(50% - 2em);
+    top: calc(50% - 15em);
+    transform-origin: 50% 15em;
+  }
+  
+  &.one {
+    background: rgba(16, 63, 236, 0.75);
+    transform: rotateZ(225deg)
+  }
+  
+  &.two {
+    background: rgba(37, 172, 162, 0.75);
+    transform: rotateZ(180deg)
+  }
+  
+  &.three {
+    background: rgba(233, 124, 32, 0.75);
+    transform: rotateZ(135deg)
+  }
+  
+  &.four {
+    background: rgba(235, 67, 35, 0.75);
+    transform: rotateZ(90deg)
+  }
+  
+  &.five {
+    background: rgba(190, 28, 65, 0.75);
+    transform: rotateZ(45deg)
+  }
+  
+  &.six {
+    background: rgba(208, 57, 159, 0.75);
+    transform: rotateZ(0deg)
+  }
+  
+  &.seven {
+    background: rgba(150, 32, 198, 0.75);
+    transform: rotateZ(-45deg)
+  }
+  
+  &.eight {
+    background: rgba(95, 33, 203, 0.75);
+    transform: rotateZ(-90deg)
+  }
+  
+  
+}
+
+.square {
+  border-radius: 25%;
+  
+  &.large {
+    transform: none;
+    left: calc(50% - 7.5em);
+    top: calc(50% - 7.5em);
+    background: rgba(30, 7, 66, 0.65);
+    border: none;
+    height: 15em;
+    width: 15em;
+    
+    &.one {
+      transform: rotateZ(45deg);
+    }
+  }
+  
+  &.small {
+    left: calc(50% - 2em);
+    top: calc(50% - 15em);
+    border: none;
+    background: none;
+    transform-origin: 50% 15em;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      transform: rotate(-45deg);
+      border-radius: 25%;
+      width: 4em;
+      height: 4em;
+      box-shadow: -.5em .5em 2em rgba(0,0,0,0.5);
+    }
+
+    &.two {
+      transform: rotateZ(180deg);
+      
+      &:after {
+        background: rgba(37, 172, 162, 0.75);
+      }
+    }
+
+    &.four {
+      transform: rotateZ(90deg);
+      
+      &:after {
+        background: rgba(235, 67, 35, 0.75);
+      }
+    }
+
+    &.six {
+      transform: rotateZ(0deg);
+      &:after {
+        background: rgba(208, 57, 159, 0.75);
+      }
+    }
+
+    &.eight {
+      transform: rotateZ(-90deg);
+      &:after {
+        background: rgba(95, 33, 203, 0.75);
+      }
+    }
+  }
+  
+}
+
