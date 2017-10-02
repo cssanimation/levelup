@@ -33,12 +33,11 @@ Content:
 
 Module 5 examples:
 
-x- Em-based animation with media queries to change font size
-x- Same but percentages based animation in CSS
-- As above but change percentages to vmin
-- Combining both - for certain rules such as box shadow that don't work with percent
-- SVG created with relative positioning / size so that it can be scaled to container
-- SVG that does different things depending on media query
+x- (01-end) Em-based animation with media queries to change font size
+x- (02-end) Same but percentages (and vmin) based animation in CSS
+x- (03-end) Combining both - for certain rules such as box shadow that don't work with percent
+- Different animations depending on screen size
+- Link to resources for applying things to SVG
 
 
 

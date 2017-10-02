@@ -1,0 +1,96 @@
+
+.animation-example {
+  background: #fff;
+  border: 2px dotted #aaa;
+  font-size: 24px;
+  height: 95vmin;
+    left: calc(50% - 47.5vmin);
+  position: absolute;
+    top: calc(50% - 47.5vmin);
+  width: 95vmin;
+}
+
+.ball {
+  background: red;
+  height: 10vmin;
+    left: calc(50% - 5vmin);
+  position: absolute;
+    top: calc(50% - 5vmin);
+  width: 10vmin;
+}
+
+@media screen and (orientation:portrait) { 
+  .ball {
+    -webkit-animation: portrait 5s ease-out infinite;
+            animation: portrait 5s ease-out infinite;
+  }
+}
+
+@media screen and (orientation:landscape) {
+  .ball {
+    -webkit-animation: landscape 5s ease-out infinite;
+            animation: landscape 5s ease-out infinite;
+  }
+}
+
+@-webkit-keyframes portrait {
+  0% {
+    -webkit-transform: translateX(-40vmin);
+            transform: translateX(-40vmin);
+  }
+  50% {
+    -webkit-transform: translateX(40vmin);
+            transform: translateX(40vmin);
+  }
+  100% {
+    -webkit-transform: translateX(-40vmin);
+            transform: translateX(-40vmin);
+  }
+}
+
+@keyframes portrait {
+  0% {
+    -webkit-transform: translateX(-40vmin);
+            transform: translateX(-40vmin);
+  }
+  50% {
+    -webkit-transform: translateX(40vmin);
+            transform: translateX(40vmin);
+  }
+  100% {
+    -webkit-transform: translateX(-40vmin);
+            transform: translateX(-40vmin);
+  }
+}
+
+@-webkit-keyframes landscape {
+  0% {
+    -webkit-transform: translateY(-40vmin);
+            transform: translateY(-40vmin);
+  }
+  50% {
+    -webkit-transform: translateY(40vmin);
+            transform: translateY(40vmin);
+  }
+  100% {
+    -webkit-transform: translateY(-40vmin);
+            transform: translateY(-40vmin);
+  }
+}
+
+@keyframes landscape {
+  0% {
+    -webkit-transform: translateY(-40vmin);
+            transform: translateY(-40vmin);
+  }
+  50% {
+    -webkit-transform: translateY(40vmin);
+            transform: translateY(40vmin);
+  }
+  100% {
+    -webkit-transform: translateY(-40vmin);
+            transform: translateY(-40vmin);
+  }
+}
+
+

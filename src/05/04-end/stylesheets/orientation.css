@@ -1,0 +1,58 @@
+
+.animation-example {
+  font-size: 24px;
+  border: 2px dotted #aaa;
+  background: #fff;
+  width: 95vmin;
+  height: 95vmin;
+  position: absolute;
+    top: calc(50% - 47.5vmin);
+    left: calc(50% - 47.5vmin);
+}
+
+.ball {
+  width: 10vmin;
+  height: 10vmin;
+  background: red;
+  position: absolute;
+    left: calc(50% - 5vmin);
+    top: calc(50% - 5vmin);
+}
+
+@media screen and (orientation:portrait) { 
+  .ball {
+    animation: portrait 5s ease-out infinite;
+  }
+}
+
+@media screen and (orientation:landscape) {
+  .ball {
+    animation: landscape 5s ease-out infinite;
+  }
+}
+
+@keyframes portrait {
+  0% {
+    transform: translateX(-40vmin);
+  }
+  50% {
+    transform: translateX(40vmin);
+  }
+  100% {
+    transform: translateX(-40vmin);
+  }
+}
+
+@keyframes landscape {
+  0% {
+    transform: translateY(-40vmin);
+  }
+  50% {
+    transform: translateY(40vmin);
+  }
+  100% {
+    transform: translateY(-40vmin);
+  }
+}
+
+
