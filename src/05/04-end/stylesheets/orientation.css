@@ -60,26 +60,25 @@
 
 @keyframes portrait {
   0% {
-    transform: translateY(-40vmin);
+    left: 10%;
   }
   50% {
-    transform: translateY(40vmin);
+    left: calc(90% - 10vmin);
   }
   100% {
-    transform: translateY(-40vmin);
+    left: 10%;
   }
 }
 
 @keyframes landscape {
-  
   0% {
-    transform: translateX(-40vmin);
+    top: 10%;
   }
   50% {
-    transform: translateX(40vmin);
+    top: calc(90% - 10vmin);
   }
   100% {
-    transform: translateX(-40vmin);
+    top: 10%;
   }
 }
 
