@@ -67,18 +67,30 @@
 
 @-webkit-keyframes portrait {
   0% {
-    left: 10%;
+    top: 10%;
   }
   50% {
-    left: calc(90% - 10vmin);
+    top: calc(90% - 10vmin);
   }
   100% {
-    left: 10%;
+    top: 10%;
   }
 }
 
 @keyframes portrait {
   0% {
+    top: 10%;
+  }
+  50% {
+    top: calc(90% - 10vmin);
+  }
+  100% {
+    top: 10%;
+  }
+}
+
+@-webkit-keyframes landscape {
+  0% {
     left: 10%;
   }
   50% {
@@ -89,27 +101,15 @@
   }
 }
 
-@-webkit-keyframes landscape {
-  0% {
-    top: 10%;
-  }
-  50% {
-    top: calc(90% - 10vmin);
-  }
-  100% {
-    top: 10%;
-  }
-}
-
 @keyframes landscape {
   0% {
-    top: 10%;
+    left: 10%;
   }
   50% {
-    top: calc(90% - 10vmin);
+    left: calc(90% - 10vmin);
   }
   100% {
-    top: 10%;
+    left: 10%;
   }
 }
 

@@ -60,18 +60,6 @@
 
 @keyframes portrait {
   0% {
-    left: 10%;
-  }
-  50% {
-    left: calc(90% - 10vmin);
-  }
-  100% {
-    left: 10%;
-  }
-}
-
-@keyframes landscape {
-  0% {
     top: 10%;
   }
   50% {
@@ -79,6 +67,18 @@
   }
   100% {
     top: 10%;
+  }
+}
+
+@keyframes landscape {
+  0% {
+    left: 10%;
+  }
+  50% {
+    left: calc(90% - 10vmin);
+  }
+  100% {
+    left: 10%;
   }
 }
 
