@@ -1,0 +1,116 @@
+
+
+# Landscape vs portrait
+
+So far we've used media queries to resize animations, and seen how relative units can be used to scale seamlessly between different screen sizes. Let's finish up by taking a look at how we can change animations entirely using media queries.
+
+In this lesson we'll visit another feature of media queries, "orientation". We'll adjust an animation to change based on whether a screen is in portrait or landscape orientation, and see how different animations can be presented based on screen size.
+
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/05/05.zip">module 5 code file</a> and look for folder `03-start`. A completed version of this lesson's code is in the folder `03-end`. You'll also find a second demo in the folder `04-hammer` that I'll mention later.
+
+## Media query: Orientation
+
+Earlier we used media queries to change the font-size of an element based on the minimum width of the screen. 
+
+    @media (min-width: 350px)
+
+The `min-width` feature is just one use for media queries, it's a specification that's currently growing to include a wide range of different features. One we'll use today is "orientation".
+
+    @media (orientation: portrait)
+    @media (orientation: landscape)
+
+A screen's orientation relates to whether it's either "portrait" in which the width is less than the height, or "landscape" in which the width is greater than the height. Testing for these is as simple as specifying "portrait" or "landscape" in the media query.
+
+Let's add some media queries to our CSS and see the result.
+
+## Starting HTML and CSS
+
+Before we get to the CSS let's take a quick look at our starting HTML. Opening the file `index.html` we find two sections, one containing the animation example and a second section containing a text title.
+
+In this example we'll be animating the "ball" element and showing the correct title for whether the screen is in portrait or landscape orientation.
+
+    <section class="animation-example">
+      <div class="ball"></div>
+    </section>
+    <section class="title">
+      <h1>
+        <span class="portrait">Portrait</span>
+        <span class="landscape">Landscape</span>
+      </h1>
+    </section>
+
+Let's take a look at the CSS. Opening the file `orientation.css` in the "stylesheets" folder we have some beginning styles to get things going.
+
+There are 4 main code blocks defined. The first is the container for our animation, then the second styles the green ball and places it in the center. We have an `animation` property set here, and it's got everything it needs except the animation name. We'll set that later.
+
+Lastly we have two styles for the titles that will be positioned in the center of the screen. Initially these are given an `opacity` of 0. 
+
+I've also added some keyframe animations. The first, called "portrait" starts at the top and moves down then up again. The second keyframe animation "landscape" works similarly but goes from left to right.
+
+We then have two simple animations, `show` and `hide`. These will be used on the titles.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="VMXGzx" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/VMXGzx">See example on CodePen</a></p>
+
+Checking in the browser, not much is going on. The dot sits in the middle of the screen, waiting for us to add some more CSS rules.
+
+## Media queries
+
+Let's start by adding a media query that will apply when the screen is in a "portrait" orientation.
+
+    @media (orientation:portrait) { 
+      .ball {
+        animation-name: portrait;
+      }
+      .title .portrait {
+        animation: show .3s ease-out forwards;
+      }
+      .title .landscape {
+        animation: hide .3s ease-out forwards;
+      }
+    }
+
+We start with `@media` and set the value of `orientation` to "portrait". Inside this code block we can then give the right animation to the `ball` class.
+
+We also want to show the "portrait" title, so let's add in a `show` animation for it. Similarly, we want to hide the "landscape" text, so we'll apply the `hide` animation to it.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="zEWJEZ" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/zEWJEZ">See example on CodePen</a></p>
+
+Checking in the browser we can see the animation, but only when the screen is taller than is it wide. Let's add another set of rules for "landscape".
+
+    @media (orientation:landscape) {
+      .ball {
+        animation-name: landscape;
+      }
+      .title .portrait {
+        animation: hide .3s ease-out forwards;
+      }
+      .title .landscape {
+        animation: show .3s ease-out forwards;
+      }
+    }
+
+This time we set the value for `orientation` to "landscape". The rules are the same as before, except we're using the "landscape" animation name. We're also hiding the portrait text and showing the landscape text.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="KXoxyp" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/KXoxyp">See example on CodePen</a></p>
+
+Back in the browser we can now see the text and the animation change as we change the orientation of the viewport.
+
+## SVG animations
+
+Using media queries, either for width or things like orientation, can be great when we want our animations to make the most of differently sized screens. One way this can be useful is when you have SVG animations.
+
+Since SVGs are very like HTML, they're made of code and can be styled and animated using CSS, we can use media queries to adjust the way our SVGs work at different sizes.
+
+I've created a simple example to show this, in folder `04-hammer`. Opening this in Chrome, we can see that when the screen is large, the hammer is hammering a nail.
+
+But then when the screen gets smaller, at a certain point the animation changes over to pulling the nail.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="bovxLX" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/bovxLX">See example on CodePen</a></p>
+
+This is achieved using a media query. If you're designing animations using SVG you might find media queries a helpful tool for adjusting your designs to look good at different sizes.
+
+## What we learned
+
+In this lesson we learned how we can change animations using media queries, and saw how the "orientation" feature can be used to detect when a screen is in portrait or landscape orientation. We also saw how combining media queries and SVG can be a useful combination for responsive animations.
+
+

@@ -1,0 +1,155 @@
+
+
+# Resizing animations using font-size
+
+Let's take a look at how we can use the relative unit, "em" to build an animation that can be easily scaled.
+
+In this lesson we'll take a relatively complicated looking animation, and see how by using the "em" unit it can be scaled easily using the `font-size` rule. We'll then apply `media` queries to adjust the size of the animation to scale to various sizes of screen.
+
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/05/05.zip">module 5 code file</a> and look for folder `01-start`. A completed version of this lesson's code is in the folder `01-end`.
+
+## From pixels to ems
+
+The term "pixel perfect" has fallen out of favour in web design and development. We browse the web using devices using 2x, 3x or even 4x pixel density, and use devices that range in size from phone to large tablet or even desktop-sized panels. We need to build for a web that is flexible as well as varied in it's output.
+
+For a long time we used to use pixels as the main unit when measuring our layouts on screen. This was easier back when a "standard" screen was perhaps 800 by 600 pixels in size (or even 640 by 480). Now we have other units to use, units that are scaled relative to something else other than the pixels on the screen.
+
+In this lesson we'll be using the "em" unit.
+
+Measured as the width of the letter "m", this is a unit that scales along with the `font-size` of a given element. Generally this means that when we size an element as 1em wide, it'll be as wide as the font-size setting in pixels. If the font size is 16 pixels, then the box will be 16px wide.
+
+Where this gets interesting is when we change the `font-size`. By changing the font size to, say, 32 pixels, the box then becomes 32 by 32 pixels also. We can use this to control the size of more complicated designs by simply changing the font size.
+
+The effect goes beyond just the containing HTML element. Any elements inside this box that are sized using "em" units will also be recalculated. On more complicated layouts this can become confusing as you might not know for sure what one "em" means when a font-size of a parent has been redefined - so it's worth using them carefully.
+
+As a side note - you can use a similar unit, "rem" if you need more confidence in the unit's size. A "rem" is "relative" to the root HTML font size, not the parent elements. This can be useful in some circumstances, but for our purposes, "ems" give us more flexibility.
+
+## Media queries
+
+In CSS we use `media` queries when we want to control the way our styles apply. The types of controls media queries give us are varied and range from print styles, ambient light conditions, screen orientation or even whether the device is speech based.
+
+A popular use for these queries is to apply different styles based on a device's minimum or maximum viewport size. This means we can have styles that only show up on smaller screens, or at various sizes all the way up to large screens.
+
+Media queries can do a lot but for this example we'll be looking at how we can scale our animation up to fill our screen at various sizes.
+
+## Example HTML
+
+Before we set up our media queries let's take a look at the example animation. In our `index.html` file we find a `section` with class "animation-example". Inside it we have a set of large shapes and smaller shapes.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="RLMBeL" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/RLMBeL">See example on CodePen</a></p>
+
+Seeing how it's looking in the browser, we can see these shapes are circles and rounded-rectangles, and they spin around each other. There's also a bit of box-shadow going on here too.
+
+Let's take a look through the CSS to see how this is structured.
+
+## Example CSS
+
+In the file `circles-em.css` in the `stylesheets` folder you'll find the CSS that makes the animation work. We begin by sizing and positioning the "animation-example" container. Notice how we're using ems here for most of the measurements. It's width and height, as well as top and left properties all make use of ems.
+
+At the top we're setting the `font-size` to 8 pixels. This is a small value and means the container should be 256 pixels (or 32 ems) wide and high.
+
+    .animation-example {
+      background: #fff;
+      border: 2px dotted #aaa;
+      font-size: 8px;
+      height: 32em;
+      position: absolute;
+        top: calc(50% - 16em);
+        left: calc(50% - 16em);
+      width: 32em;
+    }
+
+We'll revisit this `font-size` property later.
+
+Scanning the file we can see that the large and small shapes are set to use either percentages, or ems for their dimensions.
+
+The `circle` and `square` elements are 12.5em wide and tall for example, and the border is .1em in size. 
+
+    .circle,
+    .square {
+      background-color: grey;
+      border-top: 0.1em solid rgba(255,255,255,0.4);
+      height: 12.5em;
+      position: absolute;
+      width: 12.5em;
+    }
+
+The rest of the styles follow a similar pattern.
+
+Before we apply media queries to resize this animation, let's quickly see what happens when we change the `font-size`.
+
+Back at the top of the CSS file, change the `font-size` to something larger such as 32 pixels.
+
+Back in the browser we can see that the entire animation, including all the shapes, borders, and even box shadows have scaled up to be 4 times larger than before.
+
+Let's apply some media queries to make use of this scaling.
+
+## Adding media queries
+
+Let's first change the `font-size` back to 8 pixels.
+
+Since we've begun with a very small animation that fits well on small smartphones, let's add a media query that targets slightly bigger screens.
+
+    @media (min-width: 350px) {
+      .animation-example {
+        font-size: 10px;
+      }
+    }
+
+We begin by stating @media then in brackets we write the conditions we want to match. In this case a `min-width` or minimum width of 350 pixels. 
+
+Inside this we can define any CSS rules we want to override. We begin with the class name `animation-example` and set the `font-size` to be a slightly larger 10 pixels.
+
+We can test this by opening our Inspector in Chrome and sizing down the container to less than 350 pixels. As we make it bigger we see the size jump up once we cross the 350 pixels marker.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="veRaQe" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/veRaQe">See example on CodePen</a></p>
+
+Let's add another for when the screen is slightly bigger again, say at 410 pixels.
+
+    @media (min-width: 410px) {
+      .animation-example {
+        font-size: 11px;
+      }
+    }
+
+<p data-height="600" data-theme-id="light" data-slug-hash="NaYBEE" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/NaYBEE">See example on CodePen</a></p>
+
+We can be as granular as we need to be here. For example we could increase the size slightly every 50 or 60 pixels in size. For the sake of this demo though let's move up and set the next query at 700 pixels.
+
+    @media (min-width: 700px) {
+      .animation-example {
+        font-size: 22px;
+      }
+    }
+
+This time we set the font size to 22px. Next at 1000 pixels we set the font-size to 29 pixels.
+
+    @media (min-width: 1000px) {
+      .animation-example {
+        font-size: 29px;
+      }
+    }
+
+And lastly we'll set it to a massive 38 pixels for screens wider than 1200 pixels.
+
+    @media (min-height: 1200px) {
+      .animation-example {
+        font-size: 38px;
+      }
+    }
+
+<p data-height="600" data-theme-id="light" data-slug-hash="xXWJmO" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/xXWJmO">See example on CodePen</a></p>
+
+Testing this in the browser we can see that as we resize the viewport, the animation jumps between each of these sizes. Each size is controlled by the `font-size` we set on the container.
+
+In this example we're only resizing it based on the horizontal size. It's worth keeping in mind that the vertical size of the screen can be used in media queries also.
+
+## What we learned
+
+In this lesson we learned about the relative sizing capabilities of the "em" unit, and saw how changing just the font size of a container can cause all elements within it to resize. We also learned how to use this resizing to have our animation resize to different sizes of viewport.
+
+## Next: Percentages and viewport units
+
+Next we're going to look at other ways to build animations to ensure that they scale to fit various screen sizes, using percentages and viewport units.
+
+

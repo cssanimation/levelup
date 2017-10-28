@@ -1,0 +1,125 @@
+
+
+# Percentages and viewport units
+
+So far we've looked at how the "em" unit can be used along with media queries to adjust our animation for various screen sizes. Let's look at another approach, in which we drop the media queries and instead use percentages and viewport units.
+
+In this lesson we're going to see how percentage units can be a handy way to make our animations responsive, along with how using the viewport unit "vmin" can be used to automatically scale our animation to fit on any screen.
+
+To get started, open the the <a href="https://cssanimation.rocks/levelup/public/05/05.zip">module 5 code file</a> and look for folder `02-start`. A completed version of this lesson's code is in the folder `02-end`.
+
+## Starting CSS
+
+The demo is the same as last time but I've made a few changes so that we can see how percentages can help us as we make responsive animations.
+
+Let's start with the CSS by opening the file `circles-percent.css` in the `stylesheets` folder.
+
+One thing I've changed is the units for the square and circle elements. Rather than using "em" they're now using percentages.
+
+For example, rather than be 12.5 em wide and tall, each of the elements are 35% wide and tall. This is calculated based on the containing section called `animation-example`.
+
+    .circle,
+    .square {
+      position: absolute;
+      background-color: grey;
+      border-top: 0.1em solid rgba(255,255,255,0.4);
+      height: 35%;
+      width: 35%;
+    }
+
+As each of these elements inside the containing section is laid out using percentages, we can resize this container and the contents will resize along with it.
+
+    .animation-example {
+      border: 2px dotted #aaa;
+      background: #fff;
+      width: 32em;
+      height: 32em;
+      position: absolute;
+        top: calc(50% - 16em);
+        left: calc(50% - 16em);
+    }
+
+Looking at the `animation-example` CSS block we can see that it's using "ems" for the width, height and positioning. We'll try adjusting these to show what happens.
+
+## Percentage-sized container
+
+Let's adjust these units to make them percentages. We begin by making the width and height 90%, and then adjust the position to nudge it by 5% from the top and left.
+
+    .animation-example {
+      border: 2px dotted #aaa;
+      background: #fff;
+      width: 90%;
+      height: 90%;
+      position: absolute;
+        top: 5%;
+        left: 5%;
+    }
+
+<p data-height="600" data-theme-id="light" data-slug-hash="EwEprP" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/EwEprP">See example on CodePen</a></p>
+
+Opening this in the browser we can see the result. We can see the animation stretching as we resize the container.
+
+Depending on what you're building, this might be ok but for this case we'd rather it didn't stretch. Instead we need a unit that is relative to the size of the container. Let's use viewport units.
+
+## Viewport units
+
+A viewport unit is based on the viewport size. They're a way of sizing things based on how wide or how high the viewport is. There are 4 varieties we can use, referred to as `vh`, `vw`, `vmin` and `vmax`.
+
+We use each of these like a percentage, so that `100vh` means 100 percent of the viewport height and `100vw` means 100 percent of the viewport width. We use `vmin` when we want whichever viewport measure is smaller, and `vmax` when we want the larger of the two.
+
+In this way, `50vmin` would mean 50 percent of the smaller dimension. In a landscape viewport, this would mean 50 percent of the height.
+
+We can use this `vmin` measure to control the size of our square animation and stop it from stretching.
+
+Let's change our CSS to use `vmin`.
+
+    .animation-example {
+      border: 2px dotted #aaa;
+      background: #fff;
+      width: 95vmin;
+      height: 95vmin;
+      position: absolute;
+        top: calc(50% - 47.5vmin);
+        left: calc(50% - 47.5vmin);
+    }
+
+We begin by changing the width and heights to 95vmin. Then we can adjust the way we position it to make sure it's in the center.
+
+We want it to be positioned 50% of the way down, but then pulled back by half the height, or 47.5vmin. Then we do the same for the `left` property.
+
+<p data-height="600" data-theme-id="light" data-slug-hash="WZzKmP" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/WZzKmP">See example on CodePen</a></p>
+
+Testing this in browser we can now see the container keeps a square shape, even as we resize the viewport.
+
+There's one thing that's not quite right though - the box shadows.
+
+## Box shadows
+
+When resizing the viewport all the elements scale but the shadows don't. This is because we can't use percentages for the property `box-shadow`. We can, however, use `vmin`.
+
+In the `middle-circle` block, we change the "em" values to `vmin`:
+
+    .middle-circle {
+      box-shadow: 0 0 4vmin rgba(0,0,0,.8), 0 0 2vmin rgba(0,0,0,.8) inset;
+    }
+
+Next in the `circle` block we can change the box shadow also. We change the `1em 2em` to `2vmin 3vmin`. This should look close enough.
+
+    .circle {
+      box-shadow: 0 2vmin 3vmin rgba(0,0,0,0.5);
+    }
+
+<p data-height="600" data-theme-id="light" data-slug-hash="RLMBOx" data-default-tab="result" data-user="donovanh" data-embed-version="2" data-pen-title="" class="codepen"><a href="https://codepen.io/donovanh/pen/RLMBOx">See example on CodePen</a></p>
+
+Checking again in the browser we can see the box shadow now resizes along with the rest of the content.
+
+## What we learned
+
+In this lesson we learned how using percentages can make our animations resize to any screen size, as well as how to apply viewport units to both constrain the dimensions of our square animation as well as letting properties that cannot use percentages be responsive.
+
+## Next: Landscape vs portrait
+
+Next we'll look at how we can use media queries to adapt our animations based on the orientation of the browser.
+
+
+
