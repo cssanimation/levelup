@@ -36,7 +36,7 @@ Module 5 examples:
 x- (01-end) Em-based animation with media queries to change font size
 x- (02-end) Same but percentages (and vmin) based animation in CSS
 x- (03-end) Combining both - for certain rules such as box shadow that don't work with percent
-- Different animations depending on screen size
+x- Different animations depending on screen size
 - Link to resources for applying things to SVG
 
 

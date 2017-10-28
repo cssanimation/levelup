@@ -1,22 +1,13 @@
 # Module 5: Responsive animations
 
+When we build our animations, we want them to be compatible with as many screen sizes as possible. People can view our content on phones, tablets, desktop computers, TVs, or even in VR.
 
+To design for this we often use media queries, or design elements using relative units that will scale or be resized to fit different screen sizes and shapes. 
 
+In this module we're going to cover some ways we can build our websites to make sure our animations can be easily scaled and adjusted for different sizes and shapes of screen.
 
+We'll begin by taking a look at using the relative unit, "em" for our elements and see how we can change the size of a complex animation by simply changing our `font-size` rule. We'll use media queries to adjust animation sizes from mobile right up to desktop, and we'll also look into how the same animation can make use of percentages to be even more flexible. We'll also see how the viewport unit `vmin` can be a handy tool for creating scaleable animations.
 
+Lastly we'll take a look at different aspect ratios, presenting different animations through media queries that tell us whether the viewport is portrait or landscape in orientation.
 
-
-
-STRUCTURE
-
-# Title
-
-[Intro]
-
-[What we will learn]
-
-[Main content]
-
-## What we learned
-
-[Next: Title]
+By the end of this module you'll have a set of approaches you can use to create responsive, and resizeable animations in your web projects.
