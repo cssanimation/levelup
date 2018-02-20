@@ -1,0 +1,9 @@
+# Module 6: Putting it all together
+
+So far we've explored how to create an animated hero header, we've styled and animated links, tooltips, modal popups, created carousels and even used scroll triggers to show our content. 
+
+In this module we'll finish things up by putting together a landing page that brings together all these elements. We'll make use of the code we created before, with some small modifications and explore some ways we can use Sass and build tools to make our code easier to maintain going forward.
+
+## Starting HTML & CSS
+
+TODO: Explain what's in the 01-start folder to get started and how it'll be building up to an animated landing page!

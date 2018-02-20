@@ -1,0 +1,70 @@
+/* Styles for the buttons */
+
+.button {
+  background: none;
+  border-radius: .25em;
+  color: #fff;
+  display: inline-block;
+  margin: 0 auto;
+  padding: .25em .5em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 2em;
+  max-width: 80%;
+
+}
+
+.button::before {
+  background: rgba(50,50,50,.5);
+  border-radius: .25em;
+  content: "";
+  position: absolute;
+    top: .5em;
+    right: .1em;
+    bottom: -.1em;
+    left: .1em;
+  z-index: -1;
+}
+
+.button::after {
+  background: #1A9E3F;
+  border-radius: .25em;
+  content: "";
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  z-index: -1;
+}
+
+.button:hover {
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.button:hover::before {
+  transform: translateY(.1em);
+}
+
+.button:hover::after {
+  background: #28B54F;
+}
+
+.button:active {
+  transform: translateY(.2em);
+  transition: none;
+}
+
+.button:active::before {
+  transform: translateY(-.1em);
+  transition: none;
+}
+
+.button,
+.button::before,
+.button::after {
+  transition: all .5s cubic-bezier(0,1,.3,1);
+}

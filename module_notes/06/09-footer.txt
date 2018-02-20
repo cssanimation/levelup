@@ -1,0 +1,17 @@
+Changes
+
+- One last small thing to tidy up, the footer
+- We'll create a new HTML component file called footer.css in our stylesheets/components folder
+- Go through the styles added
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

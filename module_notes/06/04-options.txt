@@ -1,0 +1,23 @@
+Changes
+
+- So far we've mostly been just adding CSS - lets bring over a larger feature, the hover-animated "options" from module 2
+- Copy across the "highlight.js" from 02/03-end/javascripts (create new javascripts folder if necessary)
+- Add reference to jQuery 
+- Copy the "options" styling and create a new file called "options.css" under components
+- Reference this in the CSS
+- Copy the "options" html across and paste where marked in the HTML
+- In the CSS add in some styles set up in "main.css" (badge, rocky-badge, rocky-image-small)
+- These styles will help the content inside these options look better
+
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

@@ -1,0 +1,19 @@
+Changes
+
+- Putting in the header content
+- Copy the header CSS across from 01/05 for example - change image reference URL - as header.css
+- Reference header.css in head
+- Add in loading JavaScript to only show page when assets ready 
+
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

@@ -1,0 +1,22 @@
+Changes
+
+- Copy modal.css from 03/04-end stylesheets folder
+- Add the reference into the header
+- Amend a few styles for this demo (you can customise it as you see fit)
+- Remove background gradient from .modal to make it simpler visually
+- In 03/04-end main.css get the extra styles (from .modal on)
+- Copy the mouseout JavaScript (mouseleave.js) and put it in the JavaScripts folder
+- Reference the JavaScript in the footer
+- Add in the "overlay" and "modal-container" components in the HTML
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

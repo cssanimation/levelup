@@ -1,0 +1,17 @@
+Thoughts
+
+- How could we approach using Sass in our project to make these files more efficient, maybe use imports in a single Sass file and link that in the head, rather than a bunch of different files
+- What sorts of animations do you think the show-on-scroll JavaScript could trigger? By adding / removing a class, the possibilities are vast. You could trigger the drawing of an SVG, playing video, start or pause counters - more than just scrolling items into view
+- Feedback and follow up questions - get in touch through twitter or email
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

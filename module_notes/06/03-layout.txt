@@ -1,0 +1,20 @@
+Changes
+
+- Create layout.css file and reference it in the HTML head
+- Set up the layout code to show modules, containers and basic flexbox based grid
+- Link to css tricks article on flexbox grid for reference
+- Mention also that CSS grid could be a good idea to investigate too - outside scope of this tutorial though
+- Other utility bits and bobs here for helping the page layout
+- Add media query for smaller screens - mention we'll revisit some parts later to adapt them to smaller screens
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

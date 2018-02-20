@@ -1,0 +1,21 @@
+Changes
+
+- Copy show-on-scroll.css in
+- Copy across show-on-scroll.js
+- Add links in head and end of page to css / js
+- Add "show-on-scroll" classes
+ -- line 26
+ -- line 65
+ -- line 82
+
+# Title
+
+[Intro]
+
+[What we will learn]
+
+[Main content]
+
+## What we learned
+
+[Next: Title]

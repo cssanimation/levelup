@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title>CSS Animation</title>
+    <!-- The default layout, resets and and text styling -->
+    <link href="./stylesheets/main.css" rel="stylesheet">
+    <!-- Component styles - consider combining these in your build process, such as Sass imports -->
+    <link href="./stylesheets/components/header.css" rel="stylesheet">
+    <link href="./stylesheets/components/buttons.css" rel="stylesheet">
+    <link href="./stylesheets/components/layout.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <section class="header-content">
+        <img class="rocky-dashed animate-pop-in" src="images/rocky-dashed.svg">
+        <h1 class="header-title animate-pop-in">Your awesome landing page</h1>
+        <h3 class="header-subtitle animate-pop-in">A useful start for your projects</h3>
+        <p class="header-button animate-pop-in"><a href="#calls-to-action" class="button">Get started today</a></p>
+      </section>
+      <section class="header-down-arrow">
+        <img src="images/downarrow.png" width="50">
+      </section>
+    </header>
+    <section class="container">
+      <section class="module intro-section">
+        <div class="flex-grid">
+          <div class="col vertical-align">
+            <h2>This is your landing page demo</h2>
+            <p>This page has been set up to show off some of the many ways we can use animation to improve the experience of a humble landing page.</p>
+            <p>See how things appear as you scroll, how hover effects reward the cursor and how we use animation to draw attention to what we want our visitors to see.</p>
+          </div>
+          <div class="col vertical-align"><img src="/images/rocky-noface.svg" class="rocky-image"></div>
+        </div>
+      </section>
+      <!-- Options code here -->
+      ...
+      <!-- End options code -->
+    </section>
+
+    <section class="container">
+      <h1 class="section-title centered">Have a go! Have fun!</h1>
+      <div class="flex-grid">
+        <div class="col">
+          <h2>Transitions</h2>
+          <p>Transitions are when the browser animates properties from one state to another. These are best suited to things like hover effects or adding / removing classes to elements to change their state. An example might be if an item goes from "normal" to "urgent" on a list and it's background color changes - a transition can help make the change more noticeable.</p>
+          <p><code>transition: all .5s ease-out;</code></p>
+          </div>
+        <div class="col">
+          <h2>Animations</h2>
+          <p>Keyframes and animations are more advanced, and more powerful than transitions. They're when the browser animates through a series of states, called "keyframes". Animations can be played forwards, backwards and more. The playing state of an animation can be controlled by JavaScript.</p>
+          <p><code>animation: animation-name .5s ease-out forwards;</code></p>
+          <p><code>@keyframes animation-name {<br>&nbsp;&nbsp;from { opacity: 0; }<br>&nbsp;&nbsp;to { opacity: 1; }<br>}</code></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="module media-element">
+      <div class="flex-grid">
+        <div class="col vertical-align" style="max-width: 16rem">
+          <img src="/images/rocky.svg" class="rocky-image-small">
+        </div>
+        <div class="col vertical-align" style="max-width: 37.5rem">
+          <h2>About CSSAnimation.rocks</h2>
+          <p><a href="https://cssanimation.rocks">CSSAnimation.rocks</a> is a website set up by <a href="https://hop.ie">Donovan Hutchinson</a> in 2015, with the goal of sharing knowledge all about web animation.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <section class="container">
+        <ul>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
+        <p>&copy; Awesome Example Layout Inc.</p>
+      </section>
+    </footer>
+
+
+    <script>
+      document.body.classList.add('js-loading');
+
+      window.addEventListener("load", showPage);
+
+      function showPage() {
+        document.body.classList.remove('js-loading');
+      }
+    </script>
+  </body>
+</html
