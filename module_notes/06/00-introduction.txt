@@ -1,9 +1,31 @@
 # Module 6: Putting it all together
 
-So far we've explored how to create an animated hero header, we've styled and animated links, tooltips, modal popups, created carousels and even used scroll triggers to show our content. 
+[Talking head]
 
-In this module we'll finish things up by putting together a landing page that brings together all these elements. We'll make use of the code we created before, with some small modifications and explore some ways we can use Sass and build tools to make our code easier to maintain going forward.
+So far we've explored how to create an animated hero header, we've styled and animated links, tooltips, modal popups, created carousels and even used scroll triggers to show our content.
 
-## Starting HTML & CSS
+We've covered so much! Congratulations, and thank you for being part of this course. I truly hope you have found it inspiring and helpful.
 
-TODO: Explain what's in the 01-start folder to get started and how it'll be building up to an animated landing page!
+I hope you now appreciate just how powerful CSS can be when used for web animation. While CSS certainly doesn't have to be the only tool you use for animation, it's a great starting point and you can get a lot done with very little code, before then bringing in more powerful tools.
+
+Before we wrap things up lets take a moment to recap what we've learned, and then we can look at some ideas for what to look into next. There's so much to learn and try in the world of web animation and I'll do my best to point out some good starting points.
+
+## What we've learned
+
+In module 1 we learned how to create our very own hero header. By creating a series of staggered animations we learned how to coordinate the loading animations of new elements as they appear on-page.
+
+We learned how we can re-use keyframes to make the most of our animations with the least code.
+
+To make sure things go as expected, we added in a little JavaScript to make sure all our resources, such as images, had loaded before any animations began. Lastly we saw how these principles can be applied to a variety of different styles of landing pages.
+
+We then moved on in module 2 with touch and hover animations. We animated links, created animated tool tips, revealed content on hover and even added animated effects to our buttons.
+
+Having covered the touch and click animations we moved on to look at scrolling in module 4. With a little JavaScript we set up ways of having our content scroll into place as we browsed an article. We then created an attention-grabbing banner to help people find out new content.
+
+After that we took to the stars and created parallax effects, before finishing up with a banner than flies in when the mouse cursor leaves the screen.
+
+With that covered we moved onto building more complex HTML animations by building an animated carousel. This showed us how to attach animations to all sorts of events by adding and removing classes using HTML.
+
+Lastly, in module 5, we looked at how we can make our animations responsive. We looked at two ways of doing this, using both font-sizing along with media queries, as well as percentages and viewport units, and how both offer different ways we can make our animated content scale to fit different sizes of screens.
+
+That's a lot to learn in one go. Before we wrap things up lets take a moment in the next video to look into some ideas for what we can learn next, as well as sources of inspiration.

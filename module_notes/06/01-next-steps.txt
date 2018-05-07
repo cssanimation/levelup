@@ -1,0 +1,78 @@
+# Next steps and inspiration
+
+By this point, you should be ready to get out there and start building animations into your web projects. Sometimes though it can be good to know what tools there are out there to reach for when you want to save some time or take on something particularly challenging.
+
+Let's take a look at some handy tools you can bookmark now. All the links will be shared in the text below.
+
+## CSS animation libraries
+
+Even though it's technically possible to build our own animations and keyframes by hand, sometimes you want to plug something in and get results quickly. On smaller projects I'd often reach for [Animate.css](https://daneden.github.io/animate.css/). It's a nicely-build set of CSS animations you can throw into a project.
+
+Another situation where it's good to get something going quickly is when adding scroll animations. The [Animate on Scroll](https://michalsnik.github.io/aos/) library is a great tool for this. Or, you know, you could always use what we built in module 3.
+
+If you're looking for something a little different, a handy library to keep in mind is [Magic Animations](https://minimamente.com/example/magic_animations/). It provides a massive list of transitions and keyframe animations to bring to your project.
+
+## Timing function Tools
+
+If you're creating your own animations you should definitely be creating custom timing functions. There's no better way to add character to your animations.
+
+There are loads of ways to do this - you can even use built-in tools in your browser. Personally I often reach for [Cubic-bezier.com](http://cubic-bezier.com/). Maybe it's just what I'm used to but I really like trying out timing functions in this first before applying them to projects.
+
+Another resource to bookmark is [Easings.net](http://easings.net). This provides a great range of inspiration for finding just the right timing function.
+
+## Tools for building animations
+
+As well as putting pre-built animation libraries into our projects, sometimes we need to build more complex animations. The web is full of great tools to help - here are a few.
+
+First up is [Animista](http://animista.net). Billed as "CSS Animations on demand" this tool lets you assemble your own complex CSS animations and export the result for use. A great tool to get started on more complex CSS animations.
+
+In a similar way, the older site [CSS Animate](http://cssanimate.com) also provides a way to generate your own CSS animations, this time using a timeline-based approach.
+
+Moving beyond CSS animations, the de-facto JavaScript library to reach for is [GSAP](https://greensock.com/gsap). I've used this library myself on some interesting projects - having multiple layers of elements drift around screen based on mouse movements or creating complex animations on banners. It's a very powerful library, and there's a bit of a learning curve but it's very useful and I can recommend it.
+
+If you're loving the JavaScript animations and want to take them further - try [Anime.js](http://animejs.com/). This is a powerful animation framework you can use to make your own complex, bespoke animations. Like GSAP, it provides tools for building up long sequences of complex animations, as well as fine control over every aspect of your animation.
+
+[Bounce.js](http://bouncejs.com) is both a tool and library for creating really fun, bouncy CSS animations.
+
+## Sources of inspiration
+
+I'm always on the look out for good examples of web animations and currently there's no better place to start than [CodePen](https://codepen.io). It's a great place to see fun examples of animations, and even has articles and guides.
+
+If you're looking for more UI-specific animation, two websites worth checking out are [UI Movement](https://uimovement.com) and [Code My UI](https://codemyui.com/). Both sites are a great way to find inspiration for your web sites.
+
+Lastly if you want a regular dose of web and CSS animation articles and inspiration, check out my newsletter, [CSS Animation Weekly](http://weekly.cssanimation.rocks/). Every week I put together 10 or so of the best animation articles, along with inspiration and examples of "real life" websites making use of animation.
+
+I also have a bunch of fun, in-depth CSS animation tutorials you might like over at [CSS Animation Rocks](https://cssanimation.rocks).
+
+## Finding the Links
+
+You can find all the links mentioned here listed below!
+
+## Links mentioned
+
+### Libraries
+
+* Animate.css - https://daneden.github.io/animate.css/
+* Magic Animations - https://minimamente.com/example/magic_animations/
+* Animate on Scroll - https://michalsnik.github.io/aos/
+
+### Timing functions
+
+* Cubic-bezier.com - http://cubic-bezier.com/
+* Easings.net - http://easings.net
+
+### Tools for building animations
+
+* Animista - http://animista.net
+* CSS Animate - http://cssanimate.com
+* GSAP - https://greensock.com/gsap
+* Anime - http://animejs.com/
+* Bounce.js -  http://bouncejs.com
+
+### Inspiration
+
+* CodePen - https://codepen.io
+* UI movement - https://uimovement.com
+* Code My UI - https://codemyui.com/
+* CSS Animation Weekly - http://weekly.cssanimation.rocks/
+* CSS Animation Rocks - https://cssanimation.rocks
