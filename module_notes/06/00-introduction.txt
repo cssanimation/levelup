@@ -1,8 +1,4 @@
-# Module 6: Putting it all together
-
-[Talking head]
-
-So far we've explored how to create an animated hero header, we've styled and animated links, tooltips, modal popups, created carousels and even used scroll triggers to show our content.
+# Finishing up and next steps
 
 We've covered so much! Congratulations, and thank you for being part of this course. I truly hope you have found it inspiring and helpful.
 
@@ -24,7 +20,7 @@ Having covered the touch and click animations we moved on to look at scrolling i
 
 After that we took to the stars and created parallax effects, before finishing up with a banner than flies in when the mouse cursor leaves the screen.
 
-With that covered we moved onto building more complex HTML animations by building an animated carousel. This showed us how to attach animations to all sorts of events by adding and removing classes using HTML.
+With that covered we moved onto building more complex HTML animations by building an animated carousel. This showed us how to attach animations to all sorts of events by adding and removing classes using JavaScript.
 
 Lastly, in module 5, we looked at how we can make our animations responsive. We looked at two ways of doing this, using both font-sizing along with media queries, as well as percentages and viewport units, and how both offer different ways we can make our animated content scale to fit different sizes of screens.
 

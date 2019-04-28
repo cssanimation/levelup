@@ -1,12 +1,12 @@
 # Next steps and inspiration
 
-By this point, you should be ready to get out there and start building animations into your web projects. Sometimes though it can be good to know what tools there are out there to reach for when you want to save some time or take on something particularly challenging.
+By this point, you should be ready to start building animations into your web projects. Sometimes though it can be good to know what tools there are out there to reach for when you want to save some time or take on something particularly challenging.
 
 Let's take a look at some handy tools you can bookmark now. All the links will be shared in the text below.
 
 ## CSS animation libraries
 
-Even though it's technically possible to build our own animations and keyframes by hand, sometimes you want to plug something in and get results quickly. On smaller projects I'd often reach for [Animate.css](https://daneden.github.io/animate.css/). It's a nicely-build set of CSS animations you can throw into a project.
+Even though it's technically possible to build our own animations and keyframes by hand, sometimes you want to plug something in and get results quickly. On smaller projects I'd often reach for [Animate.css](https://daneden.github.io/animate.css/). It's a nicely-built set of CSS animations you can throw into a project.
 
 Another situation where it's good to get something going quickly is when adding scroll animations. The [Animate on Scroll](https://michalsnik.github.io/aos/) library is a great tool for this. Or, you know, you could always use what we built in module 3.
 
@@ -14,7 +14,7 @@ If you're looking for something a little different, a handy library to keep in m
 
 ## Timing function Tools
 
-If you're creating your own animations you should definitely be creating custom timing functions. There's no better way to add character to your animations.
+If you're creating your own animations you should definitely be using custom timing functions. There's no better way to add character to your animations.
 
 There are loads of ways to do this - you can even use built-in tools in your browser. Personally I often reach for [Cubic-bezier.com](http://cubic-bezier.com/). Maybe it's just what I'm used to but I really like trying out timing functions in this first before applying them to projects.
 
