@@ -52,8 +52,10 @@
   transform: translateY(-.1em);
   transition: none;
 }
+.button {
+  transition: all .5s cubic-bezier(0,1,.3,1);
+}
 
-.button,
 .button::before,
 .button::after {
   transition: all .5s cubic-bezier(0,1,.3,1);
